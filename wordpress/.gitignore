@@ -1,0 +1,8 @@
+_db
+wp-content/index.php
+wp-content/languages
+wp-content/plugins
+wp-content/themes/index.php
+wp-content/themes/twenty*
+wp-content/uploads
+wp-content/upgrade
