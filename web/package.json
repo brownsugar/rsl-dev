@@ -26,6 +26,7 @@
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "nuxt": "^2.12.2",
+    "particles.js": "^2.0.0",
     "vue-youtube": "^1.4.0"
   },
   "devDependencies": {
