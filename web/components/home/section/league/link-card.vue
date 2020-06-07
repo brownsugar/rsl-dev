@@ -12,7 +12,7 @@
         <div
           v-if="hover"
           key="hover"
-          class="display-1"
+          class="content display-1"
         >
           <span>{{ hoverText }}</span>
           <span class="body-1">
@@ -22,7 +22,7 @@
         <div
           v-else
           key="origin"
-          class="display-3"
+          class="content display-3"
         >
           <fa :icon="['fab', brand]" />
         </div>
@@ -55,3 +55,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.content {
+  transition-duration: .2s;
+}
+</style>

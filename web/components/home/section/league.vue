@@ -107,7 +107,70 @@
           </v-row>
         </category>
         <category name="指定賽道">
-          TEST
+          <v-card>
+            <v-tabs
+              v-model="tabTrackType"
+              color="secondary"
+              grow
+            >
+              <v-tab
+                v-for="(tab, i) in tabTracks"
+                :key="i"
+              >
+                {{ tab.label }}
+              </v-tab>
+            </v-tabs>
+            <v-tabs-items v-model="tabTrackType">
+              <v-tab-item
+                v-for="(tab, i) in tabTracks"
+                :key="i"
+              >
+                <v-row>
+                  <v-col
+                    v-for="track in tab.tracks"
+                    :key="track.id"
+                    cols="6"
+                  >
+                    <v-card flat>
+                      <div class="d-flex justify-space-between">
+                        <div class="d-flex flex-column">
+                          <v-rating
+                            class="px-4"
+                            background-color="grey lighten-2"
+                            color="grey"
+                            empty-icon="$starEmpty"
+                            :value="track.level"
+                            readonly
+                            dense
+                            small
+                          />
+                          <v-card-title
+                            class="pt-0"
+                            v-text="track.name"
+                          />
+                          <!-- TODO: BEST RECORD -->
+                          <!-- <v-spacer />
+                          <v-card-text
+                            v-if="tabTrackType === 0"
+                            class="primary--text"
+                          >
+                            本季最佳：Brownsugar / 1:99:999
+                          </v-card-text> -->
+                        </div>
+                        <v-img
+                          class="flex-grow-0 mx-3"
+                          :src="require(`~/assets/images/tracks/${track.id}.jpg`)"
+                          width="160"
+                          height="120"
+                          :alt="track.name"
+                        />
+                      </div>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-tab-item>
+            </v-tabs-items>
+          </v-card>
         </category>
       </v-col>
     </v-row>
@@ -118,6 +181,7 @@
 import Particles from '~/components/common/particles'
 import Category from '~/components/home/section/league/category'
 import LinkCard from '~/components/home/section/league/link-card'
+import tracks from '~/assets/data/season1/tracks'
 
 export default {
   name: 'League',
@@ -147,6 +211,11 @@ export default {
         imageFile: 'ace.svg',
         description: '前兩回合比分平手時進入第三回合單挑賽，為 1 vs 1 個人競速，於快速頻道進行。回合採三戰兩勝制，雙方王牌正面對決，單挑決勝一觸即發！'
       }
+    ],
+    tabTrackType: null,
+    tabTracks: [
+      { label: '競速賽道', tracks: tracks.speed },
+      { label: '道具賽道', tracks: tracks.item }
     ]
   }),
   computed: {},

@@ -1,4 +1,4 @@
-// const colors = require('vuetify/es5/util/colors').default
+const colors = require('vuetify/es5/util/colors').default
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
@@ -78,6 +78,7 @@ module.exports = {
       themes: {
         light: {
           primary: '#D86A60',
+          secondary: colors.lightBlue.accent4,
           youtube: '#FF0200',
           twitch: '#9147FF'
         },
