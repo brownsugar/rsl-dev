@@ -1,89 +1,53 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+  <v-app>
     <v-app-bar
-      :clipped-left="clipped"
+      clipped-left
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <template v-for="(nav, i) in navs">
+        <v-btn
+          v-if="nav.hidden !== true"
+          :key="i"
+          active-class="primary"
+          :to="nav.to"
+          depressed
+          exact
+        >
+          {{ nav.label }}
+        </v-btn>
+      </template>
     </v-app-bar>
+
     <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+
     <v-footer
-      :fixed="fixed"
-      app
+      padless
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-row align="center" no-gutters>
+        <v-col class="grow">
+          &copy; 2020 <strong>RSL 賽事聯盟</strong><br>
+          Design by <a href="https://brownsugar.tw">Brownsugar</a>.
+        </v-col>
+        <v-col>
+          <strong class="subheading">現在就追蹤 RSL 賽事聯盟！</strong><br>
+          <v-btn
+            v-for="(social, i) in socials"
+            :key="i"
+            class="mx-3"
+            :href="social.to"
+            target="_blank"
+            dark
+            icon
+          >
+            <fa :icon="social.icon" />
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-footer>
   </v-app>
 </template>
@@ -92,26 +56,57 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
+      title: 'RSL 夢想盃跑跑聯賽',
+      navs: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          label: '首頁',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          label: '最新消息',
+          to: '/news'
+        },
+        {
+          label: 'S1 賽季資訊',
+          to: '/season1'
+        },
+        {
+          label: '隊伍列表',
+          to: '/teams',
+          hidden: true
+        },
+        {
+          label: '媒體報導',
+          to: '/press'
+        },
+        {
+          label: '關於 RSL',
+          to: '/about'
         }
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      socials: [
+        {
+          icon: ['fab', 'facebook'],
+          to: 'https://www.facebook.com/RSLeagueTW'
+        },
+        {
+          icon: ['fab', 'youtube'],
+          to: 'https://www.youtube.com/channel/UCSXjGuAfR7XSVkPo7mvGacQ?sub_confirmation=1'
+        },
+        {
+          icon: ['fab', 'twitch'],
+          to: 'https://www.twitch.tv/rsleague'
+        }
+      ]
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.v-app-bar {
+  .v-btn--active:before {
+    opacity: 0 !important;
+  }
+}
+</style>

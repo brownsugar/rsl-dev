@@ -1,0 +1,3 @@
+@function image($path) {
+  @return url('~assets/images/#{$path}');
+}

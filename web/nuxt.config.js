@@ -1,4 +1,5 @@
-const colors = require('vuetify/es5/util/colors').default
+// const colors = require('vuetify/es5/util/colors').default
+const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   mode: 'universal',
@@ -25,11 +26,22 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    // Font awesome integration
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    { src: '~/assets/styles/rsl/theme.scss', lang: 'scss' }
   ],
+  styleResources: {
+    scss: [
+      '~/assets/styles/rsl/_variables.scss',
+      '~/assets/styles/rsl/_functions.scss'
+    ]
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/fontawesome.js',
+    '~/plugins/vue-youtube.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -37,6 +49,7 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    '@nuxtjs/style-resources',
     '@nuxtjs/vuetify'
   ],
   /*
@@ -59,26 +72,29 @@ module.exports = {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/assets/styles/vuetify/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
+        light: {
+          primary: '#D86A60',
+          youtube: '#FF0200',
+          twitch: '#9147FF'
+        },
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
         }
       }
-    }
+    },
+    defaultAssets: {
+      icons: false
+    },
+    treeShake: true
   },
   /*
   ** Build configuration
   */
   build: {
+    extractCSS: isProd,
     /*
     ** You can extend webpack config here
     */
