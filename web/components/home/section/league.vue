@@ -188,6 +188,7 @@
                 class="host-avatar"
                 :src="require(`~/assets/images/host/${host.avatar}`)"
                 gradient="to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .8) 100%"
+                :alt="host.name"
               >
                 <v-row class="px-8 py-2 fill-height white--text" align="end">
                   <v-col>
@@ -251,7 +252,7 @@ export default {
     ],
     hosts: [
       { name: '蛋蛋', alias: 'DanDan', title: '知名聯賽賽評', avatar: 'dandan.jpg' },
-      { name: '爆哥', alias: 'Neal', title: '競速專業講評', avatar: 'baoger.jpg' },
+      { name: '爆哥', alias: 'NeaL', title: '競速專業講評', avatar: 'baoger.jpg' },
       { name: 'Space Q', alias: '', title: '校園五速嘴解說', avatar: 'spaceq.jpg' }
     ]
   }),
