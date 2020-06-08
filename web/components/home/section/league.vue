@@ -1,6 +1,8 @@
 <template>
   <div id="league">
-    <particles />
+    <v-lazy>
+      <particles />
+    </v-lazy>
     <v-row
       class="py-12"
       justify="center"
@@ -148,14 +150,13 @@
                             class="pt-0"
                             v-text="track.name"
                           />
-                          <!-- TODO: BEST RECORD -->
-                          <!-- <v-spacer />
+                          <v-spacer />
                           <v-card-text
-                            v-if="tabTrackType === 0"
+                            v-if="tab.type === 'speed'"
                             class="primary--text"
                           >
-                            本季最佳：Brownsugar / 1:99:999
-                          </v-card-text> -->
+                            本季最佳 / COMING SOON
+                          </v-card-text>
                         </div>
                         <v-img
                           class="flex-grow-0 mx-3"
@@ -171,6 +172,37 @@
               </v-tab-item>
             </v-tabs-items>
           </v-card>
+        </category>
+        <category name="主播陣容">
+          <template #description>
+            精彩的賽事除了仰賴於菁英選手的競賽過程之外，專業的主播和賽評也一位都不能少！<br>
+            RSL 夢想盃本季聯賽邀請到知名聯賽主播「蛋蛋」、跑跑卡丁車專業講評「爆哥」、校園五速嘴解說「SpaceQ」，為參與賽事的各位帶來精采的播報內容。
+          </template>
+          <v-row no-gutters>
+            <v-col
+              v-for="(host, i) in hosts"
+              :key="i"
+              cols="4"
+            >
+              <v-img
+                class="host-avatar"
+                :src="require(`~/assets/images/host/${host.avatar}`)"
+                gradient="to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .8) 100%"
+              >
+                <v-row class="px-8 py-2 fill-height white--text" align="end">
+                  <v-col>
+                    <div class="subheading">
+                      {{ host.title }}
+                    </div>
+                    <div class="headline font-weight-bold">
+                      {{ host.name }}
+                      <span v-if="host.alias">{{ host.alias }}</span>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-img>
+            </v-col>
+          </v-row>
         </category>
       </v-col>
     </v-row>
@@ -214,8 +246,13 @@ export default {
     ],
     tabTrackType: null,
     tabTracks: [
-      { label: '競速賽道', tracks: tracks.speed },
-      { label: '道具賽道', tracks: tracks.item }
+      { label: '競速賽道', type: 'speed', tracks: tracks.speed },
+      { label: '道具賽道', type: 'item', tracks: tracks.item }
+    ],
+    hosts: [
+      { name: '蛋蛋', alias: 'DanDan', title: '知名聯賽賽評', avatar: 'dandan.jpg' },
+      { name: '爆哥', alias: 'Neal', title: '競速專業講評', avatar: 'baoger.jpg' },
+      { name: 'Space Q', alias: '', title: '校園五速嘴解說', avatar: 'spaceq.jpg' }
     ]
   }),
   computed: {},
@@ -241,5 +278,8 @@ export default {
 .left > *,
 .right {
   position: relative;
+}
+.host-avatar {
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
 </style>
