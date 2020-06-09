@@ -5,7 +5,15 @@
       fixed
       app
     >
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title>
+        <n-link to="/">
+          <v-img
+            :src="require('~/assets/images/rsl/rsl-color.svg')"
+            width="100"
+            :title="title"
+          />
+        </n-link>
+      </v-toolbar-title>
       <v-spacer />
       <template v-for="(nav, i) in navs">
         <v-btn
@@ -33,7 +41,7 @@
         dark
       >
         <v-card-title class="justify-center">
-          <strong class="body-1">現在就追蹤 RSL 賽事聯盟！</strong>
+          <strong class="body-1 mr-6">現在就追蹤 RSL 賽事聯盟！</strong>
           <v-tooltip
             v-for="(social, i) in socials"
             :key="i"
