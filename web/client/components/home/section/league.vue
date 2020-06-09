@@ -272,7 +272,7 @@ export default {
       { name: '蛋蛋', alias: 'DanDan', title: '知名聯賽賽評', avatar: 'dandan.jpg' },
       { name: '爆哥', alias: 'NeaL', title: '競速專業講評', avatar: 'neal.jpg' },
       { name: 'Space Q', alias: '', title: '校園五速嘴解說', avatar: 'spaceq.jpg' },
-      { name: '滷蛋', alias: 'Ludan', title: '全能型跑跑解說', avatar: 'ludan.jpg' }
+      { name: '魯蛋', alias: 'Ludan', title: '全能型跑跑解說', avatar: 'ludan.jpg' }
     ]
   }),
   computed: {},
