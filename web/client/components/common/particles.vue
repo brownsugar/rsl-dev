@@ -19,11 +19,11 @@ export default {
     },
     particleOpacity: {
       type: Number,
-      default: 0.45
+      default: 0.4
     },
     particlesNumber: {
       type: Number,
-      default: 40
+      default: 30
     },
     shapeType: {
       type: String,
@@ -31,7 +31,7 @@ export default {
     },
     particleSize: {
       type: Number,
-      default: 3
+      default: 4
     },
     linesColor: {
       type: String,
@@ -47,7 +47,7 @@ export default {
     },
     lineOpacity: {
       type: Number,
-      default: 0.2
+      default: 0.3
     },
     linesDistance: {
       type: Number,
@@ -63,7 +63,7 @@ export default {
     },
     hoverMode: {
       type: String,
-      default: 'grab'
+      default: 'repulse'
     },
     clickEffect: {
       type: Boolean,
@@ -71,7 +71,7 @@ export default {
     },
     clickMode: {
       type: String,
-      default: 'repulse'
+      default: 'push'
     }
   },
   data: () => ({
