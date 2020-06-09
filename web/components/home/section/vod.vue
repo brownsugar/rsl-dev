@@ -16,7 +16,7 @@
           justify="center"
         >
           <v-col cols="6">
-            <v-card elevation="10">
+            <v-card>
               <v-responsive :aspect-ratio="16/9">
                 <yt-player
                   video-id="uvwNWsFunGw"
@@ -28,10 +28,10 @@
             </v-card>
             <v-alert
               class="mt-6"
-              text
-              prominent
-              color="info"
-              icon="$fire"
+              color="primary"
+              elevation="2"
+              border="left"
+              colored-border
             >
               <v-row align="center" no-gutters>
                 <v-col class="grow">
@@ -44,6 +44,12 @@
                 </v-col>
               </v-row>
             </v-alert>
+            <!-- <v-alert
+              prominent
+              color="info"
+              icon="$fire"
+            >
+            </v-alert> -->
           </v-col>
         </v-row>
       </v-container>
@@ -67,6 +73,7 @@ export default {
 <style lang="scss" scoped>
 #vod {
   background: linear-gradient(15deg, transparent 50%, #f3e4e2 50.1%),
-              image('home/play.png') left 40px bottom 20px / 400px no-repeat;
+              image('home/play.png') left 80px bottom 15px / 400px no-repeat,
+              image('home/play-ground.png') left -8px bottom -28px / 800px no-repeat;
 }
 </style>
