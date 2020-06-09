@@ -48,6 +48,18 @@
           </ul>
         </category>
         <category
+          description="你渴望一對翅膀嗎？本季聯賽前 20 名報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一箱，助你飆的更快更穩！"
+        >
+          <template #name>
+            <span class="red--text font-weight-bold">Red Bull</span> 幫你補充飆速能量
+          </template>
+          <v-img
+            aspect-ratio="1"
+            :src="require('~/assets/images/cooperator/redbull.png')"
+            width="400"
+          />
+        </category>
+        <category
           name="聯賽直播"
           description="賽事開打期間每個週末晚間 8 點於 RSL 官方 YouTube、Twitch 頻道同步轉播賽事，立即訂閱頻道，精彩賽事不漏接！"
         >
