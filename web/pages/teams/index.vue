@@ -13,7 +13,10 @@ export default {
   watch: {},
   mounted () {
   },
-  methods: {}
+  methods: {},
+  head: () => ({
+    title: '隊伍列表'
+  })
 }
 </script>
 

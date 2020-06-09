@@ -7,8 +7,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: (titleChunk) => {
+      const title = 'RSL Alpha'
+      return titleChunk && titleChunk !== title ? `${titleChunk} - ${title}` : title
+    },
+    title: 'RSL Alpha',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

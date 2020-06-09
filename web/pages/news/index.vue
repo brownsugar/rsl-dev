@@ -15,7 +15,10 @@ export default {
   watch: {},
   mounted () {
   },
-  methods: {}
+  methods: {},
+  head: () => ({
+    title: '最新消息'
+  })
 }
 </script>
 

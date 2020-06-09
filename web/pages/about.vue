@@ -15,7 +15,10 @@ export default {
   watch: {},
   mounted () {
   },
-  methods: {}
+  methods: {},
+  head: () => ({
+    title: '關於 RSL'
+  })
 }
 </script>
 

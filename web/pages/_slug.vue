@@ -15,7 +15,10 @@ export default {
   watch: {},
   mounted () {
   },
-  methods: {}
+  methods: {},
+  head: () => ({
+    title: 'Season 1'
+  })
 }
 </script>
 
