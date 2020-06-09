@@ -17,12 +17,14 @@ $btn-skew: -15deg;
       height: 100%;
       width: $width;
       background-color: inherit;
-      transition: .2s right ease-in;
+      transition: .2s right ease-in-out, .1s .2s box-shadow;
       z-index: -1;
     }
     &:hover {
       &:after {
         right: 0;
+        box-shadow: none;
+        transition-delay: 0s, 0s;
       }
     }
   }

@@ -25,6 +25,7 @@
           </div>
           <div class="actions mt-6">
             <v-btn
+              class="v-btn--action"
               color="primary"
               to="/about"
               nuxt
