@@ -190,11 +190,15 @@
             精彩的賽事除了仰賴於菁英選手的競賽過程之外，專業的主播和賽評也一位都不能少！<br>
             RSL 夢想盃本季聯賽邀請到知名聯賽主播「蛋蛋」、跑跑卡丁車專業講評「爆哥」、校園五速嘴解說「SpaceQ」，為參與賽事的各位帶來精采的播報內容。
           </template>
-          <v-row no-gutters>
+          <v-row
+            justify="center"
+            no-gutters
+          >
             <v-col
               v-for="(host, i) in hosts"
               :key="i"
-              cols="4"
+              class="mx-n4"
+              cols="3"
             >
               <v-img
                 class="host-avatar"
@@ -266,8 +270,9 @@ export default {
     ],
     hosts: [
       { name: '蛋蛋', alias: 'DanDan', title: '知名聯賽賽評', avatar: 'dandan.jpg' },
-      { name: '爆哥', alias: 'NeaL', title: '競速專業講評', avatar: 'baoger.jpg' },
-      { name: 'Space Q', alias: '', title: '校園五速嘴解說', avatar: 'spaceq.jpg' }
+      { name: '爆哥', alias: 'NeaL', title: '競速專業講評', avatar: 'neal.jpg' },
+      { name: 'Space Q', alias: '', title: '校園五速嘴解說', avatar: 'spaceq.jpg' },
+      { name: '滷蛋', alias: 'Ludan', title: '？？？', avatar: 'ludan.jpg' }
     ]
   }),
   computed: {},
