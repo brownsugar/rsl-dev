@@ -2,12 +2,12 @@
   <div
     v-if="videoId"
     v-intersect="intersectPlayer"
-    class="player-wrap"
+    class="player-wrap fill-width fill-height"
   >
     <v-fade-transition>
       <div
         v-if="!isReady"
-        class="loading d-flex justify-center align-center full-width fill-height"
+        class="loading d-flex justify-center align-center fill-width fill-height"
       >
         <v-progress-circular
           indeterminate
@@ -122,12 +122,9 @@ export default {
 
 <style lang="scss" scoped>
 .player-wrap {
-  width: 100%;
-  height: 100%;
   position: relative;
 }
 .loading {
   position: absolute;
-  width: 100%;
 }
 </style>

@@ -1,5 +1,9 @@
 $btn-skew: -15deg;
 
+.fill-width {
+  width: 100%;
+}
+
 .v-btn:not(.v-btn--round) {
   transform: skew($btn-skew);
 

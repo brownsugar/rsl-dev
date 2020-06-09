@@ -26,29 +26,57 @@
       <nuxt />
     </v-content>
 
-    <v-footer
-      padless
-    >
-      <v-row align="center" no-gutters>
-        <v-col class="grow">
-          &copy; 2020 <strong>RSL 賽事聯盟</strong><br>
-          Design by <a href="https://brownsugar.tw">Brownsugar</a>.
-        </v-col>
-        <v-col>
-          <strong class="subheading">現在就追蹤 RSL 賽事聯盟！</strong><br>
-          <v-btn
+    <v-footer padless>
+      <v-card
+        class="grey darken-4 fill-width text-center"
+        flat
+        dark
+      >
+        <v-card-title class="justify-center">
+          <strong class="body-1">現在就追蹤 RSL 賽事聯盟！</strong>
+          <v-tooltip
             v-for="(social, i) in socials"
             :key="i"
-            class="mx-3"
-            :href="social.to"
+            top
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                class="mx-2"
+                :color="social.brand"
+                :href="social.to"
+                target="_blank"
+                large
+                icon
+                v-bind="attrs"
+                v-on="on"
+              >
+                <fa
+                  :icon="['fab', social.brand]"
+                  size="lg"
+                />
+              </v-btn>
+            </template>
+            <span>{{ social.tooltip }}</span>
+          </v-tooltip>
+        </v-card-title>
+        <v-divider />
+        <v-card-text>
+          &copy; 2020 <strong>RE:START League</strong>
+          <span class="divider">|</span>
+          Design by <a class="white--text" href="https://brownsugar.tw">Brownsugar</a>
+          <v-btn
+            href="https://github.com/brownsugar/rsl-dev"
             target="_blank"
-            dark
+            x-small
             icon
           >
-            <fa :icon="social.icon" />
+            <fa
+              :icon="['fab', 'github']"
+              size="lg"
+            />
           </v-btn>
-        </v-col>
-      </v-row>
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
@@ -88,16 +116,19 @@ export default {
       ],
       socials: [
         {
-          icon: ['fab', 'facebook'],
-          to: 'https://www.facebook.com/RSLeagueTW'
+          brand: 'facebook',
+          to: 'https://www.facebook.com/RSLeagueTW',
+          tooltip: '@RSLeagueTW'
         },
         {
-          icon: ['fab', 'youtube'],
-          to: 'https://www.youtube.com/channel/UCSXjGuAfR7XSVkPo7mvGacQ?sub_confirmation=1'
+          brand: 'youtube',
+          to: 'https://www.youtube.com/channel/UCSXjGuAfR7XSVkPo7mvGacQ?sub_confirmation=1',
+          tooltip: '@RSLeague'
         },
         {
-          icon: ['fab', 'twitch'],
-          to: 'https://www.twitch.tv/rsleague'
+          brand: 'twitch',
+          to: 'https://www.twitch.tv/RSLeague',
+          tooltip: '@RSLeague'
         }
       ]
     }
