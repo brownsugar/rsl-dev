@@ -188,6 +188,8 @@
                 class="host-avatar"
                 :src="require(`~/assets/images/host/${host.avatar}`)"
                 gradient="to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .8) 100%"
+                width="360"
+                height="360"
                 :alt="host.name"
               >
                 <v-row class="px-8 py-2 fill-height white--text" align="end">

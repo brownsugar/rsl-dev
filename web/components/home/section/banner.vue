@@ -41,20 +41,8 @@ export default {
 
 <style lang="scss" scoped>
 #banner {
-  ::v-deep {
-    .v-parallax__image-container {
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: image('home/background/dark-cover.png');
-        z-index: 2;
-      }
-    }
+  @include parallax-cover() {
+    background-image: image('home/background/dark-cover.png');
   }
 }
 </style>

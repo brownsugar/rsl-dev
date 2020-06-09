@@ -33,6 +33,7 @@ module.exports = {
   styleResources: {
     scss: [
       '~/assets/styles/rsl/_variables.scss',
+      '~/assets/styles/rsl/_mixins.scss',
       '~/assets/styles/rsl/_functions.scss'
     ]
   },
