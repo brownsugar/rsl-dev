@@ -4,6 +4,17 @@
     v-intersect="intersectPlayer"
     class="player-wrap"
   >
+    <v-fade-transition>
+      <div
+        v-if="!isReady"
+        class="loading d-flex justify-center align-center full-width fill-height"
+      >
+        <v-progress-circular
+          indeterminate
+          color="primary"
+        />
+      </div>
+    </v-fade-transition>
     <youtube
       ref="youtube"
       :video-id="videoId"
@@ -113,5 +124,10 @@ export default {
 .player-wrap {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+.loading {
+  position: absolute;
+  width: 100%;
 }
 </style>

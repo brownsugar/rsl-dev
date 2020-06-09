@@ -24,7 +24,11 @@
             我們致力於打造完善的電競聯賽環境、建立公平的賽事舞台，希望藉由 RSL 聯賽讓玩家重新燃起心目中的電競選手夢想。
           </div>
           <div class="actions mt-6">
-            <v-btn color="primary">
+            <v-btn
+              color="primary"
+              to="/about"
+              nuxt
+            >
               關於 RSL
             </v-btn>
           </div>
@@ -43,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 #about {
   @include parallax-cover() {
-    background-image: linear-gradient(rgba(#000, .6) 50%, rgba(#000, .95) 100%);
+    background-image: linear-gradient(rgba(#000, .6) 40%, rgba(#000, .95) 100%);
   }
 }
 </style>

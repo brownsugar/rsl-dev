@@ -1,5 +1,8 @@
 <template>
-  <div id="cooperate" class="py-12 grey lighten-4">
+  <div
+    id="cooperate"
+    class="py-12 grey lighten-4"
+  >
     <v-container>
       <h3 class="section-title display-1 font-weight-bold primary--text pl-5">
         合作品牌
@@ -21,12 +24,14 @@
             target="_blank"
             rel="noreferrer noopener"
           >
-            <img
-              class="mx-5 my-3"
-              :src="require(`~/assets/images/cooperator/${company.logo.file}`)"
-              :height="company.logo.height"
-              :alt="company.name"
-            >
+            <v-lazy>
+              <img
+                class="mx-5 my-3"
+                :src="require(`~/assets/images/cooperator/${company.logo.file}`)"
+                :height="company.logo.height"
+                :alt="company.name"
+              >
+            </v-lazy>
           </a>
         </v-col>
       </v-row>

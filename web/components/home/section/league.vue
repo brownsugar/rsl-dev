@@ -19,6 +19,7 @@
           to="/season1"
           depressed
           large
+          nuxt
         >
           查看完整資訊
         </v-btn>

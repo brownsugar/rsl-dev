@@ -1,10 +1,13 @@
 <template>
-  <v-row id="vod" class="py-12">
+  <v-row
+    id="vod"
+    class="py-12 grey lighten-3"
+  >
     <v-col>
-      <div class="d-flex justify-center align-center mb-2">
+      <div class="d-flex justify-center align-center mb-4">
         <deco type="hot-tire" />
         <h3 class="display-1 ml-2">
-          精彩回顧
+          精彩賽事回顧
         </h3>
       </div>
       <v-container>
@@ -17,7 +20,7 @@
               <v-responsive :aspect-ratio="16/9">
                 <yt-player
                   video-id="uvwNWsFunGw"
-                  :play-on-visible="false"
+                  play-on-visible
                   auto-mute
                   loop
                 />
@@ -63,6 +66,7 @@ export default {
 
 <style lang="scss" scoped>
 #vod {
-  background: image('home/background/drift-road.png') right bottom no-repeat;
+  background: linear-gradient(15deg, transparent 50%, #f3e4e2 50.1%),
+              image('home/play.png') left 40px bottom 20px / 400px no-repeat;
 }
 </style>

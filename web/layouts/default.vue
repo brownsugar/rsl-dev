@@ -15,6 +15,7 @@
           :to="nav.to"
           depressed
           exact
+          nuxt
         >
           {{ nav.label }}
         </v-btn>
@@ -77,7 +78,8 @@ export default {
         },
         {
           label: '媒體報導',
-          to: '/press'
+          to: '/press',
+          hidden: true
         },
         {
           label: '關於 RSL',
