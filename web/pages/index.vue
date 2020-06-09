@@ -26,14 +26,6 @@ export default {
     SectionLeague,
     SectionCooperate,
     SectionAbout
-  },
-  data: () => ({
-  }),
-  computed: {
-  },
-  watch: {
-  },
-  methods: {
   }
 }
 </script>

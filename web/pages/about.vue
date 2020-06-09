@@ -1,5 +1,7 @@
 <template>
-  <p>關於 RSL</p>
+  <v-container class="text-center">
+    Coming soon...
+  </v-container>
 </template>
 
 <script>

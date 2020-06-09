@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'NewsList',
+  name: 'Page',
   components: {},
   props: {},
   data: () => ({
