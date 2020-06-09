@@ -102,8 +102,8 @@ export default {
         this.player.playVideo()
       }
     },
-    intersectPlayer (entries, observer) {
-      this.inView = entries[0].isIntersecting
+    intersectPlayer (entries, observer, isIntersecting) {
+      this.inView = isIntersecting
     }
   }
 }

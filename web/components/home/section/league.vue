@@ -1,8 +1,6 @@
 <template>
   <div id="league">
-    <v-lazy>
-      <particles />
-    </v-lazy>
+    <particles />
     <v-row
       class="py-12"
       justify="center"
@@ -96,8 +94,9 @@
                     {{ set.title }} <span class="font-weight-light text-uppercase">{{ set.subtitle }}</span>
                   </div>
                   <v-img
+                    aspect-ratio="1"
                     class="mx-auto"
-                    :src="require('~/assets/images/home/' + set.imageFile)"
+                    :src="require('~/assets/images/home/' + set.image)"
                     width="80%"
                   />
                   <div class="mt-1">
@@ -231,23 +230,23 @@ export default {
       {
         title: '競速賽',
         subtitle: 'Speed',
-        imageFile: 'speed.svg',
+        image: 'speed.svg',
         description: '4 vs 4 團體競速賽，於快速頻道進行，指定 16 張精選賽道。經典跑跑甩尾、碰撞對決，比實力、比穩定還要比團隊默契，不限車種，無限飆速！'
       },
       {
         title: '道具賽',
         subtitle: 'Item',
-        imageFile: 'item.svg',
+        image: 'item.svg',
         description: '4 vs 4 團體道具賽，於普通頻道進行，共 14 張精選賽道。丟水球？放天使？考驗團隊溝通，並採用限定道具規則，享受平衡友善的競爭環境！'
       },
       {
         title: '單挑賽',
         subtitle: 'Ace Duel',
-        imageFile: 'ace.svg',
+        image: 'ace.svg',
         description: '前兩回合比分平手時進入第三回合單挑賽，為 1 vs 1 個人競速，於快速頻道進行。回合採三戰兩勝制，雙方王牌正面對決，單挑決勝一觸即發！'
       }
     ],
-    tabTrackType: null,
+    tabTrackType: 0,
     tabTracks: [
       { label: '競速賽道', type: 'speed', tracks: tracks.speed },
       { label: '道具賽道', type: 'item', tracks: tracks.item }

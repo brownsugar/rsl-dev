@@ -2,6 +2,7 @@
   <client-only>
     <div
       :id="id"
+      v-intersect.once="onIntersect"
       class="particles"
     />
   </client-only>
@@ -22,7 +23,7 @@ export default {
     },
     particlesNumber: {
       type: Number,
-      default: 50
+      default: 40
     },
     shapeType: {
       type: String,
@@ -76,13 +77,15 @@ export default {
   data: () => ({
     id: 'particles-' + Math.floor(Math.random() * 1000)
   }),
-  mounted () {
-    require('particles.js')
-    this.$nextTick(() => {
-      this.initParticles()
-    })
-  },
   methods: {
+    onIntersect (entries, observer, isIntersecting) {
+      if (isIntersecting) {
+        require('particles.js')
+        this.$nextTick(() => {
+          this.initParticles()
+        })
+      }
+    },
     initParticles () {
       window.particlesJS(this.id, {
         particles: {
