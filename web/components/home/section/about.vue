@@ -8,7 +8,7 @@
       <v-row justify="center">
         <v-col cols="2">
           <v-img
-            :src="require('~/assets/images/rsl/rsl-color-full.svg')"
+            src="~/assets/images/rsl/rsl-color-full.svg"
             max-width="100%"
           />
         </v-col>

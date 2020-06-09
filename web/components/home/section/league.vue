@@ -55,7 +55,7 @@
           </template>
           <v-img
             aspect-ratio="1"
-            :src="require('~/assets/images/cooperator/redbull.png')"
+            src="~/assets/images/cooperator/redbull.png"
             width="400"
           />
         </category>

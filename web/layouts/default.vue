@@ -8,7 +8,7 @@
       <v-toolbar-title>
         <n-link to="/">
           <v-img
-            :src="require('~/assets/images/rsl/rsl-color.svg')"
+            src="~/assets/images/rsl/rsl-color.svg"
             width="100"
             :title="title"
           />

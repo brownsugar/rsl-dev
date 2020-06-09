@@ -44,12 +44,6 @@
                 </v-col>
               </v-row>
             </v-alert>
-            <!-- <v-alert
-              prominent
-              color="info"
-              icon="$fire"
-            >
-            </v-alert> -->
           </v-col>
         </v-row>
       </v-container>
@@ -73,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 #vod {
   background: linear-gradient(15deg, transparent 50%, #f3e4e2 50.1%),
-              image('home/play.png') left 80px bottom 15px / 400px no-repeat,
-              image('home/play-ground.png') left -8px bottom -28px / 800px no-repeat;
+              image('home/background/play.png') left 80px bottom 15px / 400px no-repeat,
+              image('home/background/play-ground.png') left -8px bottom -28px / 800px no-repeat;
 }
 </style>
