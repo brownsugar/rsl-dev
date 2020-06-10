@@ -28,6 +28,7 @@
               class="v-btn--action"
               color="primary"
               to="/about"
+              x-large
               nuxt
             >
               關於 RSL

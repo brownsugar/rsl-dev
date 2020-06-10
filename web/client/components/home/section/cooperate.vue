@@ -14,11 +14,12 @@
         <v-col class="d-flex align-center" cols="2">
           {{ cooperator.title }}
         </v-col>
-        <v-col class="d-flex flex-wrap align-center py-0">
+        <v-col class="d-flex flex-wrap align-center">
           <a
             v-for="(company, j) in cooperator.data"
             :key="j"
-            class="d-block"
+            v-ripple
+            class="cooperator d-flex justify-center align-center px-4 py-2"
             :title="company.name"
             :href="company.link"
             target="_blank"
@@ -26,7 +27,7 @@
           >
             <v-lazy>
               <img
-                class="mx-5 my-3"
+                class="d-block"
                 :src="require(`~/assets/images/cooperator/${company.logo.file}`)"
                 :height="company.logo.height"
                 :alt="company.name"
@@ -153,6 +154,14 @@ export default {
               height: 60
             },
             link: 'https://apac.coolermaster.com/tw/peripheral/mice/mm710/'
+          },
+          {
+            name: 'HyperX',
+            logo: {
+              file: 'hyperx.png',
+              height: 55
+            },
+            link: 'https://hyperx.gg/kerdinter'
           }
         ]
       }
@@ -169,5 +178,24 @@ export default {
 <style lang="scss" scoped>
 .section-title {
   border-left: 5px solid currentColor;
+}
+.cooperator {
+  position: relative;
+  min-height: 100px;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, .05);
+    opacity: 0;
+    transition: opacity .1s ease-in;
+  }
+  &:hover:before {
+    opacity: 1;
+  }
 }
 </style>
