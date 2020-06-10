@@ -15,7 +15,7 @@
           align="center"
           justify="center"
         >
-          <v-col cols="6">
+          <v-col cols="8">
             <v-card>
               <v-responsive :aspect-ratio="16/9">
                 <yt-player
@@ -35,7 +35,12 @@
             >
               <v-row align="center" no-gutters>
                 <v-col class="grow">
-                  立即訂閱 RSL 賽事聯盟 YouTube 頻道，精彩影片不漏接！
+                  <fa
+                    class="mx-2 primary--text"
+                    :icon="['fas', 'bell']"
+                    size="lg"
+                  />
+                  立即訂閱 RSL 賽事聯盟 YouTube 頻道，精彩賽事影片不漏接！
                 </v-col>
                 <v-col class="shrink">
                   <v-btn
