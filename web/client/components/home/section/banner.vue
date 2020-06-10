@@ -25,6 +25,7 @@
           color="primary"
           depressed
           large
+          @click="$vuetify.goTo('#league')"
         >
           6/19 開始報名
         </v-btn>
