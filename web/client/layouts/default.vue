@@ -71,7 +71,7 @@
         <v-card-text>
           &copy; 2020 <strong>RE:START League</strong>
           <span class="divider">|</span>
-          Design by <a class="white--text" href="https://brownsugar.tw">Brownsugar</a>
+          Design by <a class="white--text" href="https://brownsugar.tw" target="_blank">Brownsugar</a>
           <v-btn
             href="https://github.com/brownsugar/rsl-dev"
             target="_blank"
@@ -125,21 +125,24 @@ export default {
       socials: [
         {
           brand: 'facebook',
-          to: 'https://www.facebook.com/RSLeagueTW',
-          tooltip: '@RSLeagueTW'
+          to: this.$config.rsl.facebook.url,
+          tooltip: '@' + this.$config.rsl.facebook.username
         },
         {
           brand: 'youtube',
-          to: 'https://www.youtube.com/channel/UCSXjGuAfR7XSVkPo7mvGacQ?sub_confirmation=1',
-          tooltip: '@RSLeague'
+          to: this.$config.rsl.youtube.url,
+          tooltip: '@' + this.$config.rsl.youtube.username
         },
         {
           brand: 'twitch',
-          to: 'https://www.twitch.tv/RSLeague',
-          tooltip: '@RSLeague'
+          to: this.$config.rsl.twitch.url,
+          tooltip: '@' + this.$config.rsl.twitch.username
         }
       ]
     }
+  },
+  mounted () {
+    console.log(this.$config)
   }
 }
 </script>

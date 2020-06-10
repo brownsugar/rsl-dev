@@ -70,8 +70,8 @@
             >
               <link-card
                 brand="youtube"
-                link="https://www.youtube.com/channel/UCSXjGuAfR7XSVkPo7mvGacQ?sub_confirmation=1"
-                hover-text="@RSLeague"
+                :link="$config.rsl.youtube.url"
+                :hover-text="'@' + $config.rsl.youtube.username"
               />
             </v-col>
             <v-col
@@ -80,8 +80,8 @@
             >
               <link-card
                 brand="twitch"
-                link="https://www.twitch.tv/rsleague"
-                hover-text="@RSLeague"
+                :link="$config.rsl.twitch.url"
+                :hover-text="'@' + $config.rsl.twitch.username"
               />
             </v-col>
           </v-row>

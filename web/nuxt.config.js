@@ -64,15 +64,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    'nuxt-config/module'
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
-  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -99,15 +92,29 @@ module.exports = {
     treeShake: true
   },
   /*
+  ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
+  */
+  axios: {
+  },
+  /*
   ** Build configuration
   */
   build: {
     extractCSS: isProd,
+    plugins: [
+      // new ConfigWebpackPlugin()
+    ],
     /*
     ** You can extend webpack config here
     */
     extend (config, { isClient, loaders: { vue } }) {
       if (isClient) {
+        // This dependency was not found: * fs in ./node_modules/config/lib/config.js
+        config.node = {
+          fs: 'empty'
+        }
+        // Support native src usage for <v-img>
         vue.transformAssetUrls = {
           ...vue.transformAssetUrls,
           'v-img': 'src'

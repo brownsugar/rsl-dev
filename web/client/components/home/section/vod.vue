@@ -38,7 +38,11 @@
                   立即訂閱 RSL 賽事聯盟 YouTube 頻道，精彩影片不漏接！
                 </v-col>
                 <v-col class="shrink">
-                  <v-btn color="primary">
+                  <v-btn
+                    color="primary"
+                    :href="$config.rsl.youtube.url"
+                    target="_blank"
+                  >
                     前往 YouTube
                   </v-btn>
                 </v-col>
