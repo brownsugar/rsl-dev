@@ -1,14 +1,14 @@
 <template>
   <v-app>
     <v-app-bar
-      clipped-left
+      dark
       fixed
       app
     >
       <v-toolbar-title>
         <n-link to="/">
           <v-img
-            src="~/assets/images/rsl/rsl-color.svg"
+            src="~/assets/images/rsl/rsl-color-dark.svg"
             width="100"
             :title="title"
           />
@@ -140,8 +140,6 @@ export default {
         }
       ]
     }
-  },
-  mounted () {
   }
 }
 </script>
