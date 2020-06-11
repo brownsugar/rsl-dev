@@ -10,7 +10,7 @@
           <v-img
             src="~/assets/images/rsl/rsl-color-dark.svg"
             width="100"
-            :title="title"
+            :title="site.name"
           />
         </n-link>
       </v-toolbar-title>
@@ -90,10 +90,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
-      title: 'RSL 夢想盃跑跑聯賽',
       navs: [
         {
           label: '首頁',
@@ -139,6 +140,19 @@ export default {
           tooltip: '@' + this.$config.rsl.twitch.username
         }
       ]
+    }
+  },
+  computed: {
+    ...mapState([
+      'site'
+    ])
+  },
+  head () {
+    return {
+      titleTemplate: (titleChunk) => {
+        const title = this.site.name
+        return titleChunk ? `${titleChunk} - ${title}` : title
+      }
     }
   }
 }

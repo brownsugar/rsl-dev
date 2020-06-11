@@ -1,8 +1,5 @@
 const config = {
-  base: {
-    url: '',
-    api: ''
-  }
+  api: ''
 }
 
 module.exports = config

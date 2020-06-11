@@ -3,15 +3,12 @@ const defer = require('config/defer').deferConfig
 /**
  * Access config by:
  * 1. import { config } from 'nuxt-config'
- * 2. this.$config.api.base
- * 3. ctx.app.$config.api.base
+ * 2. this.$config.api
+ * 3. ctx.app.$config.api
  */
 
 const config = {
-  base: {
-    url: 'http://localhost:3000',
-    api: 'http://rsl.local'
-  },
+  api: 'http://rsl.local/api',
   rsl: {
     facebook: {
       url: 'https://www.facebook.com/RSLeagueTW',
@@ -29,7 +26,7 @@ const config = {
   },
   // Whitelist for client to use
   client: {
-    base: defer(self => self.base),
+    api: defer(self => self.api),
     rsl: defer(self => self.rsl)
   }
 }
