@@ -1,31 +1,52 @@
 <?php
 
-// Add rsl/v1 endpoint
-add_action( 'rest_api_init', function () {
-  register_rest_route( 'rsl/v1', '/site', [
-    'methods' => 'GET',
-    'callback' => 'get_site_info',
-  ] );
-} );
+/**
+ * Add rsl/v1 endpoint
+ */
+function rsl_rest_api_init() {
+	register_rest_route(
+		'rsl/v1',
+		'/site',
+		array(
+			'methods'  => 'GET',
+			'callback' => 'get_site_info',
+		)
+	);
+};
+add_action( 'rest_api_init', 'rsl_rest_api_init' );
 
-// Get site infos
+/**
+ * Get site infos
+ */
 function get_site_info( $request ) {
-  $fields = [
-    'name',
-    'description',
-    'wpurl',
-    'url',
-    'admin_email',
-    'charset',
-    'language',
-    'rss_url',
-    'rss2_url'
-  ];
+	$fields = array(
+		'name',
+		'description',
+		'wpurl',
+		'url',
+		'admin_email',
+		'charset',
+		'language',
+		'rss_url',
+		'rss2_url',
+	);
 
-  $data = [];
-  foreach ($fields as $field) {
-    $data[$field] = get_bloginfo($field);
-  }
+	$data = array();
+	foreach ( $fields as $field ) {
+		$data[ $field ] = get_bloginfo( $field );
+	}
 
-  return $data;
+	return $data;
 }
+
+/**
+ * Add cache support for custom endpoint
+ * https://wordpress.org/plugins/wp-rest-cache/
+ */
+function rsl_wprc_endpoint( $allowed_endpoints ) {
+	if ( ! isset( $allowed_endpoints['rsl/v1'] ) || ! in_array( 'site', $allowed_endpoints['rsl/v1'] ) ) {
+		$allowed_endpoints['rsl/v1'][] = 'site';
+	}
+	return $allowed_endpoints;
+}
+add_filter( 'wp_rest_cache/allowed_endpoints', 'rsl_wprc_endpoint', 10, 1 );
