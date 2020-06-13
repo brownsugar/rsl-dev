@@ -22,7 +22,7 @@
           active-class="primary"
           :to="nav.to"
           depressed
-          exact
+          :exact="nav.to === '/'"
           nuxt
         >
           {{ nav.label }}
