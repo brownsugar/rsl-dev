@@ -12,9 +12,10 @@
       >
         <v-col cols="8">
           <h1 class="white--text text-h4 font-weight-bold">
-            {{ post.title.rendered }}
+            {{ title }}
           </h1>
           <v-breadcrumbs
+            v-if="type === 'post'"
             class="justify-center"
             :items="breadcrumb"
             dark
@@ -73,18 +74,20 @@
             class="post-content px-6 py-5"
             v-html="post.content.rendered"
           />
-          <v-divider />
-          <v-card-actions>
-            <v-btn
-              text
-              @click="backToList"
-            >
-              <v-icon left>
-                $angleLeft
-              </v-icon>
-              返回列表
-            </v-btn>
-          </v-card-actions>
+          <template v-if="type === 'post'">
+            <v-divider />
+            <v-card-actions>
+              <v-btn
+                text
+                @click="backToList"
+              >
+                <v-icon left>
+                  $angleLeft
+                </v-icon>
+                返回列表
+              </v-btn>
+            </v-card-actions>
+          </template>
         </v-card>
       </v-col>
     </v-row>
@@ -126,6 +129,9 @@ export default {
     ...mapGetters('news', [
       'getCategoryById'
     ]),
+    title () {
+      return this.post.title ? this.post.title.rendered : '404 Not Found'
+    },
     categoryName () {
       const catId = this.post.categories[0]
       const category = this.getCategoryById(catId)
@@ -173,7 +179,10 @@ export default {
         }, 2000)
       })
     }
-  }
+  },
+  head: self => ({
+    title: self.title
+  })
 }
 </script>
 
@@ -184,11 +193,10 @@ export default {
   }
 }
 .post-content {
-  line-height: 1.75;
-
   ::v-deep {
     img {
       max-width: 100%;
+      height: auto;
     }
     p:last-child {
       margin-bottom: 0;

@@ -1,24 +1,39 @@
 <template>
-  <v-container class="text-center">
-    Coming soon...
-  </v-container>
+  <div class="page">
+    <post-single
+      type="page"
+      :post="post"
+    />
+  </div>
 </template>
 
 <script>
+import PostSingle from '~/components/post/single'
+
 export default {
-  name: 'Page',
-  components: {},
+  name: 'PageSingle',
+  components: {
+    PostSingle
+  },
   props: {},
+  async asyncData ({ store, route }) {
+    const post = await store.dispatch('page/getPageBySlug', route.params.slug)
+    return {
+      post
+    }
+  },
   data: () => ({
+    post: {}
   }),
-  computed: {},
+  computed: {
+  },
   watch: {},
   mounted () {
   },
-  methods: {},
-  head: () => ({
-    title: 'Season 1'
-  })
+  beforeDestroy () {
+  },
+  methods: {
+  }
 }
 </script>
 
