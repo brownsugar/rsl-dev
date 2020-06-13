@@ -11,6 +11,7 @@
     .v-parallax__image-container:before {
       content: '';
       @include fit-parent();
+      background-repeat: repeat;
       @content;
       z-index: 2;
     }
@@ -21,6 +22,7 @@
     .v-image__image:before {
       content: '';
       @include fit-parent();
+      background-repeat: repeat;
       @content;
     }
   }

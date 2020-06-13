@@ -30,9 +30,9 @@
       </template>
     </v-app-bar>
 
-    <v-content class="grey lighten-4">
+    <v-main class="grey lighten-4">
       <nuxt />
-    </v-content>
+    </v-main>
 
     <v-footer padless>
       <v-card
@@ -41,7 +41,7 @@
         dark
       >
         <v-card-title class="justify-center">
-          <strong class="body-1 mr-6">現在就追蹤 RSL 賽事聯盟！</strong>
+          <strong class="text-body-1 mr-6">現在就追蹤 RSL 賽事聯盟！</strong>
           <v-tooltip
             v-for="(social, i) in socials"
             :key="i"

@@ -9,10 +9,10 @@
       justify="center"
     >
       <v-col class="left" cols="2">
-        <h3 class="display-2 font-weight-bold primary--text mb-2">
+        <h3 class="text-h3 font-weight-bold primary--text mb-2">
           SEASON 1
         </h3>
-        <h4 class="display-2">
+        <h4 class="text-h3">
           重啓夢想，<br>
           重燃渴望。
         </h4>
@@ -106,7 +106,7 @@
               <v-card>
                 <v-card-text>
                   <div>SET {{ i + 1 }}</div>
-                  <div class="display-1 text--primary mb-2">
+                  <div class="text-h4 text--primary mb-2">
                     {{ set.title }} <span class="font-weight-light text-uppercase">{{ set.subtitle }}</span>
                   </div>
                   <v-img
@@ -216,7 +216,7 @@
                     <div class="subheading">
                       {{ host.title }}
                     </div>
-                    <div class="headline font-weight-bold">
+                    <div class="text-h5 font-weight-bold">
                       {{ host.name }}
                       <span v-if="host.alias">{{ host.alias }}</span>
                     </div>

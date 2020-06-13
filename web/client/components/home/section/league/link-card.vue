@@ -12,17 +12,17 @@
         <div
           v-if="hover"
           key="hover"
-          class="content display-1"
+          class="content text-h4"
         >
           <span>{{ hoverText }}</span>
-          <span class="body-1">
+          <span class="text-body-1">
             <fa :icon="['fas', 'external-link-alt']" />
           </span>
         </div>
         <div
           v-else
           key="origin"
-          class="content display-3"
+          class="content text-h2"
         >
           <fa :icon="['fab', brand]" />
         </div>

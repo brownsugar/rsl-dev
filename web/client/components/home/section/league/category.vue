@@ -1,7 +1,7 @@
 <template>
   <div class="league-category mb-12">
     <div class="d-flex align-center mb-2">
-      <h5 class="display-1 mr-2">
+      <h5 class="text-h4 mr-2">
         <slot v-if="$slots.name" name="name" />
         <span v-else>{{ name }}</span>
       </h5>

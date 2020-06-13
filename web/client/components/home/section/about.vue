@@ -13,13 +13,13 @@
           />
         </v-col>
         <v-col cols="8">
-          <h3 class="display-1 text-uppercase">
+          <h3 class="text-h4 text-uppercase">
             We are
           </h3>
-          <h4 class="display-2 font-weight-bold yellow--text">
+          <h4 class="text-h3 font-weight-bold yellow--text">
             RE:START LEAGUE
           </h4>
-          <div class="title mt-2">
+          <div class="text-h6 mt-2">
             RSL 賽事聯盟，全名為「RE:START LEAGUE」，由三名兼具賽事舉辦經驗、玩家社群經營與遊戲領域影響力的核心玩家所組成。<br>
             我們致力於打造完善的電競聯賽環境、建立公平的賽事舞台，希望藉由 RSL 聯賽讓玩家重新燃起心目中的電競選手夢想。
           </div>

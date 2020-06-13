@@ -9,10 +9,10 @@
       justify="center"
     >
       <v-col cols="8">
-        <h1 class="title mb-2">
+        <h1 class="text-h6 mb-2">
           RE:START KARTRIDER LEAGUE <span class="yellow--text">SEASON 1</span>
         </h1>
-        <h2 class="display-3 font-weight-bold">
+        <h2 class="text-h2 font-weight-bold">
           重啟<span class="primary--text">夢想</span>，<br>
           重燃<span class="primary--text">渴望</span>。
         </h2>

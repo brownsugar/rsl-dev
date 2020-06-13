@@ -11,7 +11,7 @@
         justify="center"
       >
         <v-col cols="8">
-          <h1 class="white--text display-1 font-weight-bold">
+          <h1 class="white--text text-h4 font-weight-bold">
             {{ post.title.rendered }}
           </h1>
           <v-breadcrumbs

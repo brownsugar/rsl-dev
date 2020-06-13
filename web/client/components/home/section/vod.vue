@@ -6,7 +6,7 @@
     <v-col>
       <div class="d-flex justify-center align-center mb-4">
         <deco type="hot-tire" />
-        <h3 class="display-1 ml-2">
+        <h3 class="text-h4 ml-2">
           精彩賽事回顧
         </h3>
       </div>
