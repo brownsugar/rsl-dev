@@ -1,17 +1,27 @@
+@mixin fit-parent() {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 @mixin parallax-cover() {
   ::v-deep {
-    .v-parallax__image-container {
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        @content;
-        z-index: 2;
-      }
+    .v-parallax__image-container:before {
+      content: '';
+      @include fit-parent();
+      @content;
+      z-index: 2;
+    }
+  }
+}
+@mixin img-cover() {
+  ::v-deep {
+    .v-image__image:before {
+      content: '';
+      @include fit-parent();
+      @content;
     }
   }
 }

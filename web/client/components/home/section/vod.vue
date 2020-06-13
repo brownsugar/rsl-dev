@@ -1,7 +1,7 @@
 <template>
   <v-row
     id="vod"
-    class="py-12 grey lighten-3"
+    class="py-12"
   >
     <v-col>
       <div class="d-flex justify-center align-center mb-4">

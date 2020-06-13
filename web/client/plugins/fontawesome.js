@@ -30,6 +30,18 @@ export default new Vuetify({
         props: {
           icon: ['far', 'star']
         }
+      },
+      angleLeft: {
+        component: FontAwesomeIcon,
+        props: {
+          icon: ['fas', 'angle-left']
+        }
+      },
+      angleRight: {
+        component: FontAwesomeIcon,
+        props: {
+          icon: ['fas', 'angle-right']
+        }
       }
     }
   }

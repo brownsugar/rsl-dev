@@ -1,7 +1,7 @@
 <template>
   <v-parallax
     id="banner"
-    :src="require('~/assets/images/home/background/race.png')"
+    :src="require('~/assets/images/common/background/race.png')"
     height="900"
   >
     <v-row
@@ -43,7 +43,7 @@ export default {
 <style lang="scss" scoped>
 #banner {
   @include parallax-cover() {
-    background-image: image('home/background/dark-cover.png');
+    background-image: image('common/background/dark-cover.png');
   }
 }
 </style>

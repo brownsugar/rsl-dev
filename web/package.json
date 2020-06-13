@@ -28,6 +28,8 @@
     "nuxt": "^2.12.2",
     "nuxt-config": "^1.0.1",
     "particles.js": "^2.0.0",
+    "vue-clipboard2": "^0.3.1",
+    "vue-moment": "^4.1.0",
     "vue-youtube": "^1.4.0"
   },
   "devDependencies": {

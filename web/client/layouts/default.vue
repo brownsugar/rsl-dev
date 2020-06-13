@@ -30,7 +30,7 @@
       </template>
     </v-app-bar>
 
-    <v-content>
+    <v-content class="grey lighten-4">
       <nuxt />
     </v-content>
 
@@ -47,7 +47,7 @@
             :key="i"
             top
           >
-            <template v-slot:activator="{ on, attrs }">
+            <template #activator="{ on, attrs }">
               <v-btn
                 class="mx-2"
                 :color="social.brand"

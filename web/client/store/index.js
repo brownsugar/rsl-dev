@@ -3,17 +3,18 @@ export const state = () => ({
 })
 
 export const mutations = {
-  initSite (state, data) {
+  setSite (state, data) {
     state.site = data
   }
 }
 
 export const actions = {
   async nuxtServerInit ({ dispatch }) {
-    await dispatch('init')
+    await dispatch('initSite')
+    await dispatch('news/initCategory')
   },
-  async init ({ commit }) {
+  async initSite ({ commit }) {
     const data = await this.$axios.$get('rsl/v1/site')
-    commit('initSite', data)
+    commit('setSite', data)
   }
 }

@@ -1,6 +1,9 @@
 <template>
-  <div id="league">
-    <particles />
+  <div
+    id="league"
+    class="grey lighten-3"
+  >
+    <particles class="fill-width fill-height" />
     <v-row
       class="py-12"
       justify="center"
@@ -286,14 +289,11 @@ export default {
 
 <style lang="scss" scoped>
 #league {
-  background: #F2F2F2;
   position: relative;
 }
 .particles {
   position: absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
 }
 .left > *,
 .right {

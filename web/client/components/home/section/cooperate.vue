@@ -1,12 +1,10 @@
 <template>
   <div
     id="cooperate"
-    class="py-12 grey lighten-4"
+    class="py-12"
   >
     <v-container>
-      <h3 class="section-title display-1 font-weight-bold primary--text pl-5">
-        合作品牌
-      </h3>
+      <primary-title text="合作品牌" />
       <v-row
         v-for="(cooperator, i) in cooperators"
         :key="i"
@@ -48,7 +46,11 @@
             想在「RSL 夢想盃跑跑跑跑聯賽」中曝光您的產品或業務嗎？RSL 賽事聯盟持續招商中，歡迎與我們合作！
           </v-col>
           <v-col class="shrink">
-            <v-btn color="secondary">
+            <v-btn
+              color="secondary"
+              to="/about"
+              nuxt
+            >
               合作洽詢
             </v-btn>
           </v-col>
@@ -59,9 +61,13 @@
 </template>
 
 <script>
+import PrimaryTitle from '~/components/common/primary-title'
+
 export default {
   name: 'Cooperate',
-  components: {},
+  components: {
+    PrimaryTitle
+  },
   props: {},
   data: () => ({
     cooperators: [
@@ -176,9 +182,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section-title {
-  border-left: 5px solid currentColor;
-}
 .cooperator {
   position: relative;
   min-height: 100px;
