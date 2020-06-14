@@ -1,33 +1,36 @@
 <template>
   <div class="post-single">
-    <v-img
-      id="banner"
-      src="~/assets/images/common/background/race.png"
-      height="300"
-    >
-      <v-row
-        class="fill-height text-center"
-        align="center"
-        justify="center"
+    <keep-alive>
+      <v-img
+        id="banner"
+        :src="require('~/assets/images/common/background/' + banner + '.png')"
+        height="300"
+        eager
       >
-        <v-col cols="8">
-          <v-breadcrumbs
-            class="justify-center py-1"
-            :items="breadcrumb"
-            dark
-            large
-          >
-            <template #divider>
-              <v-icon>$angleRight</v-icon>
-            </template>
-          </v-breadcrumbs>
-          <h1 class="white--text text-h4 font-weight-bold">
-            <slot v-if="$slots.title" name="title" />
-            <span v-else>{{ title }}</span>
-          </h1>
-        </v-col>
-      </v-row>
-    </v-img>
+        <v-row
+          class="fill-height text-center"
+          align="center"
+          justify="center"
+        >
+          <v-col cols="8">
+            <v-breadcrumbs
+              class="justify-center py-1"
+              :items="breadcrumb"
+              dark
+              large
+            >
+              <template #divider>
+                <v-icon>$angleRight</v-icon>
+              </template>
+            </v-breadcrumbs>
+            <h1 class="white--text text-h4 font-weight-bold">
+              <slot v-if="$slots.title" name="title" />
+              <span v-else>{{ title }}</span>
+            </h1>
+          </v-col>
+        </v-row>
+      </v-img>
+    </keep-alive>
     <v-row
       align="center"
       justify="center"
@@ -54,6 +57,7 @@
                       v-if="copied.value"
                       key="copied-true"
                       :icon="['fas', 'check']"
+                      class="green--text"
                     />
                     <fa
                       v-else
@@ -98,9 +102,13 @@ import { mapState } from 'vuex'
  *  - title, content can be passed by props. [slot priority > prop]
  */
 export default {
-  name: 'SingleLayout',
+  name: 'PostLayout',
   components: {},
   props: {
+    banner: {
+      type: String,
+      default: 'race'
+    },
     title: {
       type: String,
       default: ''

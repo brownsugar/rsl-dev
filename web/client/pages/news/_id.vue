@@ -12,6 +12,9 @@
 <script>
 import PostSingle from '~/components/post/single'
 
+/**
+ * Post id must exist in WordPress.
+ */
 export default {
   name: 'NewsSingle',
   components: {

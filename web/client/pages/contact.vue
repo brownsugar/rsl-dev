@@ -1,26 +1,20 @@
 <template>
-  <div class="page">
-    <post-single
-      type="page"
-      :post="post"
-    />
-  </div>
+  <meet-rsl
+    :content="post.content.rendered"
+  />
 </template>
 
 <script>
-import PostSingle from '~/components/post/single'
+import MeetRsl from '~/components/page/meet-rsl'
 
-/**
- * Page slug must exist in WordPress.
- */
 export default {
-  name: 'PageSingle',
+  name: 'Contact',
   components: {
-    PostSingle
+    MeetRsl
   },
   props: {},
   async asyncData ({ store, route, error }) {
-    const post = await store.dispatch('page/getPageBySlug', route.params.slug)
+    const post = await store.dispatch('page/getPageBySlug', 'contact')
     if (!post) {
       error({ statusCode: 404, message: 'Page not found.' })
     }
@@ -31,15 +25,11 @@ export default {
   data: () => ({
     post: {}
   }),
-  computed: {
-  },
+  computed: {},
   watch: {},
   mounted () {
   },
-  beforeDestroy () {
-  },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <v-parallax
     id="about"
-    :src="require('~/assets/images/home/background/drift.png')"
+    :src="require('~/assets/images/common/background/drift.png')"
     height="500"
   >
     <v-container>

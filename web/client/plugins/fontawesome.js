@@ -11,8 +11,8 @@ config.autoAddCss = false
 
 library.add(fas, far, fab)
 
-Vue.component('fa', FontAwesomeIcon)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('fa', FontAwesomeIcon) // For myself
+Vue.component('font-awesome-icon', FontAwesomeIcon) // For Vuetify
 Vue.use(Vuetify)
 
 export default new Vuetify({
