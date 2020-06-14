@@ -31,7 +31,7 @@
               x-large
               nuxt
             >
-              關於 RSL
+              認識 RSL 賽事聯盟
             </v-btn>
           </div>
         </v-col>

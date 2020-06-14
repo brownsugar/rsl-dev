@@ -16,17 +16,35 @@
       </v-toolbar-title>
       <v-spacer />
       <template v-for="(nav, i) in navs">
-        <v-btn
+        <v-menu
           v-if="nav.hidden !== true"
           :key="i"
-          active-class="primary"
-          :to="nav.to"
-          depressed
-          :exact="nav.to === '/'"
-          nuxt
         >
-          {{ nav.label }}
-        </v-btn>
+          <template #activator="{ on, attrs }">
+            <v-btn
+              :color="navChildIsActive(nav) ? 'primary' : ''"
+              active-class="primary"
+              :to="nav.to"
+              depressed
+              :exact="nav.to === '/'"
+              nuxt
+              v-bind="attrs"
+              v-on="on"
+            >
+              {{ nav.label }}
+            </v-btn>
+          </template>
+          <v-list v-if="nav.children">
+            <v-list-item
+              v-for="(item, j) in nav.children"
+              :key="j"
+              :to="item.to"
+              nuxt
+            >
+              <v-list-item-title>{{ item.label }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </template>
     </v-app-bar>
 
@@ -119,8 +137,11 @@ export default {
           hidden: true
         },
         {
-          label: '關於 RSL',
-          to: '/about'
+          label: '認識 RSL',
+          children: [
+            { label: '關於我們', to: '/about' },
+            { label: '聯絡我們', to: '/contact' }
+          ]
         }
       ],
       socials: [
@@ -146,6 +167,14 @@ export default {
     ...mapState([
       'site'
     ])
+  },
+  methods: {
+    navChildIsActive (nav) {
+      if (nav.children && Array.isArray(nav.children)) {
+        return nav.children.some(item => item.to === this.$route.path)
+      }
+      return false
+    }
   },
   head () {
     return {
