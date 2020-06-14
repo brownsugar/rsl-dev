@@ -1,109 +1,50 @@
 <template>
-  <div class="post-single">
-    <v-img
-      id="banner"
-      src="~/assets/images/common/background/race.png"
-      height="300"
+  <post-layout
+    :title="mainTitle"
+    :content="post.content.rendered"
+    :breadcrumb="breadcrumb"
+  >
+    <template #toolbar>
+      <div class="grey--text">
+        發表於 {{ post.date | moment(DATETIME_FORMAT) }}
+      </div>
+    </template>
+    <template
+      v-if="type === 'post'"
+      #actions
     >
-      <v-row
-        class="fill-height text-center"
-        align="center"
-        justify="center"
+      <v-btn
+        text
+        @click="backToList"
       >
-        <v-col cols="8">
-          <v-breadcrumbs
-            class="justify-center py-1"
-            :items="breadcrumb"
-            dark
-            large
-          >
-            <template #divider>
-              <v-icon>$angleRight</v-icon>
-            </template>
-          </v-breadcrumbs>
-          <h1 class="white--text text-h4 font-weight-bold">
-            {{ title }}
-          </h1>
-        </v-col>
-      </v-row>
-    </v-img>
-    <v-row
-      align="center"
-      justify="center"
-      no-gutters
-    >
-      <v-col cols="6">
-        <v-card
-          class="mx-auto mb-12"
-          style="margin-top: -64px;"
-        >
-          <v-toolbar flat>
-            <div class="grey--text">
-              發表於 {{ post.date | moment(DATETIME_FORMAT) }}
-            </div>
-            <v-spacer />
-            <v-tooltip left>
-              <template #activator="{ on, attrs }">
-                <v-btn
-                  icon
-                  :disabled="copied.value"
-                  v-bind="attrs"
-                  v-on="on"
-                  @click="copyUrl"
-                >
-                  <v-scale-transition mode="out-in" origin="center">
-                    <fa
-                      v-if="copied.value"
-                      key="copied-true"
-                      :icon="['fas', 'check']"
-                    />
-                    <fa
-                      v-else
-                      key="copied-false"
-                      :icon="['fas', 'link']"
-                    />
-                  </v-scale-transition>
-                </v-btn>
-              </template>
-              <span>複製文章連結</span>
-            </v-tooltip>
-          </v-toolbar>
-          <v-divider />
-          <div
-            class="post-content px-6 py-5"
-            v-html="post.content.rendered"
-          />
-          <template v-if="type === 'post'">
-            <v-divider />
-            <v-card-actions>
-              <v-btn
-                text
-                @click="backToList"
-              >
-                <v-icon left>
-                  $angleLeft
-                </v-icon>
-                返回列表
-              </v-btn>
-            </v-card-actions>
-          </template>
-        </v-card>
-      </v-col>
-    </v-row>
-  </div>
+        <v-icon left>
+          $angleLeft
+        </v-icon>
+        返回列表
+      </v-btn>
+    </template>
+  </post-layout>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
+import PostLayout from '~/components/post/layout'
 import { DATETIME_FORMAT } from '~/assets/data/const'
 
 export default {
-  name: 'NewsSingle',
-  components: {},
+  name: 'PostSingle',
+  components: {
+    PostLayout
+  },
   props: {
     type: {
       type: String,
       default: 'post'
+    },
+    // Override original title
+    title: {
+      type: String,
+      default: ''
     },
     post: {
       type: Object,
@@ -123,21 +64,20 @@ export default {
     }
   },
   data: () => ({
-    DATETIME_FORMAT,
-    copied: {
-      value: false,
-      timeout: null
-    }
+    DATETIME_FORMAT
   }),
   computed: {
-    ...mapState([
-      'site'
-    ]),
     ...mapGetters('news', [
       'getCategoryById'
     ]),
-    title () {
-      return this.post.title ? this.post.title.rendered : '404 Not Found'
+    mainTitle () {
+      if (this.title) {
+        return this.title
+      }
+      if (this.post && this.post.title) {
+        return this.post.title.rendered
+      }
+      return '404 Not Found'
     },
     categoryName () {
       if (this.post) {
@@ -177,9 +117,6 @@ export default {
   watch: {},
   mounted () {
   },
-  beforeDestroy () {
-    clearTimeout(this.copied.timeout)
-  },
   methods: {
     backToList () {
       if (this.fromRoute && this.fromRoute.name === 'news') {
@@ -187,39 +124,13 @@ export default {
       } else {
         this.$router.push('/news')
       }
-    },
-    copyUrl () {
-      clearTimeout(this.copied.timeout)
-      const url = this.site.url + this.$route.path
-      this.$copyText(url).then(() => {
-        this.copied.value = true
-        this.copied.timeout = setTimeout(() => {
-          this.copied.value = false
-        }, 2000)
-      })
     }
   },
   head: self => ({
-    title: self.title
+    title: self.mainTitle
   })
 }
 </script>
 
 <style lang="scss" scoped>
-#banner {
-  @include img-cover() {
-    background-image: image('common/background/dark-cover.png');
-  }
-}
-.post-content {
-  ::v-deep {
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    p:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
 </style>
