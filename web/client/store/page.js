@@ -21,10 +21,14 @@ export const actions = {
     } else {
       return this.$axios.$get('wp/v2/pages?slug=' + slug + '&_embed').then((posts) => {
         const post = posts[0]
-        commit('addSingle', {
-          [slug]: post
-        })
+        if (post) {
+          commit('addSingle', {
+            [slug]: post
+          })
+        }
         return post
+      }).catch((e) => {
+        return null
       })
     }
   }

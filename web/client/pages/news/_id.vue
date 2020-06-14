@@ -18,8 +18,11 @@ export default {
     PostSingle
   },
   props: {},
-  async asyncData ({ store, route }) {
+  async asyncData ({ store, route, error }) {
     const post = await store.dispatch('news/getNewsById', route.params.id)
+    if (!post) {
+      error({ statusCode: 404, message: 'Post not found.' })
+    }
     return {
       post
     }

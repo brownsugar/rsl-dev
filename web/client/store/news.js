@@ -65,10 +65,14 @@ export const actions = {
       return Promise.resolve(state.single[id])
     } else {
       return this.$axios.$get('wp/v2/posts/' + id + '?_embed').then((post) => {
-        commit('addSingle', {
-          [post.id]: post
-        })
+        if (post) {
+          commit('addSingle', {
+            [post.id]: post
+          })
+        }
         return post
+      }).catch((e) => {
+        return null
       })
     }
   }

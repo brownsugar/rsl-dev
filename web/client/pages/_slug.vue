@@ -16,8 +16,11 @@ export default {
     PostSingle
   },
   props: {},
-  async asyncData ({ store, route }) {
+  async asyncData ({ store, route, error }) {
     const post = await store.dispatch('page/getPageBySlug', route.params.slug)
+    if (!post) {
+      error({ statusCode: 404, message: 'Page not found.' })
+    }
     return {
       post
     }
