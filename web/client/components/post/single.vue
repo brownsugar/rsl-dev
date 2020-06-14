@@ -11,12 +11,8 @@
         justify="center"
       >
         <v-col cols="8">
-          <h1 class="white--text text-h4 font-weight-bold">
-            {{ title }}
-          </h1>
           <v-breadcrumbs
-            v-if="type === 'post'"
-            class="justify-center"
+            class="justify-center py-1"
             :items="breadcrumb"
             dark
             large
@@ -25,6 +21,9 @@
               <v-icon>$angleRight</v-icon>
             </template>
           </v-breadcrumbs>
+          <h1 class="white--text text-h4 font-weight-bold">
+            {{ title }}
+          </h1>
         </v-col>
       </v-row>
     </v-img>
@@ -110,6 +109,14 @@ export default {
       type: Object,
       default: () => {}
     },
+    listPath: {
+      type: String,
+      default: ''
+    },
+    listLabel: {
+      type: String,
+      default: ''
+    },
     fromRoute: {
       type: Object,
       default: () => {}
@@ -133,26 +140,38 @@ export default {
       return this.post.title ? this.post.title.rendered : '404 Not Found'
     },
     categoryName () {
-      const catId = this.post.categories[0]
-      const category = this.getCategoryById(catId)
-      return category.name || '未分類'
+      if (this.post) {
+        const catId = this.post.categories[0]
+        const category = this.getCategoryById(catId)
+        if (category.name) {
+          return category.name
+        }
+      }
+      return '未分類'
     },
     breadcrumb () {
-      return this.post ? [
-        {
-          text: '首頁',
-          to: '/'
-        },
-        {
-          text: '最新消息',
-          to: '/news',
+      const base = [{
+        text: '首頁',
+        to: '/'
+      }]
+      if (this.listPath && this.listLabel) {
+        base.push({
+          text: this.listLabel,
+          to: this.listPath,
           exact: true
-        },
-        {
+        })
+      }
+      if (this.type === 'post') {
+        base.push({
           text: this.categoryName,
           disabled: true
-        }
-      ] : []
+        })
+      }
+      base.push({
+        text: '',
+        disabled: true
+      })
+      return base
     }
   },
   watch: {},

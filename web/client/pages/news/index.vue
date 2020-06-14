@@ -5,7 +5,6 @@
         <primary-title text="最新消息" />
         <v-row
           class="mt-4"
-          justify="center"
         >
           <template v-if="loading">
             <v-col
@@ -25,11 +24,13 @@
               cols="4"
             >
               <v-card>
-                <v-img
-                  :aspect-ratio="1280 / 628"
-                  :src="getPostFeaturedImg(post._embedded)"
-                  width="100%"
-                />
+                <n-link :to="'/news/' + post.id">
+                  <v-img
+                    :aspect-ratio="1280 / 628"
+                    :src="getPostFeaturedImg(post._embedded)"
+                    width="100%"
+                  />
+                </n-link>
 
                 <v-card-title class="post-title">
                   {{ post.title.rendered }}

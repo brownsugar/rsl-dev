@@ -2,6 +2,8 @@
   <div class="news">
     <post-single
       :post="post"
+      list-path="/news"
+      list-label="最新消息"
       :from-route="fromRoute"
     />
   </div>
