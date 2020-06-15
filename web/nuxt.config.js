@@ -18,6 +18,9 @@ const compressPlugins = isProd
 module.exports = {
   mode: 'universal',
   srcDir: 'client/',
+  server: {
+    port: config.server.port
+  },
   /*
   ** Headers of the page
   */

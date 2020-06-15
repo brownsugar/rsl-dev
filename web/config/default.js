@@ -8,6 +8,9 @@ const defer = require('config/defer').deferConfig
  */
 
 const config = {
+  server: {
+    port: 3000
+  },
   api: 'http://rsl.local/api',
   rsl: {
     facebook: {
