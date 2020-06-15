@@ -52,7 +52,7 @@ function get_site_info( $request ) {
  * https://wordpress.org/plugins/wp-rest-cache/
  */
 function rsl_wprc_endpoint( $allowed_endpoints ) {
-	if ( ! isset( $allowed_endpoints['rsl/v1'] ) || ! in_array( 'site', $allowed_endpoints['rsl/v1'] ) ) {
+	if ( ! isset( $allowed_endpoints['rsl/v1'] ) || ! in_array( 'site', $allowed_endpoints['rsl/v1'], true ) ) {
 		$allowed_endpoints['rsl/v1'][] = 'site';
 	}
 	return $allowed_endpoints;

@@ -1,7 +1,8 @@
 <?php
 
 require_once 'inc/rest-rsl.php';
-require_once 'inc/extend.php';
+require_once 'inc/extends.php';
+require_once 'inc/uploads.php';
 
 /**
  * Improve oembed feature
