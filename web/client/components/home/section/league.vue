@@ -4,217 +4,229 @@
     class="grey lighten-3"
   >
     <particles class="fill-width fill-height" />
-    <v-row
-      class="py-12"
-      justify="center"
-    >
-      <v-col class="left" cols="2">
-        <h3 class="text-h3 font-weight-bold primary--text mb-2">
-          SEASON 1
-        </h3>
-        <h4 class="text-h3">
-          重啓夢想，<br>
-          重燃渴望。
-        </h4>
-        <v-btn
-          class="v-btn--action mt-5"
-          color="primary"
-          to="/season1"
-          depressed
-          large
-          nuxt
+    <v-container fluid>
+      <v-row
+        class="py-12"
+        justify="center"
+      >
+        <v-col
+          class="left mb-12 mb-lg-0"
+          cols="12"
+          md="3"
+          lg="2"
         >
-          查看完整資訊
-        </v-btn>
-      </v-col>
-      <v-col class="right mb-n10" cols="6">
-        <category name="聯賽資訊">
-          <ul>
-            <li>報名時間：2020/06/19 12:00 ~ 2020/06/28 00:00</li>
-            <li>聯賽時程：2020/07/04 ~ 2020/08/26</li>
-            <li>
-              聯賽獎金：
-              <ul>
-                <li>冠軍：NTD $30,000</li>
-                <li>亞軍：NTD $15,000</li>
-                <li>季軍：NTD $5,000</li>
-              </ul>
-            </li>
-            <li>
-              特別獎項：
-              <ul>
-                <li>冠軍賽 MVP：NTD $5,000</li>
-                <li>賽道紀錄霸主：NTD $3,000</li>
-                <li>觀眾票選人氣王：NTD $2,000</li>
-              </ul>
-            </li>
-          </ul>
-        </category>
-        <category
-          description="你渴望一對翅膀嗎？本季聯賽前 20 名報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一箱，助你飆的更快更穩！"
-        >
-          <template #name>
-            <span class="red--text font-weight-bold">Red Bull</span> 幫你補充飆速能量
-          </template>
-          <v-img
-            aspect-ratio="1"
-            src="~/assets/images/cooperator/redbull.png"
-            width="400"
-          />
-        </category>
-        <category
-          name="聯賽直播"
-          description="賽事開打期間每個週末晚間 8 點於 RSL 官方 YouTube、Twitch 頻道同步轉播賽事，立即訂閱頻道，精彩賽事不漏接！"
-        >
-          <v-row class="my-n3">
-            <v-col
-              cols="12"
-              md="4"
-            >
-              <link-card
-                brand="youtube"
-                :link="$config.rsl.youtube.url"
-                :hover-text="'@' + $config.rsl.youtube.username"
-              />
-            </v-col>
-            <v-col
-              cols="12"
-              md="4"
-            >
-              <link-card
-                brand="twitch"
-                :link="$config.rsl.twitch.url"
-                :hover-text="'@' + $config.rsl.twitch.username"
-              />
-            </v-col>
-          </v-row>
-        </category>
-        <category name="賽制說明">
-          <template #description>
-            RSL 夢想盃在本季聯賽中採用嶄新賽制，選手們同時要在競速賽道上甩尾飆速，以及在道具賽中靈活運用各式道具鬥智取勝。<br>
-            除了能讓選手透過更多元的管道和對手分出高下，也讓觀眾在觀看比賽時獲得雙重饗宴。
-          </template>
-          <v-row
-            class="my-n3"
-            justify="center"
+          <h3 class="text-h3 font-weight-bold primary--text mb-2">
+            SEASON 1
+          </h3>
+          <h4 class="text-h3">
+            重啓夢想，<br v-if="$vuetify.breakpoint.lgAndUp || $vuetify.breakpoint.xsOnly">
+            重燃渴望。
+          </h4>
+          <v-btn
+            class="v-btn--action mt-5"
+            color="primary"
+            to="/season1"
+            depressed
+            large
+            nuxt
           >
-            <v-col
-              v-for="(set, i) in sets"
-              :key="i"
-              cols="4"
-            >
-              <v-card>
-                <v-card-text>
-                  <div>SET {{ i + 1 }}</div>
-                  <div class="text-h4 text--primary mb-2">
-                    {{ set.title }} <span class="font-weight-light text-uppercase">{{ set.subtitle }}</span>
-                  </div>
-                  <v-img
-                    aspect-ratio="1"
-                    class="mx-auto"
-                    :src="require('~/assets/images/home/' + set.image)"
-                    width="80%"
-                  />
-                  <div class="mt-1">
-                    {{ set.description }}
-                  </div>
-                </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
-        </category>
-        <category name="指定賽道">
-          <v-card>
-            <v-tabs
-              v-model="tabTrackType"
-              color="secondary"
-              grow
-            >
-              <v-tab
-                v-for="(tab, i) in tabTracks"
+            查看完整資訊
+          </v-btn>
+        </v-col>
+        <v-col
+          class="right mb-n10"
+          cols="12"
+          md="9"
+          lg="6"
+        >
+          <category name="聯賽資訊">
+            <ul>
+              <li>報名時間：2020/06/19 12:00 ~ 2020/06/28 00:00</li>
+              <li>聯賽時程：2020/07/04 ~ 2020/08/26</li>
+              <li>
+                聯賽獎金：
+                <ul>
+                  <li>冠軍：NTD $30,000</li>
+                  <li>亞軍：NTD $15,000</li>
+                  <li>季軍：NTD $5,000</li>
+                </ul>
+              </li>
+              <li>
+                特別獎項：
+                <ul>
+                  <li>冠軍賽 MVP：NTD $5,000</li>
+                  <li>賽道紀錄霸主：NTD $3,000</li>
+                  <li>觀眾票選人氣王：NTD $2,000</li>
+                </ul>
+              </li>
+            </ul>
+          </category>
+          <category
+            description="你渴望一對翅膀嗎？本季聯賽前 20 名報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一箱，助你飆的更快更穩！"
+          >
+            <template #name>
+              <span class="red--text font-weight-bold">Red Bull</span> 幫你補充飆速能量
+            </template>
+            <v-img
+              aspect-ratio="1"
+              src="~/assets/images/cooperator/redbull.png"
+              width="400"
+            />
+          </category>
+          <category
+            name="聯賽直播"
+            description="賽事開打期間每個週末晚間 8 點於 RSL 官方 YouTube、Twitch 頻道同步轉播賽事，立即訂閱頻道，精彩賽事不漏接！"
+          >
+            <v-row class="my-n3">
+              <v-col
+                v-for="(channel, i) in channels"
                 :key="i"
+                cols="12"
+                sm="5"
+                md="4"
               >
-                {{ tab.label }}
-              </v-tab>
-            </v-tabs>
-            <v-tabs-items v-model="tabTrackType">
-              <v-tab-item
-                v-for="(tab, i) in tabTracks"
+                <link-card
+                  :brand="channel"
+                  :link="$config.rsl[channel].url"
+                  :hover-text="'@' + $config.rsl[channel].username"
+                />
+              </v-col>
+            </v-row>
+          </category>
+          <category name="賽制說明">
+            <template #description>
+              RSL 夢想盃在本季聯賽中採用嶄新賽制，選手們同時要在競速賽道上甩尾飆速，以及在道具賽中靈活運用各式道具鬥智取勝。<br>
+              除了能讓選手透過更多元的管道和對手分出高下，也讓觀眾在觀看比賽時獲得雙重饗宴。
+            </template>
+            <v-row
+              class="my-n3"
+              justify="center"
+            >
+              <v-col
+                v-for="(set, i) in sets"
                 :key="i"
+                cols="12"
+                sm="4"
               >
-                <v-row>
-                  <v-col
-                    v-for="track in tab.tracks"
-                    :key="track.id"
-                    cols="6"
-                  >
-                    <v-card flat>
-                      <div class="d-flex justify-space-between">
-                        <div class="d-flex flex-column">
-                          <v-rating
-                            class="px-4"
-                            background-color="grey lighten-2"
-                            color="grey"
-                            empty-icon="$starEmpty"
-                            :value="track.level"
-                            readonly
-                            dense
-                            small
-                          />
-                          <v-card-title
-                            class="pt-0"
-                            v-text="track.name"
-                          />
+                <v-card>
+                  <v-card-text>
+                    <div>SET {{ i + 1 }}</div>
+                    <div class="text-h4 text--primary mb-2">
+                      {{ set.title }}
+                      <span class="text-h6 font-weight-light text-uppercase">{{ set.subtitle }}</span>
+                    </div>
+                    <v-img
+                      aspect-ratio="1"
+                      class="mx-auto"
+                      :src="require('~/assets/images/home/' + set.image)"
+                      :width="$vuetify.breakpoint.xsOnly ? '50%' : '80%'"
+                    />
+                    <div class="mt-1">
+                      {{ set.description }}
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </category>
+          <category name="指定賽道">
+            <v-card>
+              <v-tabs
+                v-model="tabTrackType"
+                color="secondary"
+                grow
+              >
+                <v-tab
+                  v-for="(tab, i) in tabTracks"
+                  :key="i"
+                >
+                  {{ tab.label }}
+                </v-tab>
+              </v-tabs>
+              <v-tabs-items v-model="tabTrackType">
+                <v-tab-item
+                  v-for="(tab, i) in tabTracks"
+                  :key="i"
+                >
+                  <v-row>
+                    <v-col
+                      v-for="track in tab.tracks"
+                      :key="track.id"
+                      cols="12"
+                      sm="6"
+                    >
+                      <v-card flat>
+                        <div class="d-flex">
+                          <div class="d-flex flex-column">
+                            <v-rating
+                              class="px-4"
+                              background-color="grey lighten-2"
+                              color="grey"
+                              empty-icon="$starEmpty"
+                              :value="track.level"
+                              readonly
+                              dense
+                              small
+                            />
+                            <v-card-title
+                              class="pt-0"
+                              v-text="track.name"
+                            />
+                            <v-spacer />
+                            <v-card-text
+                              v-if="tab.type === 'speed'"
+                              class="primary--text"
+                            >
+                              本季最佳 / COMING SOON
+                            </v-card-text>
+                          </div>
                           <v-spacer />
-                          <v-card-text
-                            v-if="tab.type === 'speed'"
-                            class="primary--text"
-                          >
-                            本季最佳 / COMING SOON
-                          </v-card-text>
+                          <v-img
+                            class="flex-grow-0 mx-3"
+                            :src="require(`~/assets/images/tracks/${track.id}.jpg`)"
+                            :width="$vuetify.breakpoint.xsOnly ? 100 : 160"
+                            :height="$vuetify.breakpoint.xsOnly ? 75 : 120"
+                            :alt="track.name"
+                          />
                         </div>
-                        <v-img
-                          class="flex-grow-0 mx-3"
-                          :src="require(`~/assets/images/tracks/${track.id}.jpg`)"
-                          width="160"
-                          height="120"
-                          :alt="track.name"
-                        />
-                      </div>
-                    </v-card>
-                  </v-col>
-                </v-row>
-              </v-tab-item>
-            </v-tabs-items>
-          </v-card>
-        </category>
-        <category name="主播陣容">
-          <template #description>
-            精彩的賽事除了仰賴於菁英選手的競賽過程之外，專業的主播和賽評也一位都不能少！<br>
-            RSL 夢想盃本季聯賽邀請到知名聯賽主播「蛋蛋」、跑跑卡丁車專業講評「爆哥」、校園五速嘴解說「SpaceQ」，為關注賽事的觀眾們帶來精采的播報內容。
-          </template>
-          <v-row
-            justify="center"
-            no-gutters
-          >
-            <v-col
-              v-for="(host, i) in hosts"
-              :key="i"
-              class="mx-n4"
-              cols="3"
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-tab-item>
+              </v-tabs-items>
+            </v-card>
+          </category>
+          <category name="主播陣容">
+            <template #description>
+              精彩的賽事除了仰賴於菁英選手的競賽過程之外，專業的主播和賽評也一位都不能少！<br>
+              RSL 夢想盃本季聯賽邀請到知名聯賽主播「蛋蛋」、跑跑卡丁車專業講評「爆哥」、校園五速嘴解說「SpaceQ」以及曾經摘下 K1 聯賽冠軍的「保羅」，為關注賽事的觀眾們帶來精采的播報內容。
+            </template>
+            <div
+              class="hosts d-flex justify-space-between mx-lg-8"
+              :class="{
+                simple: $vuetify.breakpoint.mdAndDown,
+              }"
             >
               <v-img
-                class="host-avatar"
+                v-for="(host, i) in hosts"
+                :key="i"
+                class="host-avatar mx-lg-n8"
                 :src="require(`~/assets/images/host/${host.avatar}`)"
                 gradient="to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .8) 100%"
-                width="360"
-                height="360"
+                width="250"
+                :height="$vuetify.breakpoint.mdAndDown ? 250 : 300"
                 :alt="host.name"
                 eager
               >
-                <v-row class="px-8 py-2 fill-height white--text" align="end">
+                <v-row
+                  class="px-4 px-sm-8 py-2 fill-height white--text"
+                  align="end"
+                >
                   <v-col>
-                    <div class="subheading">
+                    <div
+                      v-if="$vuetify.breakpoint.smAndUp"
+                      class="subheading"
+                    >
                       {{ host.title }}
                     </div>
                     <div class="text-h5 font-weight-bold">
@@ -233,15 +245,15 @@
                   </v-col>
                 </v-row>
               </v-img>
-            </v-col>
-          </v-row>
-          <host-dialog
-            :visible.sync="hostDialog.visible"
-            :host="hostDialog.data"
-          />
-        </category>
-      </v-col>
-    </v-row>
+            </div>
+            <host-dialog
+              :visible.sync="hostDialog.visible"
+              :host="hostDialog.data"
+            />
+          </category>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -262,6 +274,7 @@ export default {
   },
   props: {},
   data: () => ({
+    channels: ['youtube', 'twitch'],
     sets: [
       {
         title: '競速賽',
@@ -291,7 +304,7 @@ export default {
       {
         name: '蛋蛋',
         alias: 'DanDan',
-        title: '知名聯賽賽評',
+        title: '知名聯賽主播',
         avatar: 'dandan.jpg',
         link: 'https://www.youtube.com/user/cvb3027',
         experience: `-播報經驗-
@@ -412,7 +425,16 @@ export default {
 .right {
   position: relative;
 }
-.host-avatar {
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+.hosts {
+  &.simple {
+    flex-wrap: wrap;
+
+    .host-avatar {
+      flex: 1 0 50%;
+    }
+  }
+  &:not(.simple) .host-avatar {
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  }
 }
 </style>

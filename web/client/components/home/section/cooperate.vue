@@ -8,11 +8,20 @@
       <v-row
         v-for="(cooperator, i) in cooperators"
         :key="i"
+        class="my-4"
       >
-        <v-col class="d-flex align-center" cols="2">
+        <v-col
+          class="d-flex align-center pb-0 pb-sm-3"
+          :class="{ 'justify-center': $vuetify.breakpoint.xsOnly }"
+          cols="12"
+          sm="2"
+        >
           {{ cooperator.title }}
         </v-col>
-        <v-col class="d-flex flex-wrap align-center">
+        <v-col
+          class="d-flex flex-wrap align-center"
+          :class="{ 'justify-center': $vuetify.breakpoint.xsOnly }"
+        >
           <a
             v-for="(company, j) in cooperator.data"
             :key="j"
@@ -27,7 +36,7 @@
               <img
                 class="d-block"
                 :src="require(`~/assets/images/cooperator/${company.logo.file}`)"
-                :height="company.logo.height"
+                :height="company.logo.height * ($vuetify.breakpoint.smAndDown ? 0.75 : 1)"
                 :alt="company.name"
               >
             </v-lazy>
@@ -41,11 +50,18 @@
         dense
       >
         <v-row align="center" no-gutters>
-          <v-col class="grow">
+          <v-col class="shrink">
             <fa class="mr-2" :icon="['fas', 'info-circle']" />
+          </v-col>
+          <v-col class="grow ml-1 mr-2">
             想在「RSL 夢想盃跑跑跑跑聯賽」中曝光您的產品或業務嗎？RSL 賽事聯盟持續招商中，歡迎與我們合作！
           </v-col>
-          <v-col class="shrink">
+          <v-col
+            class="shrink"
+            :class="[ $vuetify.breakpoint.xsOnly ? 'd-flex justify-end pt-2' : '' ]"
+            cols="12"
+            sm="auto"
+          >
             <v-btn
               color="secondary"
               to="/contact"

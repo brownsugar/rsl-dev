@@ -4,33 +4,43 @@
     :src="require('~/assets/images/common/background/race.png')"
     height="900"
   >
-    <v-row
-      align="center"
-      justify="center"
-    >
-      <v-col cols="8">
-        <h1 class="text-h6 mb-2">
-          RE:START KARTRIDER LEAGUE <span class="yellow--text">SEASON 1</span>
-        </h1>
-        <h2 class="text-h2 font-weight-bold">
-          重啟<span class="primary--text">夢想</span>，<br>
-          重燃<span class="primary--text">渴望</span>。
-        </h2>
-        <p class="mt-3">
-          2020 夏天，RSL 夢想盃跑跑聯賽即將重新燃燒你的電競魂。<br>
-          總獎金高達新臺幣 60,000 元，還有豐富的遊戲道具獎勵及專業電競週邊，你還在等什麼？
-        </p>
-        <v-btn
-          class="v-btn--action mt-5"
-          color="primary"
-          depressed
-          large
-          @click="$vuetify.goTo('#league')"
+    <v-container fluid>
+      <v-row
+        align="center"
+        justify="center"
+      >
+        <v-col
+          cols="12"
+          md="10"
+          lg="8"
         >
-          6/19 開始報名
-        </v-btn>
-      </v-col>
-    </v-row>
+          <h1 class="text-h6 mb-2">
+            RE:START KARTRIDER LEAGUE<br v-if="$vuetify.breakpoint.xsOnly">
+            <span class="yellow--text">SEASON 1</span>
+          </h1>
+          <h2
+            class="font-weight-bold"
+            :class="[ $vuetify.breakpoint.xsOnly ? 'text-h3' : 'text-h2' ]"
+          >
+            重啟<span class="primary--text">夢想</span>，<br>
+            重燃<span class="primary--text">渴望</span>。
+          </h2>
+          <p class="mt-3">
+            2020 夏天，RSL 夢想盃跑跑聯賽即將重新燃燒你的電競魂。<br>
+            總獎金高達新臺幣 60,000 元，還有豐富的遊戲道具獎勵及專業電競週邊，你還在等什麼？
+          </p>
+          <v-btn
+            class="v-btn--action mt-5"
+            color="primary"
+            depressed
+            large
+            @click="$vuetify.goTo('#league')"
+          >
+            6/19 開始報名
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-parallax>
 </template>
 

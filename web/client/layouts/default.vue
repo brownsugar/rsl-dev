@@ -58,8 +58,13 @@
         flat
         dark
       >
-        <v-card-title class="justify-center">
-          <strong class="text-body-1 mr-6">現在就追蹤 RSL 賽事聯盟！</strong>
+        <v-card-title
+          class="justify-center"
+          :class="{ 'd-block': $vuetify.breakpoint.smAndDown }"
+        >
+          <div class="text-body-1 mb-1 mb-md-0 mr-md-6">
+            現在就追蹤 RSL 賽事聯盟！
+          </div>
           <v-tooltip
             v-for="(social, i) in socials"
             :key="i"

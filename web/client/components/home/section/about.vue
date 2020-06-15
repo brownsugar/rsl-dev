@@ -2,24 +2,42 @@
   <v-parallax
     id="about"
     :src="require('~/assets/images/common/background/drift.png')"
-    height="500"
+    :height="$vuetify.breakpoint.smAndDown ? 600 : 500"
   >
     <v-container>
       <v-row justify="center">
-        <v-col cols="2">
+        <v-col
+          cols="12"
+          md="3"
+          lg="2"
+        >
           <v-img
+            class="mx-auto"
             src="~/assets/images/rsl/rsl-color-full.svg"
-            max-width="100%"
+            :max-width="$vuetify.breakpoint.smAndDown ? 200 : '100%'"
           />
         </v-col>
-        <v-col cols="8">
-          <h3 class="text-h4 text-uppercase">
+        <v-col
+          cols="12"
+          md="9"
+          lg="8"
+        >
+          <h3
+            class="text-uppercase"
+            :class="[ $vuetify.breakpoint.smAndDown ? 'text-h6' : 'text-h4' ]"
+          >
             We are
           </h3>
-          <h4 class="text-h3 font-weight-bold yellow--text">
+          <h4
+            class="font-weight-bold yellow--text"
+            :class="[ $vuetify.breakpoint.smAndDown ? 'text-h4' : 'text-h3' ]"
+          >
             RE:START LEAGUE
           </h4>
-          <div class="text-h6 mt-2">
+          <div
+            class="mt-2"
+            :class="{ 'text-h6': $vuetify.breakpoint.mdAndUp }"
+          >
             RSL 賽事聯盟，全名為「RE:START LEAGUE」，由三名兼具賽事舉辦經驗、玩家社群經營與遊戲領域影響力的核心玩家所組成。<br>
             我們致力於打造完善的電競聯賽環境、建立公平的賽事舞台，希望藉由 RSL 聯賽讓玩家重新燃起心目中的電競選手夢想。
           </div>
@@ -28,7 +46,7 @@
               class="v-btn--action"
               color="primary"
               to="/about"
-              x-large
+              :x-large="$vuetify.breakpoint.mdAndUp"
               nuxt
             >
               認識 RSL 賽事聯盟

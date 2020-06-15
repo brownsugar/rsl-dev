@@ -1,6 +1,6 @@
 const config = {
   server: {
-    port: 80
+    port: 3000
   },
   api: 'https://delta.rsl.tw/api'
 }
