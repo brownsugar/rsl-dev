@@ -40,17 +40,21 @@
           :key="i"
           justify="center"
         >
-          <v-col cols="10">
+          <v-col
+            cols="12"
+            md="10"
+          >
             <v-card
               class="member-card fill-height"
               color="grey lighten-5"
             >
-              <v-row
-                no-gutters
-              >
-                <v-col cols="5">
+              <v-row no-gutters>
+                <v-col
+                  cols="12"
+                  md="5"
+                >
                   <v-img
-                    class="member-avatar"
+                    class="member-avatar mx-auto"
                     :src="require('~/assets/images/' + member.avatar)"
                     width="250"
                     height="250"
@@ -58,7 +62,10 @@
                     eager
                   />
                 </v-col>
-                <v-col cols="7">
+                <v-col
+                  cols="12"
+                  md="7"
+                >
                   <v-card-text>
                     <div class="mb-1">
                       {{ member.title }}
@@ -94,7 +101,9 @@
         <p>
           在過去四年間，RSL 團隊成員已組織過許多跑跑卡丁車相關賽事，從玩家社群小型線上交流賽至夢時代演藝廳大型線下賽，共同創造許多令人印象深刻且膾炙人口的賽事，較為知名的賽事如下表所示。
         </p>
-        <v-timeline>
+        <v-timeline
+          :dense="$vuetify.breakpoint.xsOnly"
+        >
           <v-timeline-item
             v-for="(highlight, i) in highlights"
             :key="i"
@@ -106,10 +115,29 @@
               </span>
             </template>
             <v-card>
-              <v-card-title>
-                <span class="headline">{{ highlight.title }}</span>
+              <v-card-subtitle
+                v-if="$vuetify.breakpoint.xsOnly"
+                class="grey--text pb-0"
+              >
+                {{ highlight.date }}
+              </v-card-subtitle>
+              <v-card-title
+                class="pt-1 pt-sm-4"
+                :class="[ $vuetify.breakpoint.xsOnly ? 'text-h6' : 'text-h5' ]"
+              >
+                {{ highlight.title }}
+              </v-card-title>
+              <v-card-text
+                :class="{ 'pb-0': !!highlight.link }"
+              >
+                {{ highlight.content }}
+              </v-card-text>
+              <v-card-actions
+                v-if="highlight.link"
+                class="pt-0"
+              >
+                <v-spacer />
                 <v-tooltip
-                  v-if="highlight.link"
                   top
                 >
                   <template #activator="{ on, attrs }">
@@ -125,10 +153,7 @@
                   </template>
                   <span>查看</span>
                 </v-tooltip>
-              </v-card-title>
-              <v-card-text>
-                {{ highlight.content }}
-              </v-card-text>
+              </v-card-actions>
             </v-card>
           </v-timeline-item>
         </v-timeline>

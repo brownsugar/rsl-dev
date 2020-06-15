@@ -1,7 +1,11 @@
 <template>
-  <v-container class="py-6">
+  <v-container class="py-6" fluid>
     <v-row justify="center">
-      <v-col cols="8">
+      <v-col
+        cols="12"
+        md="10"
+        lg="8"
+      >
         <primary-title text="最新消息" />
         <v-row
           class="mt-4"
@@ -10,7 +14,9 @@
             <v-col
               v-for="i in 3"
               :key="i"
-              cols="4"
+              cols="12"
+              sm="6"
+              md="4"
             >
               <v-skeleton-loader
                 type="card"
@@ -21,7 +27,9 @@
             <v-col
               v-for="post in current"
               :key="post.id"
-              cols="4"
+              cols="12"
+              sm="6"
+              md="4"
             >
               <v-card>
                 <n-link :to="'/news/' + post.id">

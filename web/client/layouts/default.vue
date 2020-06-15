@@ -15,48 +15,47 @@
         </n-link>
       </v-toolbar-title>
       <v-spacer />
+      <template v-if="$vuetify.breakpoint.mdAndUp">
+        <template v-for="(nav, i) in navs">
+          <v-menu
+            v-if="nav.hidden !== true"
+            :key="i"
+          >
+            <template #activator="{ on, attrs }">
+              <v-btn
+                :color="navChildIsActive(nav) ? 'primary' : ''"
+                active-class="primary"
+                :to="nav.to"
+                :exact="nav.to === '/'"
+                depressed
+                nuxt
+                v-bind="attrs"
+                v-on="on"
+              >
+                {{ nav.label }}
+              </v-btn>
+            </template>
+            <v-list v-if="nav.children">
+              <v-list-item
+                v-for="(item, j) in nav.children"
+                :key="j"
+                :to="item.to"
+                nuxt
+              >
+                <v-list-item-title>{{ item.label }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </template>
+      </template>
       <v-btn
-        v-if="$vuetify.breakpoint.smAndDown"
+        v-else
         depressed
         icon
         @click="drawer.visible = true"
       >
         <fa :icon="['far', 'bars']" />
       </v-btn>
-      <template
-        v-for="(nav, i) in navs"
-        v-else
-      >
-        <v-menu
-          v-if="nav.hidden !== true"
-          :key="i"
-        >
-          <template #activator="{ on, attrs }">
-            <v-btn
-              :color="navChildIsActive(nav) ? 'primary' : ''"
-              active-class="primary"
-              :to="nav.to"
-              :exact="nav.to === '/'"
-              depressed
-              nuxt
-              v-bind="attrs"
-              v-on="on"
-            >
-              {{ nav.label }}
-            </v-btn>
-          </template>
-          <v-list v-if="nav.children">
-            <v-list-item
-              v-for="(item, j) in nav.children"
-              :key="j"
-              :to="item.to"
-              nuxt
-            >
-              <v-list-item-title>{{ item.label }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </template>
     </v-app-bar>
 
     <v-navigation-drawer
