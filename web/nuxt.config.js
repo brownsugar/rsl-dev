@@ -124,7 +124,7 @@ module.exports = {
   googleAnalytics: {
     id: 'UA-106820667-3',
     debug: {
-      enabled: true
+      enabled: !isProd
       // trace: true
       // sendHitTask: true
     },
