@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * Custom wp-json API path
+ */
+function rsl_rest_url_prefix( $slug ) {
+	return 'api';
+}
+add_filter( 'rest_url_prefix', 'rsl_rest_url_prefix' );
+
+/**
  * Add rsl/v1 endpoint
  */
 function rsl_rest_api_init() {

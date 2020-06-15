@@ -1,9 +1,11 @@
-$btn-skew: -15deg;
-
+/**
+ * Custom theme
+ */
 .fill-width {
   width: 100%;
 }
 
+$btn-skew: -15deg;
 .v-btn:not(.v-btn--round) {
   transform: skew($btn-skew);
 
@@ -31,5 +33,32 @@ $btn-skew: -15deg;
         transition-delay: 0s, 0s;
       }
     }
+  }
+}
+
+/**
+ * Single post content
+ */
+.post-content {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  .responsive-embed {
+    position: relative;
+    margin: 10px 0;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .responsive-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }

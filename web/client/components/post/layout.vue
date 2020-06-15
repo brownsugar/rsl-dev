@@ -1,36 +1,34 @@
 <template>
   <div class="post-single">
-    <keep-alive>
-      <v-img
-        id="banner"
-        :src="require('~/assets/images/common/background/' + banner + '.png')"
-        height="300"
-        eager
+    <v-img
+      id="banner"
+      :src="require('~/assets/images/common/background/' + banner + '.png')"
+      height="300"
+      eager
+    >
+      <v-row
+        class="fill-height text-center"
+        align="center"
+        justify="center"
       >
-        <v-row
-          class="fill-height text-center"
-          align="center"
-          justify="center"
-        >
-          <v-col cols="8">
-            <v-breadcrumbs
-              class="justify-center py-1"
-              :items="breadcrumb"
-              dark
-              large
-            >
-              <template #divider>
-                <v-icon>$angleRight</v-icon>
-              </template>
-            </v-breadcrumbs>
-            <h1 class="white--text text-h4 font-weight-bold">
-              <slot v-if="$slots.title" name="title" />
-              <span v-else>{{ title }}</span>
-            </h1>
-          </v-col>
-        </v-row>
-      </v-img>
-    </keep-alive>
+        <v-col cols="8">
+          <v-breadcrumbs
+            class="justify-center py-1"
+            :items="breadcrumb"
+            dark
+            large
+          >
+            <template #divider>
+              <v-icon>$angleRight</v-icon>
+            </template>
+          </v-breadcrumbs>
+          <h1 class="white--text text-h4 font-weight-bold">
+            <slot v-if="$slots.title" name="title" />
+            <span v-else>{{ title }}</span>
+          </h1>
+        </v-col>
+      </v-row>
+    </v-img>
     <v-row
       align="center"
       justify="center"
@@ -154,17 +152,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.post-content {
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-</style>
 <style lang="scss" scoped>
 #banner {
   @include img-cover() {

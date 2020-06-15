@@ -1,25 +1,22 @@
 <?php
 
 require_once 'inc/rest-rsl.php';
+require_once 'inc/extend.php';
 
 /**
- * 自訂 wp-json API 路徑
+ * Improve oembed feature
  */
-function rsl_rest_url_prefix( $slug ) {
-	return 'api';
+function rsl_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
+	if ( strpos( $url, 'imgur.com' ) !== false ) {
+		/**
+		 * Do not embed imgur images
+		 */
+		return '<a href="' . $url . '" target="_blank">' . $url . '</a>';
+	} else {
+		/**
+		 * Make embeded content responsive (16:9)
+		 */
+		return '<div class="responsive-embed">' . $cache . '</div>';
+	}
 }
-add_filter( 'rest_url_prefix', 'rsl_rest_url_prefix' );
-
-/**
- * 增加文章特色圖片支援
- */
-add_theme_support( 'post-thumbnails' );
-
-/**
- * 增加選單支援
- */
-// register_nav_menus(
-// 	array(
-// 		'primary-menu' => __( '頭部選單' ),
-// 	)
-// );
+add_filter( 'embed_oembed_html', 'rsl_embed_oembed_html', 99, 4 );
