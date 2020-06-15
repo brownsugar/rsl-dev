@@ -55,7 +55,8 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
   /*
   ** Nuxt.js modules
@@ -65,6 +66,12 @@ module.exports = {
     '@nuxtjs/axios',
     'nuxt-config/module'
   ],
+  features: {
+    transitions: false
+  },
+  vueMeta: {
+    refreshOnceOnNavigation: true
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -89,6 +96,28 @@ module.exports = {
       icons: false
     },
     treeShake: true
+  },
+  /*
+  ** Google Analytics module configuration
+  ** https://github.com/nuxt-community/analytics-module
+  ** https://matteogabriele.gitbooks.io/vue-analytics/
+  */
+  googleAnalytics: {
+    id: 'UA-106820667-3',
+    debug: {
+      enabled: true
+      // trace: true
+      // sendHitTask: true
+    },
+    autoTracking: {
+      pageviewTemplate: (route) => {
+        return {
+          page: route.path,
+          title: window.document.title,
+          location: window.location.href
+        }
+      }
+    }
   },
   /*
   ** Axios module configuration
