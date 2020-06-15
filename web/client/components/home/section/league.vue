@@ -47,11 +47,33 @@
               <li>報名時間：2020/06/19 12:00 ~ 2020/06/28 00:00</li>
               <li>聯賽時程：2020/07/04 ~ 2020/08/26</li>
               <li>
-                聯賽獎金：
+                最高榮譽獎勵：
                 <ul>
-                  <li>冠軍：NTD $30,000</li>
-                  <li>亞軍：NTD $15,000</li>
-                  <li>季軍：NTD $5,000</li>
+                  <li>
+                    冠軍
+                    <ul>
+                      <li>獎金：NTD $30,000</li>
+                      <li>遊戲虛寶：遊俠 X (永久) + 星月睡衣 (永久) + 睏寶 (永久) + 尼歐新品車款齒輪六代 (40 個)</li>
+                      <li>加碼專業電競週邊：？？？？</li>
+                      <li>加碼跑跑實體週邊：？？？？</li>
+                    </ul>
+                  </li>
+                  <li>
+                    亞軍
+                    <ul>
+                      <li>獎金：NTD $15,000</li>
+                      <li>遊戲虛寶：尖峰 X Dragon (永久) + 建仔棒球裝 (永久) + 睏寶 (60 日) + 尼歐新品車款齒輪六代 (30 個)</li>
+                      <li>加碼專業電競週邊：？？？？</li>
+                    </ul>
+                  </li>
+                  <li>
+                    季軍
+                    <ul>
+                      <li>獎金：NTD $5,000</li>
+                      <li>遊戲虛寶：魔光騎士 X (永久) + 夏日花襯衫 (永久) + 睏寶 (30 日) + 尼歐新品車款齒輪六代 (20 個)</li>
+                      <li>加碼專業電競週邊：？？？？</li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li>
@@ -60,9 +82,28 @@
                   <li>冠軍賽 MVP：NTD $5,000</li>
                   <li>賽道紀錄霸主：NTD $3,000</li>
                   <li>觀眾票選人氣王：NTD $2,000</li>
+                  <li>參加獎：尼歐新品車款齒輪六代 (5 個)</li>
                 </ul>
               </li>
             </ul>
+            <a
+              v-ripple="{ class: 'white--text' }"
+              class="d-block text-decoration-none"
+              :href="$config.rsl.facebook.url"
+              target="_blank"
+            >
+              <v-alert
+                class="mt-4"
+                type="info"
+                color="secondary"
+                dense
+              >
+                想知道本季聯賽還有哪些豐富又令人愛不釋手的加碼實體獎勵嗎？立即點擊關注 RSL 賽事聯盟粉絲團搶先得知！
+                <template #append>
+                  <fa :icon="['fas', 'external-link-alt']" />
+                </template>
+              </v-alert>
+            </a>
           </category>
           <category
             description="你渴望一對翅膀嗎？本季聯賽前 20 名報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一箱，助你飆的更快更穩！"
