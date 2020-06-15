@@ -177,12 +177,35 @@ export default {
     }
   },
   head () {
-    return {
-      titleTemplate: (titleChunk) => {
-        const title = this.site.name
-        return titleChunk ? `${titleChunk} - ${title}` : title
-      }
+    const staticPages = ['index', 'news', 'about'] // Content is not pull from server
+    const isSingle = !staticPages.includes(this.$route.name)
+
+    const title = this.site.name
+    const url = this.site.url + this.$route.path
+    const ogImage = this.site.url + '/RSL_cover_v1.png'
+    const ogType = isSingle ? 'article' : 'website'
+    const titleWithChuck = chunk => chunk ? `${chunk} - ${title}` : title
+
+    const metaInfo = {
+      titleTemplate: titleWithChuck,
+      meta: [
+        { property: 'publisher', content: this.$config.rsl.facebook.url },
+        { name: 'author', content: 'RSL 賽事聯盟' },
+        { property: 'og:site_name', content: this.site.name },
+        { property: 'og:title', template: titleWithChuck, hid: 'og:title' },
+        { property: 'og:type', content: ogType, hid: 'og:type' },
+        { property: 'og:url', content: url, hid: 'og:url' },
+        { property: 'og:description', content: this.site.description, hid: 'og:description' },
+        { property: 'description', content: this.site.description, hid: 'description' },
+        { property: 'og:image', content: ogImage, hid: 'og:image' }
+      ]
     }
+    if (isSingle) {
+      metaInfo.meta.push({ property: 'article:author', content: this.$config.rsl.facebook.url })
+      metaInfo.meta.push({ property: 'article:publisher', content: this.$config.rsl.facebook.url })
+    }
+
+    return metaInfo
   }
 }
 </script>

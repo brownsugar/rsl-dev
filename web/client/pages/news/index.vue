@@ -27,7 +27,7 @@
                 <n-link :to="'/news/' + post.id">
                   <v-img
                     :aspect-ratio="1280 / 628"
-                    :src="getPostFeaturedImg(post._embedded)"
+                    :src="featuredImage(post._embedded)"
                     width="100%"
                   />
                 </n-link>
@@ -81,8 +81,9 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { DATE_FORMAT, DATETIME_FORMAT } from '~/assets/data/const'
 import PrimaryTitle from '~/components/common/primary-title'
+import { DATE_FORMAT, DATETIME_FORMAT } from '~/assets/utils/const'
+import postUtils from '~/assets/utils/post'
 
 export default {
   name: 'NewsList',
@@ -103,6 +104,9 @@ export default {
     page: 1
   }),
   computed: {
+    ...mapState([
+      'site'
+    ]),
     ...mapState('news', [
       'current',
       'totalPage',
@@ -122,18 +126,9 @@ export default {
   mounted () {
   },
   methods: {
-    getPostFeaturedImg (embedded) {
-      if (embedded && embedded['wp:featuredmedia']) {
-        const media = embedded['wp:featuredmedia'][0]
-        if (media) {
-          const sizes = media.media_details.sizes
-          const image = sizes.large || sizes.full
-          if (image) {
-            return image.source_url
-          }
-        }
-      }
-      return '/RSL_cover_v1.png'
+    featuredImage (embedded) {
+      const image = postUtils.getFeaturedImage(embedded)
+      return image || this.site.url + '/RSL_cover_v1.png'
     },
     formatPostDate (date, relative = false) {
       const posted = this.$moment(date)
