@@ -102,7 +102,7 @@
           在過去四年間，RSL 團隊成員已組織過許多跑跑卡丁車相關賽事，從玩家社群小型線上交流賽至夢時代演藝廳大型線下賽，共同創造許多令人印象深刻且膾炙人口的賽事，較為知名的賽事如下表所示。
         </p>
         <v-timeline
-          :dense="$vuetify.breakpoint.xsOnly"
+          :dense="!$vuetify.breakpoint.smAndUp"
         >
           <v-timeline-item
             v-for="(highlight, i) in highlights"
