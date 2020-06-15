@@ -15,7 +15,18 @@
         </n-link>
       </v-toolbar-title>
       <v-spacer />
-      <template v-for="(nav, i) in navs">
+      <v-btn
+        v-if="$vuetify.breakpoint.smAndDown"
+        depressed
+        icon
+        @click="drawer.visible = true"
+      >
+        <fa :icon="['far', 'bars']" />
+      </v-btn>
+      <template
+        v-for="(nav, i) in navs"
+        v-else
+      >
         <v-menu
           v-if="nav.hidden !== true"
           :key="i"
@@ -25,8 +36,8 @@
               :color="navChildIsActive(nav) ? 'primary' : ''"
               active-class="primary"
               :to="nav.to"
-              depressed
               :exact="nav.to === '/'"
+              depressed
               nuxt
               v-bind="attrs"
               v-on="on"
@@ -47,6 +58,50 @@
         </v-menu>
       </template>
     </v-app-bar>
+
+    <v-navigation-drawer
+      v-model="drawer.visible"
+      temporary
+      app
+    >
+      <v-list dense>
+        <template v-for="(nav, i) in navs">
+          <template v-if="nav.hidden !== true">
+            <v-list-group
+              v-if="nav.children"
+              :key="i"
+              :value="navChildIsActive(nav)"
+            >
+              <template #activator>
+                <v-list-item-content>
+                  <v-list-item-title>{{ nav.label }}</v-list-item-title>
+                </v-list-item-content>
+              </template>
+              <v-list-item
+                v-for="(item, j) in nav.children"
+                :key="j"
+                :to="item.to"
+                nuxt
+              >
+                <v-list-item-title>{{ item.label }}</v-list-item-title>
+              </v-list-item>
+            </v-list-group>
+            <v-list-item
+              v-else
+              :key="i"
+              active-class="primary"
+              :to="nav.to"
+              :exact="nav.to === '/'"
+              nuxt
+            >
+              <v-list-item-content>
+                <v-list-item-title>{{ nav.label }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
+        </template>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-main class="grey lighten-4">
       <nuxt />
@@ -149,6 +204,9 @@ export default {
           ]
         }
       ],
+      drawer: {
+        visible: false
+      },
       socials: [
         {
           brand: 'facebook',
