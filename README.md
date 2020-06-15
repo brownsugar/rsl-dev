@@ -22,7 +22,7 @@ Add host setting to `/private/etc/hosts` to make local domain works.
 ::1 rsl.local
 ```
 
-# Web
+## Web
 
 The main web app, develop by Nuxt.js, deploy with Plesk Node.js extension.
 
@@ -34,6 +34,6 @@ Add this line at the end of `.npmrc` for Plesk to run node commands normally.
 scripts-prepend-node-path=true
 ```
 
-**Caution**
+### **Caution**
 
 All of the assets releated to KartRider in this project were reviewed and authorized by Gamania, do not use without authorization.
