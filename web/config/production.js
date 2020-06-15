@@ -1,5 +1,5 @@
 const config = {
-  api: ''
+  api: 'https://delta.rsl.tw/api'
 }
 
 module.exports = config

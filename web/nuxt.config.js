@@ -1,6 +1,19 @@
+const CompressionPlugin = require('compression-webpack-plugin')
+
 const config = require('config')
 const colors = require('vuetify/es5/util/colors').default
 const isProd = process.env.NODE_ENV === 'production'
+
+const compressPlugins = isProd
+  ? [
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css|html|svg|png|jpe?g|gif|ico)$/,
+      minRatio: 1
+    })
+  ]
+  : []
 
 module.exports = {
   mode: 'universal',
@@ -132,7 +145,7 @@ module.exports = {
   build: {
     extractCSS: isProd,
     plugins: [
-      // new ConfigWebpackPlugin()
+      ...compressPlugins
     ],
     /*
     ** You can extend webpack config here
