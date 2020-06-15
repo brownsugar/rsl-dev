@@ -9,6 +9,7 @@ const defer = require('config/defer').deferConfig
 
 const config = {
   server: {
+    host: '0.0.0.0',
     port: 3000
   },
   api: 'http://rsl.local/api',

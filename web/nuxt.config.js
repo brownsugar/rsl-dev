@@ -19,6 +19,7 @@ module.exports = {
   mode: 'universal',
   srcDir: 'client/',
   server: {
+    host: config.server.host,
     port: config.server.port
   },
   /*
