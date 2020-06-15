@@ -18,7 +18,7 @@ const config = {
       username: 'RSLeagueTW'
     },
     youtube: {
-      url: 'https://www.youtube.com/user/RSLeague?sub_confirmation=1',
+      url: 'https://www.youtube.com/RSLeague?sub_confirmation=1',
       username: 'RSLeague'
     },
     twitch: {
