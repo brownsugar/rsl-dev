@@ -3,7 +3,10 @@
     id="league"
     class="grey lighten-3"
   >
-    <particles class="fill-width fill-height" />
+    <particles
+      v-show="$vuetify.breakpoint.mdAndUp"
+      class="fill-width fill-height"
+    />
     <v-container fluid>
       <v-row
         class="py-12"

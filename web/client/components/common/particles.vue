@@ -72,6 +72,10 @@ export default {
     clickMode: {
       type: String,
       default: 'push'
+    },
+    retinaDetect: {
+      type: Boolean,
+      default: true
     }
   },
   data: () => ({
@@ -195,7 +199,7 @@ export default {
             }
           }
         },
-        retina_detect: true
+        retina_detect: this.retinaDetect
       })
     }
   }
