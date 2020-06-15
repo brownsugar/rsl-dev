@@ -48,7 +48,7 @@
           <v-col class="shrink">
             <v-btn
               color="secondary"
-              to="/about"
+              to="/contact"
               nuxt
             >
               合作洽詢
