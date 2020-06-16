@@ -5,7 +5,7 @@ A web app for RSL official site.
 
 ## RE:START KartRider League Season 1
 
-This project is still work in progess, some feature may not work expectedly.
+This project is still work in progess, some features may not work expectedly.
 
 https://rsl.tw
 
@@ -24,7 +24,7 @@ Add host setting to `/private/etc/hosts` to make local domain works.
 
 ## Web
 
-The main web app, develop by Nuxt.js, deploy with Plesk Node.js extension.
+The main web app, build with Nuxt.js, deploy with Plesk Node.js extension.
 
 Before running `yarn install`, you need to create `.npmrc` in `/web` and add the Font Awesome Pro configuration in it to pull the private packages from npm. 
 
