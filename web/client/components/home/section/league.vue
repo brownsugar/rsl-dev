@@ -13,33 +13,41 @@
         justify="center"
       >
         <v-col
-          class="left mb-10 mb-lg-0"
+          class="mb-10 mb-lg-0 pl-3 pl-lg-12"
           cols="12"
           md="3"
-          lg="2"
         >
-          <h3 class="text-h3 font-weight-bold primary--text mb-2">
-            SEASON 1
-          </h3>
-          <h4 class="text-h3">
-            重啓夢想，<br class="d-sm-none d-lg-block">
-            重燃渴望。
-          </h4>
-          <div class="d-none d-md-block">
-            <v-btn
-              class="v-btn--action mt-5"
-              color="primary"
-              to="/season1"
-              depressed
-              large
-              nuxt
-            >
-              查看完整聯賽規章
-            </v-btn>
-          </div>
+          <affix
+            :key="$breakpoint.is.mdAndUp"
+            class="league-left"
+            relative-element-selector="#league-content"
+            :offset="affixOffset"
+            :enabled="$breakpoint.is.mdAndUp"
+          >
+            <h3 class="text-h3 font-weight-bold primary--text mb-2">
+              SEASON 1
+            </h3>
+            <h4 class="text-h3">
+              重啓夢想，<br class="d-sm-none d-md-block">
+              重燃渴望。
+            </h4>
+            <div class="d-none d-md-block">
+              <v-btn
+                class="v-btn--action mt-5"
+                color="primary"
+                to="/season1"
+                depressed
+                large
+                nuxt
+              >
+                查看完整聯賽規章
+              </v-btn>
+            </div>
+          </affix>
         </v-col>
         <v-col
-          class="right mb-n10"
+          id="league-content"
+          class="mb-n10"
           cols="12"
           md="9"
           lg="7"
@@ -368,7 +376,17 @@ export default {
       data: {}
     }
   }),
-  computed: {},
+  computed: {
+    affixOffset () {
+      const navHeight = this.$vuetify.application.top
+      const padding = 48 + 12 // parent + inner
+
+      return {
+        top: navHeight + padding,
+        bottom: padding
+      }
+    }
+  },
   watch: {},
   mounted () {
   },
@@ -389,9 +407,12 @@ export default {
   position: absolute;
   top: 0;
 }
-.left > *,
-.right {
+.league-left:not(.affix),
+#league-content {
   position: relative;
+}
+.league-left:not(.affix) {
+  top: 0 !important;
 }
 .hosts {
   &.simple {

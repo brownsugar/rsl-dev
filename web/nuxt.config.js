@@ -66,7 +66,8 @@ module.exports = {
     '~/plugins/moment.js',
     '~/plugins/fontawesome.js',
     '~/plugins/clipboard.js',
-    '~/plugins/vue-youtube.js'
+    '~/plugins/vue-youtube.js',
+    { src: '~/plugins/vue-affix.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
