@@ -24,7 +24,7 @@
             v-for="(company, j) in cooperator.data"
             :key="j"
             v-ripple
-            class="cooperator d-flex justify-center align-center px-4 py-2"
+            class="cooperator d-flex justify-center align-center px-5 py-2"
             :title="company.name"
             :href="company.link"
             target="_blank"
@@ -151,7 +151,7 @@ export default {
         title: '合作夥伴',
         data: [
           {
-            name: '掠奪者',
+            name: '掠奪者 Predator',
             logo: {
               file: 'predator.png',
               height: 80
@@ -181,6 +181,14 @@ export default {
               height: 55
             },
             link: 'https://hyperx.gg/kerdinter'
+          },
+          {
+            name: '賽德斯 Sades',
+            logo: {
+              file: 'sades.png',
+              height: 80
+            },
+            link: 'https://www.sades.com.tw'
           }
         ]
       }
