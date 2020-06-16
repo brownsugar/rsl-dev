@@ -179,7 +179,7 @@ export default {
           to: '/news'
         },
         {
-          label: 'S1 賽季資訊',
+          label: 'S1 賽季規章',
           to: '/season1'
         },
         {
