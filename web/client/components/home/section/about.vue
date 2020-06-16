@@ -2,7 +2,7 @@
   <v-parallax
     id="about"
     :src="require('~/assets/images/common/background/drift.png')"
-    :height="$vuetify.breakpoint.smAndDown ? 600 : 500"
+    :height="$breakpoint.is.smAndDown ? 600 : 500"
   >
     <v-container>
       <v-row justify="center">
@@ -14,7 +14,7 @@
           <v-img
             class="mx-auto"
             src="~/assets/images/rsl/rsl-color-full.svg"
-            :max-width="$vuetify.breakpoint.smAndDown ? 200 : '100%'"
+            :max-width="$breakpoint.is.smAndDown ? 200 : '100%'"
           />
         </v-col>
         <v-col
@@ -37,8 +37,8 @@
               class="v-btn--action"
               color="primary"
               to="/about"
-              :large="$vuetify.breakpoint.smAndDown"
-              :x-large="$vuetify.breakpoint.mdAndUp"
+              :large="$breakpoint.is.smAndDown"
+              :x-large="$breakpoint.is.mdAndUp"
               nuxt
             >
               認識 RSL 賽事聯盟

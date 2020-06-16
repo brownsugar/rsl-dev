@@ -34,7 +34,7 @@
               <img
                 class="d-block"
                 :src="require(`~/assets/images/cooperator/${company.logo.file}`)"
-                :height="company.logo.height * ($vuetify.breakpoint.smAndDown ? 0.75 : 1)"
+                :height="company.logo.height * ($breakpoint.is.smAndDown ? 0.75 : 1)"
                 :alt="company.name"
               >
             </v-lazy>

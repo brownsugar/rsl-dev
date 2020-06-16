@@ -61,6 +61,7 @@ module.exports = {
   */
   plugins: [
     '~/plugins/vue-warn.js',
+    '~/plugins/breakpoint.js',
     '~/plugins/axios.js',
     '~/plugins/moment.js',
     '~/plugins/fontawesome.js',

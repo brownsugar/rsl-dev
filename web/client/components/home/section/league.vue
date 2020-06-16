@@ -34,7 +34,7 @@
               large
               nuxt
             >
-              查看完整賽事規章
+              查看完整聯賽規章
             </v-btn>
           </div>
         </v-col>
@@ -165,7 +165,7 @@
                       aspect-ratio="1"
                       class="mx-auto"
                       :src="require('~/assets/images/home/' + set.image)"
-                      :width="$vuetify.breakpoint.xsOnly ? '50%' : '80%'"
+                      :width="$breakpoint.is.xsOnly ? '50%' : '80%'"
                     />
                     <div class="mt-1">
                       {{ set.description }}
@@ -230,8 +230,8 @@
                           <v-img
                             class="flex-grow-0 mx-3"
                             :src="require(`~/assets/images/tracks/${track.id}.jpg`)"
-                            :width="$vuetify.breakpoint.xsOnly ? 100 : 160"
-                            :height="$vuetify.breakpoint.xsOnly ? 75 : 120"
+                            :width="$breakpoint.is.xsOnly ? 100 : 160"
+                            :height="$breakpoint.is.xsOnly ? 75 : 120"
                             :alt="track.name"
                           />
                         </div>
@@ -250,7 +250,7 @@
             <div
               class="hosts d-flex justify-space-between mx-md-10 mx-lg-8"
               :class="{
-                simple: $vuetify.breakpoint.mdAndDown
+                simple: $breakpoint.is.mdAndDown
               }"
             >
               <v-img
@@ -260,7 +260,7 @@
                 :src="require(`~/assets/images/host/${host.avatar}`)"
                 gradient="to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .8) 100%"
                 width="250"
-                :height="$vuetify.breakpoint.mdAndDown ? 250 : 350"
+                :height="$breakpoint.is.mdAndDown ? 250 : 350"
                 :alt="host.name"
                 eager
               >
@@ -303,7 +303,7 @@
               large
               nuxt
             >
-              查看完整賽事規章
+              查看完整聯賽規章
             </v-btn>
           </div>
         </v-col>

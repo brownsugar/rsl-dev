@@ -227,12 +227,6 @@ export default {
       'site'
     ])
   },
-  mounted () {
-    // Fix Vuetify breakpoints not firing with ssr
-    if (typeof window.dispatchEvent === 'function') {
-      window.dispatchEvent(new Event('resize'))
-    }
-  },
   methods: {
     navChildIsActive (nav) {
       if (nav.children && Array.isArray(nav.children)) {
