@@ -13,7 +13,7 @@
         justify="center"
       >
         <v-col
-          class="left mb-12 mb-lg-0"
+          class="left mb-10 mb-lg-0"
           cols="12"
           md="3"
           lg="2"
@@ -25,16 +25,18 @@
             重啓夢想，<br v-if="$vuetify.breakpoint.lgAndUp || $vuetify.breakpoint.xsOnly">
             重燃渴望。
           </h4>
-          <v-btn
-            class="v-btn--action mt-5"
-            color="primary"
-            to="/season1"
-            depressed
-            large
-            nuxt
-          >
-            查看完整資訊
-          </v-btn>
+          <div class="d-none d-md-block">
+            <v-btn
+              class="v-btn--action mt-5"
+              color="primary"
+              to="/season1"
+              depressed
+              large
+              nuxt
+            >
+              查看完整賽事規章
+            </v-btn>
+          </div>
         </v-col>
         <v-col
           class="right mb-n10"
@@ -45,7 +47,7 @@
           <category name="聯賽資訊">
             <ul>
               <li>報名時間：2020/06/19 12:00 ~ 2020/06/28 00:00</li>
-              <li>聯賽時程：2020/07/04 ~ 2020/08/26</li>
+              <li>聯賽時程：2020/07/04 ~ 2020/08/16 每日 20:00 開始</li>
               <li>
                 最高榮譽獎勵：
                 <ul>
@@ -295,6 +297,18 @@
               :host="hostDialog.data"
             />
           </category>
+          <div class="action d-block d-md-none text-center mb-12">
+            <v-btn
+              class="v-btn--action mt-5"
+              color="primary"
+              to="/season1"
+              depressed
+              large
+              nuxt
+            >
+              查看完整賽事規章
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
     </v-container>
