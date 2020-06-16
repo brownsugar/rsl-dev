@@ -1,8 +1,9 @@
 <template>
   <v-parallax
     id="banner"
+    :key="$breakpoint.is.smAndDown"
     :src="require('~/assets/images/common/background/race.png')"
-    height="900"
+    :height="$breakpoint.is.smAndDown ? 700 : 900"
   >
     <v-container fluid>
       <v-row
