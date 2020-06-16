@@ -15,7 +15,7 @@
         </n-link>
       </v-toolbar-title>
       <v-spacer />
-      <template v-if="$vuetify.breakpoint.mdAndUp">
+      <div class="d-none d-md-flex">
         <template v-for="(nav, i) in navs">
           <v-menu
             v-if="nav.hidden !== true"
@@ -47,9 +47,9 @@
             </v-list>
           </v-menu>
         </template>
-      </template>
+      </div>
       <v-btn
-        v-else
+        class="d-inline-flex d-md-none"
         depressed
         icon
         @click="drawer.visible = true"
@@ -112,10 +112,7 @@
         flat
         dark
       >
-        <v-card-title
-          class="justify-center"
-          :class="{ 'd-block': $vuetify.breakpoint.smAndDown }"
-        >
+        <v-card-title class="justify-center d-block d-md-flex">
           <div class="text-body-1 mb-1 mb-md-0 mr-md-6">
             現在就追蹤 RSL 賽事聯盟！
           </div>

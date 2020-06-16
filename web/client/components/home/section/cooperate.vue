@@ -11,16 +11,14 @@
         class="my-4"
       >
         <v-col
-          class="d-flex align-center pb-0 pb-sm-3"
-          :class="{ 'justify-center': $vuetify.breakpoint.xsOnly }"
+          class="d-flex justify-center justify-sm-start align-center pb-0 pb-sm-3"
           cols="12"
           sm="2"
         >
           {{ cooperator.title }}
         </v-col>
         <v-col
-          class="d-flex flex-wrap align-center"
-          :class="{ 'justify-center': $vuetify.breakpoint.xsOnly }"
+          class="d-flex flex-wrap justify-center justify-sm-start align-center"
         >
           <a
             v-for="(company, j) in cooperator.data"
@@ -57,8 +55,7 @@
             想在「RSL 夢想盃跑跑跑跑聯賽」中曝光您的產品或業務嗎？RSL 賽事聯盟持續招商中，歡迎與我們合作！
           </v-col>
           <v-col
-            class="shrink"
-            :class="[ $vuetify.breakpoint.xsOnly ? 'd-flex justify-end pt-2' : '' ]"
+            class="shrink d-flex justify-end d-sm-block pt-2 pt-sm-0"
             cols="12"
             sm="auto"
           >

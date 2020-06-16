@@ -22,22 +22,13 @@
           md="9"
           lg="8"
         >
-          <h3
-            class="text-uppercase"
-            :class="[ $vuetify.breakpoint.smAndDown ? 'text-h6' : 'text-h4' ]"
-          >
+          <h3 class="text-uppercase text-h6 text-md-h4">
             We are
           </h3>
-          <h4
-            class="font-weight-bold yellow--text"
-            :class="[ $vuetify.breakpoint.smAndDown ? 'text-h4' : 'text-h3' ]"
-          >
+          <h4 class="font-weight-bold yellow--text text-h4 text-md-h3">
             RE:START LEAGUE
           </h4>
-          <div
-            class="mt-2"
-            :class="{ 'text-h6': $vuetify.breakpoint.mdAndUp }"
-          >
+          <div class="mt-2 text-md-h6">
             RSL 賽事聯盟，全名為「RE:START LEAGUE」，由三名兼具賽事舉辦經驗、玩家社群經營與遊戲領域影響力的核心玩家所組成。<br>
             我們致力於打造完善的電競聯賽環境、建立公平的賽事舞台，希望藉由 RSL 聯賽讓玩家重新燃起心目中的電競選手夢想。
           </div>
@@ -46,6 +37,7 @@
               class="v-btn--action"
               color="primary"
               to="/about"
+              :large="$vuetify.breakpoint.smAndDown"
               :x-large="$vuetify.breakpoint.mdAndUp"
               nuxt
             >

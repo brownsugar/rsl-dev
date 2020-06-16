@@ -115,16 +115,10 @@
               </span>
             </template>
             <v-card>
-              <v-card-subtitle
-                v-if="$vuetify.breakpoint.xsOnly"
-                class="grey--text pb-0"
-              >
+              <v-card-subtitle class="grey--text pb-0 d-block d-sm-none">
                 {{ highlight.date }}
               </v-card-subtitle>
-              <v-card-title
-                class="pt-1 pt-sm-4"
-                :class="[ $vuetify.breakpoint.xsOnly ? 'text-h6' : 'text-h5' ]"
-              >
+              <v-card-title class="pt-1 pt-sm-4 text-h6 text-sm-h5">
                 {{ highlight.title }}
               </v-card-title>
               <v-card-text

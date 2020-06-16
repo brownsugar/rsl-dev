@@ -4,8 +4,7 @@
     class="grey lighten-3"
   >
     <particles
-      v-show="$vuetify.breakpoint.mdAndUp"
-      class="fill-width fill-height"
+      class="fill-width fill-height d-none d-md-block"
     />
     <v-container fluid>
       <v-row
@@ -22,7 +21,7 @@
             SEASON 1
           </h3>
           <h4 class="text-h3">
-            重啓夢想，<br v-if="$vuetify.breakpoint.lgAndUp || $vuetify.breakpoint.xsOnly">
+            重啓夢想，<br class="d-sm-none d-lg-block">
             重燃渴望。
           </h4>
           <div class="d-none d-md-block">
@@ -269,10 +268,7 @@
                   align="end"
                 >
                   <v-col>
-                    <div
-                      v-if="$vuetify.breakpoint.smAndUp"
-                      class="subheading"
-                    >
+                    <div class="subheading d-none d-sm-block">
                       {{ host.title }}
                     </div>
                     <div class="text-h5 font-weight-bold">

@@ -51,8 +51,7 @@
                 立即訂閱 RSL 賽事聯盟 YouTube 頻道，精彩賽事影片不漏接！
               </v-col>
               <v-col
-                class="shrink"
-                :class="[ $vuetify.breakpoint.xsOnly ? 'd-flex justify-end pt-2' : '' ]"
+                class="shrink d-flex justify-end d-sm-block pt-2 pt-sm-0"
                 cols="12"
                 sm="auto"
               >

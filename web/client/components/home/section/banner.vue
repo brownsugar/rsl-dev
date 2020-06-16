@@ -15,13 +15,10 @@
           lg="8"
         >
           <h1 class="text-h6 mb-2">
-            RE:START KARTRIDER LEAGUE<br v-if="$vuetify.breakpoint.xsOnly">
+            RE:START KARTRIDER LEAGUE<br class="d-sm-none">
             <span class="yellow--text">SEASON 1</span>
           </h1>
-          <h2
-            class="font-weight-bold"
-            :class="[ $vuetify.breakpoint.xsOnly ? 'text-h3' : 'text-h2' ]"
-          >
+          <h2 class="font-weight-bold text-h3 text-sm-h2">
             重啟<span class="primary--text">夢想</span>，<br>
             重燃<span class="primary--text">渴望</span>。
           </h2>
