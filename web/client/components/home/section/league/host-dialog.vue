@@ -17,6 +17,7 @@
           <v-list-item-content>
             <v-list-item-title class="text-h5">
               {{ host.name }}
+              <span v-if="host.alias">{{ host.alias }}</span>
             </v-list-item-title>
             <v-list-item-subtitle>
               {{ host.title }}

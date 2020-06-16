@@ -41,7 +41,7 @@
           class="right mb-n10"
           cols="12"
           md="9"
-          lg="6"
+          lg="7"
         >
           <category name="聯賽資訊">
             <ul>
@@ -247,19 +247,19 @@
               RSL 夢想盃本季聯賽邀請到知名聯賽主播「蛋蛋」、跑跑卡丁車專業講評「爆哥」、校園五速嘴解說「SpaceQ」以及曾經摘下 K1 聯賽冠軍的「保羅」，為關注賽事的觀眾們帶來精采的播報內容。
             </template>
             <div
-              class="hosts d-flex justify-space-between mx-lg-8"
+              class="hosts d-flex justify-space-between mx-md-10 mx-lg-8"
               :class="{
-                simple: $vuetify.breakpoint.mdAndDown,
+                simple: $vuetify.breakpoint.mdAndDown
               }"
             >
               <v-img
                 v-for="(host, i) in hosts"
                 :key="i"
-                class="host-avatar mx-lg-n8"
+                class="host-avatar mx-md-n10 mx-lg-n8"
                 :src="require(`~/assets/images/host/${host.avatar}`)"
                 gradient="to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .8) 100%"
                 width="250"
-                :height="$vuetify.breakpoint.mdAndDown ? 250 : 300"
+                :height="$vuetify.breakpoint.mdAndDown ? 250 : 350"
                 :alt="host.name"
                 eager
               >
