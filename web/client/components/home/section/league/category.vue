@@ -7,7 +7,7 @@
       </h5>
       <deco type="race-flag" />
     </div>
-    <p v-if="hasDescription" class="text--darken-3 grey--text">
+    <p v-if="hasDescription" class="grey--text text--darken-3">
       <slot v-if="$slots.description" name="description" />
       <span v-else>{{ description }}</span>
     </p>

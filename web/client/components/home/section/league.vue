@@ -204,16 +204,22 @@
                       <v-card flat>
                         <div class="d-flex">
                           <div class="d-flex flex-column">
-                            <v-rating
-                              class="px-4"
-                              background-color="grey lighten-2"
-                              color="grey"
-                              empty-icon="$starEmpty"
-                              :value="track.level"
-                              readonly
-                              dense
-                              small
-                            />
+                            <div class="level d-flex px-4 mb-1">
+                              <fa
+                                v-for="j in track.level"
+                                :key="j"
+                                class="grey--text text--lighten-1"
+                                :icon="['fas', 'star']"
+                                size="sm"
+                              />
+                              <fa
+                                v-for="j in 5 - track.level"
+                                :key="j"
+                                class="grey--text text--lighten-2"
+                                :icon="['far', 'star']"
+                                size="sm"
+                              />
+                            </div>
                             <v-card-title
                               class="pt-0"
                               v-text="track.name"
