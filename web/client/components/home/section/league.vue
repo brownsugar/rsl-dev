@@ -5,6 +5,7 @@
   >
     <particles
       class="fill-width fill-height d-none d-md-block"
+      :retina-detect="false"
     />
     <v-container fluid>
       <v-row
