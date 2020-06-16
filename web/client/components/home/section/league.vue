@@ -411,9 +411,6 @@ export default {
 #league-content {
   position: relative;
 }
-.league-left:not(.affix) {
-  top: 0 !important;
-}
 .hosts {
   &.simple {
     flex-wrap: wrap;
