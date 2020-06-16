@@ -24,10 +24,10 @@
             :offset="affixOffset"
             :enabled="$breakpoint.is.mdAndUp"
           >
-            <h3 class="text-h3 font-weight-bold primary--text mb-2">
+            <h3 class="text-h4 text-lg-h3 font-weight-bold primary--text mb-2">
               SEASON 1
             </h3>
-            <h4 class="text-h3">
+            <h4 class="text-h3 text-md-h4 text-lg-h3">
               重啓夢想，<br class="d-sm-none d-md-block">
               重燃渴望。
             </h4>
