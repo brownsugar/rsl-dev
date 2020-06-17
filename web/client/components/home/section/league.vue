@@ -308,6 +308,25 @@
               :host="hostDialog.data"
             />
           </category>
+          <category
+            name="約戰討論"
+            description="想和其他隊伍約戰，在賽前先交流切磋一番？RSL 賽事聯盟提供了官方
+            Discord 頻道，供選手們可以隨時前來約戰和討論聯賽內容！"
+          >
+            <v-row class="my-n3">
+              <v-col
+                cols="12"
+                sm="5"
+                md="4"
+              >
+                <link-card
+                  brand="discord"
+                  :link="$config.rsl.discord.url"
+                  hover-text="Discord"
+                />
+              </v-col>
+            </v-row>
+          </category>
           <div class="action d-block d-md-none text-center mb-12">
             <v-btn
               class="v-btn--action mt-5"

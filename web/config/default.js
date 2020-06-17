@@ -25,6 +25,9 @@ const config = {
     twitch: {
       url: 'https://www.twitch.tv/RSLeague',
       username: 'RSLeague'
+    },
+    discord: {
+      url: 'https://dc.rsl.tw'
     }
   },
   // Whitelist for client to use
