@@ -23,7 +23,9 @@ module.exports = {
     port: config.server.port
   },
   /*
-  ** Headers of the page
+  ** Vue Meta configuration
+  ** https://nuxtjs.org/api/configuration-head
+  ** https://vue-meta.nuxtjs.org/guide/metainfo.html
   */
   head: {
     meta: [
@@ -37,15 +39,10 @@ module.exports = {
       { rel: 'icon', type: 'image/png', href: '/favicon.png' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
   css: [
-    // Font awesome integration
+    // Font Awesome integration
+    // https://github.com/FortAwesome/vue-fontawesome#nuxtjs
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/assets/styles/rsl/theme.scss', lang: 'scss' }
   ],
@@ -56,9 +53,6 @@ module.exports = {
       '~/assets/styles/rsl/_functions.scss'
     ]
   },
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
     '~/plugins/vue-warn.js',
     '~/plugins/breakpoint.js',
@@ -69,21 +63,13 @@ module.exports = {
     '~/plugins/vue-youtube.js',
     { src: '~/plugins/vue-affix.js', ssr: false }
   ],
-  /*
-  ** Nuxt.js dev-modules
-  */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
     '@nuxtjs/google-analytics'
   ],
-  /*
-  ** Nuxt.js modules
-  */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     'nuxt-config/module'
   ],
@@ -94,7 +80,7 @@ module.exports = {
     refreshOnceOnNavigation: true
   },
   /*
-  ** vuetify module configuration
+  ** Vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
@@ -116,6 +102,7 @@ module.exports = {
     defaultAssets: {
       icons: false
     },
+    // custom variables only works with tree-shaking.
     treeShake: true
   },
   /*
@@ -147,20 +134,14 @@ module.exports = {
   axios: {
     baseURL: config.api
   },
-  /*
-  ** Build configuration
-  */
   build: {
     extractCSS: isProd,
     plugins: [
       ...compressPlugins
     ],
-    /*
-    ** You can extend webpack config here
-    */
     extend (config, { isClient, loaders: { vue } }) {
       if (isClient) {
-        // This dependency was not found: * fs in ./node_modules/config/lib/config.js
+        // Fix: This dependency was not found: * fs in ./node_modules/config/lib/config.js
         config.node = {
           fs: 'empty'
         }
