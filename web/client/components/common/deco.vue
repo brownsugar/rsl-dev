@@ -1,6 +1,6 @@
 <template>
   <i
-    class="rsl-deco"
+    class="rsl-deco flex-shrink-0"
     :class="[type]"
   />
 </template>
