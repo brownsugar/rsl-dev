@@ -34,6 +34,13 @@ Add this line at the end of `.npmrc` for Plesk to run node commands normally.
 scripts-prepend-node-path=true
 ```
 
+Add additional deploy actions in Plesk Git setting:
+
+```
+cd web && PATH=/opt/plesk/node/12/bin/:$PATH; npm i; npm run build
+touch web/tmp/restart.txt
+```
+
 ### **Caution**
 
 All of the assets releated to KartRider in this project were reviewed and authorized by Gamania, do not use without authorization.
