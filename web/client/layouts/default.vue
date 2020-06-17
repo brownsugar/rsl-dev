@@ -26,7 +26,7 @@
                 :color="navChildIsActive(nav) ? 'primary' : ''"
                 active-class="primary"
                 :to="nav.to"
-                :exact="nav.to === '/'"
+                :exact="nav.to === '/' && $route.path !== '/'"
                 depressed
                 nuxt
                 v-bind="attrs"
