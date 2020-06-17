@@ -7,10 +7,11 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { far as farPro } from '@fortawesome/pro-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fad } from '@fortawesome/pro-duotone-svg-icons'
 
 config.autoAddCss = false
 
-library.add(fas, far, farPro, fab)
+library.add(fas, far, farPro, fab, fad)
 
 Vue.component('fa', FontAwesomeIcon) // For myself
 Vue.component('font-awesome-icon', FontAwesomeIcon) // For Vuetify
@@ -20,16 +21,10 @@ export default new Vuetify({
   icons: {
     iconfont: 'faSvg',
     values: {
-      fire: {
+      heart: {
         component: FontAwesomeIcon,
         props: {
-          icon: ['fas', 'fire']
-        }
-      },
-      starEmpty: {
-        component: FontAwesomeIcon,
-        props: {
-          icon: ['far', 'star']
+          icon: ['fas', 'heart']
         }
       },
       angleLeft: {

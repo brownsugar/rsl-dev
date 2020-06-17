@@ -1,11 +1,11 @@
 <template>
-  <div class="league-category mb-12">
+  <div class="league-category mb-14">
     <div class="d-flex align-center mb-2">
-      <h5 class="text-h4 mr-2">
+      <deco type="race-flag" />
+      <h5 class="text-h4 ml-2">
         <slot v-if="$slots.name" name="name" />
         <span v-else>{{ name }}</span>
       </h5>
-      <deco type="race-flag" />
     </div>
     <p v-if="hasDescription" class="grey--text text--darken-3">
       <slot v-if="$slots.description" name="description" />

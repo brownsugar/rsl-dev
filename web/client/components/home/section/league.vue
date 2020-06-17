@@ -52,50 +52,94 @@
           md="9"
           lg="7"
         >
+          <category name="報名資訊">
+            <div class="pt-2">
+              <detail-info
+                v-for="(info, i) in applyInfo"
+                :key="i"
+                :title="info.title"
+              >
+                <p v-html="info.content" />
+              </detail-info>
+            </div>
+            <v-alert
+              class="mt-3"
+              color="red accent-2"
+              text
+              outlined
+              dense
+            >
+              溫馨提醒：本季聯賽獲得之所有報名費用將全數捐贈給予本次活動受贈單位援助公益。
+              <template #prepend>
+                <fa
+                  class="mr-3"
+                  :icon="['fas', 'heart']"
+                />
+              </template>
+            </v-alert>
+          </category>
+          <category
+            description="你渴望一對翅膀嗎？本季聯賽前 20 名報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一箱，助你飆的更快更穩！"
+          >
+            <template #name>
+              <span class="red--text font-weight-bold">Red Bull</span> 幫你補充飆速能量
+            </template>
+            <v-img
+              aspect-ratio="1"
+              src="~/assets/images/cooperator/redbull.png"
+              width="400"
+            />
+          </category>
           <category name="聯賽資訊">
-            <ul>
-              <li>報名時間：2020/06/19 12:00 ~ 2020/06/28 00:00</li>
-              <li>聯賽時程：2020/07/04 ~ 2020/08/16 每日 20:00 開始</li>
-              <li>
-                最高榮譽獎勵：
-                <ul>
-                  <li>
-                    冠軍
-                    <ul>
-                      <li>獎金：NTD $30,000</li>
-                      <li>遊戲虛寶：遊俠 X (永久) + 星月睡衣 (永久) + 睏寶 (永久) + 尼歐新品車款齒輪六代 (40 個)</li>
-                      <li>加碼專業電競週邊：？？？？</li>
-                      <li>加碼跑跑實體週邊：？？？？</li>
+            <div class="pt-2">
+              <detail-info
+                title="聯賽時程"
+                icon-double
+              >
+                <p>2020/07/04 ~ 2020/08/16 每周六、日 20:00 開始</p>
+              </detail-info>
+              <detail-info
+                title="最高榮譽獎勵"
+                icon-double
+              >
+                <div class="mt-2 mb-4">
+                  <div
+                    v-for="(prize, i) in leagueInfo.honorPrize"
+                    :key="i"
+                    class="mb-4"
+                  >
+                    <h3 class="text-h6 font-weight-bold primary--text">
+                      {{ prize.title }}
+                    </h3>
+                    <ul class="mt-1">
+                      <li
+                        v-for="(item, j) in prize.content"
+                        :key="j"
+                      >
+                        {{ item }}
+                      </li>
                     </ul>
-                  </li>
-                  <li>
-                    亞軍
-                    <ul>
-                      <li>獎金：NTD $15,000</li>
-                      <li>遊戲虛寶：尖峰 X Dragon (永久) + 建仔棒球裝 (永久) + 睏寶 (60 日) + 尼歐新品車款齒輪六代 (30 個)</li>
-                      <li>加碼專業電競週邊：？？？？</li>
-                    </ul>
-                  </li>
-                  <li>
-                    季軍
-                    <ul>
-                      <li>獎金：NTD $5,000</li>
-                      <li>遊戲虛寶：魔光騎士 X (永久) + 夏日花襯衫 (永久) + 睏寶 (30 日) + 尼歐新品車款齒輪六代 (20 個)</li>
-                      <li>加碼專業電競週邊：？？？？</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                特別獎項：
-                <ul>
-                  <li>冠軍賽 MVP：NTD $5,000</li>
-                  <li>賽道紀錄霸主：NTD $3,000</li>
-                  <li>觀眾票選人氣王：NTD $2,000</li>
-                  <li>參加獎：尼歐新品車款齒輪六代 (5 個)</li>
-                </ul>
-              </li>
-            </ul>
+                  </div>
+                </div>
+              </detail-info>
+              <detail-info
+                title="特別獎項"
+                icon-double
+              >
+                <div
+                  v-for="(prize, i) in leagueInfo.specialPrize"
+                  :key="i"
+                  class="mt-2"
+                >
+                  <h3 class="text-h6">
+                    {{ prize.title }}
+                  </h3>
+                  <p class="mt-1 ml-4 mb-2 grey--text text--darken-1">
+                    {{ prize.description }}
+                  </p>
+                </div>
+              </detail-info>
+            </div>
             <a
               v-ripple="{ class: 'white--text' }"
               class="d-block text-decoration-none"
@@ -114,18 +158,6 @@
                 </template>
               </v-alert>
             </a>
-          </category>
-          <category
-            description="你渴望一對翅膀嗎？本季聯賽前 20 名報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一箱，助你飆的更快更穩！"
-          >
-            <template #name>
-              <span class="red--text font-weight-bold">Red Bull</span> 幫你補充飆速能量
-            </template>
-            <v-img
-              aspect-ratio="1"
-              src="~/assets/images/cooperator/redbull.png"
-              width="400"
-            />
           </category>
           <category
             name="聯賽直播"
@@ -147,7 +179,7 @@
               </v-col>
             </v-row>
           </category>
-          <category name="賽制說明">
+          <category name="賽制介紹">
             <template #description>
               RSL 夢想盃在本季聯賽中採用嶄新賽制，選手們同時要在競速賽道上甩尾飆速，以及在道具賽中靈活運用各式道具鬥智取勝。<br>
               除了能讓選手透過更多元的管道和對手分出高下，也讓觀眾在觀看比賽時獲得雙重饗宴。
@@ -310,7 +342,7 @@
           </category>
           <category
             name="約戰討論"
-            description="想和其他隊伍約戰，在賽前先交流切磋一番？RSL 賽事聯盟提供了官方
+            description="想和其他隊伍約戰，在開賽前先交流切磋一番？RSL 賽事聯盟提供了官方
             Discord 頻道，供選手們可以隨時前來約戰和討論聯賽內容！"
           >
             <v-row class="my-n3">
@@ -348,6 +380,7 @@
 <script>
 import Particles from '~/components/common/particles'
 import Category from '~/components/home/section/league/category'
+import DetailInfo from '~/components/home/section/league/detail-info'
 import LinkCard from '~/components/home/section/league/link-card'
 import HostDialog from '~/components/home/section/league/host-dialog'
 import tracks from '~/assets/data/season1/tracks'
@@ -358,11 +391,77 @@ export default {
   components: {
     Particles,
     Category,
+    DetailInfo,
     LinkCard,
     HostDialog
   },
   props: {},
   data: () => ({
+    applyInfo: [
+      {
+        title: '報名時間',
+        content: '2020/06/19 12:00 ~ 2020/06/28 00:00'
+      },
+      {
+        title: '報名費用',
+        content: '每隊新台幣 200 元整'
+      },
+      {
+        title: '報名網址',
+        content: '<a href="https://www.accupass.com/go/restartkartrider" target="_blank">https://www.accupass.com/go/restartkartrider</a>'
+      },
+      {
+        title: '報名須知',
+        content: '報名及付款完成後可獲得專屬 QRcode，報名人員需完成<a href="https://forms.gle/ReXkzUen1bxAX8MG9" target="_blank">資料回傳表單</a>填寫後，由主辦單位核准並發送信件通知才算報名成功。'
+      }
+    ],
+    leagueInfo: {
+      honorPrize: [
+        {
+          title: '冠軍 Champion',
+          content: [
+            '獎金：NTD $30,000',
+            '遊戲虛寶：遊俠 X (永久) + 星月睡衣 (永久) + 睏寶 (永久) + 尼歐新品車款齒輪六代 (40 個)',
+            '加碼專業電競週邊：？？？？ [後續公佈]',
+            '加碼跑跑實體週邊：？？？？ [後續公佈]'
+          ]
+        },
+        {
+          title: '亞軍 2nd Place',
+          content: [
+            '獎金：NTD $15,000',
+            '遊戲虛寶：尖峰 X Dragon (永久) + 建仔棒球裝 (永久) + 睏寶 (60 日) + 尼歐新品車款齒輪六代 (30 個)',
+            '加碼專業電競週邊：？？？？ [後續公佈]'
+          ]
+        },
+        {
+          title: '季軍 3rd Place',
+          content: [
+            '獎金：NTD $5,000',
+            '遊戲虛寶：魔光騎士 X (永久) + 夏日花襯衫 (永久) + 睏寶 (30 日) + 尼歐新品車款齒輪六代 (20 個)',
+            '加碼專業電競週邊：？？？？ [後續公佈]'
+          ]
+        }
+      ],
+      specialPrize: [
+        {
+          title: '冠軍賽 MVP：NTD $5,000',
+          description: '冠軍隊伍於賽事結束後，由主播賽評團評選公佈。'
+        },
+        {
+          title: '賽道紀錄霸主：NTD $3,000',
+          description: 'S1 賽季結束後，保有最多張賽道記錄的選手。'
+        },
+        {
+          title: '觀眾票選人氣王：NTD $2,000',
+          description: '打進 16 強之隊伍所屬成員皆可成為候選人，由觀眾票選支持，獲得最高票者。'
+        },
+        {
+          title: '參加獎：尼歐新品車款齒輪六代 (5 個)',
+          description: '報名成功且至少出賽一場的隊伍所屬成員，不包含失格、棄權或無故未到者。'
+        }
+      ]
+    },
     channels: ['youtube', 'twitch'],
     sets: [
       {
