@@ -14,7 +14,7 @@ export const actions = {
     await dispatch('news/initCategory')
   },
   async initSite ({ commit }) {
-    const data = await this.$axios.$get('rsl/v1/site')
+    const data = await this.$wp.site()
     commit('setSite', data)
   }
 }

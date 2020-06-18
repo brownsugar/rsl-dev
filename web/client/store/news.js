@@ -36,44 +36,41 @@ export const mutations = {
 
 export const actions = {
   async initCategory ({ commit }) {
-    const data = await this.$axios.$get('wp/v2/categories')
+    const data = await this.$wp.categories()
     commit('setCategory', data)
   },
   load ({ commit }, { page = 1, perPage = 6 } = {}) {
     commit('setLoading', true)
-    return this.$axios.get('wp/v2/posts' + '?_embed', {
-      params: {
-        page,
-        per_page: perPage
-      }
-    }).then(({ data, headers }) => {
-      commit('setTotalPage', Number(headers['x-wp-totalpages'] || 1))
-      commit('setCurrent', data)
-      if (data.length) {
-        const single = data.reduce((result, post) => {
-          result[post.id] = post
-          return result
-        }, {})
-        commit('addSingle', single)
-      }
-      commit('setLoading', false)
-      return data
-    })
+    return this.$wp.posts().perPage(perPage).page(page).embed()
+      .then((data) => {
+        commit('setTotalPage', data._paging.totalPages || 1)
+        commit('setCurrent', data)
+        if (data.length) {
+          const single = data.reduce((result, post) => {
+            result[post.id] = post
+            return result
+          }, {})
+          commit('addSingle', single)
+        }
+        commit('setLoading', false)
+        return data
+      })
   },
   getNewsById ({ state, commit }, id) {
     if (id in state.single) {
       return Promise.resolve(state.single[id])
     } else {
-      return this.$axios.$get('wp/v2/posts/' + id + '?_embed').then((post) => {
-        if (post) {
-          commit('addSingle', {
-            [post.id]: post
-          })
-        }
-        return post
-      }).catch((e) => {
-        return null
-      })
+      return this.$wp.posts().id(id).embed()
+        .then((post) => {
+          if (post) {
+            commit('addSingle', {
+              [post.id]: post
+            })
+          }
+          return post
+        }).catch((e) => {
+          return null
+        })
     }
   }
 }

@@ -2,6 +2,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 
 const config = require('config')
 const colors = require('vuetify/es5/util/colors').default
+
 const isProd = process.env.NODE_ENV === 'production'
 
 const compressPlugins = isProd
@@ -70,8 +71,9 @@ module.exports = {
     '@nuxtjs/google-analytics'
   ],
   modules: [
+    'nuxt-config/module',
     '@nuxtjs/axios',
-    'nuxt-config/module'
+    'wp-nuxt'
   ],
   features: {
     transitions: false
@@ -130,10 +132,27 @@ module.exports = {
   },
   /*
   ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
+  ** https://axios.nuxtjs.org/options
   */
   axios: {
     baseURL: config.api
+  },
+  /*
+  ** wp-nuxt module configuration
+  ** https://github.com/yashha/wp-nuxt
+  ** node-wpapi: https://github.com/WP-API/node-wpapi
+  ** @nuxtjs/sitemap: https://github.com/nuxt-community/sitemap-module
+  */
+  wp: {
+    endpoint: config.api,
+    customRoutes: config.wp.customRoutes,
+    sitemap: {
+      hostname: config.rsl.url,
+      path: 'sitemap-static.xml',
+      // use default static path
+      routes: [],
+      gzip: true
+    }
   },
   build: {
     extractCSS: isProd,

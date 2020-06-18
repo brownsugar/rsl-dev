@@ -12,8 +12,18 @@ const config = {
     host: '0.0.0.0',
     port: 3000
   },
+  wp: {
+    customRoutes: [
+      {
+        extension: 'rsl/v1',
+        route: 'site',
+        name: 'site'
+      }
+    ]
+  },
   api: 'http://rsl.local/api',
   rsl: {
+    url: 'http://localhost:3000',
     facebook: {
       url: 'https://www.facebook.com/RSLeagueTW',
       username: 'RSLeagueTW'
