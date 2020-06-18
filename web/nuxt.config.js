@@ -56,13 +56,13 @@ module.exports = {
   },
   plugins: [
     '~/plugins/vue-warn.js',
+    { src: '~/plugins/polyfills', mode: 'client' },
     '~/plugins/breakpoint.js',
-    '~/plugins/axios.js',
     '~/plugins/moment.js',
     '~/plugins/fontawesome.js',
     '~/plugins/clipboard.js',
     '~/plugins/vue-youtube.js',
-    { src: '~/plugins/vue-affix.js', ssr: false }
+    { src: '~/plugins/vue-affix.js', mode: 'client' }
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
