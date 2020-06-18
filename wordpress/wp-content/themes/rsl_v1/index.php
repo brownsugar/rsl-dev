@@ -1,2 +1,4 @@
 <?php
-echo 'Hello from the API.';
+
+header( 'HTTP/1.1 404 Not Found' );
+exit( 'Just an API service of RSL.' );
