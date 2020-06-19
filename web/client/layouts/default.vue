@@ -247,9 +247,12 @@ export default {
 
     const metaInfo = {
       titleTemplate: titleWithChuck,
+      link: [
+        { rel: 'alternate', type: 'application/rss+xml', title: this.$config.rsl.name, href: this.site.rss2_url }
+      ],
       meta: [
         { property: 'publisher', content: this.$config.rsl.facebook.url },
-        { name: 'author', content: 'RSL 賽事聯盟' },
+        { name: 'author', content: this.$config.rsl.name },
         { property: 'og:site_name', content: this.site.name },
         { property: 'og:title', template: titleWithChuck, hid: 'og:title' },
         { property: 'og:type', content: ogType, hid: 'og:type' },

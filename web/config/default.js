@@ -3,14 +3,18 @@ const defer = require('config/defer').deferConfig
 /**
  * Access config by:
  * 1. import { config } from 'nuxt-config'
- * 2. this.$config.api
- * 3. ctx.app.$config.api
+ * 2. this.$config.api.url
+ * 3. ctx.app.$config.api.url
  */
 
 const config = {
   server: {
     host: '0.0.0.0',
-    port: 3000
+    port: 3000,
+    // Map some frontend paths to WP
+    proxy: [
+      '/feed'
+    ]
   },
   wp: {
     customRoutes: [
@@ -21,8 +25,12 @@ const config = {
       }
     ]
   },
-  api: 'http://rsl.local/api',
+  api: {
+    url: 'http://rsl.local',
+    path: '/api'
+  },
   rsl: {
+    name: 'RSL 賽事聯盟',
     url: 'http://localhost:3000',
     facebook: {
       url: 'https://www.facebook.com/RSLeagueTW',

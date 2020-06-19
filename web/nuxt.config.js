@@ -5,6 +5,12 @@ const colors = require('vuetify/es5/util/colors').default
 
 const isProd = process.env.NODE_ENV === 'production'
 
+const serverMiddlewares = config.server.proxy.map((path) => {
+  return {
+    path,
+    handler: '~~server/endpoint/proxy'
+  }
+})
 const compressPlugins = isProd
   ? [
     new CompressionPlugin({
@@ -23,6 +29,9 @@ module.exports = {
     host: config.server.host,
     port: config.server.port
   },
+  serverMiddleware: [
+    ...serverMiddlewares
+  ],
   /*
   ** Vue Meta configuration
   ** https://nuxtjs.org/api/configuration-head
@@ -135,7 +144,6 @@ module.exports = {
   ** https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: config.api
   },
   /*
   ** wp-nuxt module configuration
@@ -144,7 +152,7 @@ module.exports = {
   ** @nuxtjs/sitemap: https://github.com/nuxt-community/sitemap-module
   */
   wp: {
-    endpoint: config.api,
+    endpoint: config.api.url + config.api.path,
     customRoutes: config.wp.customRoutes,
     sitemap: {
       hostname: config.rsl.url,
