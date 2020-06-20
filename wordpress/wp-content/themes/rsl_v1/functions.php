@@ -29,3 +29,17 @@ function rsl_excerpt_more( $more ) {
 	return ' ...';
 }
 add_filter( 'excerpt_more', 'rsl_excerpt_more' );
+
+/**
+ * Disable transform symbols
+ */
+add_filter( 'run_wptexturize', '__return_false' );
+
+/**
+ * Covert "&#038;" back to "&"
+ */
+function rsl_the_title( $title, $id ) {
+	$title = str_replace( '&#038;', '&', $title );
+	return $title;
+}
+add_filter( 'the_title', 'rsl_the_title', 10, 2 );
