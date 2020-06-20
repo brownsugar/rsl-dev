@@ -29,42 +29,31 @@
               />
             </v-responsive>
           </v-card>
-          <v-alert
+          <action-alert
             class="mt-6"
             color="primary"
             elevation="2"
             border="left"
             colored-border
           >
-            <v-row
-              align="center"
-              no-gutters
-            >
-              <v-col class="shrink">
-                <fa
-                  class="mx-2 primary--text"
-                  :icon="['fas', 'bell']"
-                  size="lg"
-                />
-              </v-col>
-              <v-col class="grow ml-1 mr-2">
-                立即訂閱 RSL 賽事聯盟 YouTube 頻道，精彩賽事影片不漏接！
-              </v-col>
-              <v-col
-                class="shrink d-flex justify-end d-sm-block pt-2 pt-sm-0"
-                cols="12"
-                sm="auto"
+            <template #icon>
+              <fa
+                class="primary--text"
+                :icon="['fas', 'bell']"
+                size="lg"
+              />
+            </template>
+            <template #button>
+              <v-btn
+                color="primary"
+                :href="$config.rsl.youtube.url"
+                target="_blank"
               >
-                <v-btn
-                  color="primary"
-                  :href="$config.rsl.youtube.url"
-                  target="_blank"
-                >
-                  前往 YouTube
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-alert>
+                前往 YouTube
+              </v-btn>
+            </template>
+            立即訂閱 RSL 賽事聯盟 YouTube 頻道，精彩賽事影片不漏接！
+          </action-alert>
         </v-col>
       </v-row>
     </v-container>
@@ -74,12 +63,14 @@
 <script>
 import Deco from '~/components/common/deco'
 import YtPlayer from '~/components/common/yt-player'
+import ActionAlert from '~/components/common/action-alert'
 
 export default {
   name: 'Vod',
   components: {
     Deco,
-    YtPlayer
+    YtPlayer,
+    ActionAlert
   }
 }
 </script>
