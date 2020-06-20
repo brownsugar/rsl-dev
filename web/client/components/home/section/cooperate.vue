@@ -41,45 +41,39 @@
           </a>
         </v-col>
       </v-row>
-      <v-alert
+      <action-alert
         class="mt-8"
         color="secondary"
         outlined
         dense
       >
-        <v-row align="center" no-gutters>
-          <v-col class="shrink">
-            <fa class="mr-2" :icon="['fas', 'info-circle']" />
-          </v-col>
-          <v-col class="grow ml-1 mr-2">
-            想在「RSL 夢想盃跑跑跑跑聯賽」中曝光您的產品或業務嗎？RSL 賽事聯盟持續招商中，歡迎與我們合作！
-          </v-col>
-          <v-col
-            class="shrink d-flex justify-end d-sm-block pt-2 pt-sm-0"
-            cols="12"
-            sm="auto"
+        <template #icon>
+          <fa :icon="['fas', 'info-circle']" />
+        </template>
+        <template #button>
+          <v-btn
+            color="secondary"
+            to="/contact"
+            nuxt
           >
-            <v-btn
-              color="secondary"
-              to="/contact"
-              nuxt
-            >
-              合作洽詢
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-alert>
+            合作洽詢
+          </v-btn>
+        </template>
+        想在「RSL 夢想盃跑跑跑跑聯賽」中曝光您的產品或業務嗎？RSL 賽事聯盟持續招商中，歡迎與我們合作！
+      </action-alert>
     </v-container>
   </div>
 </template>
 
 <script>
 import PrimaryTitle from '~/components/common/primary-title'
+import ActionAlert from '~/components/common/action-alert'
 
 export default {
   name: 'Cooperate',
   components: {
-    PrimaryTitle
+    PrimaryTitle,
+    ActionAlert
   },
   props: {},
   data: () => ({
