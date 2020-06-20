@@ -25,6 +25,7 @@ const compressPlugins = isProd
 module.exports = {
   mode: 'universal',
   srcDir: 'client/',
+  buildDir: '.nuxt' + (process.argv.includes('--tmp') ? '.tmp' : ''),
   server: {
     host: config.server.host,
     port: config.server.port
