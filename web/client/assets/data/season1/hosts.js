@@ -57,7 +57,7 @@ const hosts = [
 
 -賽事經驗-
 2019 跑跑卡丁車世界爭霸賽 個人賽冠軍
-2019 Global SuperMatch 亞軍`
+2019 跑跑卡丁車 Global SuperMatch 亞軍`
   },
   {
     name: 'Space Q',
