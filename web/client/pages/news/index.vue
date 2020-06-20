@@ -136,7 +136,7 @@ export default {
   methods: {
     featuredImage (embedded) {
       const image = postUtils.getFeaturedImage(embedded)
-      return image || this.site.url + '/RSL_cover_v1.png'
+      return image || this.$config.rsl.cover
     },
     formatPostDate (date, relative = false) {
       const posted = this.$moment(date)
