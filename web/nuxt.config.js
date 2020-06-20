@@ -169,6 +169,7 @@ module.exports = {
       ...compressPlugins
     ],
     extend (config, { isClient, loaders: { vue } }) {
+      config.resolve.alias.vue$ = 'vue/dist/vue.esm.js'
       if (isClient) {
         // Fix: This dependency was not found: * fs in ./node_modules/config/lib/config.js
         config.node = {
