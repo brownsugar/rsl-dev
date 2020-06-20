@@ -89,10 +89,10 @@
             >
               <slot name="content" />
             </div>
-            <div
+            <post-content
               v-else
               :class="postContentClass"
-              v-html="content"
+              :content="content"
             />
             <template v-if="$slots.actions">
               <v-divider />
@@ -109,6 +109,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import PostContent from '~/components/post/content'
 
 /**
  * Available slots: title, toolbar, content, actions
@@ -116,7 +117,9 @@ import { mapState } from 'vuex'
  */
 export default {
   name: 'PostLayout',
-  components: {},
+  components: {
+    PostContent
+  },
   props: {
     banner: {
       type: String,
