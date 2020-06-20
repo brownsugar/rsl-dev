@@ -241,7 +241,7 @@ export default {
 
     const title = this.site.name
     const url = this.site.url + this.$route.path
-    const ogImage = this.site.url + '/RSL_cover_v1.png'
+    const ogImage = this.$config.rsl.cover
     const ogType = isSingle ? 'article' : 'website'
     const titleWithChuck = chunk => chunk ? `${chunk} - ${title}` : title
 

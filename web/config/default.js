@@ -32,6 +32,7 @@ const config = {
   rsl: {
     name: 'RSL 賽事聯盟',
     url: 'http://localhost:3000',
+    cover: defer(self => self.rsl.url + '/RSL_cover_v1.png'),
     facebook: {
       url: 'https://www.facebook.com/RSLeagueTW',
       username: 'RSLeagueTW'
