@@ -37,7 +37,7 @@ scripts-prepend-node-path=true
 Add additional deploy actions in Plesk Git setting:
 
 ```
-cd web && PATH=/opt/plesk/node/12/bin/:$PATH; npm i; npm run build
+cd web && PATH=/opt/plesk/node/12/bin/:$PATH; npm i -g yarn; yarn; yarn build:safe
 touch web/tmp/restart.txt
 ```
 
