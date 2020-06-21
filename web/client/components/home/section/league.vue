@@ -407,6 +407,10 @@ export default {
         content: '每隊新台幣 200 元整'
       },
       {
+        title: '開放名額',
+        content: '<s>共 32 組隊伍</s> 6/21 加開至 64 組！'
+      },
+      {
         title: '報名網址',
         content: '<a href="https://www.accupass.com/go/restartkartrider" target="_blank">https://www.accupass.com/go/restartkartrider</a>'
       },
