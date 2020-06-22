@@ -78,11 +78,12 @@
               </template>
             </v-alert>
           </category>
-          <category
-            description="你渴望一對翅膀嗎？本季聯賽前 20 名報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一打，助你飆的更快更穩！"
-          >
+          <category>
             <template #name>
               <span class="red--text font-weight-bold">Red Bull</span> 幫你補充飆速能量
+            </template>
+            <template #description>
+              你渴望一對翅膀嗎？本季聯賽 <s>前 20 組</s> 前 32 組（06/22 再加碼！）報名的隊伍皆可獲得由 Red Bull 贊助的能量飲料一打，助你飆的更快更穩！
             </template>
             <v-img
               aspect-ratio="1"
