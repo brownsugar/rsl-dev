@@ -112,9 +112,6 @@ export default {
     page: 1
   }),
   computed: {
-    ...mapState([
-      'site'
-    ]),
     ...mapState('news', [
       'current',
       'totalPage',

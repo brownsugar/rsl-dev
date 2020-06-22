@@ -40,12 +40,18 @@ $btn-skew: -15deg;
  * Single post content
  */
 .post-content {
-  img {
+  img,
+  .v-image {
     max-width: 100%;
-    height: auto;
+    height: auto !important;
   }
   p:last-child {
     margin-bottom: 0;
+  }
+  .aligncenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
   }
   .responsive-embed {
     position: relative;

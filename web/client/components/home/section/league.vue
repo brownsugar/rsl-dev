@@ -308,7 +308,6 @@
                 width="250"
                 :height="$breakpoint.is.mdAndDown ? 250 : 350"
                 :alt="host.name"
-                eager
               >
                 <v-row
                   class="px-4 px-sm-8 py-2 fill-height white--text"
