@@ -11,6 +11,10 @@ const serverMiddlewares = config.server.proxy.map((path) => {
     handler: '~~server/endpoint/proxy'
   }
 })
+const polyfills = [
+  'intersection-observer',
+  'scroll-behavior'
+].join(',')
 const compressPlugins = isProd
   ? [
     new CompressionPlugin({
@@ -48,6 +52,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+    ],
+    script: [
+      { src: `https://polyfill.app/api/polyfill?features=${polyfills}`, body: true }
     ]
   },
   loading: { color: '#fff' },
@@ -66,7 +73,6 @@ module.exports = {
   },
   plugins: [
     '~/plugins/vue-warn.js',
-    { src: '~/plugins/polyfills', mode: 'client' },
     '~/plugins/breakpoint.js',
     '~/plugins/moment.js',
     '~/plugins/fontawesome.js',
@@ -85,6 +91,9 @@ module.exports = {
     '@nuxtjs/axios',
     'wp-nuxt'
   ],
+  /*
+  ** Fix Vue meta & GA integration
+  */
   features: {
     transitions: false
   },
@@ -167,6 +176,10 @@ module.exports = {
     extractCSS: isProd,
     plugins: [
       ...compressPlugins
+    ],
+    transpile: [
+      'wpapi',
+      'superagent'
     ],
     extend (config, { isClient, loaders: { vue } }) {
       config.resolve.alias.vue$ = 'vue/dist/vue.esm.js'
