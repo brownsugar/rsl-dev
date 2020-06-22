@@ -42,11 +42,12 @@ function parse (content) {
       }
     }
   )
-  const imageTagRegex = /<img([^>]+)>/ig
+  // Fix: Mismatching childNodes vs. VNodes
+  const imageTagRegex = /<p>(<a[^>]+>)?<img([^>]+)>(<\/a>)?<\/p>/ig
   content = content.replace(
     imageTagRegex,
-    (string, attrs) => {
-      return `<v-img${attrs}>`
+    (string, linkTagStart = '', attrs, linkTagEnd = '') => {
+      return `${linkTagStart}<v-img ${attrs.trim()}>${linkTagEnd}`
     }
   )
   return content
