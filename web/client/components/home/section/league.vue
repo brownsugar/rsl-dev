@@ -160,10 +160,11 @@
               </v-alert>
             </a>
           </category>
-          <category
-            name="聯賽直播"
-            description="賽事開打期間每個週末晚間 8 點於 RSL 官方 YouTube、Twitch 頻道同步轉播賽事，立即訂閱頻道，精彩賽事不漏接！"
-          >
+          <category name="聯賽直播">
+            <template #description>
+              本季聯賽開打期間於每個週末晚間 8 點<strong>在 RSL 官方 Twitch 頻道獨家轉播</strong>！<br>
+              重播影片也將於賽後發佈至 YouTube 中，立即訂閱頻道，精彩賽事影片不漏接！
+            </template>
             <v-row class="my-n3">
               <v-col
                 v-for="(channel, i) in channels"
@@ -466,7 +467,7 @@ export default {
         }
       ]
     },
-    channels: ['youtube', 'twitch'],
+    channels: ['twitch', 'youtube'],
     sets: [
       {
         title: '競速賽',
