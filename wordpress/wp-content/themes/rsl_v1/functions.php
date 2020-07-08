@@ -3,6 +3,7 @@
 require_once 'inc/rest-rsl.php';
 require_once 'inc/extends.php';
 require_once 'inc/uploads.php';
+require_once 'inc/acf.php';
 
 /**
  * Improve oembed feature
