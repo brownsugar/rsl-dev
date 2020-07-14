@@ -69,7 +69,7 @@
               outlined
               dense
             >
-              溫馨提醒：本季聯賽獲得之所有報名費用將全數捐贈給予本次活動受贈單位援助公益。
+              溫馨提醒：本季聯賽獲得之所有報名費用將全數捐贈給予本次活動受贈單位【社團法人中華民國扶弱成長協會】援助公益。
               <template #prepend>
                 <fa
                   class="mr-3"
@@ -241,7 +241,7 @@
                               <fa
                                 v-for="j in track.level"
                                 :key="j"
-                                class="grey--text text--lighten-1"
+                                class="grey--text"
                                 :icon="['fas', 'star']"
                                 size="sm"
                               />
@@ -259,10 +259,23 @@
                             />
                             <v-spacer />
                             <v-card-text
-                              v-if="tab.type === 'speed'"
-                              class="primary--text"
+                              v-if="tab.type === 'speed' && trackBest[track.id]"
+                              class="grey--text text--darken-2"
                             >
-                              本季最佳 / COMING SOON
+                              <v-chip
+                                class="mb-1"
+                                color="primary"
+                                x-small
+                              >
+                                Best Record
+                              </v-chip>
+                              <br>
+                              <span class="mr-2">
+                                <fa :icon="['fas', 'user']" /> {{ trackBest[track.id].player }}
+                              </span>
+                              <span>
+                                <fa :icon="['fas', 'stopwatch']" /> {{ trackBest[track.id].time }}
+                              </span>
                             </v-card-text>
                           </div>
                           <v-spacer />
@@ -380,6 +393,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Particles from '~/components/common/particles'
 import LinkAlert from '~/components/common/link-alert'
 import Category from '~/components/home/section/league/category'
@@ -399,7 +413,6 @@ export default {
     LinkCard,
     HostDialog
   },
-  props: {},
   data: () => ({
     applyInfo: [
       {
@@ -503,6 +516,9 @@ export default {
     }
   }),
   computed: {
+    ...mapState([
+      'config'
+    ]),
     affixOffset () {
       const navHeight = this.$vuetify.application.top
       const padding = 48 + 12 // parent + inner
@@ -511,10 +527,13 @@ export default {
         top: navHeight + padding,
         bottom: padding
       }
+    },
+    trackBest () {
+      return this.config.track_record.reduce((result, track) => {
+        result[track.id] = track
+        return result
+      }, {})
     }
-  },
-  watch: {},
-  mounted () {
   },
   methods: {
     showHostDialog (data) {

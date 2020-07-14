@@ -20,8 +20,13 @@ const config = {
     customRoutes: [
       {
         extension: 'rsl/v1',
-        route: 'site',
+        route: '/site',
         name: 'site'
+      },
+      {
+        extension: 'acf/v3',
+        route: '/options/(?P<id>[\\w\\-\\_]+)',
+        name: 'options'
       }
     ]
   },

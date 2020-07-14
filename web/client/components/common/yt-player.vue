@@ -68,7 +68,7 @@ export default {
   }),
   computed: {
     isPlaylist () {
-      return this.playlistId !== undefined
+      return !!this.playlistId
     },
     player () {
       return this.$refs.youtube.player

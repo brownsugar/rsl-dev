@@ -16,16 +16,15 @@
               精彩賽事回顧
             </h3>
           </div>
-          <p>
-            2018 年由 TRY 賽事聯盟與 AKEL 攜手於高雄夢時代舉辦的《TKL 夢想盃跑跑卡丁車聯賽》集結了包含爆哥在內等 16 名跑跑卡丁車頂尖高手對決，並邀請到熱血主播徐展元、知名賽評林志彥以及國服跑跑知名解說 Tony 現身激情播報，全程由 Brownsugar 導播並於熊貓 TV 及 Twitch 頻道轉播，創下了最高 12 萬人同時在線收看的好成績，現場也有超過 300 名跑跑粉絲入場共襄盛舉，為跑跑卡丁車實體賽事回憶寫下了精彩的一頁。
-          </p>
+          <p v-html="parseHtml(config.highlight.video_description)" />
           <v-card>
             <v-responsive :aspect-ratio="16/9">
               <yt-player
-                video-id="pWSmvIYGiJo"
+                :video-id="config.highlight.video_id"
+                :playlist-id="config.highlight.playlist_id"
                 play-on-visible
                 auto-mute
-                loop
+                :loop="config.highlight.loop"
               />
             </v-responsive>
           </v-card>
@@ -61,6 +60,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Deco from '~/components/common/deco'
 import YtPlayer from '~/components/common/yt-player'
 import ActionAlert from '~/components/common/action-alert'
@@ -71,6 +71,16 @@ export default {
     Deco,
     YtPlayer,
     ActionAlert
+  },
+  computed: {
+    ...mapState([
+      'config'
+    ])
+  },
+  methods: {
+    parseHtml (string) {
+      return string.replace(/(\r\n|\n\r|\r|\n)/g, '<br />')
+    }
   }
 }
 </script>
