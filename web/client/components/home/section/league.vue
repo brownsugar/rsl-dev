@@ -294,7 +294,7 @@
               </v-tabs-items>
             </v-card>
             <link-alert
-              href="https://kartinfo.me/kartinfo-mapdraw.html"
+              href="https://kinf.cc/3epJovN"
               class="mt-6"
               color="secondary"
               icon="$random"
