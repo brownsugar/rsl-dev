@@ -38,6 +38,12 @@ export default new Vuetify({
         props: {
           icon: ['fas', 'angle-right']
         }
+      },
+      random: {
+        component: FontAwesomeIcon,
+        props: {
+          icon: ['fad', 'random']
+        }
       }
     }
   }

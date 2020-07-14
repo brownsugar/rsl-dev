@@ -141,24 +141,15 @@
                 </div>
               </detail-info>
             </div>
-            <a
-              v-ripple="{ class: 'white--text' }"
-              class="d-block text-decoration-none"
+            <link-alert
               :href="$config.rsl.facebook.url"
-              target="_blank"
+              class="mt-4"
+              type="info"
+              color="secondary"
+              dense
             >
-              <v-alert
-                class="mt-4"
-                type="info"
-                color="secondary"
-                dense
-              >
-                想知道本季聯賽還有哪些豐富又令人愛不釋手的加碼實體獎勵嗎？立即點擊關注 RSL 賽事聯盟粉絲團搶先得知！
-                <template #append>
-                  <fa :icon="['fas', 'external-link-alt']" />
-                </template>
-              </v-alert>
-            </a>
+              想知道本季聯賽還有哪些豐富又令人愛不釋手的加碼實體獎勵嗎？立即點擊關注 RSL 賽事聯盟粉絲團搶先得知！
+            </link-alert>
           </category>
           <category name="聯賽直播">
             <template #description>
@@ -289,6 +280,16 @@
                 </v-tab-item>
               </v-tabs-items>
             </v-card>
+            <link-alert
+              href="https://kartinfo.me/kartinfo-mapdraw.html"
+              class="mt-6"
+              color="secondary"
+              icon="$random"
+              text
+              dark
+            >
+              賽前交流練習想以隨機賽道進行？使用「賽道抽選」工具，助你一鍵選擇指定賽道並隨機抽出賽道順序！
+            </link-alert>
           </category>
           <category name="主播陣容">
             <template #description>
@@ -380,6 +381,7 @@
 
 <script>
 import Particles from '~/components/common/particles'
+import LinkAlert from '~/components/common/link-alert'
 import Category from '~/components/home/section/league/category'
 import DetailInfo from '~/components/home/section/league/detail-info'
 import LinkCard from '~/components/home/section/league/link-card'
@@ -391,6 +393,7 @@ export default {
   name: 'League',
   components: {
     Particles,
+    LinkAlert,
     Category,
     DetailInfo,
     LinkCard,
