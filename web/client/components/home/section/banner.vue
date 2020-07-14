@@ -34,7 +34,7 @@
             large
             @click="$vuetify.goTo('#league')"
           >
-            6/19 開始報名
+            S1 賽季正式開打
           </v-btn>
         </v-col>
       </v-row>
