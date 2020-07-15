@@ -304,7 +304,7 @@
                             >
                               <v-chip
                                 class="mb-1"
-                                color="primary"
+                                color="secondary"
                                 x-small
                               >
                                 Best Record
