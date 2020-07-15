@@ -1,6 +1,6 @@
 <script>
 import { config } from 'nuxt-config'
-import { VImg, VSimpleTable } from 'vuetify/lib'
+import { VImg, VSimpleTable, VLazy } from 'vuetify/lib'
 
 export default {
   functional: true,
@@ -14,7 +14,8 @@ export default {
     const render = {
       components: {
         VImg,
-        VSimpleTable
+        VSimpleTable,
+        VLazy
       },
       template: `
         <div class="${ctx.data.class}">
@@ -44,9 +45,10 @@ function parse (content) {
       }
     }
   )
+
   // Replace <img> tag to <v-img>
   // <p> = Fix "Mismatching childNodes vs. VNodes"
-  const imageTagRegex = /<p>(<a[^>]+>)?<img([^>]+)>(<\/a>)?<\/p>/ig
+  const imageTagRegex = /<p>(<a[^>]*>)?<img([^>]+)>(<\/a>)?<\/p>/ig
   content = content.replace(
     imageTagRegex,
     (string, linkTagStart = '', attrs, linkTagEnd = '') => {
@@ -54,11 +56,20 @@ function parse (content) {
       return `${linkTagStart}<v-img ${attrs}>${linkTagEnd}`
     }
   )
+
   // Replace <table> tag to <v-simple-table>
   const tableTagStartRegex = /<table[^>]*>/ig
   const tableTagEndRegex = /<\/table>/ig
   content = content.replace(tableTagStartRegex, '<v-simple-table>')
   content = content.replace(tableTagEndRegex, '</v-simple-table>')
+
+  // Wrap <iframe> width <v-lazy>
+  const iframeTagRegex = /<iframe[^>]*><\/iframe>/ig
+  content = content.replace(
+    iframeTagRegex,
+    string => `<v-lazy>${string}</v-lazy>`
+  )
+
   return content
 }
 </script>
