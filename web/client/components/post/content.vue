@@ -64,10 +64,11 @@ function parse (content) {
   content = content.replace(tableTagEndRegex, '</v-simple-table>')
 
   // Wrap <iframe> width <v-lazy>
-  const iframeTagRegex = /<iframe[^>]*><\/iframe>/ig
+  // <p> = Fix "Mismatching childNodes vs. VNodes"
+  const iframeTagRegex = /(?:<p>\s*)?(<iframe[^>]*><\/iframe>)(?:\s*<\/p>)?/ig
   content = content.replace(
     iframeTagRegex,
-    string => `<v-lazy>${string}</v-lazy>`
+    (string, iframe) => `<v-lazy>${iframe}</v-lazy>`
   )
 
   return content
