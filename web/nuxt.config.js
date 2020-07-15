@@ -94,7 +94,6 @@ module.exports = {
   plugins: [
     '~/plugins/vue-warn.js',
     '~/plugins/breakpoint.js',
-    '~/plugins/moment.js',
     '~/plugins/fontawesome.js',
     '~/plugins/clipboard.js',
     '~/plugins/vue-youtube.js',
@@ -104,6 +103,7 @@ module.exports = {
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
     '@nuxtjs/google-analytics'
   ],
   modules: [
@@ -149,6 +149,14 @@ module.exports = {
     },
     // custom variables only works with tree-shaking.
     treeShake: true
+  },
+  /*
+  ** Moment module configuration
+  ** https://github.com/nuxt-community/moment-module
+  */
+  moment: {
+    defaultLocale: 'zh-tw',
+    locales: ['zh-tw']
   },
   /*
   ** Google Analytics module configuration

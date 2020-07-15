@@ -6,8 +6,8 @@
   >
     <template #toolbar>
       <div class="grey--text">
-        <span v-if="type === 'post'">發表於 {{ post.date | moment(DATETIME_FORMAT) }}</span>
-        <span v-else>最後更新於 {{ post.modified | moment(DATETIME_FORMAT) }}</span>
+        <span v-if="type === 'post'">發表於 {{ $moment(post.date).format(DATETIME_FORMAT) }}</span>
+        <span v-else>最後更新於 {{ $moment(post.modified).format(DATETIME_FORMAT) }}</span>
       </div>
     </template>
     <template
