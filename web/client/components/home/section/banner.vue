@@ -23,7 +23,7 @@
             重啟<span class="primary--text">夢想</span>，<br>
             重燃<span class="primary--text">渴望</span>。
           </h2>
-          <p class="mt-3">
+          <p class="mt-4">
             2020 夏天，RSL 夢想盃跑跑聯賽即將重新燃燒你的電競魂。<br>
             總獎金高達新臺幣 60,000 元，還有豐富的遊戲道具獎勵及專業電競週邊，你還在等什麼？
           </p>

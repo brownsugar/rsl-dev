@@ -3,10 +3,6 @@
     id="league"
     class="grey lighten-3"
   >
-    <particles
-      class="fill-width fill-height d-none d-md-block"
-      :retina-detect="false"
-    />
     <v-container fluid>
       <v-row
         class="py-12"
@@ -21,7 +17,7 @@
             :key="$breakpoint.is.mdAndUp"
             class="league-left"
             relative-element-selector="#league-content"
-            :offset="affixOffset"
+            :offset="affixTitleOffset"
             :enabled="$breakpoint.is.mdAndUp"
           >
             <h3 class="text-h4 text-lg-h3 font-weight-bold primary--text mb-2">
@@ -177,7 +173,7 @@
             description="本季聯賽自 7/4 起至 8/16 止，每周六日皆有安排賽程，一共 14 日，詳細賽程請參閱下方時程表。"
           >
             <v-card>
-              <v-card-text class="py-0">
+              <v-card-text class="pl-0 pl-md-4 py-0">
                 <v-timeline
                   align-top
                   dense
@@ -433,6 +429,13 @@
         </v-col>
       </v-row>
     </v-container>
+    <affix
+      class="particles-wrap"
+      relative-element-selector="#league"
+      :offset="affixParticlesOffset"
+    >
+      <particles class="fill-width fill-height" />
+    </affix>
   </div>
 </template>
 
@@ -605,13 +608,19 @@ export default {
     ...mapState([
       'config'
     ]),
-    affixOffset () {
+    affixTitleOffset () {
       const navHeight = this.$vuetify.application.top
       const padding = 48 + 12 // parent + inner
 
       return {
         top: navHeight + padding,
         bottom: padding
+      }
+    },
+    affixParticlesOffset () {
+      return {
+        top: this.$vuetify.application.top,
+        bottom: 0
       }
     },
     trackBest () {
@@ -645,9 +654,19 @@ export default {
 #league {
   position: relative;
 }
-.particles {
-  position: absolute;
-  top: 0;
+.container {
+  position: relative;
+  z-index: 1;
+}
+.particles-wrap {
+  width: 100vw;
+  height: 100vh;
+
+  &:not(.affix) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 .league-left:not(.affix),
 #league-content {
