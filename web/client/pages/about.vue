@@ -74,7 +74,7 @@
                       {{ member.name }}
                     </p>
                     <div class="text--primary">
-                      <ul class="exp-list">
+                      <ul class="exp-list ma-0">
                         <li
                           v-for="(exp, j) in member.experiences"
                           :key="j"

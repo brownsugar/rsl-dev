@@ -172,6 +172,50 @@
               </v-col>
             </v-row>
           </category>
+          <category
+            name="聯賽時程"
+            description="本季聯賽自 7/4 起至 8/16 止，每周六日皆有安排賽程，一共 14 日，詳細賽程請參閱下方時程表。"
+          >
+            <v-card>
+              <v-card-text class="py-0">
+                <v-timeline
+                  align-top
+                  dense
+                >
+                  <v-timeline-item
+                    v-for="(schedule, i) in schedules"
+                    :key="i"
+                    class="pb-10"
+                    :color="getScheduleDotColor(schedule)"
+                    small
+                  >
+                    <v-row>
+                      <v-col
+                        class="py-0"
+                        cols="12"
+                        lg="3"
+                        xl="2"
+                      >
+                        <div class="text-subtitle-1 font-weight-bold">
+                          {{ schedule.dates }}
+                        </div>
+                      </v-col>
+                      <v-col class="py-0">
+                        <div class="text-subtitle-1 font-weight-bold">
+                          {{ schedule.title }}
+                        </div>
+                        <div
+                          v-if="schedule.content"
+                          class="mt-1"
+                          v-html="schedule.content"
+                        />
+                      </v-col>
+                    </v-row>
+                  </v-timeline-item>
+                </v-timeline>
+              </v-card-text>
+            </v-card>
+          </category>
           <category name="賽制介紹">
             <template #description>
               RSL 夢想盃在本季聯賽中採用嶄新賽制，選手們同時要在競速賽道上甩尾飆速，以及在道具賽中靈活運用各式道具鬥智取勝。<br>
@@ -484,6 +528,48 @@ export default {
       ]
     },
     channels: ['twitch', 'youtube'],
+    schedules: [
+      {
+        dates: '07/04~07/05',
+        title: '海選賽 I',
+        content: '從所有參賽隊伍中決定晉級 16 強的組別，採單淘汰賽制，每個場次進行 1 回合，搶 5 勝晉級。'
+      },
+      {
+        dates: '07/11~07/12',
+        title: '海選賽 II',
+        content: ''
+      },
+      {
+        dates: '07/18~07/19',
+        title: '16 強賽 I',
+        content: '將 16 強隊伍分為 A/B/C/D 四個組別，每個組別分別進行循環賽，各組戰績前二名之隊伍晉級 8 強（A/B 組晉級至 8 強 A 組、C/D 組晉級至 8 強 B 組）。<br>每個場次進行 3 回合，回合採三戰兩勝制，前兩回合團體競速、道具搶 3 勝，第三回合個人賽單挑搶 1 勝。'
+      },
+      {
+        dates: '07/25~07/26',
+        title: '16 強賽 II',
+        content: ''
+      },
+      {
+        dates: '08/01~08/02',
+        title: '16 強賽 III',
+        content: ''
+      },
+      {
+        dates: '08/08~08/09',
+        title: '8 強賽',
+        content: '8 強賽 A/B 兩個組別分別進行循環賽，A 組戰績第一晉級 4 強 A 組、第二進入 4 強 B 組；B 組戰績第一晉級 4 強 B 組、第二進入 4 強 A 組。<br>每個場次進行 3 回合，回合採三戰兩勝制，前兩回合團體競速、道具搶 3 勝，第三回合個人賽單挑搶 1 勝。'
+      },
+      {
+        dates: '08/15',
+        title: '4 強賽',
+        content: '4 強賽起採雙敗淘汰賽制，A/B 兩個組別分別進行對決，各組勝利方晉級勝組準決賽、落敗方進入敗組；敗組對決後勝出隊伍進入敗組準決賽、落敗隊伍則為本次聯賽季軍。<br>每個場次進行 3 回合，回合採三戰兩勝制，前兩回合團體競速、道具搶 5 勝，第三回合個人賽單挑搶 2 勝。'
+      },
+      {
+        dates: '08/16',
+        title: '冠亞賽 / 準決賽',
+        content: '首先進行勝組準決賽，勝組準決賽勝出隊伍晉級冠亞賽、落敗隊伍進入敗組準決賽，接著進行敗組準決賽對決，勝出隊伍晉級冠亞賽、落敗隊伍則為本次聯賽季軍。<br>冠亞賽兩隊隊伍進行最終對決，勝利隊伍則奪得 RSL 夢想盃聯賽第一季冠軍，落敗隊伍為亞軍。<br>每個場次進行 3 回合，回合採三戰兩勝制，前兩回合團體競速、道具搶 5 勝，第三回合個人賽單挑搶 2 勝。'
+      }
+    ],
     sets: [
       {
         title: '競速賽',
@@ -536,6 +622,17 @@ export default {
     }
   },
   methods: {
+    getScheduleDotColor (schedule) {
+      const [begin, end] = schedule.dates.split('~')
+
+      const endDate = this.$moment('2020/' + (end || begin))
+      const now = this.$moment()
+      if (now.isAfter(endDate)) {
+        return 'grey lighten-1'
+      } else {
+        return 'primary'
+      }
+    },
     showHostDialog (data) {
       this.hostDialog.data = data
       this.hostDialog.visible = true
