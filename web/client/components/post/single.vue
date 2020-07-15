@@ -123,8 +123,11 @@ export default {
   },
   methods: {
     backToList () {
-      if (this.fromRoute && this.fromRoute.name === 'news') {
-        this.$router.push(this.fromRoute)
+      if (this.fromRoute && this.fromRoute.name.startsWith('news')) {
+        this.$router.push({
+          path: this.fromRoute.path,
+          query: this.fromRoute.query
+        })
       } else {
         this.$router.push('/news')
       }
