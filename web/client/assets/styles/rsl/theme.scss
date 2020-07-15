@@ -5,7 +5,6 @@
   width: 100%;
 }
 
-$btn-skew: -15deg;
 .v-btn:not(.v-btn--round) {
   transform: skew($btn-skew);
 
@@ -40,18 +39,60 @@ $btn-skew: -15deg;
  * Single post content
  */
 .post-content {
+  $base-distance: 20px;
+
+  * {
+    border: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: $base-distance 0 $base-distance / 2;
+
+    &:first-child {
+      margin-top: 0px;
+    }
+  }
+  hr {
+    border: 1px solid #DDD;
+    margin: $base-distance 0;
+  }
+  ul,
+  ol {
+    margin: 0 0 $base-distance $base-distance;
+  }
+  blockquote {
+    border-left: 3px solid var(--v-primary-base);
+    margin: $base-distance 0;
+    padding: 8px 0 8px $base-distance;
+  }
+  pre {
+    border: 2px solid var(--v-primary-base);
+    margin: $base-distance 0;
+    padding: 10px 15px;
+    overflow: auto;
+  }
+  iframe {
+    display: block;
+    width: 100%;
+    height: 800px;
+    border: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
   img,
   .v-image {
     max-width: 100%;
     height: auto !important;
   }
-  p:last-child {
-    margin-bottom: 0;
-  }
   .aligncenter {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .responsive-embed {
     position: relative;

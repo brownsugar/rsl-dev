@@ -5,16 +5,27 @@ const colors = require('vuetify/es5/util/colors').default
 
 const isProd = process.env.NODE_ENV === 'production'
 
+/**
+ * Map some routes from WordPress
+ */
 const serverMiddlewares = config.server.proxy.map((path) => {
   return {
     path,
     handler: '~~server/endpoint/proxy'
   }
 })
+/**
+ * Automatic polyfills
+ * https://github.com/wessberg/polyfiller
+ */
 const polyfills = [
   'intersection-observer',
   'scroll-behavior'
 ].join(',')
+/**
+ * Server gzip compression
+ * https://github.com/webpack-contrib/compression-webpack-plugin
+ */
 const compressPlugins = isProd
   ? [
     new CompressionPlugin({
@@ -119,6 +130,9 @@ module.exports = {
         },
         dark: {
         }
+      },
+      options: {
+        customProperties: true
       }
     },
     defaultAssets: {
