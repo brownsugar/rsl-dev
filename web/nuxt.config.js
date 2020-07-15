@@ -164,7 +164,7 @@ module.exports = {
   ** https://matteogabriele.gitbooks.io/vue-analytics/
   */
   googleAnalytics: {
-    id: 'UA-106820667-3',
+    id: config.rsl.ga,
     debug: {
       enabled: !isProd
       // trace: true
