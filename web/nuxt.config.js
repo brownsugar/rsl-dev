@@ -48,6 +48,15 @@ module.exports = {
   serverMiddleware: [
     ...serverMiddlewares
   ],
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.push({
+        name: 'news-category',
+        path: '/news/category/:slug',
+        component: resolve(__dirname, 'client/pages/news/index.vue')
+      })
+    }
+  },
   /*
   ** Vue Meta configuration
   ** https://nuxtjs.org/api/configuration-head

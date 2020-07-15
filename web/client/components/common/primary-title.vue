@@ -1,5 +1,5 @@
 <template>
-  <h3 class="primary-title text-h4 font-weight-bold primary--text pl-5">
+  <h3 class="primary-title text-h4 primary--text pl-5">
     {{ text }}
   </h3>
 </template>

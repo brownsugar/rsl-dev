@@ -7,9 +7,20 @@
         lg="8"
       >
         <primary-title text="最新消息" />
-        <v-row
-          class="mt-4"
+        <v-chip-group
+          class="mt-3"
+          mandatory
         >
+          <v-chip
+            v-for="category in categoryChips"
+            :key="category.slug"
+            :class="{ 'primary--text': catSlug === category.slug }"
+            :to="category.slug ? '/news/category/' + category.slug : '/news'"
+          >
+            {{ category.name }}
+          </v-chip>
+        </v-chip-group>
+        <v-row>
           <template v-if="loading">
             <v-col
               v-for="i in 3"
@@ -67,8 +78,16 @@
             </v-col>
           </template>
           <template v-else>
-            <v-col align="center">
-              還沒有最新消息 T_T
+            <v-col class="my-2" align="center">
+              <v-img
+                class="mx-auto"
+                aspected-ratio="576 / 600"
+                src="~/assets/images/common/climb.png"
+                width="300"
+              />
+              <p class="mt-6">
+                還沒有相關消息，稍後再來看看吧！
+              </p>
             </v-col>
           </template>
         </v-row>
@@ -100,26 +119,45 @@ export default {
   },
   props: {},
   async asyncData ({ store, route }) {
+    const catSlug = route.params.slug
     const page = Number(route.query.page || 1)
-    await store.dispatch('news/load', {
-      page
-    })
-    return {
+    const params = {
+      catSlug,
       page
     }
+
+    await store.dispatch('news/load', params)
+    return params
   },
-  data: () => ({
-    page: 1
-  }),
+  data () {
+    return {
+      catSlug: this.$route.params.slug,
+      page: 1
+    }
+  },
   computed: {
     ...mapState('news', [
+      'categories',
       'current',
       'totalPage',
       'loading'
     ]),
     ...mapGetters('news', [
       'getCategoryById'
-    ])
+    ]),
+    categoryChips () {
+      const categories = [
+        {
+          slug: undefined,
+          name: '全部'
+        },
+        ...this.categories
+      ]
+      return categories.filter(cat => cat.slug !== 'uncategorized')
+    },
+    currentCategory () {
+      return this.catSlug ? this.categories.find(cat => cat.slug === this.catSlug) : {}
+    }
   },
   watch: {
     '$route.query.page' (page) {
@@ -127,8 +165,6 @@ export default {
         page
       })
     }
-  },
-  mounted () {
   },
   methods: {
     featuredImage (embedded) {
@@ -162,9 +198,14 @@ export default {
       })
     }
   },
-  head: () => ({
-    title: '最新消息'
-  })
+  head () {
+    const category = this.currentCategory.name
+    const title = (category ? '「' + category + '」分類的' : '') + '最新消息'
+
+    return {
+      title
+    }
+  }
 }
 </script>
 

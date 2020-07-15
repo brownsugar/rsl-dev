@@ -39,11 +39,16 @@ export const actions = {
     const data = await this.$wp.categories()
     commit('setCategory', data)
   },
-  load ({ commit }, { page = 1, perPage = 6 } = {}) {
+  load ({ state, commit }, { catSlug, page = 1, perPage = 6 } = {}) {
     commit('setLoading', true)
-    return this.$wp.posts().perPage(perPage).page(page).embed()
+    const category = state.categories.find(cat => cat.slug === catSlug) || {}
+    if (catSlug && !category.id) {
+      commit('setLoading', false)
+      return null
+    }
+    return this.$wp.posts().categories(category.id).perPage(perPage).page(page).embed()
       .then((data) => {
-        commit('setTotalPage', data._paging.totalPages || 1)
+        commit('setTotalPage', data._paging ? data._paging.totalPages : 1)
         commit('setCurrent', data)
         if (data.length) {
           const single = data.reduce((result, post) => {
@@ -54,6 +59,8 @@ export const actions = {
         }
         commit('setLoading', false)
         return data
+      }).catch((e) => {
+        return null
       })
   },
   getNewsById ({ state, commit }, id) {

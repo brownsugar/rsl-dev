@@ -81,15 +81,17 @@ export default {
       }
       return '404 Not Found'
     },
-    categoryName () {
+    category () {
       if (this.post) {
         const catId = this.post.categories[0]
         const category = this.getCategoryById(catId)
         if (category.name) {
-          return category.name
+          return category
         }
       }
-      return '未分類'
+      return {
+        name: 'Unknown'
+      }
     },
     breadcrumb () {
       const base = [{
@@ -105,8 +107,8 @@ export default {
       }
       if (this.type === 'post') {
         base.push({
-          text: this.categoryName,
-          disabled: true
+          text: this.category.name,
+          to: '/news/category/' + this.category.slug
         })
       }
       base.push({
