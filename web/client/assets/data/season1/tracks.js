@@ -2,7 +2,7 @@ const speed = [
   {
     id: 'abyss_R02',
     name: '深海 崎嶇海峽',
-    level: 2
+    level: 4
   },
   {
     id: 'god_R02',
