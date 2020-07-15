@@ -1,6 +1,6 @@
 <script>
 import { config } from 'nuxt-config'
-import { VImg } from 'vuetify/lib'
+import { VImg, VSimpleTable } from 'vuetify/lib'
 
 export default {
   functional: true,
@@ -13,7 +13,8 @@ export default {
   render (h, ctx) {
     const render = {
       components: {
-        VImg
+        VImg,
+        VSimpleTable
       },
       template: `
         <div class="${ctx.data.class}">
@@ -25,6 +26,7 @@ export default {
   }
 }
 function parse (content) {
+  // Replace links to nuxt link / external link
   const linkTagRegex = /<a(.*)href="([^"]+)"([^>]*)>(.+)<\/a>/ig
   const targetAttrRegex = /\s(?:target|rel)="[^"]+"/ig
   content = content.replace(
@@ -42,7 +44,8 @@ function parse (content) {
       }
     }
   )
-  // Fix: Mismatching childNodes vs. VNodes
+  // Replace <img> tag to <v-img>
+  // <p> = Fix "Mismatching childNodes vs. VNodes"
   const imageTagRegex = /<p>(<a[^>]+>)?<img([^>]+)>(<\/a>)?<\/p>/ig
   content = content.replace(
     imageTagRegex,
@@ -50,6 +53,11 @@ function parse (content) {
       return `${linkTagStart}<v-img ${attrs.trim()}>${linkTagEnd}`
     }
   )
+  // Replace <table> tag to <v-simple-table>
+  const tableTagStartRegex = /<table[^>]*>/ig
+  const tableTagEndRegex = /<\/table>/ig
+  content = content.replace(tableTagStartRegex, '<v-simple-table>')
+  content = content.replace(tableTagEndRegex, '</v-simple-table>')
   return content
 }
 </script>
