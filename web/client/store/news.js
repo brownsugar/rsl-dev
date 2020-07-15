@@ -60,6 +60,9 @@ export const actions = {
     if (id in state.single) {
       return Promise.resolve(state.single[id])
     } else {
+      if (!id || isNaN(Number(id))) {
+        return null
+      }
       return this.$wp.posts().id(id).embed()
         .then((post) => {
           if (post) {
