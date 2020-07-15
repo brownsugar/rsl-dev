@@ -50,7 +50,8 @@ function parse (content) {
   content = content.replace(
     imageTagRegex,
     (string, linkTagStart = '', attrs, linkTagEnd = '') => {
-      return `${linkTagStart}<v-img ${attrs.trim()}>${linkTagEnd}`
+      attrs = attrs.trim().endsWith('/') ? attrs : attrs + ' /'
+      return `${linkTagStart}<v-img ${attrs}>${linkTagEnd}`
     }
   )
   // Replace <table> tag to <v-simple-table>
