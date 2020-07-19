@@ -636,7 +636,7 @@ export default {
 
       const endDate = this.$moment('2020/' + (end || begin))
       const now = this.$moment()
-      if (now.isAfter(endDate)) {
+      if (now.isAfter(endDate, 'day')) {
         return 'grey lighten-1'
       } else {
         return 'primary'
