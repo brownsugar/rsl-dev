@@ -81,16 +81,18 @@ const hosts = [
 2019 TT曜越電競聯賽 車神競速系列 跑跑卡丁車賽事主播`
   },
   {
-    name: '保羅',
-    alias: 'Jensen',
-    title: '競速冠軍選手',
-    avatar: 'jensen.jpg',
-    link: 'https://www.youtube.com/channel/UCysszMfLmSgoWaz_kfOOp-g',
+    name: 'Azusa',
+    alias: '',
+    title: '跑跑計時狂魔',
+    avatar: 'azusa.jpg',
+    link: 'https://www.youtube.com/channel/UCOBZ1g0Irtn_zkx0cKJRtmw',
     experience: `-賽事經驗-
-2014 K1 電視聯賽 團體賽冠軍
-2018 AKEL 曜越網咖盃電競聯賽 團體賽冠軍
-2018 TKL 夢想盃跑跑聯賽個人賽 亞軍
-2019 TT曜越電競聯賽 個人賽 季軍`
+電競七年 TeSL 個人賽第一季選手
+前 YOE 鋼鐵人職業隊跑跑二軍
+2012 TeSL 甲組電競聯賽 跑跑卡丁車 月季軍
+2013 TeSL 甲組電競聯賽 跑跑卡丁車 團體冠軍
+2016 跑跑卡丁賽全國菁英賽 團體冠軍
+2017 國服跑跑卡丁車 TRY 聯賽 前16強`
   }
 ]
 
