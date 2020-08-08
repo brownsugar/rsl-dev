@@ -55,9 +55,9 @@
 
                 <v-card-subtitle>
                   <v-chip
+                    v-if="isNew(post.date)"
                     color="primary"
                     x-small
-                    v-if="isNew(post.date)"
                   >
                     NEW
                   </v-chip>
