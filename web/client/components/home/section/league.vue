@@ -313,15 +313,25 @@
                                 class="mb-1"
                                 color="secondary"
                                 x-small
+                                outlined
                               >
                                 Best Record
                               </v-chip>
                               <br>
-                              <span class="mr-2">
-                                <fa :icon="['fas', 'user']" /> {{ trackBest[track.id].player }}
-                              </span>
                               <span>
-                                <fa :icon="['fas', 'stopwatch']" /> {{ trackBest[track.id].time }}
+                                <fa
+                                  class="mr-1"
+                                  :icon="['far', 'stopwatch']"
+                                />
+                                {{ trackBest[track.id].time }}
+                              </span>
+                              <br>
+                              <span>
+                                <fa
+                                  class="mr-1"
+                                  :icon="['far', 'user-crown']"
+                                />
+                                {{ trackBest[track.id].player }}
                               </span>
                             </v-card-text>
                           </div>
