@@ -29,9 +29,7 @@
               sm="6"
               md="4"
             >
-              <v-skeleton-loader
-                type="card"
-              />
+              <v-skeleton-loader type="card" />
             </v-col>
           </template>
           <template v-else-if="current.length">
@@ -56,8 +54,15 @@
                 </v-card-title>
 
                 <v-card-subtitle>
+                  <v-chip
+                    color="primary"
+                    x-small
+                    v-if="isNew(post.date)"
+                  >
+                    NEW
+                  </v-chip>
                   <span :title="formatPostDate(post.date)">
-                    <fa :icon="['far', 'clock']" /> 發表於 {{ formatPostDate(post.date, true) }}
+                    發表於 {{ formatPostDate(post.date, true) }}
                   </span>
                   •
                   {{ categoryName(post.categories[0]) }}
@@ -171,6 +176,11 @@ export default {
       const image = postUtils.getFeaturedImage(embedded)
       return image || this.$config.rsl.cover
     },
+    isNew (date) {
+      const posted = this.$moment(date)
+      const now = this.$moment()
+      return now.diff(posted, 'days') <= 7
+    },
     formatPostDate (date, relative = false) {
       const posted = this.$moment(date)
       if (!relative) {
@@ -178,8 +188,9 @@ export default {
       }
 
       const now = this.$moment()
-      const diff = posted.diff(now, 'months')
-      if (diff > 2) {
+      const diff = now.diff(posted, 'months')
+      // use original date if more than 1 month
+      if (diff >= 1) {
         return posted.format(DATE_FORMAT)
       } else {
         return posted.fromNow()
