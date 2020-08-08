@@ -131,8 +131,16 @@
                   <h3 class="text-h6">
                     {{ prize.title }}
                   </h3>
-                  <p class="mt-1 ml-4 mb-2 grey--text text--darken-1">
-                    {{ prize.description }}
+                  <ul class="mt-1">
+                    <li
+                      v-for="(item, j) in prize.content"
+                      :key="j"
+                    >
+                      {{ item }}
+                    </li>
+                  </ul>
+                  <p class="mt-1 mb-4 grey--text text--darken-1">
+                    ※ 獲獎資格：{{ prize.description }}
                   </p>
                 </div>
               </detail-info>
@@ -140,11 +148,10 @@
             <link-alert
               :href="$config.rsl.facebook.url"
               class="mt-4"
-              type="info"
-              color="secondary"
+              type="error"
               dense
             >
-              想知道本季聯賽還有哪些豐富又令人愛不釋手的加碼實體獎勵嗎？立即點擊關注 RSL 賽事聯盟粉絲團搶先得知！
+              緊急通知：冠軍賽觀眾專屬獎勵「SADES Draco 天龍座 真。人體工學電競椅（黑/白）」等你帶走！詳情立即點擊關注 RSL 賽事聯盟粉絲團。
             </link-alert>
           </category>
           <category name="聯賽直播">
@@ -490,8 +497,8 @@ export default {
           content: [
             '獎金：NTD $30,000',
             '遊戲虛寶：遊俠 X (永久) + 星月睡衣 (永久) + 睏寶 (永久) + 尼歐新品車款齒輪六代 (40 個)',
-            '加碼專業電競週邊：？？？？ [後續公佈]',
-            '加碼跑跑實體週邊：？？？？ [後續公佈]'
+            '加碼跑跑實體週邊：遊戲橘子提供 [睏寶實體娃娃] + [舒適 SR 實體模型] 各 3 組',
+            '加碼專業電競週邊：SADES Damascus RGB 104KEY 大馬士革刀金屬鍵盤注音版 - 青軸（4 組）'
           ]
         },
         {
@@ -499,7 +506,7 @@ export default {
           content: [
             '獎金：NTD $15,000',
             '遊戲虛寶：尖峰 X Dragon (永久) + 建仔棒球裝 (永久) + 睏寶 (60 日) + 尼歐新品車款齒輪六代 (30 個)',
-            '加碼專業電競週邊：？？？？ [後續公佈]'
+            '加碼專業電競週邊：Acer Predator Cestus 300 電競滑鼠（4 組）'
           ]
         },
         {
@@ -507,26 +514,47 @@ export default {
           content: [
             '獎金：NTD $5,000',
             '遊戲虛寶：魔光騎士 X (永久) + 夏日花襯衫 (永久) + 睏寶 (30 日) + 尼歐新品車款齒輪六代 (20 個)',
-            '加碼專業電競週邊：？？？？ [後續公佈]'
+            '加碼專業電競週邊：HyperX Stinger Core 7.1 聲道電競耳機（4 組）'
+          ]
+        },
+        {
+          title: '殿軍 4th Place',
+          content: [
+            '加碼專業電競週邊：SADES Frost 冰霜 FPS 專用加大電競鼠墊（4 組）'
           ]
         }
       ],
       specialPrize: [
         {
-          title: '冠軍賽 MVP：NTD $5,000',
-          description: '冠軍隊伍於賽事結束後，由主播賽評團評選公佈。'
+          title: '冠軍賽 MVP',
+          description: '冠軍隊伍於賽事結束後，由主播賽評團評選公佈。',
+          content: [
+            '獎金：NTD $5,000',
+            '加碼專業電競週邊：SADES Damascus RGB 104KEY 大馬士革刀金屬鍵盤注音版 - 青軸'
+          ]
         },
         {
-          title: '賽道紀錄霸主：NTD $3,000',
-          description: 'S1 賽季結束後，保有最多張賽道記錄的選手。'
+          title: '賽道紀錄霸主',
+          description: 'S1 賽季結束後，保有最多張競速賽道記錄的選手。',
+          content: [
+            '獎金：NTD $3,000',
+            '加碼專業電競週邊：Acer Predator Cestus 300 電競滑鼠'
+          ]
         },
         {
-          title: '觀眾票選人氣王：NTD $2,000',
-          description: '打進 16 強之隊伍所屬成員皆可成為候選人，由觀眾票選支持，獲得最高票者。'
+          title: '觀眾票選人氣王',
+          description: '打進 16 強之隊伍所屬成員皆可成為候選人，由觀眾票選支持，獲得最高票者。',
+          content: [
+            '獎金：NTD $2,000',
+            '加碼專業電競週邊：HyperX Stinger Core 7.1 聲道電競耳機'
+          ]
         },
         {
-          title: '參加獎：尼歐新品車款齒輪六代 (5 個)',
-          description: '報名成功且至少出賽一場的隊伍所屬成員，不包含失格、棄權或無故未到者。'
+          title: '參加獎',
+          description: '報名成功且至少出賽一場的隊伍所屬成員，不包含失格、棄權或無故未到者。',
+          content: [
+            '遊戲虛寶：尼歐新品車款齒輪六代 (5 個)'
+          ]
         }
       ]
     },
