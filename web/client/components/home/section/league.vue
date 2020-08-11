@@ -540,7 +540,7 @@ export default {
           description: '冠軍隊伍於賽事結束後，由主播賽評團評選公佈。',
           content: [
             '獎金：NTD $5,000',
-            '加碼專業電競週邊：SADES Damascus RGB 104KEY 大馬士革刀金屬鍵盤注音版 - 青軸'
+            '加碼專業電競週邊：HyperX Stinger Core 7.1 聲道電競耳機'
           ]
         },
         {
@@ -548,7 +548,7 @@ export default {
           description: 'S1 賽季結束後，保有最多張競速賽道記錄的選手。',
           content: [
             '獎金：NTD $3,000',
-            '加碼專業電競週邊：Acer Predator Cestus 300 電競滑鼠'
+            '加碼專業電競週邊：SADES Damascus RGB 104KEY 大馬士革刀金屬鍵盤注音版 - 青軸'
           ]
         },
         {
@@ -556,7 +556,7 @@ export default {
           description: '打進 16 強之隊伍所屬成員皆可成為候選人，由觀眾票選支持，獲得最高票者。',
           content: [
             '獎金：NTD $2,000',
-            '加碼專業電競週邊：HyperX Stinger Core 7.1 聲道電競耳機'
+            '加碼專業電競週邊：Acer Predator Cestus 300 電競滑鼠'
           ]
         },
         {
