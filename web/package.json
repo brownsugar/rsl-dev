@@ -5,7 +5,7 @@
   "author": "Lay <contact@brownsugar.tw>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node server/index.js --watch server",
     "build": "nuxt build",
     "build:safe": "nuxt build --tmp && yarn deploy:safe",
     "deploy:safe": "bash ./safe-deploy.sh",
@@ -37,6 +37,8 @@
     "wp-nuxt": "^1.0.28"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/node": "^7.13.13",
     "@nuxtjs/eslint-config": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/google-analytics": "^2.4.0",

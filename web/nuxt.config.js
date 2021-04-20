@@ -1,7 +1,6 @@
-const CompressionPlugin = require('compression-webpack-plugin')
-
-const config = require('config')
-const colors = require('vuetify/es5/util/colors').default
+import CompressionPlugin from 'compression-webpack-plugin'
+import config from 'config'
+import colors from 'vuetify/es5/util/colors'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -37,7 +36,7 @@ const compressPlugins = isProd
     ]
   : []
 
-module.exports = {
+export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
   srcDir: 'client/',
