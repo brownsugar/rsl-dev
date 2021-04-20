@@ -274,7 +274,7 @@
                   v-for="(tab, i) in tabTracks"
                   :key="i"
                 >
-                  <v-row>
+                  <v-row class="my-0">
                     <v-col
                       v-for="track in tab.tracks"
                       :key="track.id"
