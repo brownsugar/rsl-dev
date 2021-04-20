@@ -38,7 +38,8 @@ const compressPlugins = isProd
   : []
 
 module.exports = {
-  mode: 'universal',
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'server',
   srcDir: 'client/',
   buildDir: '.nuxt' + (process.argv.includes('--tmp') ? '.tmp' : ''),
   server: {
@@ -48,6 +49,7 @@ module.exports = {
   serverMiddleware: [
     ...serverMiddlewares
   ],
+  // Router: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router
   router: {
     extendRoutes (routes, resolve) {
       routes.push({
@@ -57,11 +59,11 @@ module.exports = {
       })
     }
   },
-  /*
-  ** Vue Meta configuration
-  ** https://nuxtjs.org/api/configuration-head
-  ** https://vue-meta.nuxtjs.org/guide/metainfo.html
-  */
+  /**
+   * Vue Meta configuration
+   * https://go.nuxtjs.dev/config-head
+   * https://vue-meta.nuxtjs.org/guide/metainfo.html
+   */
   head: {
     meta: [
       { charset: 'utf-8' },
@@ -78,6 +80,7 @@ module.exports = {
     ]
   },
   loading: { color: '#fff' },
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     // Font Awesome integration
     // https://github.com/FortAwesome/vue-fontawesome#nuxtjs
@@ -91,6 +94,7 @@ module.exports = {
       '~/assets/styles/rsl/_functions.scss'
     ]
   },
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/vue-warn.js',
     '~/plugins/breakpoint.js',
@@ -99,6 +103,9 @@ module.exports = {
     '~/plugins/vue-youtube.js',
     { src: '~/plugins/vue-affix.js', mode: 'client' }
   ],
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: false,
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
@@ -106,24 +113,20 @@ module.exports = {
     '@nuxtjs/moment',
     '@nuxtjs/google-analytics'
   ],
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-config/module',
     '@nuxtjs/axios',
     'wp-nuxt'
   ],
-  /*
-  ** Fix Vue meta & GA integration
-  */
+  // Fix Vue meta & GA integration
   features: {
     transitions: false
   },
   vueMeta: {
     refreshOnceOnNavigation: true
   },
-  /*
-  ** Vuetify module configuration
-  ** https://github.com/nuxt-community/vuetify-module
-  */
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/styles/vuetify/variables.scss'],
     theme: {
@@ -150,19 +153,16 @@ module.exports = {
     // custom variables only works with tree-shaking.
     treeShake: true
   },
-  /*
-  ** Moment module configuration
-  ** https://github.com/nuxt-community/moment-module
-  */
+  // Moment module configuration: https://github.com/nuxt-community/moment-module
   moment: {
     defaultLocale: 'zh-tw',
     locales: ['zh-tw']
   },
-  /*
-  ** Google Analytics module configuration
-  ** https://github.com/nuxt-community/analytics-module
-  ** https://matteogabriele.gitbooks.io/vue-analytics/
-  */
+  /**
+   * Google Analytics module configuration
+   * https://github.com/nuxt-community/analytics-module
+   * https://matteogabriele.gitbooks.io/vue-analytics/
+   */
   googleAnalytics: {
     id: config.rsl.ga,
     debug: {
@@ -180,18 +180,15 @@ module.exports = {
       }
     }
   },
-  /*
-  ** Axios module configuration
-  ** https://axios.nuxtjs.org/options
-  */
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
   },
-  /*
-  ** wp-nuxt module configuration
-  ** https://github.com/yashha/wp-nuxt
-  ** node-wpapi: https://github.com/WP-API/node-wpapi
-  ** @nuxtjs/sitemap: https://github.com/nuxt-community/sitemap-module
-  */
+  /**
+   * wp-nuxt module configuration
+   * https://github.com/yashha/wp-nuxt
+   * node-wpapi: https://github.com/WP-API/node-wpapi
+   * @nuxtjs/sitemap: https://github.com/nuxt-community/sitemap-module
+   */
   wp: {
     endpoint: config.api.url + config.api.path,
     customRoutes: config.wp.customRoutes,
@@ -203,6 +200,7 @@ module.exports = {
       gzip: true
     }
   },
+  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: isProd,
     plugins: [
