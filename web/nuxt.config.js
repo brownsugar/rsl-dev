@@ -22,13 +22,12 @@ const polyfills = [
   'scroll-behavior'
 ].join(',')
 /**
- * Server gzip compression
+ * Assets gzip compression
  * https://github.com/webpack-contrib/compression-webpack-plugin
  */
 const compressPlugins = isProd
   ? [
       new CompressionPlugin({
-        filename: '[path].gz[query]',
         algorithm: 'gzip',
         test: /\.(js|css|html|svg|png|jpe?g|gif|ico)$/,
         minRatio: 1
