@@ -108,7 +108,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
-    '@nuxtjs/moment',
+    '@nuxtjs/date-fns',
     '@nuxtjs/google-analytics'
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -151,10 +151,10 @@ export default {
     // custom variables only works with tree-shaking.
     treeShake: true
   },
-  // Moment module configuration: https://github.com/nuxt-community/moment-module
-  moment: {
-    defaultLocale: 'zh-tw',
-    locales: ['zh-tw']
+  // date-fns module configuration: https://github.com/nuxt-community/date-fns-module
+  dateFns: {
+    defaultLocale: 'zh-TW',
+    locales: ['zh-TW']
   },
   /**
    * Google Analytics module configuration

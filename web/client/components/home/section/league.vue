@@ -672,12 +672,12 @@ export default {
     getScheduleDotColor (schedule) {
       const [begin, end] = schedule.dates.split('~')
 
-      const endDate = this.$moment('2020/' + (end || begin))
-      const now = this.$moment()
-      if (now.isAfter(endDate, 'day')) {
-        return 'grey lighten-1'
-      } else {
+      const endDate = new Date('2020/' + (end || begin))
+      const now = new Date()
+      if (this.$dateFns.isAfter(now, endDate)) {
         return 'primary'
+      } else {
+        return 'grey lighten-1'
       }
     },
     showHostDialog (data) {

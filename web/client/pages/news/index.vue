@@ -185,23 +185,25 @@ export default {
       return image || this.$config.rsl.cover
     },
     isNew (date) {
-      const posted = this.$moment(date)
-      const now = this.$moment()
-      return now.diff(posted, 'days') <= 7
+      const posted = new Date(date)
+      const now = new Date()
+      return this.$dateFns.differenceInDays(now, posted) <= 7
     },
     formatPostDate (date, relative = false) {
-      const posted = this.$moment(date)
+      const posted = new Date(date)
       if (!relative) {
-        return posted.format(DATETIME_FORMAT)
+        return this.$dateFns.format(posted, DATETIME_FORMAT)
       }
 
-      const now = this.$moment()
-      const diff = now.diff(posted, 'months')
+      const now = new Date()
+      const diff = this.$dateFns.differenceInMonths(now, posted)
       // use original date if more than 1 month
       if (diff >= 1) {
-        return posted.format(DATE_FORMAT)
+        return this.$dateFns.format(posted, DATE_FORMAT)
       } else {
-        return posted.fromNow()
+        return this.$dateFns.formatDistance(now, posted, {
+          addSuffix: true
+        })
       }
     },
     categoryName (catId) {
