@@ -28,13 +28,13 @@ const polyfills = [
  */
 const compressPlugins = isProd
   ? [
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.(js|css|html|svg|png|jpe?g|gif|ico)$/,
-      minRatio: 1
-    })
-  ]
+      new CompressionPlugin({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|css|html|svg|png|jpe?g|gif|ico)$/,
+        minRatio: 1
+      })
+    ]
   : []
 
 module.exports = {

@@ -68,6 +68,24 @@ export default {
   data: () => ({
     DATETIME_FORMAT
   }),
+  head () {
+    const metaInfo = {
+      title: this.mainTitle,
+      meta: [
+        { property: 'og:title', content: this.mainTitle, hid: 'og:title' }
+      ]
+    }
+    const desc = this.post.excerpt.rendered
+    if (desc) {
+      metaInfo.meta.push({ property: 'og:description', content: desc, hid: 'og:description' })
+      metaInfo.meta.push({ property: 'description', content: desc, hid: 'description' })
+    }
+    const image = postUtils.getFeaturedImage(this.post._embedded, true)
+    if (image) {
+      metaInfo.meta.push({ property: 'og:image', content: image, hid: 'og:image' })
+    }
+    return metaInfo
+  },
   computed: {
     ...mapGetters('news', [
       'getCategoryById'
@@ -132,24 +150,6 @@ export default {
         this.$router.push('/news')
       }
     }
-  },
-  head () {
-    const metaInfo = {
-      title: this.mainTitle,
-      meta: [
-        { property: 'og:title', content: this.mainTitle, hid: 'og:title' }
-      ]
-    }
-    const desc = this.post.excerpt.rendered
-    if (desc) {
-      metaInfo.meta.push({ property: 'og:description', content: desc, hid: 'og:description' })
-      metaInfo.meta.push({ property: 'description', content: desc, hid: 'description' })
-    }
-    const image = postUtils.getFeaturedImage(this.post._embedded, true)
-    if (image) {
-      metaInfo.meta.push({ property: 'og:image', content: image, hid: 'og:image' })
-    }
-    return metaInfo
   }
 }
 </script>

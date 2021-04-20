@@ -1,5 +1,5 @@
 <template>
-  <v-hover #default="{ hover }">
+  <v-hover v-slot="{ hover }">
     <v-card
       :color="brand"
       class="d-flex flex-column justify-center align-center"

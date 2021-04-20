@@ -222,19 +222,6 @@ export default {
       ]
     }
   },
-  computed: {
-    ...mapState([
-      'site'
-    ])
-  },
-  methods: {
-    navChildIsActive (nav) {
-      if (nav.children && Array.isArray(nav.children)) {
-        return nav.children.some(item => item.to === this.$route.path)
-      }
-      return false
-    }
-  },
   head () {
     const staticPages = ['index', 'news', 'about'] // Content is not pull from server
     const isSingle = !staticPages.includes(this.$route.name)
@@ -268,6 +255,19 @@ export default {
     }
 
     return metaInfo
+  },
+  computed: {
+    ...mapState([
+      'site'
+    ])
+  },
+  methods: {
+    navChildIsActive (nav) {
+      if (nav.children && Array.isArray(nav.children)) {
+        return nav.children.some(item => item.to === this.$route.path)
+      }
+      return false
+    }
   }
 }
 </script>

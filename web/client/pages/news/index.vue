@@ -140,6 +140,14 @@ export default {
       page: 1
     }
   },
+  head () {
+    const category = this.currentCategory.name
+    const title = (category ? '「' + category + '」分類的' : '') + '最新消息'
+
+    return {
+      title
+    }
+  },
   computed: {
     ...mapState('news', [
       'categories',
@@ -207,14 +215,6 @@ export default {
           page
         }
       })
-    }
-  },
-  head () {
-    const category = this.currentCategory.name
-    const title = (category ? '「' + category + '」分類的' : '') + '最新消息'
-
-    return {
-      title
     }
   }
 }

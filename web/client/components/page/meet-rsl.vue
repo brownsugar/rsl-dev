@@ -51,6 +51,9 @@ export default {
       }
     ]
   }),
+  head: self => ({
+    title: self.activedTitle
+  }),
   computed: {
     activedTitle () {
       const nav = this.navs.find(nav => nav.to === this.$route.path)
@@ -60,10 +63,7 @@ export default {
   watch: {},
   mounted () {
   },
-  methods: {},
-  head: self => ({
-    title: self.activedTitle
-  })
+  methods: {}
 }
 </script>
 

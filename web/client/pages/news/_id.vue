@@ -20,6 +20,11 @@ export default {
   components: {
     PostSingle
   },
+  beforeRouteEnter (to, from, next) {
+    next((vm) => {
+      vm.fromRoute = from
+    })
+  },
   props: {},
   async asyncData ({ store, route, error }) {
     const post = await store.dispatch('news/getNewsById', route.params.id)
@@ -29,11 +34,6 @@ export default {
     return {
       post
     }
-  },
-  beforeRouteEnter (to, from, next) {
-    next((vm) => {
-      vm.fromRoute = from
-    })
   },
   data: () => ({
     fromRoute: null,

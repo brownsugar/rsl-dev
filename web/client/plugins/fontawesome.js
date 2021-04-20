@@ -13,8 +13,8 @@ config.autoAddCss = false
 
 library.add(fas, far, farPro, fab, fad)
 
-Vue.component('fa', FontAwesomeIcon) // For myself
-Vue.component('font-awesome-icon', FontAwesomeIcon) // For Vuetify
+Vue.component('Fa', FontAwesomeIcon) // For myself
+Vue.component('FontAwesomeIcon', FontAwesomeIcon) // For Vuetify
 Vue.use(Vuetify)
 
 export default new Vuetify({
