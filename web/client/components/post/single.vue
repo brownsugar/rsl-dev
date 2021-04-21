@@ -50,7 +50,7 @@ export default {
     },
     post: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     },
     listPath: {
       type: String,
@@ -62,7 +62,7 @@ export default {
     },
     fromRoute: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     }
   },
   data: () => ({

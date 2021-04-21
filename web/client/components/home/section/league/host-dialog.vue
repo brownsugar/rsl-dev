@@ -62,7 +62,7 @@ export default {
     },
     host: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     }
   },
   methods: {
