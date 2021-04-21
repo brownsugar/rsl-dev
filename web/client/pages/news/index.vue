@@ -201,7 +201,7 @@ export default {
       if (diff >= 1) {
         return this.$dateFns.format(posted, DATE_FORMAT)
       } else {
-        return this.$dateFns.formatDistance(now, posted, {
+        return this.$dateFns.formatDistance(posted, now, {
           addSuffix: true
         })
       }

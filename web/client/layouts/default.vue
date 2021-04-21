@@ -223,7 +223,7 @@ export default {
     }
   },
   head () {
-    const staticPages = ['index', 'news', 'about'] // Content is not pull from server
+    const staticPages = ['index', 'news', 'about'] // Content is not pulled from server
     const isSingle = !staticPages.includes(this.$route.name)
 
     const title = this.site.name
