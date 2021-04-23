@@ -87,9 +87,9 @@ export default {
 
 <style lang="scss" scoped>
 #vod {
-  background: image('home/background/play.png') left 70px bottom 15px / 300px no-repeat,
-              image('home/background/play-ground.png') left -20px bottom -28px / 600px no-repeat,
-              image('home/background/race-bg.png') top right / contain no-repeat;
+  background: image('season1/background/play.png') left 70px bottom 15px / 300px no-repeat,
+              image('season1/background/play-ground.png') left -20px bottom -28px / 600px no-repeat,
+              image('season1/background/race-bg.png') top right / contain no-repeat;
   padding-bottom: 160px;
 }
 </style>

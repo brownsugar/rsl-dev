@@ -83,7 +83,7 @@
             </template>
             <v-img
               aspect-ratio="1"
-              src="~/assets/images/cooperator/redbull.png"
+              src="~/assets/images/season1/cooperator/redbull.png"
               width="400"
             />
           </category>
@@ -244,7 +244,7 @@
                     <v-img
                       aspect-ratio="1"
                       class="mx-auto"
-                      :src="require('~/assets/images/home/' + set.image)"
+                      :src="require('~/assets/images/season1/' + set.image)"
                       :width="$breakpoint.is.xsOnly ? '50%' : '80%'"
                     />
                     <div class="mt-1">
@@ -458,14 +458,14 @@
 
 <script>
 import { mapState } from 'vuex'
+import Category from './league/category'
+import DetailInfo from './league/detail-info'
+import LinkCard from './league/link-card'
+import HostDialog from './league/host-dialog'
 import Particles from '~/components/common/particles'
 import LinkAlert from '~/components/common/link-alert'
-import Category from '~/components/home/section/league/category'
-import DetailInfo from '~/components/home/section/league/detail-info'
-import LinkCard from '~/components/home/section/league/link-card'
-import HostDialog from '~/components/home/section/league/host-dialog'
-import tracks from '~/assets/data/season1/tracks'
-import hosts from '~/assets/data/season1/hosts'
+import tracks from '~/data/season1/tracks'
+import hosts from '~/data/season1/hosts'
 
 export default {
   name: 'League',

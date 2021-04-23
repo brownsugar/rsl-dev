@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="season-1">
     <v-app-bar
       dark
       fixed
@@ -230,10 +230,10 @@ export default {
     const url = this.site.url + this.$route.path
     const ogImage = this.$config.rsl.cover
     const ogType = isSingle ? 'article' : 'website'
-    const titleWithChuck = chunk => chunk ? `${chunk} - ${title}` : title
+    const titleWithChunk = chunk => chunk ? `${chunk} - ${title}` : title
 
     const metaInfo = {
-      titleTemplate: titleWithChuck,
+      titleTemplate: titleWithChunk,
       link: [
         { rel: 'alternate', type: 'application/rss+xml', title: this.$config.rsl.name, href: this.site.rss2_url }
       ],
@@ -241,7 +241,7 @@ export default {
         { property: 'publisher', content: this.$config.rsl.facebook.url },
         { name: 'author', content: this.$config.rsl.name },
         { property: 'og:site_name', content: this.site.name },
-        { property: 'og:title', template: titleWithChuck, hid: 'og:title' },
+        { property: 'og:title', template: titleWithChunk, hid: 'og:title' },
         { property: 'og:type', content: ogType, hid: 'og:type' },
         { property: 'og:url', content: url, hid: 'og:url' },
         { property: 'og:description', content: this.site.description, hid: 'og:description' },

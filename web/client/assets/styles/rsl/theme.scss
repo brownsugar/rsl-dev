@@ -1,38 +1,10 @@
+@import '~assets/styles/rsl/season1';
+
 /**
- * Custom theme
+ * Custom helper class
  */
 .fill-width {
   width: 100%;
-}
-
-.v-btn:not(.v-btn--round) {
-  transform: skew($btn-skew);
-
-  .v-btn__content {
-    transform: skew(-$btn-skew);
-  }
-  &.v-btn--action {
-    $width: 5px;
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: -$width - 8px;
-      height: 100%;
-      width: $width;
-      background-color: inherit;
-      transition: .2s right ease-in-out, .1s .2s box-shadow;
-      z-index: -1;
-    }
-    &:hover {
-      &:after {
-        right: 0;
-        box-shadow: none;
-        transition-delay: 0s, 0s;
-      }
-    }
-  }
 }
 
 /**
