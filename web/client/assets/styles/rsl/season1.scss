@@ -23,19 +23,20 @@
     &.v-btn--action {
       $width: 5px;
 
-      &:after {
-        content: '';
+      &::after {
         position: absolute;
         top: 0;
         right: -$width - 8px;
-        height: 100%;
+        z-index: -1;
         width: $width;
+        height: 100%;
+        content: '';
         background-color: inherit;
         transition: .2s right ease-in-out, .1s .2s box-shadow;
-        z-index: -1;
       }
       &:hover {
-        &:after {
+
+        &::after {
           right: 0;
           box-shadow: none;
           transition-delay: 0s, 0s;

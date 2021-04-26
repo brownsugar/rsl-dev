@@ -274,7 +274,8 @@ export default {
 
 <style lang="scss" scoped>
 .v-app-bar {
-  .v-btn--active:before {
+
+  .v-btn--active::before {
     opacity: 0 !important;
   }
 }

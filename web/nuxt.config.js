@@ -106,6 +106,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
     '@nuxtjs/date-fns',
@@ -123,6 +124,9 @@ export default {
   },
   vueMeta: {
     refreshOnceOnNavigation: true
+  },
+  // Stylelint module configuration: https://github.com/nuxt-community/stylelint-module
+  stylelint: {
   },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

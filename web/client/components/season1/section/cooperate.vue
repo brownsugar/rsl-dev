@@ -201,18 +201,18 @@ export default {
   position: relative;
   min-height: 100px;
 
-  &:before {
-    content: '';
-    display: block;
+  &::before {
     position: absolute;
     bottom: 0;
+    display: block;
     width: 100%;
     height: 100%;
+    content: '';
     background: rgba(#000, .05);
     opacity: 0;
     transition: opacity .1s ease-in;
   }
-  &:hover:before {
+  &:hover::before {
     opacity: 1;
   }
 }

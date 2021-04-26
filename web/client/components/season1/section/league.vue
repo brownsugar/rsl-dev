@@ -711,6 +711,7 @@ export default {
   position: relative;
 }
 .hosts {
+
   &.simple {
     flex-wrap: wrap;
 

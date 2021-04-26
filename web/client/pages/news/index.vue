@@ -224,7 +224,7 @@ export default {
 
 <style lang="scss" scoped>
 .post-title {
-  line-height: 1.2;
   margin-bottom: .3em;
+  line-height: 1.2;
 }
 </style>
