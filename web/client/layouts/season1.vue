@@ -226,6 +226,7 @@ export default {
     const staticPages = ['index', 'news', 'about'] // Content is not pulled from server
     const isSingle = !staticPages.includes(this.$route.name)
 
+    const themeColor = '#272727'
     const title = this.site.name
     const url = this.site.url + this.$route.path
     const ogImage = this.$config.rsl.cover
@@ -233,11 +234,14 @@ export default {
     const titleWithChunk = chunk => chunk ? `${chunk} - ${title}` : title
 
     const metaInfo = {
+      title: '夢想盃跑跑聯賽 Season 1',
       titleTemplate: titleWithChunk,
       link: [
         { rel: 'alternate', type: 'application/rss+xml', title: this.$config.rsl.name, href: this.site.rss2_url }
       ],
       meta: [
+        { name: 'theme-color', content: themeColor },
+        { name: 'apple-mobile-web-app-status-bar-style', content: themeColor },
         { property: 'publisher', content: this.$config.rsl.facebook.url },
         { name: 'author', content: this.$config.rsl.name },
         { property: 'og:site_name', content: this.site.name },
