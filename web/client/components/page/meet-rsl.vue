@@ -43,11 +43,11 @@ export default {
     navs: [
       {
         label: '關於我們',
-        to: '/about'
+        to: '/season1/about'
       },
       {
         label: '聯絡我們',
-        to: '/contact'
+        to: '/season1/contact'
       }
     ]
   }),
@@ -59,13 +59,6 @@ export default {
       const nav = this.navs.find(nav => nav.to === this.$route.path)
       return nav.label
     }
-  },
-  watch: {},
-  mounted () {
-  },
-  methods: {}
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

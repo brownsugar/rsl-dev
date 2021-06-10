@@ -114,7 +114,8 @@ export default {
     breadcrumb () {
       const base = [{
         text: '首頁',
-        to: '/'
+        to: '/season1',
+        exact: true
       }]
       if (this.listPath && this.listLabel) {
         base.push({
@@ -126,7 +127,7 @@ export default {
       if (this.type === 'post') {
         base.push({
           text: this.category.name,
-          to: '/news/category/' + this.category.slug
+          to: '/season1/news/category/' + this.category.slug
         })
       }
       base.push({
@@ -136,23 +137,17 @@ export default {
       return base
     }
   },
-  watch: {},
-  mounted () {
-  },
   methods: {
     backToList () {
-      if (this.fromRoute && this.fromRoute.name.startsWith('news')) {
+      if (this.fromRoute && this.fromRoute.name.startsWith('season1-news')) {
         this.$router.push({
           path: this.fromRoute.path,
           query: this.fromRoute.query
         })
       } else {
-        this.$router.push('/news')
+        this.$router.push('/season1/news')
       }
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

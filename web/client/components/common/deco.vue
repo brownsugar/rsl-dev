@@ -8,20 +8,12 @@
 <script>
 export default {
   name: 'Deco',
-  components: {},
   props: {
     type: {
       type: String,
       default: ''
     }
-  },
-  data: () => ({
-  }),
-  computed: {},
-  watch: {},
-  mounted () {
-  },
-  methods: {}
+  }
 }
 </script>
 

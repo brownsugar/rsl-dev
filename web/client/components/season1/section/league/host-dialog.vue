@@ -54,7 +54,6 @@
 <script>
 export default {
   name: 'HostDialog',
-  components: {},
   props: {
     visible: {
       type: Boolean,

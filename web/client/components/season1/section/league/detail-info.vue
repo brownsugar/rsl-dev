@@ -20,7 +20,6 @@
 <script>
 export default {
   name: 'DetailInfo',
-  components: {},
   props: {
     title: {
       type: String,

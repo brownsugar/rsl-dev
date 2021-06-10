@@ -26,7 +26,7 @@
                 :color="navChildIsActive(nav) ? 'primary' : ''"
                 active-class="primary"
                 :to="nav.to"
-                :exact="nav.to === '/' && $route.path !== '/'"
+                :exact="nav.to === '/season1' && $route.path !== '/season1'"
                 depressed
                 nuxt
                 v-bind="attrs"
@@ -172,31 +172,31 @@ export default {
       navs: [
         {
           label: '首頁',
-          to: '/'
-        },
-        {
-          label: '最新消息',
-          to: '/news'
-        },
-        {
-          label: 'S1 賽季規章',
           to: '/season1'
         },
         {
+          label: '最新消息',
+          to: '/season1/news'
+        },
+        {
+          label: 'S1 賽季規章',
+          to: '/season1/rules'
+        },
+        {
           label: '隊伍列表',
-          to: '/teams',
+          to: '/season1/teams',
           hidden: true
         },
         {
           label: '媒體報導',
-          to: '/press',
+          to: '/season1/press',
           hidden: true
         },
         {
           label: '認識 RSL',
           children: [
-            { label: '關於我們', to: '/about' },
-            { label: '聯絡我們', to: '/contact' }
+            { label: '關於我們', to: '/season1/about' },
+            { label: '聯絡我們', to: '/season1/contact' }
           ]
         }
       ],

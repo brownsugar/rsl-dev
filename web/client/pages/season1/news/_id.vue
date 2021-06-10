@@ -2,7 +2,7 @@
   <div class="news">
     <post-single
       :post="post"
-      list-path="/news"
+      list-path="/season1/news"
       list-label="最新消息"
       :from-route="fromRoute"
     />
@@ -25,7 +25,7 @@ export default {
       vm.fromRoute = from
     })
   },
-  props: {},
+  layout: 'season1',
   async asyncData ({ store, route, error }) {
     const post = await store.dispatch('news/getNewsById', route.params.id)
     if (!post) {
@@ -38,18 +38,6 @@ export default {
   data: () => ({
     fromRoute: null,
     post: {}
-  }),
-  computed: {
-  },
-  watch: {},
-  mounted () {
-  },
-  beforeDestroy () {
-  },
-  methods: {
-  }
+  })
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

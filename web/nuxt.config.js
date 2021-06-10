@@ -50,10 +50,11 @@ export default {
   // Router: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router
   router: {
     extendRoutes (routes, resolve) {
+      // Treat as same component
       routes.push({
-        name: 'news-category',
-        path: '/news/category/:slug',
-        component: resolve(__dirname, 'client/pages/news/index.vue')
+        name: 'season1-news-category',
+        path: '/season1/news/category/:slug',
+        component: resolve(__dirname, 'client/pages/season1/news/index.vue')
       })
     }
   },

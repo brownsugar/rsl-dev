@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="rules">
     <post-single
       type="page"
       :post="post"
@@ -10,17 +10,14 @@
 <script>
 import PostSingle from '~/components/post/single'
 
-/**
- * Page slug must exist in WordPress.
- */
 export default {
-  name: 'PageSingle',
+  name: 'Rules',
   components: {
     PostSingle
   },
-  props: {},
+  layout: 'season1',
   async asyncData ({ store, route, error }) {
-    const post = await store.dispatch('page/getPageBySlug', route.params.slug)
+    const post = await store.dispatch('page/getPageBySlug', 'season1')
     if (!post) {
       error({ statusCode: 404, message: 'Page not found.' })
     }
@@ -30,18 +27,6 @@ export default {
   },
   data: () => ({
     post: {}
-  }),
-  computed: {
-  },
-  watch: {},
-  mounted () {
-  },
-  beforeDestroy () {
-  },
-  methods: {
-  }
+  })
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

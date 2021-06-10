@@ -34,7 +34,6 @@
 <script>
 export default {
   name: 'LinkCard',
-  components: {},
   props: {
     // Brand icon name in Fa5, also use for color name in theme
     brand: {

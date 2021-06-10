@@ -166,7 +166,7 @@ export default {
     MeetRsl,
     LinkTitle
   },
-  props: {},
+  layout: 'season1',
   data: () => ({
     members: [
       {
@@ -240,12 +240,7 @@ export default {
         content: '2020 年，RSL 賽事聯盟將展開全新旅程，我們將發揮團隊鐵三角的優勢，和給予我們支持與信任的合作廠商以及眾多跑跑卡丁車玩家一起打造經典又精彩的跑跑聯賽，敬請持續關注。'
       }
     ]
-  }),
-  computed: {},
-  watch: {},
-  mounted () {
-  },
-  methods: {}
+  })
 }
 </script>
 

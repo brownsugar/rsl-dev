@@ -12,7 +12,7 @@ export default {
   components: {
     MeetRsl
   },
-  props: {},
+  layout: 'season1',
   async asyncData ({ store, route, error }) {
     const post = await store.dispatch('page/getPageBySlug', 'contact')
     if (!post) {
@@ -24,14 +24,6 @@ export default {
   },
   data: () => ({
     post: {}
-  }),
-  computed: {},
-  watch: {},
-  mounted () {
-  },
-  methods: {}
+  })
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

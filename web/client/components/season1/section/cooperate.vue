@@ -75,7 +75,6 @@ export default {
     PrimaryTitle,
     ActionAlert
   },
-  props: {},
   data: () => ({
     cooperators: [
       {
@@ -187,12 +186,7 @@ export default {
         ]
       }
     ]
-  }),
-  computed: {},
-  watch: {},
-  mounted () {
-  },
-  methods: {}
+  })
 }
 </script>
 

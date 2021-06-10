@@ -15,7 +15,7 @@
             v-for="category in categoryChips"
             :key="category.slug"
             :class="{ 'primary--text': catSlug === category.slug }"
-            :to="category.slug ? '/news/category/' + category.slug : '/news'"
+            :to="category.slug ? '/season1/news/category/' + category.slug : '/season1/news'"
           >
             {{ category.name }}
           </v-chip>
@@ -41,7 +41,7 @@
               md="4"
             >
               <v-card>
-                <n-link :to="'/news/' + post.id">
+                <n-link :to="'/season1/news/' + post.id">
                   <v-img
                     :aspect-ratio="1280 / 628"
                     :src="featuredImage(post._embedded)"
@@ -71,7 +71,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <v-btn
-                    :to="'/news/' + post.id"
+                    :to="'/season1/news/' + post.id"
                     color="primary"
                     text
                     nuxt
@@ -122,7 +122,7 @@ export default {
   components: {
     PrimaryTitle
   },
-  props: {},
+  layout: 'season1',
   async asyncData ({ store, route }) {
     const catSlug = route.params.slug
     const page = Number(route.query.page || 1)

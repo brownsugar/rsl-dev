@@ -2,7 +2,7 @@
   <v-parallax
     id="banner"
     :key="$breakpoint.is.smAndDown"
-    :src="require('~/assets/images/season1/background/race.png')"
+    :src="require('~/assets/images/common/background/race.png')"
     :height="$breakpoint.is.smAndDown ? 700 : 900"
   >
     <v-container fluid>

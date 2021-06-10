@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
-    RSL Home
-  </div>
+  <v-app>
+    <nuxt />
+  </v-app>
 </template>
 
 <script>

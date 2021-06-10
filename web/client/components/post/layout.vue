@@ -150,9 +150,6 @@ export default {
       'site'
     ])
   },
-  watch: {},
-  mounted () {
-  },
   beforeDestroy () {
     clearTimeout(this.copied.timeout)
   },
