@@ -157,8 +157,8 @@
 </template>
 
 <script>
-import MeetRsl from '~/components/page/meet-rsl'
-import LinkTitle from '~/components/page/about/link-title'
+import MeetRsl from '~/components/season1/page/meet-rsl'
+import LinkTitle from '~/components/season1/page/about/link-title'
 
 export default {
   name: 'About',
