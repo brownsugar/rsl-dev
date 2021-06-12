@@ -1,27 +1,28 @@
 <template>
   <div class="home">
-    <section-banner />
-    <section-vod />
-    <section-league />
-    <section-cooperate />
-    <section-about />
+    <banner />
+    <vod />
+    <league />
+    <cooperate />
+    <about />
   </div>
 </template>
 
 <script>
-import SectionBanner from '~/components/season1/section/banner'
-import SectionVod from '~/components/season1/section/vod'
-import SectionLeague from '~/components/season1/section/league'
-import SectionCooperate from '~/components/season1/section/cooperate'
-import SectionAbout from '~/components/season1/section/about'
+import Banner from '~/components/season1/home/banner'
+import Vod from '~/components/season1/home/vod'
+import League from '~/components/season1/home/league'
+import Cooperate from '~/components/season1/home/cooperate'
+import About from '~/components/season1/home/about'
 
 export default {
+  name: 'Index',
   components: {
-    SectionBanner,
-    SectionVod,
-    SectionLeague,
-    SectionCooperate,
-    SectionAbout
+    Banner,
+    Vod,
+    League,
+    Cooperate,
+    About
   },
   layout: 'season1'
 }
