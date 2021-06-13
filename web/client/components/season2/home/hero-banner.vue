@@ -1,5 +1,8 @@
 <template>
-  <div class="hero-banner">
+  <div
+    class="hero-banner"
+    :class="{ ready }"
+  >
     <div class="stripes">
       <div class="horizontal">
         <div class="stripe left" />
@@ -90,6 +93,7 @@ export default {
   components: {},
   props: {},
   data: () => ({
+    ready: false
   }),
   computed: {},
   watch: {},
@@ -101,37 +105,39 @@ export default {
       const durationCommon = 1000
       const durationHalf = durationCommon / 2
 
-      this.$anime.timeline({
-        easing: 'easeOutElastic',
-        duration: durationCommon,
-        update (anim) {
-          if (anim.progress > 50 && sceneBrushes.paused) {
-            sceneBrushes.play()
+      const sceneStripes =
+        this.$anime.timeline({
+          easing: 'easeOutElastic',
+          duration: durationCommon,
+          autoplay: false,
+          update (anim) {
+            if (anim.progress > 50 && sceneBrushes.paused) {
+              sceneBrushes.play()
+            }
           }
-        }
-      })
-        .add({
-          targets: '.hero-banner .stripes .left',
-          translateX: [-300, 0],
-          opacity: [0, 1]
         })
-        .add({
-          targets: '.hero-banner .stripes .right',
-          translateX: [300, 0],
-          rotateY: [180, 180],
-          opacity: [0, 1]
-        }, 0)
-        .add({
-          targets: '.hero-banner .stripes .top',
-          translateY: [-300, 0],
-          opacity: [0, 1]
-        }, durationHalf)
-        .add({
-          targets: '.hero-banner .stripes .bottom',
-          translateY: [300, 0],
-          rotateX: [180, 180],
-          opacity: [0, 1]
-        }, durationHalf)
+          .add({
+            targets: '.hero-banner .stripes .left',
+            translateX: [-300, 0],
+            opacity: [0, 1]
+          })
+          .add({
+            targets: '.hero-banner .stripes .right',
+            translateX: [300, 0],
+            rotateY: [180, 180],
+            opacity: [0, 1]
+          }, 0)
+          .add({
+            targets: '.hero-banner .stripes .top',
+            translateY: [-300, 0],
+            opacity: [0, 1]
+          }, durationHalf)
+          .add({
+            targets: '.hero-banner .stripes .bottom',
+            translateY: [300, 0],
+            rotateX: [180, 180],
+            opacity: [0, 1]
+          }, durationHalf)
 
       const sceneBrushes =
         this.$anime.timeline({
@@ -209,7 +215,7 @@ export default {
             targets: '.hero-banner .rsl img',
             translateY: [30, 0],
             opacity: [0, 1]
-          }, '-=' + durationHalf)
+          }, '-=' + durationHalf / 2)
           .add({
             targets: '.hero-banner .restart',
             translateY: [-30, 0],
@@ -254,6 +260,9 @@ export default {
             rotate: [-7, 0],
             opacity: [0, 1]
           }, durationCommon / 3)
+
+      sceneStripes.play()
+      this.ready = true
     }
   }
 }
@@ -277,6 +286,9 @@ export default {
     height: 100%;
     visibility: hidden;
   }
+  &.ready > div {
+    visibility: visible;
+  }
   img {
     pointer-events: none;
   }
@@ -285,7 +297,6 @@ export default {
   $h-stripe-y-offset: 25px;
   $all-stripe-y-offset: 50px;
   $flex-basis: 47.5;
-  visibility: visible !important;
 
   .horizontal,
   .vertical {
@@ -324,7 +335,6 @@ export default {
   }
 }
 .brushes {
-  visibility: visible !important;
   background: image('season2/home/hero_brush.jpg') center/cover no-repeat;
   mix-blend-mode: overlay;
   opacity: .5;
@@ -333,7 +343,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  visibility: visible !important;
   mix-blend-mode: screen;
 
   .top {
@@ -374,7 +383,6 @@ export default {
   justify-content: center;
   margin-top: 30px;
   text-align: center;
-  visibility: visible !important;
 
   .rsl {
     width: 180px;
@@ -412,7 +420,6 @@ export default {
   }
 }
 .characters {
-  visibility: visible !important;
 
   .col > .character:not(:last-child) {
     margin-bottom: 20px;
