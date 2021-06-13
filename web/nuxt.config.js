@@ -1,6 +1,5 @@
 import CompressionPlugin from 'compression-webpack-plugin'
 import config from 'config'
-import colors from 'vuetify/es5/util/colors'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -129,30 +128,13 @@ export default {
   },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/styles/vuetify/variables.scss'],
-    theme: {
-      dark: false,
-      themes: {
-        light: {
-          primary: '#D86A60',
-          secondary: colors.lightBlue.accent4,
-          facebook: '#1877F2',
-          youtube: '#FF0200',
-          twitch: '#9147FF',
-          discord: '#7289DA'
-        },
-        dark: {
-        }
-      },
-      options: {
-        customProperties: true
-      }
-    },
+    // customVariables: ['~/assets/styles/vuetify/variables.scss'],
+    optionsPath: '~~vuetify.options.js',
     defaultAssets: {
       icons: false
     },
     // custom variables only works with tree-shaking.
-    treeShake: true
+    treeShake: isProd
   },
   // date-fns module configuration: https://github.com/nuxt-community/date-fns-module
   dateFns: {
@@ -208,6 +190,7 @@ export default {
       ...compressPlugins
     ],
     transpile: [
+      'vuetify/lib',
       'wpapi',
       'superagent'
     ],

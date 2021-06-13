@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MeetRsl from '~/components/page/meet-rsl'
+import MeetRsl from '~/components/season1/about/meet-rsl'
 
 export default {
   name: 'Contact',
