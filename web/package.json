@@ -29,6 +29,7 @@
     "config": "^3.3.6",
     "nuxt": "^2.15.6",
     "nuxt-config": "^1.0.1",
+    "parallax-js": "^3.1.0",
     "particles.js": "^2.0.0",
     "vue-affix": "^0.5.2",
     "vue-clipboard2": "^0.3.1",
