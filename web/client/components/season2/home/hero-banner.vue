@@ -4,7 +4,7 @@
     class="hero-banner"
     :class="{ ready }"
   >
-    <div class="stripes" data-depth="0.1">
+    <div class="layer stripes" data-depth="0.1">
       <div class="horizontal">
         <div class="stripe left" />
         <div class="stripe right" />
@@ -14,8 +14,8 @@
         <div class="stripe bottom" />
       </div>
     </div>
-    <div class="brushes" />
-    <div class="ribbons">
+    <div class="layer brushes" />
+    <div class="layer ribbons">
       <div
         v-for="direction in ['top', 'bottom']"
         :key="direction"
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="main">
+    <div class="layer main">
       <div class="rsl" data-depth="0.4">
         <img src="~/assets/images/rsl/rsl-color-full.svg" alt="RSL 賽事聯盟">
         <span>RSL 賽事聯盟</span>
@@ -58,7 +58,7 @@
         RE:START KARTRIDER LEAGUE
       </div>
     </div>
-    <div class="characters">
+    <div class="layer characters">
       <v-row
         class="fill-height align-center"
         no-gutters
@@ -100,6 +100,14 @@
         </v-col>
       </v-row>
     </div>
+    <div
+      class="scroll-down"
+      :class="{ hidden: !scrollDown.visible }"
+    >
+      <div class="animation-wrap">
+        <fa :icon="['duotone', 'angles-down']" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -113,15 +121,21 @@ export default {
   props: {},
   data: () => ({
     ready: false,
-    parallax: null
+    parallax: null,
+    scrollDown: {
+      visible: true,
+      anime: null
+    }
   }),
   computed: {},
   watch: {},
   mounted () {
     this.initBanner()
+    this.initScrollListener()
   },
   beforeDestroy () {
     this.parallax && this.parallax.destroy()
+    window.removeEventListener('scroll', this.scrollHandler)
   },
   methods: {
     async initBanner () {
@@ -129,6 +143,10 @@ export default {
       this.startAnimationLoop()
       this.initParallax()
       this.$emit('ended')
+    },
+    initScrollListener () {
+      window.addEventListener('scroll', this.scrollHandler)
+      window.dispatchEvent(new Event('scroll'))
     },
     startIntro () {
       const durationCommon = 1000
@@ -346,12 +364,43 @@ export default {
       this.$anime(makeCharAniOptions('.hero-banner .characters .dizni img'))
       this.$anime(makeCharAniOptions('.hero-banner .characters .uni img'))
       this.$anime(makeCharAniOptions('.hero-banner .characters .bazzi img'))
+
+      // Animation for scroll down
+      this.scrollDown.anime = this.$anime({
+        targets: '.hero-banner .scroll-down .animation-wrap',
+        easing: 'linear',
+        duration: 2000,
+        delay: 500,
+        translateY: [0, 40, 80],
+        opacity: [0, 1, 0],
+        loop: true,
+        autoplay: false
+      })
+      if (this.scrollDown.visible) {
+        this.scrollDown.anime.play()
+      }
     },
     initParallax () {
       const scene = this.$refs.scene
       this.parallax = new Parallax(scene, {
         selector: '[data-depth]'
       })
+    },
+    scrollHandler () {
+      const visible = window.scrollY < 100
+      this.scrollDown.visible = visible
+
+      const anime = this.scrollDown.anime
+      if (!anime) {
+        return
+      }
+      if (visible) {
+        if (anime.paused) {
+          anime.restart()
+        }
+      } else {
+        anime.pause()
+      }
     }
   }
 }
@@ -374,7 +423,7 @@ export default {
     min-height: 600px;
   }
 
-  > div {
+  .layer {
     position: absolute;
     top: 0;
     left: 0;
@@ -382,7 +431,7 @@ export default {
     height: 100%;
     visibility: hidden;
   }
-  &.ready > div {
+  &.ready .layer {
     visibility: visible;
   }
   img {
@@ -703,6 +752,31 @@ export default {
       left: 20px !important;
       width: $width * .3;
     }
+  }
+}
+.scroll-down {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 100px;
+  margin: auto;
+  font-size: 26px;
+  color: rgba(#B3B3B3, .85);
+  transition: opacity .2s linear;
+
+  @include breakpoint(sm) {
+    bottom: 30px;
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+  .animation-wrap {
+    opacity: 0;
   }
 }
 </style>
