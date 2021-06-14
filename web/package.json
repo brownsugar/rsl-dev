@@ -27,6 +27,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "animejs": "^3.2.1",
     "config": "^3.3.6",
+    "mobile-detect": "^1.4.5",
     "nuxt": "^2.15.6",
     "nuxt-config": "^1.0.1",
     "parallax-js": "^3.1.0",

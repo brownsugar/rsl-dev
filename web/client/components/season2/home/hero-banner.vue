@@ -2,7 +2,8 @@
   <div
     ref="scene"
     class="hero-banner"
-    :class="{ ready }"
+    :class="{ ready, mobile: !!viewHeight }"
+    :style="{ '--vh': viewHeight }"
   >
     <div class="layer stripes" data-depth="0.1">
       <div class="horizontal">
@@ -121,6 +122,7 @@ export default {
   props: {},
   data: () => ({
     ready: false,
+    viewHeight: '',
     parallax: null,
     scrollDown: {
       visible: true,
@@ -130,6 +132,9 @@ export default {
   computed: {},
   watch: {},
   mounted () {
+    if (this.$md.mobile()) {
+      this.initViewSize()
+    }
     this.initBanner()
     this.initScrollListener()
   },
@@ -138,6 +143,9 @@ export default {
     window.removeEventListener('scroll', this.scrollHandler)
   },
   methods: {
+    initViewSize () {
+      this.viewHeight = window.innerHeight * 0.01 + 'px'
+    },
     async initBanner () {
       await this.startIntro()
       this.startAnimationLoop()
@@ -423,6 +431,9 @@ export default {
     min-height: 600px;
   }
 
+  &.mobile {
+    height: calc(var(--vh, 1vh) * 100);
+  }
   .layer {
     position: absolute;
     top: 0;
@@ -615,6 +626,7 @@ export default {
     }
     @include breakpoint(sm) {
       width: $width * .5;
+      transform: translateX(10px);
     }
   }
   .subtitle {
@@ -625,13 +637,13 @@ export default {
 
     @include breakpoint(lg) {
       width: $width * .85;
-      transform: translateY(-28px);
+      transform: translateY(-32px);
     }
     @include breakpoint(md) {
       width: $width * .7;
-      transform: translateY(-20px);
+      transform: translateY(-28px);
     }
-    @include breakpoint(md) {
+    @include breakpoint(sm) {
       width: $width * .5;
       transform: translateY(-20px);
     }

@@ -13,4 +13,6 @@ Vue.directive('anime', {
   update: handler
 })
 
-Vue.prototype.$anime = anime
+export default (ctx, inject) => {
+  inject('anime', anime)
+}
