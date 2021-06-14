@@ -1,17 +1,16 @@
 <template>
   <div class="home">
-    <hero-banner />
-    Alcohol Free!
+    <banner />
   </div>
 </template>
 
 <script>
-import HeroBanner from '~/components/season2/home/hero-banner'
+import Banner from '~/components/season2/home/banner'
 
 export default {
   name: 'Index',
   components: {
-    HeroBanner
+    Banner
   },
   layout: 'season2',
   props: {},

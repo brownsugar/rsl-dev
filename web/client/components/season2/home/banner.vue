@@ -1,7 +1,7 @@
 <template>
-  <div
+  <section
     ref="scene"
-    class="hero-banner"
+    class="banner"
     :class="{ ready, mobile: !!viewHeight }"
     :style="{ '--vh': viewHeight }"
   >
@@ -109,7 +109,7 @@
         <fa :icon="['duotone', 'angles-down']" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -117,7 +117,7 @@ import Parallax from 'parallax-js'
 import { randomInt } from '~/assets/utils/random'
 
 export default {
-  name: 'HeroBanner',
+  name: 'Banner',
   components: {},
   props: {},
   data: () => ({
@@ -172,23 +172,23 @@ export default {
           }
         })
           .add({
-            targets: '.hero-banner .stripes .left',
+            targets: '.banner .stripes .left',
             translateX: [-300, 0],
             opacity: [0, 1]
           })
           .add({
-            targets: '.hero-banner .stripes .right',
+            targets: '.banner .stripes .right',
             translateX: [300, 0],
             rotateY: [180, 180],
             opacity: [0, 1]
           }, 0)
           .add({
-            targets: '.hero-banner .stripes .top',
+            targets: '.banner .stripes .top',
             translateY: [-300, 0],
             opacity: [0, 1]
           }, durationHalf)
           .add({
-            targets: '.hero-banner .stripes .bottom',
+            targets: '.banner .stripes .bottom',
             translateY: [300, 0],
             rotateX: [180, 180],
             opacity: [0, 1]
@@ -206,7 +206,7 @@ export default {
           }
         })
           .add({
-            targets: '.hero-banner .brushes',
+            targets: '.banner .brushes',
             opacity: [0, 0.5]
           }, durationHalf)
 
@@ -222,15 +222,15 @@ export default {
           }
         })
           .add({
-            targets: '.hero-banner .ribbons .thin img',
+            targets: '.banner .ribbons .thin img',
             translateY: ['-100%', '0%']
           })
           .add({
-            targets: '.hero-banner .ribbons .top .middle img',
+            targets: '.banner .ribbons .top .middle img',
             translateY: ['-100%', '0%']
           }, durationHalf)
           .add({
-            targets: '.hero-banner .ribbons .bottom .thick img',
+            targets: '.banner .ribbons .bottom .thick img',
             translateY: ['100%', '0%']
           }, durationHalf)
 
@@ -246,37 +246,37 @@ export default {
           }
         })
           .add({
-            targets: '.hero-banner .title img',
+            targets: '.banner .title img',
             scale: [0, 1]
           })
           .add({
-            targets: '.hero-banner .subtitle img',
+            targets: '.banner .subtitle img',
             scale: [0, 1]
           }, durationCommon / 3)
           .add({
-            targets: '.hero-banner .slogan .middle',
+            targets: '.banner .slogan .middle',
             duration: durationCommon * 1.5,
             scale: [3, 1],
             rotate: '5turn',
             opacity: [0, 1]
           })
           .add({
-            targets: '.hero-banner .slogan .left',
+            targets: '.banner .slogan .left',
             translateX: [35, 0],
             opacity: [0, 1]
           })
           .add({
-            targets: '.hero-banner .slogan .right',
+            targets: '.banner .slogan .right',
             translateX: [-35, 0],
             opacity: [0, 1]
           }, '-=' + durationCommon)
           .add({
-            targets: '.hero-banner .rsl img',
+            targets: '.banner .rsl img',
             translateY: [30, 0],
             opacity: [0, 1]
           }, '-=' + durationHalf / 2)
           .add({
-            targets: '.hero-banner .restart',
+            targets: '.banner .restart',
             translateY: [-30, 0],
             opacity: [0, 1]
           }, '-=' + durationCommon)
@@ -288,7 +288,7 @@ export default {
           autoplay: false
         })
           .add({
-            targets: '.hero-banner .characters .dao img',
+            targets: '.banner .characters .dao img',
             scale: [0.8, 1],
             translateX: [130, 0],
             translateY: [-10, 0],
@@ -296,7 +296,7 @@ export default {
             opacity: [0, 1]
           })
           .add({
-            targets: '.hero-banner .characters .dizni img',
+            targets: '.banner .characters .dizni img',
             scale: [0.7, 1],
             translateX: [-150, 0],
             translateY: [-50, 0],
@@ -304,7 +304,7 @@ export default {
             opacity: [0, 1]
           }, 0)
           .add({
-            targets: '.hero-banner .characters .uni img',
+            targets: '.banner .characters .uni img',
             scale: [0.7, 1],
             translateX: [-80, 0],
             translateY: [10, 0],
@@ -312,7 +312,7 @@ export default {
             opacity: [0, 1]
           }, durationCommon / 3)
           .add({
-            targets: '.hero-banner .characters .bazzi img',
+            targets: '.banner .characters .bazzi img',
             scale: [0.8, 1],
             translateX: [150, 0],
             translateY: [50, 0],
@@ -344,9 +344,9 @@ export default {
         delay: 7000,
         loop: true
       })
-        .add(makeTitleAniOptions('.hero-banner .title img'))
-        .add(makeTitleAniOptions('.hero-banner .subtitle img'), 200)
-        .add(makeTitleAniOptions('.hero-banner .slogan .text-wrap'), 400)
+        .add(makeTitleAniOptions('.banner .title img'))
+        .add(makeTitleAniOptions('.banner .subtitle img'), 200)
+        .add(makeTitleAniOptions('.banner .slogan .text-wrap'), 400)
 
       // Animation for characters
       const makeCharAniOptions = (targets) => {
@@ -368,14 +368,14 @@ export default {
           loop: true
         }
       }
-      this.$anime(makeCharAniOptions('.hero-banner .characters .dao img'))
-      this.$anime(makeCharAniOptions('.hero-banner .characters .dizni img'))
-      this.$anime(makeCharAniOptions('.hero-banner .characters .uni img'))
-      this.$anime(makeCharAniOptions('.hero-banner .characters .bazzi img'))
+      this.$anime(makeCharAniOptions('.banner .characters .dao img'))
+      this.$anime(makeCharAniOptions('.banner .characters .dizni img'))
+      this.$anime(makeCharAniOptions('.banner .characters .uni img'))
+      this.$anime(makeCharAniOptions('.banner .characters .bazzi img'))
 
       // Animation for scroll down
       this.scrollDown.anime = this.$anime({
-        targets: '.hero-banner .scroll-down .animation-wrap',
+        targets: '.banner .scroll-down .animation-wrap',
         easing: 'linear',
         duration: 2000,
         delay: 500,
@@ -415,7 +415,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero-banner {
+.banner {
   position: relative;
   width: 100vw;
   height: 100vh;
