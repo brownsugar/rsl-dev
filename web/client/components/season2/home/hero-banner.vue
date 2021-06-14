@@ -65,10 +65,15 @@
       >
         <v-col
           class="d-flex flex-column align-end"
-          md="2"
-          offset-md="2"
+          cols="4"
+          sm="3"
+          md="3"
+          lg="2"
+          offset-sm="1"
+          offset-md="1"
+          offset-lg="2"
         >
-          <div class="character dao" data-depth="0.2">
+          <div class="character dao mb-5" data-depth="0.2">
             <img src="~/assets/images/season2/home/hero_dao.svg">
           </div>
           <div class="character uni" data-depth="0.3">
@@ -76,11 +81,17 @@
           </div>
         </v-col>
         <v-col
-          class="d-flex flex-column align-end"
-          md="2"
+          class="d-flex flex-column"
+          :class="$breakpoint.is.smAndUp ? 'align-end' : 'align-start'"
+          cols="4"
+          sm="3"
+          md="3"
+          lg="2"
+          offset="4"
+          offset-sm="4"
           offset-md="4"
         >
-          <div class="character dizni" data-depth="0.2">
+          <div class="character dizni mb-5" data-depth="0.2">
             <img src="~/assets/images/season2/home/hero_dizni.svg">
           </div>
           <div class="character bazzi" data-depth="0.3">
@@ -117,6 +128,7 @@ export default {
       await this.startIntro()
       this.startAnimationLoop()
       this.initParallax()
+      this.$emit('ended')
     },
     startIntro () {
       const durationCommon = 1000
@@ -355,6 +367,13 @@ export default {
   user-select: none;
   background: image('season2/home/hero_bg.jpg') center/cover no-repeat;
 
+  @include breakpoint(md) {
+    min-height: 660px;
+  }
+  @include breakpoint(sm) {
+    min-height: 600px;
+  }
+
   > div {
     position: absolute;
     top: 0;
@@ -375,6 +394,8 @@ export default {
   }
 }
 .stripes {
+  $bg-size-v: 75vw;
+  $bg-size-h: 80vw;
   $h-stripe-y-offset: 25px;
   $all-stripe-y-offset: 50px;
   $flex-basis: 47.5;
@@ -396,22 +417,49 @@ export default {
   }
   .top,
   .bottom {
-    background: image('season2/home/hero_stripe_v.svg') center bottom/75vw auto no-repeat;
+    background: image('season2/home/hero_stripe_v.svg') center bottom/#{$bg-size-v} auto no-repeat;
+
+    @include breakpoint(lg) {
+      background-size: $bg-size-v * 1.3 auto;
+    }
+    @include breakpoint(md) {
+      background-size: $bg-size-v * 1.6 auto;
+    }
+    @include breakpoint(sm) {
+      background-size: $bg-size-v * 2.2 auto;
+    }
   }
   .left,
   .right {
     flex-basis: #{$flex-basis}vw;
-    background: image('season2/home/hero_stripe_h.svg') right calc(50% + #{$h-stripe-y-offset} + #{$all-stripe-y-offset})/auto 80vw no-repeat;
+    background: image('season2/home/hero_stripe_h.svg') right calc(50% + #{$h-stripe-y-offset} + #{$all-stripe-y-offset})/auto #{$bg-size-h} no-repeat;
+
+    @include breakpoint(lg) {
+      background-size: auto $bg-size-h * 1.3;
+    }
+    @include breakpoint(md) {
+      background-size: auto $bg-size-h * 1.6;
+    }
+    @include breakpoint(sm) {
+      background-size: auto $bg-size-h * 2.2;
+    }
   }
   .right {
     transform: rotateY(180deg);
   }
   .top {
-    flex-basis: calc(#{$flex-basis}vh + #{$all-stripe-y-offset});
+    flex-basis: calc(#{$flex-basis}% + #{$all-stripe-y-offset});
   }
   .bottom {
-    flex-basis: calc(#{$flex-basis}vh - #{$all-stripe-y-offset});
+    flex-basis: calc(#{$flex-basis}% - #{$all-stripe-y-offset});
     transform: rotateX(180deg);
+
+    @include breakpoint(md) {
+      flex-basis: calc(#{$flex-basis}% - #{$all-stripe-y-offset} - 10px);
+    }
+    @include breakpoint(sm) {
+      flex-basis: calc(#{$flex-basis}% - #{$all-stripe-y-offset} - 20px);
+    }
   }
 }
 .brushes {
@@ -429,6 +477,16 @@ export default {
     position: relative;
     transform: translateY(-100px);
 
+    @include breakpoint(lg) {
+      transform: translateY(-70px);
+    }
+    @include breakpoint(md) {
+      transform: translateY(-50px);
+    }
+    @include breakpoint(md) {
+      transform: translateY(-15px);
+    }
+
     .thin {
       margin-top: -11%;
     }
@@ -437,6 +495,10 @@ export default {
     display: flex;
     flex-direction: column-reverse;
     transform: translateY(5px);
+
+    @include breakpoint(sm) {
+      transform: translateY(0);
+    }
 
     .thick {
       margin-top: -11%;
@@ -465,24 +527,89 @@ export default {
   margin-top: 30px;
   text-align: center;
 
+  @include breakpoint(md) {
+    margin-top: 15px;
+  }
+  @include breakpoint(sm) {
+    margin-top: 0;
+  }
+
   .rsl {
-    width: 180px;
+    $width: 180px;
+
+    width: $width;
     margin-bottom: 15px;
     filter: drop-shadow(4px 4px 4px rgba(#000, .75));
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+    }
+    @include breakpoint(md) {
+      width: $width * .7;
+    }
+    @include breakpoint(sm) {
+      width: $width * .5;
+    }
   }
   .title {
-    width: 615px;
+    $width: 615px;
+
+    width: $width;
     filter: drop-shadow(4px 4px 4px rgba(#777, .75));
     transform: translateX(18px);
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+    }
+    @include breakpoint(md) {
+      width: $width * .7;
+    }
+    @include breakpoint(sm) {
+      width: $width * .5;
+    }
   }
   .subtitle {
-    width: 330px;
+    $width: 330px;
+
+    width: $width;
     transform: translateY(-40px);
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+      transform: translateY(-28px);
+    }
+    @include breakpoint(md) {
+      width: $width * .7;
+      transform: translateY(-20px);
+    }
+    @include breakpoint(md) {
+      width: $width * .5;
+      transform: translateY(-20px);
+    }
   }
   .slogan {
-    width: 450px;
-    height: 35px;
+    $width: 450px;
+    $height: 35px;
+
+    width: $width;
+    height: $height;
     margin-top: 10px;
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+      height: $height * .85;
+      margin-top: 20px;
+    }
+    @include breakpoint(md) {
+      width: $width * .75;
+      height: $height * .75;
+      margin-top: 30px;
+    }
+    @include breakpoint(sm) {
+      width: $width * .55;
+      height: $height * .55;
+      margin-top: 40px;
+    }
 
     .text-wrap {
       display: flex;
@@ -507,22 +634,75 @@ export default {
 }
 .characters {
 
-  .col > .character:not(:last-child) {
-    margin-bottom: 20px;
+  .row > div {
+    @include breakpoint(sm) {
+      justify-content: space-between;
+      height: 400px;
+    }
   }
   .dao {
-    width: 280px;
+    $width: 280px;
+
+    width: $width;
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+    }
+    @include breakpoint(md) {
+      width: $width * .7;
+    }
+    @include breakpoint(sm) {
+      width: $width * .3;
+    }
   }
   .uni {
+    $width: 320px;
+
     left: -60px !important; // Override Parallax.js attribute style
-    width: 320px;
+    width: $width;
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+    }
+    @include breakpoint(md) {
+      width: $width * .6;
+    }
+    @include breakpoint(sm) {
+      left: -20px !important;
+      width: $width * .3;
+    }
   }
   .dizni {
-    width: 280px;
+    $width: 280px;
+
+    width: $width;
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+    }
+    @include breakpoint(md) {
+      width: $width * .6;
+    }
+    @include breakpoint(sm) {
+      width: $width * .3;
+    }
   }
   .bazzi {
+    $width: 330px;
+
     left: 60px !important; // Override Parallax.js attribute style
-    width: 330px;
+    width: $width;
+
+    @include breakpoint(lg) {
+      width: $width * .85;
+    }
+    @include breakpoint(md) {
+      width: $width * .6;
+    }
+    @include breakpoint(sm) {
+      left: 20px !important;
+      width: $width * .3;
+    }
   }
 }
 </style>
