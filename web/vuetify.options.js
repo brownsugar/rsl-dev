@@ -1,3 +1,5 @@
+import defu from 'defu'
+import common from '~/assets/theme/common'
 import season1 from '~/assets/theme/season1'
 import season2 from '~/assets/theme/season2'
 
@@ -17,7 +19,7 @@ export default function ({ route }) {
       options: {
         customProperties: true
       },
-      ...theme
+      ...defu(common, theme)
     }
   }
 }
