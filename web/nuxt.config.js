@@ -69,7 +69,8 @@ export default {
       { property: 'og:locale', content: 'zh_TW' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' }
     ],
     script: [
       { src: `https://polyfill.app/api/polyfill?features=${polyfills}`, body: true }

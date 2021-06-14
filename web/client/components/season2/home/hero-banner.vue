@@ -575,6 +575,7 @@ export default {
 
     img {
       display: block;
+      width: 100%;
     }
   }
 }
@@ -599,7 +600,6 @@ export default {
 
     width: $width;
     margin-bottom: 15px;
-    filter: drop-shadow(4px 4px 4px rgba(#000, .75));
 
     @include breakpoint(lg) {
       width: $width * .85;
@@ -610,12 +610,16 @@ export default {
     @include breakpoint(sm) {
       width: $width * .5;
     }
+
+    img {
+      will-change: filter, transform;
+      filter: drop-shadow(4px 4px 4px rgba(#000, .75));
+    }
   }
   .title {
     $width: 615px;
 
     width: $width;
-    filter: drop-shadow(4px 4px 4px rgba(#777, .75));
     transform: translateX(18px);
 
     @include breakpoint(lg) {
@@ -627,6 +631,11 @@ export default {
     @include breakpoint(sm) {
       width: $width * .5;
       transform: translateX(10px);
+    }
+
+    img {
+      will-change: filter, transform;
+      filter: drop-shadow(4px 4px 4px rgba(#777, .75));
     }
   }
   .subtitle {
