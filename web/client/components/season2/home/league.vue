@@ -23,7 +23,7 @@
       <v-row class="align-center mt-15">
         <v-col
           cols="12"
-          lg="5"
+          lg="6"
         >
           <v-img
             :aspect-ratio="750 / 800"
@@ -32,7 +32,7 @@
         </v-col>
         <v-col
           cols="12"
-          lg="7"
+          lg="6"
         >
           <two-line-title
             top="RSL 夢想盃跑跑聯賽"
@@ -46,7 +46,7 @@
               還沒忘記第一季聯賽的感動，2021 年，RSL 賽事聯盟團隊不被疫情阻撓，持續邀請新成員加入，再度聯手為跑跑卡丁車玩家打造更專業的電競舞台，並且提供更豐富的聯賽內容和更多精美獎項！
             </p>
           </div>
-          <h4 class="text-h5 mt-10 mb-8">
+          <h4 class="text-h5 mt-12 mb-8">
             <fa :icon="['duotone', 'quote-left']" />
             <span class="mx-4">夢想啟程，再造傳奇</span>
             <fa :icon="['duotone', 'quote-right']" />
@@ -61,18 +61,97 @@
             <p>
               豪華豐富的周邊獎勵包括幻銀 Argent K5 RGB 機械式鍵盤（由 TT 曜越贊助）、Philips 電競螢幕（由 AOC 贊助）以及 HyperX Cloud Revolver 7.1 電競耳機（由 HyperX 贊助）等，總獎金更是高達六萬元整，想要在賽道上甩出名號的玩家們絕對不能錯過！
             </p>
-            <!-- <v-btn
+            <v-btn
               class="mt-6"
               color="secondary"
               large
               dark
             >
-              查看完整賽事資訊
+              查看完整聯賽資訊
               <fa
                 class="ml-2"
                 :icon="['duotone', 'chevrons-right']"
               />
-            </v-btn> -->
+            </v-btn>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row no-gutters>
+        <v-col
+          lg="4"
+        >
+          <div
+            v-for="block in blocks"
+            :key="block.type"
+            class="block-live white--text px-15 py-13"
+            :class="['block-' + block.type, block.type]"
+          >
+            <div
+              class="text-h3 font-weight-black text-uppercase"
+              :class="[block.small ? 'text-h4' : 'text-h3']"
+            >
+              {{ block.title }}<br>@{{ $config.rsl[block.type].username }}
+            </div>
+            <div
+              class="mt-6"
+              :class="[block.small ? 'text-h5' : 'text-h4']"
+            >
+              {{ block.description }}
+            </div>
+            <v-btn
+              class="mt-10"
+              :color="block.type + ' darken-1'"
+              :href="$config.rsl[block.type].url"
+              target="_blank"
+              large
+              dark
+            >
+              {{ block.action }}
+              <fa
+                class="ml-2"
+                size="lg"
+                :icon="['fas', 'right-long']"
+              />
+            </v-btn>
+          </div>
+        </v-col>
+        <v-col
+          lg="8"
+        >
+          <div class="block-iframe">
+            <v-lazy>
+              <v-responsive :aspect-ratio="16/9">
+                <iframe
+                  class="fill-width fill-height"
+                  :src="twitchIframeUrl"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  scrolling="no"
+                />
+              </v-responsive>
+            </v-lazy>
+          </div>
+          <div class="block-text px-10 py-8">
+            <p>
+              RSL 夢想盃跑跑聯賽 Season 2 指定使用 Twitch 為官方唯一直播平台，每週賽事在 Twitch 頻道獨家轉播，立即按下追隨，精彩比賽、好康抽獎不容錯過！
+              <br>
+              賽事結束隔週將於 YouTube 頻道中陸續發佈賽事重播檔以及精華片段剪輯，現在就訂閱起來，熱血賽事隨時重溫！
+            </p>
+            <v-btn
+              class="mt-2"
+              color="youtube darken-1"
+              :href="$config.rsl.youtube.url"
+              target="_blank"
+              large
+              dark
+            >
+              前往 YouTube 頻道
+              <fa
+                class="ml-2"
+                size="lg"
+                :icon="['fas', 'right-long']"
+              />
+            </v-btn>
           </div>
         </v-col>
       </v-row>
@@ -94,9 +173,30 @@ export default {
       { value: '9,000+', unit: '追蹤數' },
       { value: '350,000+', unit: '觀看數' },
       { value: '250+', unit: '參賽人次' }
+    ],
+    blocks: [
+      {
+        type: 'twitch',
+        title: '官方 Twitch 頻道',
+        description: '每周聯賽獨家直播',
+        action: '立即追隨'
+      },
+      {
+        type: 'facebook',
+        title: '官方 Facebook 專頁',
+        description: '聯賽情報即時掌握',
+        action: '立即按讚',
+        small: true
+      }
     ]
   }),
-  computed: {},
+  computed: {
+    twitchIframeUrl () {
+      const username = this.$config.rsl.twitch.username
+      const host = process.client ? window.location.hostname : ''
+      return `https://player.twitch.tv/?channel=${username}&parent=${host}`
+    }
+  },
   watch: {},
   mounted () {
   },
@@ -127,5 +227,9 @@ export default {
       }
     }
   }
+}
+.block-twitch {
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
 }
 </style>

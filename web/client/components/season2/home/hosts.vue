@@ -104,6 +104,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  position: relative;
+}
 .hosts {
   position: relative;
 
