@@ -9,7 +9,10 @@
         <sub-title
           text="最新消息"
         />
-        <v-tabs class="mt-8 mb-4">
+        <v-tabs
+          class="mt-8 mb-4"
+          show-arrows
+        >
           <v-tabs-slider color="secondary" />
           <v-tab
             v-for="category in categoryItems"

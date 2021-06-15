@@ -69,6 +69,7 @@
             <v-btn
               class="mt-6"
               color="secondary"
+              to="/season2/rules"
               large
               dark
             >
