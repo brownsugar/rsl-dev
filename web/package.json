@@ -36,6 +36,7 @@
     "mobile-detect": "^1.4.5",
     "nuxt": "^2.15.7",
     "nuxt-config": "^1.0.1",
+    "nuxt-start": "^2.15.7",
     "parallax-js": "^3.1.0",
     "particles.js": "^2.0.0",
     "swiper": "^6.7.0",
