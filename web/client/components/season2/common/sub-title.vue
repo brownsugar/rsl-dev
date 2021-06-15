@@ -26,8 +26,8 @@ h4 {
     left: 0;
     display: block;
     width: 36px;
-    height: 10px;
-    margin-top: -5px;
+    height: 8px;
+    margin-top: -4px;
     content: '';
     background: var(--v-primary-base);
   }

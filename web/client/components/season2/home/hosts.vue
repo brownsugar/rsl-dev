@@ -1,6 +1,6 @@
 <template>
   <section class="hosts grey lighten-4 py-16">
-    <v-container>
+    <v-container class="py-4">
       <v-row>
         <v-col
           cols="6"
@@ -35,7 +35,7 @@
     </v-container>
     <swiper
       ref="swiper"
-      class="mt-12"
+      class="mt-10 mb-4"
       :options="swiperOptions"
     >
       <swiper-slide

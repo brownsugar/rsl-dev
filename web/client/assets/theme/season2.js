@@ -5,7 +5,8 @@ export default {
     light: {
       primary: '#FF3C00',
       secondary: '#FF8700',
-      tertiary: '#FFCD00'
+      tertiary: '#FFCD00',
+      'grey-dark': '#333'
     },
     dark: {
     }

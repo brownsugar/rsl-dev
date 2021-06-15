@@ -1,6 +1,6 @@
 <template>
-  <section class="sponsor">
-    <v-container class="py-16">
+  <section class="sponsor py-16">
+    <v-container class="py-4">
       <two-line-title
         top="第二賽季"
         bottom="合作夥伴"

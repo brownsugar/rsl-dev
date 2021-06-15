@@ -3,4 +3,9 @@
  */
 .season-2 {
   font-family: Roboto, 'Noto Sans TC', 'Microsoft JhengHei', PingFang, sans-serif;
+
+  ::selection {
+    color: $s2-grey-dark;
+    background: $s2-tertiary;
+  }
 }
