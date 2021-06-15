@@ -187,6 +187,7 @@
 <script>
 import { mapState } from 'vuex'
 import LayoutFooter from '~/components/season2/footer'
+import genarateMetaInfo from '~/assets/utils/meta'
 
 export default {
   components: {
@@ -231,14 +232,18 @@ export default {
     }
   }),
   head () {
-    const metaInfo = {
-      title: '夢想盃跑跑聯賽 Season 2',
-      link: [
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap' }
-      ]
-    }
+    const staticPages = ['season2', 'season2-summary', 'season2-news', 'season2-about']
+    const themeColor = '#272727'
+    const ogImage = this.$config.rsl.cover.season2
+    const defaultTitle = '夢想盃跑跑聯賽 Season 2'
 
-    return metaInfo
+    return genarateMetaInfo({
+      vm: this,
+      staticPages,
+      themeColor,
+      ogImage,
+      defaultTitle
+    })
   },
   computed: {
     ...mapState([

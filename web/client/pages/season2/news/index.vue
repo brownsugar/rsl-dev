@@ -186,7 +186,7 @@ export default {
   methods: {
     featuredImage (embedded) {
       const image = postUtils.getFeaturedImage(embedded)
-      return image || this.$config.rsl.cover
+      return image || this.$config.rsl.cover.season2
     },
     isNew (date) {
       const posted = new Date(date)
