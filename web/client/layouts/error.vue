@@ -54,6 +54,7 @@
 <script>
 export default {
   name: 'Error',
+  layout: 'season2',
   props: {
     error: {
       type: Object,

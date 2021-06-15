@@ -1,5 +1,6 @@
 <template>
   <post-layout
+    :banner="banner"
     :title="mainTitle"
     :content="post.content.rendered"
     :breadcrumb="breadcrumb"
@@ -42,6 +43,10 @@ export default {
     type: {
       type: String,
       default: 'post'
+    },
+    banner: {
+      type: String,
+      default: undefined
     },
     // Override original title
     title: {
@@ -99,6 +104,10 @@ export default {
       }
       return '404 Not Found'
     },
+    season () {
+      // Currently season name is same as layout name, so this condition is fine.
+      return this.$nuxt.layoutName
+    },
     category () {
       if (this.post) {
         const catId = this.post.categories[0]
@@ -114,7 +123,7 @@ export default {
     breadcrumb () {
       const base = [{
         text: '首頁',
-        to: '/season1',
+        to: '/' + this.season,
         exact: true
       }]
       if (this.listPath && this.listLabel) {
@@ -127,7 +136,7 @@ export default {
       if (this.type === 'post') {
         base.push({
           text: this.category.name,
-          to: '/season1/news/category/' + this.category.slug
+          to: '/' + this.season + '/news/category/' + this.category.slug
         })
       }
       base.push({
@@ -139,13 +148,13 @@ export default {
   },
   methods: {
     backToList () {
-      if (this.fromRoute && this.fromRoute.name.startsWith('season1-news')) {
+      if (this.fromRoute && this.fromRoute.name.startsWith(this.season + '-news')) {
         this.$router.push({
           path: this.fromRoute.path,
           query: this.fromRoute.query
         })
       } else {
-        this.$router.push('/season1/news')
+        this.$router.push('/' + this.season + '/news')
       }
     }
   }

@@ -55,6 +55,11 @@ export default {
         path: '/season1/news/category/:slug',
         component: resolve(__dirname, 'client/pages/season1/news/index.vue')
       })
+      routes.push({
+        name: 'season2-news-category',
+        path: '/season2/news/category/:slug',
+        component: resolve(__dirname, 'client/pages/season2/news/index.vue')
+      })
     }
   },
   /**

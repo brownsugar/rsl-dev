@@ -2,6 +2,7 @@
   <div class="rules">
     <post-single
       type="page"
+      banner="season2/common/post-banner.jpg"
       :post="post"
     />
   </div>
@@ -15,9 +16,9 @@ export default {
   components: {
     PostSingle
   },
-  layout: 'season1',
+  layout: 'season2',
   async asyncData ({ store, route, error }) {
-    const post = await store.dispatch('page/getPageBySlug', 'season1-rules')
+    const post = await store.dispatch('page/getPageBySlug', 'season2-rules')
     if (!post) {
       error({ statusCode: 404, message: 'Page not found.' })
     }

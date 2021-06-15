@@ -21,15 +21,7 @@ export default {
     Hosts,
     Cooperator
   },
-  layout: 'season2',
-  props: {},
-  data: () => ({
-  }),
-  computed: {},
-  watch: {},
-  mounted () {
-  },
-  methods: {}
+  layout: 'season2'
 }
 </script>
 

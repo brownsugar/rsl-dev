@@ -16,7 +16,7 @@
           <h5 class="text-h6 font-weight-bold mb-6">
             <n-link
               class="white--text text-decoration-none hover-color"
-              to="/"
+              to="/season2/about"
             >
               關於 RSL 賽事聯盟
               <fa

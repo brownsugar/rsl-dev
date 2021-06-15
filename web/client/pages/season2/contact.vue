@@ -1,23 +1,20 @@
 <template>
-  <div class="rules">
-    <post-single
-      type="page"
-      :post="post"
-    />
-  </div>
+  <meet-rsl
+    :content="post.content.rendered"
+  />
 </template>
 
 <script>
-import PostSingle from '~/components/post/single'
+import MeetRsl from '~/components/season2/about/meet-rsl'
 
 export default {
-  name: 'Rules',
+  name: 'Contact',
   components: {
-    PostSingle
+    MeetRsl
   },
-  layout: 'season1',
+  layout: 'season2',
   async asyncData ({ store, route, error }) {
-    const post = await store.dispatch('page/getPageBySlug', 'season1-rules')
+    const post = await store.dispatch('page/getPageBySlug', 'contact')
     if (!post) {
       error({ statusCode: 404, message: 'Page not found.' })
     }

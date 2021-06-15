@@ -1,7 +1,7 @@
 <template>
   <div class="meet-rsl">
     <post-layout
-      banner="common/background/drift.png"
+      banner="season2/common/post-banner.jpg"
       :title="title"
       :content="content"
     >
@@ -43,11 +43,11 @@ export default {
     navs: [
       {
         label: '關於我們',
-        to: '/season1/about'
+        to: '/season2/about'
       },
       {
         label: '聯絡我們',
-        to: '/season1/contact'
+        to: '/season2/contact'
       }
     ]
   }),

@@ -90,7 +90,7 @@
               :key="i"
               active-class="primary"
               :to="nav.to"
-              :exact="nav.to === '/'"
+              :exact="nav.to === '/season1' && $route.path !== '/season1'"
               nuxt
             >
               <v-list-item-content>
