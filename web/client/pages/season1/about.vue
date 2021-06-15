@@ -172,7 +172,7 @@ export default {
       {
         name: '爆哥',
         title: 'RSL 核心發起人 / 聯賽規劃',
-        avatar: 'host/neal.jpg',
+        avatar: 'season1/host/neal.jpg',
         experiences: [
           '「華義 SPIDER」職業隊跑跑卡丁車選手',
           '「J Team 遊戲娛樂」簽約實況主',

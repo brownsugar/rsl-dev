@@ -3,27 +3,30 @@
     <v-container class="py-16">
       <v-row>
         <v-col md="12">
-          <h2 class="text-h2 font-weight-bold mb-6">
+          <h2 class="text-h3 text-md-h2 font-weight-bold mb-6">
             今年夏天，跑跑年度盛大賽事來襲！
           </h2>
-          <div class="stats d-flex justify-center justify-lg-start mt-15">
+          <div class="stats d-block d-md-flex justify-center justify-lg-start mt-10 mt-md-15">
             <div
               v-for="(stat, i) in stats"
               :key="i"
-              class="item"
+              class="item text-center text-md-left"
+              :class="[i < stats.length - 1 ? 'mr-0 mb-8 pr-0 mr-md-8 mb-md-0 pr-md-8' : '']"
             >
               <span
-                class="text-h2 font-weight-black d-block d-lg-inline mr-2"
+                class="text-h3 text-md-h2 font-weight-black d-block d-lg-inline mr-2"
               >{{ stat.value }}</span>
-              <span>{{ stat.unit }}</span>
+              <span class="text-h5 text-md-h4">{{ stat.unit }}</span>
             </div>
           </div>
         </v-col>
       </v-row>
-      <v-row class="align-center mt-15">
+      <v-row class="mt-10 mt-md-15">
         <v-col
+          class="align-self-start"
           cols="12"
-          lg="6"
+          lg="5"
+          xl="6"
         >
           <v-img
             :aspect-ratio="750 / 800"
@@ -31,8 +34,10 @@
           />
         </v-col>
         <v-col
+          class="align-self-center pa-6 pb-15 pb-xl-6"
           cols="12"
-          lg="6"
+          lg="7"
+          xl="6"
         >
           <two-line-title
             top="RSL 夢想盃跑跑聯賽"
@@ -78,23 +83,25 @@
       </v-row>
       <v-row no-gutters>
         <v-col
-          lg="4"
+          cols="12"
+          lg="5"
+          xl="4"
         >
           <div
             v-for="block in blocks"
             :key="block.type"
-            class="block-live white--text px-15 py-13"
+            class="block-live white--text px-10 px-xl-15 py-14"
             :class="['block-' + block.type, block.type]"
           >
             <div
               class="text-h3 font-weight-black text-uppercase"
-              :class="[block.small ? 'text-h4' : 'text-h3']"
+              :class="[block.small ? 'text-h5 text-md-h4' : 'text-h4 text-md-h3']"
             >
               {{ block.title }}<br>@{{ $config.rsl[block.type].username }}
             </div>
             <div
               class="mt-6"
-              :class="[block.small ? 'text-h5' : 'text-h4']"
+              :class="[block.small ? 'text-h6 text-md-h5' : 'text-h5 text-md-h4']"
             >
               {{ block.description }}
             </div>
@@ -116,7 +123,9 @@
           </div>
         </v-col>
         <v-col
-          lg="8"
+          cols="12"
+          lg="7"
+          xl="8"
         >
           <div class="block-iframe">
             <v-lazy>
@@ -131,7 +140,7 @@
               </v-responsive>
             </v-lazy>
           </div>
-          <div class="block-text px-10 py-8">
+          <div class="block-text px-2 px-lg-10 py-8">
             <p>
               RSL 夢想盃跑跑聯賽 Season 2 指定使用 Twitch 為官方唯一直播平台，每週賽事在 Twitch 頻道獨家轉播，立即按下追隨，精彩比賽、好康抽獎不容錯過！
               <br>
@@ -209,11 +218,8 @@ export default {
 
   .item {
     position: relative;
-    font-size: 30px;
 
     &:not(:last-child) {
-      padding-right: 30px;
-      margin-right: 30px;
 
       &::after {
         position: absolute;
@@ -224,12 +230,18 @@ export default {
         height: 100%;
         content: '';
         background: var(--v-primary-base);
+
+        @include breakpoint(md) {
+          display: none;
+        }
       }
     }
   }
 }
 .block-twitch {
-  padding-top: 120px !important;
-  padding-bottom: 120px !important;
+  @include breakpoint(xl, false) {
+    padding-top: 120px !important;
+    padding-bottom: 120px !important;
+  }
 }
 </style>

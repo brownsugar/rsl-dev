@@ -9,10 +9,14 @@
       padless
     >
       <v-container>
-        <v-row class="py-12">
+        <v-row class="px-4 px-md-0 py-12">
           <v-col
-            offset="2"
-            cols="4"
+            offset-lg="1"
+            offset-xl="2"
+            cols="12"
+            md="6"
+            lg="5"
+            xl="4"
           >
             <h5 class="text-h6 font-weight-bold mb-6">
               <n-link
@@ -22,7 +26,7 @@
                 關於 RSL 賽事聯盟
                 <fa
                   class="ml-1"
-                  :icon="['far', 'up-right-from-square']"
+                  :icon="['fas', 'up-right']"
                 />
               </n-link>
             </h5>
@@ -37,59 +41,69 @@
             </p>
           </v-col>
           <v-col
-            offset="1"
-            cols="2"
+            class="mt-4 mt-md-0"
+            offset-md="1"
+            cols="12"
+            md="4"
+            lg="3"
+            xl="2"
           >
             <h5 class="text-h6 white--text font-weight-bold mb-6">
               追蹤 RSL 賽事聯盟
             </h5>
-            <v-btn
-              v-for="social in socials"
+            <div
+              v-for="(social, i) in socials"
               :key="social.brand"
-              class="mb-3"
-              :color="social.brand"
-              :href="$config.rsl[social.brand].url"
-              target="_blank"
-              depressed
-              large
-              dark
+              :class="{ 'mb-3': i < socials.length - 1 }"
             >
-              <fa
-                class="mr-2"
-                :icon="['fab', social.brand]"
-                size="lg"
-              />
-              {{ social.action }}
-            </v-btn>
+              <v-btn
+                :color="social.brand"
+                :href="$config.rsl[social.brand].url"
+                target="_blank"
+                depressed
+                large
+                dark
+              >
+                <fa
+                  class="mr-2"
+                  :icon="['fab', social.brand]"
+                  size="lg"
+                />
+                {{ social.action }}
+              </v-btn>
+            </div>
           </v-col>
         </v-row>
         <v-divider class="grey darken-3" />
         <v-row class="py-4">
           <v-col class="text-center grey--text">
-            &copy; 2020-2021 <strong>RE:START League</strong>
-            <span class="mx-2">|</span>
-            Design by <a class="white--text text-decoration-none hover-color" href="https://brownsugar.tw" target="_blank">
-              Brownsugar
-              <fa
-                :icon="['far', 'up-right-from-square']"
-                size="sm"
-              />
-            </a>
-            <span class="ml-2">|</span>
-            <v-btn
-              href="https://github.com/brownsugar/rsl-dev"
-              target="_blank"
-              x-small
-              text
-              dark
-            >
-              <fa
-                class="mr-1"
-                :icon="['fab', 'github']"
-                size="lg"
-              />
-              GitHub
-            </v-btn>
+            <span>&copy; 2020-2021 <strong>RE:START League</strong></span>
+            <span class="mx-2 d-none d-sm-inline">|</span>
+            <span class="d-block d-sm-inline mt-1 mt-sm-0">
+              Design by
+              <a class="white--text text-decoration-none hover-color" href="https://brownsugar.tw" target="_blank">
+                Brownsugar
+                <fa
+                  :icon="['far', 'up-right-from-square']"
+                  size="sm"
+                />
+              </a>
+              <span class="ml-2">|</span>
+              <v-btn
+                href="https://github.com/brownsugar/rsl-dev"
+                target="_blank"
+                x-small
+                text
+                dark
+              >
+                <fa
+                  class="mr-1"
+                  :icon="['fab', 'github']"
+                  size="lg"
+                />
+                GitHub
+              </v-btn>
+            </span>
           </v-col>
         </v-row>
       </v-container>

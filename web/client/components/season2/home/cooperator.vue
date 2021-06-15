@@ -17,13 +17,13 @@
           class="mx-4 my-6"
           no-gutters
         >
-          <v-col>
-            <div class="d-flex flex-wrap justify-center justify-sm-start align-center">
+          <v-col cols="12">
+            <div class="d-block d-sm-flex flex-wrap">
               <a
                 v-for="(company, j) in cooperator.data"
                 :key="j"
                 v-ripple="{ class: 'tertiary--text' }"
-                class="cooperator d-flex justify-center align-center px-5 py-2"
+                class="cooperator d-flex justify-center align-center mx-auto mx-sm-0 px-5 py-2"
                 :title="company.name"
                 :href="company.link"
                 target="_blank"
@@ -33,7 +33,7 @@
                   <img
                     class="d-block"
                     :src="require(`~/assets/images/season2/cooperator/${company.logo.file}`)"
-                    :height="company.logo.height * ($breakpoint.is.smAndDown ? 0.75 : 1)"
+                    :style="{ maxHeight: company.logo.height + 'px' }"
                     :alt="company.name"
                   >
                 </v-lazy>
@@ -66,6 +66,7 @@ export default {
 <style lang="scss" scoped>
 .cooperator {
   position: relative;
+  width: fit-content;
   min-height: 120px;
 
   &::before {
@@ -85,6 +86,13 @@ export default {
   }
   > div {
     position: relative;
+  }
+  img {
+
+    @include breakpoint(sm) {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }
 </style>

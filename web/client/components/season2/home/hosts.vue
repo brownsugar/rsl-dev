@@ -3,7 +3,8 @@
     <v-container class="py-4">
       <v-row>
         <v-col
-          cols="6"
+          cols="12"
+          md="6"
         >
           <two-line-title
             top="第二賽季"
@@ -12,7 +13,8 @@
         </v-col>
         <v-col
           class="d-flex justify-end align-end"
-          cols="6"
+          cols="12"
+          md="6"
         >
           <v-btn
             color="secondary"
@@ -35,7 +37,7 @@
     </v-container>
     <swiper
       ref="swiper"
-      class="mt-10 mb-4"
+      class="mt-2 mt-md-10 mb-4"
       :options="swiperOptions"
     >
       <swiper-slide
@@ -66,14 +68,28 @@ export default {
     TwoLineTitle
   },
   props: {},
-  data: () => ({
+  data: self => ({
     hosts,
     swiperOptions: {
       initialSlide: 3,
-      slidesPerView: 4,
-      spaceBetween: 30,
+      slidesPerView: 1.2,
+      spaceBetween: 10,
       centeredSlides: true,
-      simulateTouch: false
+      simulateTouch: false,
+      breakpoints: {
+        [self.$vuetify.breakpoint.thresholds.xs]: {
+          slidesPerView: 1.5,
+          spaceBetween: 10
+        },
+        [self.$vuetify.breakpoint.thresholds.sm]: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        [self.$vuetify.breakpoint.thresholds.md]: {
+          slidesPerView: 4,
+          spaceBetween: 30
+        }
+      }
     }
   }),
   computed: {

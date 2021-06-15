@@ -13,7 +13,7 @@
           class="pa-4"
           no-gutters
         >
-          <v-col cols="6">
+          <v-col cols="10">
             <v-card-title class="text-h4 font-weight-bold text-uppercase pb-0">
               {{ host.name }}
             </v-card-title>
@@ -26,7 +26,7 @@
           </v-col>
           <v-col
             class="d-flex justify-end align-end"
-            cols="6"
+            cols="2"
           >
             <v-btn
               color="tertiary"
@@ -48,7 +48,7 @@
           v-if="panelVisible"
           class="info-panel transition-fast-in-fast-out d-flex flex-column fill-width fill-height"
         >
-          <div class="flex-fill ma-6 mb-0 overflow-auto">
+          <div class="flex-fill ma-2 ma-sm-6 mb-0 overflow-auto">
             <template
               v-for="(section, j) in host.experience"
             >
