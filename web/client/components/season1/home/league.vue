@@ -376,7 +376,7 @@
                 v-for="(host, i) in hosts"
                 :key="i"
                 class="host-avatar mx-md-n10 mx-lg-n8"
-                :src="require(`~/assets/images/host/${host.avatar}`)"
+                :src="require(`~/assets/images/season1/host/${host.avatar}`)"
                 gradient="to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .8) 100%"
                 width="250"
                 :height="$breakpoint.is.mdAndDown ? 250 : 350"
