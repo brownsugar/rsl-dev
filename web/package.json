@@ -34,7 +34,7 @@
     "nuxt-start": "^2.15.7",
     "parallax-js": "^3.1.0",
     "particles.js": "^2.0.0",
-    "swiper": "^6.7.0",
+    "swiper": "^5.4.5",
     "vue-affix": "^0.5.2",
     "vue-awesome-swiper": "^4.1.1",
     "vue-clipboard2": "^0.3.1",

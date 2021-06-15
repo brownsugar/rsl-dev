@@ -57,7 +57,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import HostCard from './hosts/card'
 import TwoLineTitle from '~/components/season2/common/two-line-title'
 import hosts from '~/data/season2/hosts'
-import 'swiper/swiper-bundle.min.css'
+import 'swiper/css/swiper.min.css'
 
 export default {
   name: 'Hosts',
