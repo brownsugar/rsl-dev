@@ -21,7 +21,7 @@
               關於 RSL 賽事聯盟
               <fa
                 class="ml-1"
-                :icon="['fas', 'up-right']"
+                :icon="['fas', 'right']"
               />
             </n-link>
           </h5>

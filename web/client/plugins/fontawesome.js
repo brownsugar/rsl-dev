@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
+// import Vuetify from 'vuetify/lib'
 
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -16,36 +16,34 @@ library.add(fas, fasPro, far, farPro, fab, fad)
 
 Vue.component('Fa', FontAwesomeIcon) // For myself
 Vue.component('FontAwesomeIcon', FontAwesomeIcon) // For Vuetify
-Vue.use(Vuetify)
+// Vue.use(Vuetify)
 
-export default new Vuetify({
-  icons: {
-    iconfont: 'faSvg',
-    values: {
-      heart: {
-        component: FontAwesomeIcon,
-        props: {
-          icon: ['fas', 'heart']
-        }
-      },
-      angleLeft: {
-        component: FontAwesomeIcon,
-        props: {
-          icon: ['fas', 'angle-left']
-        }
-      },
-      angleRight: {
-        component: FontAwesomeIcon,
-        props: {
-          icon: ['fas', 'angle-right']
-        }
-      },
-      random: {
-        component: FontAwesomeIcon,
-        props: {
-          icon: ['fad', 'random']
-        }
+export default {
+  iconfont: 'faSvg',
+  values: {
+    heart: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: ['fas', 'heart']
+      }
+    },
+    angleLeft: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: ['fas', 'angle-left']
+      }
+    },
+    angleRight: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: ['fas', 'angle-right']
+      }
+    },
+    random: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: ['fad', 'random']
       }
     }
   }
-})
+}

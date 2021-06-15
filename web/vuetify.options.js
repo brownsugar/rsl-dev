@@ -1,4 +1,5 @@
 import defu from 'defu'
+import fontawesome from '~/plugins/fontawesome'
 import common from '~/assets/theme/common'
 import season1 from '~/assets/theme/season1'
 import season2 from '~/assets/theme/season2'
@@ -14,6 +15,7 @@ export default function ({ route }) {
   const theme = preferTheme || season1
 
   return {
+    icons: fontawesome,
     theme: {
       dark: false,
       options: {

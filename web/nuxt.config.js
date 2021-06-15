@@ -96,7 +96,8 @@ export default {
     '~/plugins/vue-warn.js',
     '~/plugins/mobile-detect.js',
     '~/plugins/breakpoint.js',
-    '~/plugins/fontawesome.js',
+    // Handled in vuetify.options.js now
+    // '~/plugins/fontawesome.js',
     '~/plugins/clipboard.js',
     '~/plugins/vue-youtube.js',
     { src: '~/plugins/vue-affix.js', mode: 'client' },
