@@ -91,7 +91,7 @@
           <div
             v-for="block in blocks"
             :key="block.type"
-            class="block-live white--text px-10 px-xl-15 py-14"
+            class="white--text px-10 px-xl-15 py-14"
             :class="['block-' + block.type, block.type]"
           >
             <div
