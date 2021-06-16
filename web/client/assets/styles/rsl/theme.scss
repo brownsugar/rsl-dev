@@ -36,6 +36,10 @@
   ul,
   ol {
     margin: 0 0 $base-distance $base-distance;
+
+    @include breakpoint(sm) {
+      padding-left: 0 !important;
+    }
   }
   blockquote {
     padding: 8px 0 8px $base-distance;
