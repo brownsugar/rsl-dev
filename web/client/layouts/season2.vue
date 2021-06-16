@@ -206,7 +206,7 @@ export default {
           { label: 'S2 聯賽規章', to: '/season2/rules' },
           { label: 'S2 聯賽懶人包', to: '/season2/summary', note: 'Coming soon!', disabled: true },
           { label: 'S2 賽道記錄榜', note: 'Coming soon!', to: '/season2/track-records', disabled: true },
-          { label: '[特別活動] 台韓交流賽', note: 'Taiwan vs. Korea', to: '/season2/friendly-match', disabled: true }
+          { label: '特別活動：台韓交流賽', note: 'Taiwan vs. Korea', to: '/season2/friendly-match', disabled: true }
         ]
       },
       {

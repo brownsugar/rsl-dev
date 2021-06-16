@@ -58,13 +58,13 @@
           </h4>
           <div class="text-h6 font-weight-regular">
             <p>
-              《RSL 夢想盃跑跑聯賽 第二賽季》將於 6/17（四）12:00 起於全新電競社交平台 PLANET9 上開放報名！
+              「RSL 夢想盃跑跑聯賽 第二季」將於 6/17（四）12:00 起於 Accupass 報名系統線上開放搶票報名！想要參賽的玩家們只要擁有全新電競社交平台 PLANET9 會員就有機會參與！
             </p>
             <p>
-              因應全民共同防疫需求，本季賽事全程採線上競賽方式進行。本次賽事邀請到 Twitch、曜越科技、PLANET9、PredatorShot、HyperX、Philips Monitors、競及電競以及中華電子競技教育協會等各大品牌共襄盛舉，大方放送各種好康給喜愛競速的玩家朋友們。
+              本次賽事邀請到競及電競、曜越科技、PLANET9、PredatorShot、HyperX、Philips Monitors 等各大品牌共襄盛舉，大方放送各種好康給喜愛競速的玩家朋友們。
             </p>
             <p>
-              豪華豐富的周邊獎勵包括幻銀 Argent K5 RGB 機械式鍵盤（由 TT 曜越贊助）、Philips 電競螢幕（由 AOC 贊助）以及 HyperX Cloud Revolver 7.1 電競耳機（由 HyperX 贊助）等，總獎金更是高達六萬元整，想要在賽道上甩出名號的玩家們絕對不能錯過！
+              豪華豐富的周邊獎勵包括幻銀 Argent K5 RGB 機械式鍵盤（由曜越科技贊助）、Philips 242E1GAJ 電競螢幕（由 Philips Monitors 贊助）以及 HyperX Cloud Alpha S 電競耳機（由 HyperX 贊助）等，總獎金更是高達六萬元整，想要在賽道上甩出名號的玩家們絕對不能錯過！
             </p>
             <v-btn
               class="mt-6"
