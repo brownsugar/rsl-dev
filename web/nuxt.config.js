@@ -87,7 +87,7 @@ export default {
   css: [
     // Font Awesome integration
     // https://github.com/FortAwesome/vue-fontawesome#nuxtjs
-    '@fortawesome/fontawesome-svg-core/styles.css',
+    // '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/assets/styles/rsl/theme.scss', lang: 'scss' }
   ],
   styleResources: {
