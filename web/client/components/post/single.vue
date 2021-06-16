@@ -148,7 +148,8 @@ export default {
   },
   methods: {
     backToList () {
-      if (this.fromRoute && this.fromRoute.name.startsWith(this.season + '-news')) {
+      const routeName = this.fromRoute ? this.fromRoute.name : ''
+      if (routeName && routeName.startsWith(this.season + '-news')) {
         this.$router.push({
           path: this.fromRoute.path,
           query: this.fromRoute.query
