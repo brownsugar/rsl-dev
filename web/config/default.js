@@ -39,7 +39,7 @@ const config = {
     url: 'http://localhost:3000',
     cover: {
       season1: defer(self => self.rsl.url + '/RSL_cover_v1.png'),
-      season2: defer(self => self.rsl.url + '/RSL_cover_v2_test.jpg')
+      season2: defer(self => self.rsl.url + '/RSL_cover_v2.png')
     },
     ga: 'UA-106820667-3',
     facebook: {

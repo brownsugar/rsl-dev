@@ -23,7 +23,7 @@
                 v-for="(company, j) in cooperator.data"
                 :key="j"
                 v-ripple="{ class: 'tertiary--text' }"
-                class="cooperator d-flex justify-center align-center mx-auto mx-sm-0 px-5 py-2"
+                class="cooperator d-flex justify-center align-center mx-auto mx-sm-0 px-4 py-2"
                 :title="company.name"
                 :href="company.link"
                 target="_blank"

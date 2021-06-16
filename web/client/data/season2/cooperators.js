@@ -72,7 +72,7 @@ const cooperators = [
         name: 'Philips Monitors',
         logo: {
           file: 'philips.png',
-          height: 75
+          height: 85
         },
         link: 'http://bitly.com/3dwiDsR'
       },
