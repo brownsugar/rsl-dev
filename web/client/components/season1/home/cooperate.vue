@@ -53,7 +53,7 @@
         <template #button>
           <v-btn
             color="secondary"
-            to="/contact"
+            to="/season1/contact"
             nuxt
           >
             合作洽詢

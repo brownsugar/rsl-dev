@@ -6,7 +6,7 @@
       app
     >
       <v-toolbar-title>
-        <n-link to="/">
+        <n-link to="/season1">
           <v-img
             src="~/assets/images/rsl/rsl-color-dark.svg"
             width="100"

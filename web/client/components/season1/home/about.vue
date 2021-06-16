@@ -36,7 +36,7 @@
             <v-btn
               class="v-btn--action"
               color="primary"
-              to="/about"
+              to="/season1/about"
               :large="$breakpoint.is.smAndDown"
               :x-large="$breakpoint.is.mdAndUp"
               nuxt

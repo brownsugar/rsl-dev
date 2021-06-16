@@ -31,7 +31,7 @@
               <v-btn
                 class="v-btn--action mt-5"
                 color="primary"
-                to="/season1"
+                to="/season1/rules"
                 depressed
                 large
                 nuxt
