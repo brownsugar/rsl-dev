@@ -48,6 +48,7 @@ export default {
   ],
   // Router: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router
   router: {
+    middleware: ['redirect'],
     extendRoutes (routes, resolve) {
       // Treat as same component
       routes.push({
