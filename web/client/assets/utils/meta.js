@@ -5,7 +5,7 @@ const genarateMetaInfo = ({ vm, staticPages, themeColor, ogImage, defaultTitle }
   const title = vm.site.name
   const url = vm.site.url + vm.$route.path
   const ogType = isSingle ? 'article' : 'website'
-  const titleWithChunk = chunk => chunk ? `${chunk} - ${title}` : title
+  const titleWithChunk = (chunk = defaultTitle) => chunk ? `${chunk} - ${title}` : title
 
   const metaInfo = {
     title: defaultTitle,
@@ -18,7 +18,7 @@ const genarateMetaInfo = ({ vm, staticPages, themeColor, ogImage, defaultTitle }
       { name: 'apple-mobile-web-app-status-bar-style', content: themeColor },
       { property: 'publisher', content: vm.$config.rsl.facebook.url },
       { name: 'author', content: vm.$config.rsl.name },
-      { property: 'og:site_name', content: vm.site.name },
+      { property: 'og:site_name', content: title },
       { property: 'og:title', template: titleWithChunk, hid: 'og:title' },
       { property: 'og:type', content: ogType, hid: 'og:type' },
       { property: 'og:url', content: url, hid: 'og:url' },
