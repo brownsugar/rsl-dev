@@ -2,7 +2,7 @@
   <div class="post-single">
     <v-img
       id="banner"
-      :src="require('~/assets/images/common/background/' + banner + '.png')"
+      :src="require('~/assets/images/' + banner)"
       height="300"
       eager
     >
@@ -123,7 +123,7 @@ export default {
   props: {
     banner: {
       type: String,
-      default: 'race'
+      default: 'common/background/race.png'
     },
     title: {
       type: String,
@@ -149,9 +149,6 @@ export default {
     ...mapState([
       'site'
     ])
-  },
-  watch: {},
-  mounted () {
   },
   beforeDestroy () {
     clearTimeout(this.copied.timeout)

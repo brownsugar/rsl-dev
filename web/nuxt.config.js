@@ -1,7 +1,5 @@
-const CompressionPlugin = require('compression-webpack-plugin')
-
-const config = require('config')
-const colors = require('vuetify/es5/util/colors').default
+import CompressionPlugin from 'compression-webpack-plugin'
+import config from 'config'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -23,22 +21,22 @@ const polyfills = [
   'scroll-behavior'
 ].join(',')
 /**
- * Server gzip compression
+ * Assets gzip compression
  * https://github.com/webpack-contrib/compression-webpack-plugin
  */
 const compressPlugins = isProd
   ? [
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.(js|css|html|svg|png|jpe?g|gif|ico)$/,
-      minRatio: 1
-    })
-  ]
+      new CompressionPlugin({
+        algorithm: 'gzip',
+        test: /\.(js|css|html|svg|png|jpe?g|gif|ico)$/,
+        minRatio: 1
+      })
+    ]
   : []
 
-module.exports = {
-  mode: 'universal',
+export default {
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'server',
   srcDir: 'client/',
   buildDir: '.nuxt' + (process.argv.includes('--tmp') ? '.tmp' : ''),
   server: {
@@ -48,36 +46,44 @@ module.exports = {
   serverMiddleware: [
     ...serverMiddlewares
   ],
+  // Router: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router
   router: {
+    middleware: ['redirect'],
     extendRoutes (routes, resolve) {
+      // Treat as same component
       routes.push({
-        name: 'news-category',
-        path: '/news/category/:slug',
-        component: resolve(__dirname, 'client/pages/news/index.vue')
+        name: 'season1-news-category',
+        path: '/season1/news/category/:slug',
+        component: resolve(__dirname, 'client/pages/season1/news/index.vue')
+      })
+      routes.push({
+        name: 'season2-news-category',
+        path: '/season2/news/category/:slug',
+        component: resolve(__dirname, 'client/pages/season2/news/index.vue')
       })
     }
   },
-  /*
-  ** Vue Meta configuration
-  ** https://nuxtjs.org/api/configuration-head
-  ** https://vue-meta.nuxtjs.org/guide/metainfo.html
-  */
+  /**
+   * Vue Meta configuration
+   * https://go.nuxtjs.dev/config-head
+   * https://vue-meta.nuxtjs.org/guide/metainfo.html
+   */
   head: {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'theme-color', content: '#272727' },
-      { name: 'apple-mobile-web-app-status-bar-style', content: '#272727' },
       { property: 'og:locale', content: 'zh_TW' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' }
     ],
     script: [
       { src: `https://polyfill.app/api/polyfill?features=${polyfills}`, body: true }
     ]
   },
   loading: { color: '#fff' },
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     // Font Awesome integration
     // https://github.com/FortAwesome/vue-fontawesome#nuxtjs
@@ -91,78 +97,65 @@ module.exports = {
       '~/assets/styles/rsl/_functions.scss'
     ]
   },
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/vue-warn.js',
+    '~/plugins/mobile-detect.js',
     '~/plugins/breakpoint.js',
-    '~/plugins/fontawesome.js',
+    // Handled in vuetify.options.js now
+    // '~/plugins/fontawesome.js',
     '~/plugins/clipboard.js',
     '~/plugins/vue-youtube.js',
-    { src: '~/plugins/vue-affix.js', mode: 'client' }
+    { src: '~/plugins/vue-affix.js', mode: 'client' },
+    { src: '~/plugins/anime.js', mode: 'client' }
   ],
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: false,
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
-    '@nuxtjs/moment',
+    '@nuxtjs/date-fns',
     '@nuxtjs/google-analytics'
   ],
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-config/module',
     '@nuxtjs/axios',
     'wp-nuxt'
   ],
-  /*
-  ** Fix Vue meta & GA integration
-  */
+  // Fix Vue meta & GA integration
   features: {
     transitions: false
   },
   vueMeta: {
     refreshOnceOnNavigation: true
   },
-  /*
-  ** Vuetify module configuration
-  ** https://github.com/nuxt-community/vuetify-module
-  */
+  // Stylelint module configuration: https://github.com/nuxt-community/stylelint-module
+  stylelint: {
+  },
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/styles/vuetify/variables.scss'],
-    theme: {
-      dark: false,
-      themes: {
-        light: {
-          primary: '#D86A60',
-          secondary: colors.lightBlue.accent4,
-          facebook: '#1877F2',
-          youtube: '#FF0200',
-          twitch: '#9147FF',
-          discord: '#7289DA'
-        },
-        dark: {
-        }
-      },
-      options: {
-        customProperties: true
-      }
-    },
+    // customVariables: ['~/assets/styles/vuetify/variables.scss'],
+    optionsPath: '~~vuetify.options.js',
     defaultAssets: {
       icons: false
     },
     // custom variables only works with tree-shaking.
-    treeShake: true
+    treeShake: isProd
   },
-  /*
-  ** Moment module configuration
-  ** https://github.com/nuxt-community/moment-module
-  */
-  moment: {
-    defaultLocale: 'zh-tw',
-    locales: ['zh-tw']
+  // date-fns module configuration: https://github.com/nuxt-community/date-fns-module
+  dateFns: {
+    defaultLocale: 'zh-TW',
+    locales: ['zh-TW']
   },
-  /*
-  ** Google Analytics module configuration
-  ** https://github.com/nuxt-community/analytics-module
-  ** https://matteogabriele.gitbooks.io/vue-analytics/
-  */
+  /**
+   * Google Analytics module configuration
+   * https://github.com/nuxt-community/analytics-module
+   * https://matteogabriele.gitbooks.io/vue-analytics/
+   */
   googleAnalytics: {
     id: config.rsl.ga,
     debug: {
@@ -180,18 +173,15 @@ module.exports = {
       }
     }
   },
-  /*
-  ** Axios module configuration
-  ** https://axios.nuxtjs.org/options
-  */
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
   },
-  /*
-  ** wp-nuxt module configuration
-  ** https://github.com/yashha/wp-nuxt
-  ** node-wpapi: https://github.com/WP-API/node-wpapi
-  ** @nuxtjs/sitemap: https://github.com/nuxt-community/sitemap-module
-  */
+  /**
+   * wp-nuxt module configuration
+   * https://github.com/yashha/wp-nuxt
+   * node-wpapi: https://github.com/WP-API/node-wpapi
+   * @nuxtjs/sitemap: https://github.com/nuxt-community/sitemap-module
+   */
   wp: {
     endpoint: config.api.url + config.api.path,
     customRoutes: config.wp.customRoutes,
@@ -203,12 +193,14 @@ module.exports = {
       gzip: true
     }
   },
+  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: isProd,
     plugins: [
       ...compressPlugins
     ],
     transpile: [
+      'vuetify/lib',
       'wpapi',
       'superagent'
     ],

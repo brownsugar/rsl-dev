@@ -1,29 +1,47 @@
+@import '~vuetify/src/styles/styles';
+
 @mixin fit-parent() {
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
+  display: block;
   width: 100%;
   height: 100%;
 }
 @mixin parallax-cover() {
+
   ::v-deep {
-    .v-parallax__image-container:before {
-      content: '';
+
+    .v-parallax__image-container::before {
       @include fit-parent();
+      z-index: 2;
+      content: '';
       background-repeat: repeat;
       @content;
-      z-index: 2;
     }
   }
 }
 @mixin img-cover() {
+
   ::v-deep {
-    .v-image__image:before {
-      content: '';
+
+    .v-image__image::before {
       @include fit-parent();
+      content: '';
       background-repeat: repeat;
       @content;
     }
+  }
+}
+@mixin breakpoint($size, $max: true) {
+  @if map-has-key($grid-breakpoints, $size) {
+    $type: if($max, max-width, min-width);
+    $offset: if($max, 1px, 0);
+    $width: map-get($grid-breakpoints, $size);
+    @media ($type: $width - $offset) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$size}.';
   }
 }

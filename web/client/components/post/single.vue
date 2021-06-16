@@ -1,13 +1,14 @@
 <template>
   <post-layout
+    :banner="banner"
     :title="mainTitle"
     :content="post.content.rendered"
     :breadcrumb="breadcrumb"
   >
     <template #toolbar>
       <div class="grey--text">
-        <span v-if="type === 'post'">發表於 {{ $moment(post.date).format(DATETIME_FORMAT) }}</span>
-        <span v-else>最後更新於 {{ $moment(post.modified).format(DATETIME_FORMAT) }}</span>
+        <span v-if="type === 'post'">發表於 {{ $dateFns.format(post.date, DATETIME_FORMAT) }}</span>
+        <span v-else>最後更新於 {{ $dateFns.format(post.modified, DATETIME_FORMAT) }}</span>
       </div>
     </template>
     <template
@@ -43,6 +44,10 @@ export default {
       type: String,
       default: 'post'
     },
+    banner: {
+      type: String,
+      default: undefined
+    },
     // Override original title
     title: {
       type: String,
@@ -50,7 +55,7 @@ export default {
     },
     post: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     },
     listPath: {
       type: String,
@@ -62,77 +67,12 @@ export default {
     },
     fromRoute: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     }
   },
   data: () => ({
     DATETIME_FORMAT
   }),
-  computed: {
-    ...mapGetters('news', [
-      'getCategoryById'
-    ]),
-    mainTitle () {
-      if (this.title) {
-        return this.title
-      }
-      if (this.post && this.post.title) {
-        return this.post.title.rendered
-      }
-      return '404 Not Found'
-    },
-    category () {
-      if (this.post) {
-        const catId = this.post.categories[0]
-        const category = this.getCategoryById(catId)
-        if (category.name) {
-          return category
-        }
-      }
-      return {
-        name: 'Unknown'
-      }
-    },
-    breadcrumb () {
-      const base = [{
-        text: '首頁',
-        to: '/'
-      }]
-      if (this.listPath && this.listLabel) {
-        base.push({
-          text: this.listLabel,
-          to: this.listPath,
-          exact: true
-        })
-      }
-      if (this.type === 'post') {
-        base.push({
-          text: this.category.name,
-          to: '/news/category/' + this.category.slug
-        })
-      }
-      base.push({
-        text: '',
-        disabled: true
-      })
-      return base
-    }
-  },
-  watch: {},
-  mounted () {
-  },
-  methods: {
-    backToList () {
-      if (this.fromRoute && this.fromRoute.name.startsWith('news')) {
-        this.$router.push({
-          path: this.fromRoute.path,
-          query: this.fromRoute.query
-        })
-      } else {
-        this.$router.push('/news')
-      }
-    }
-  },
   head () {
     const metaInfo = {
       title: this.mainTitle,
@@ -150,9 +90,73 @@ export default {
       metaInfo.meta.push({ property: 'og:image', content: image, hid: 'og:image' })
     }
     return metaInfo
+  },
+  computed: {
+    ...mapGetters('news', [
+      'getCategoryById'
+    ]),
+    mainTitle () {
+      if (this.title) {
+        return this.title
+      }
+      if (this.post && this.post.title) {
+        return this.post.title.rendered
+      }
+      return '404 Not Found'
+    },
+    season () {
+      // Currently season name is same as layout name, so this condition is fine.
+      return this.$nuxt.layoutName
+    },
+    category () {
+      if (this.post) {
+        const catId = this.post.categories[0]
+        const category = this.getCategoryById(catId)
+        if (category.name) {
+          return category
+        }
+      }
+      return {
+        name: 'Unknown'
+      }
+    },
+    breadcrumb () {
+      const base = [{
+        text: '首頁',
+        to: '/' + this.season,
+        exact: true
+      }]
+      if (this.listPath && this.listLabel) {
+        base.push({
+          text: this.listLabel,
+          to: this.listPath,
+          exact: true
+        })
+      }
+      if (this.type === 'post') {
+        base.push({
+          text: this.category.name,
+          to: '/' + this.season + '/news/category/' + this.category.slug
+        })
+      }
+      base.push({
+        text: '',
+        disabled: true
+      })
+      return base
+    }
+  },
+  methods: {
+    backToList () {
+      if (this.fromRoute && this.fromRoute.name.startsWith(this.season + '-news')) {
+        this.$router.push({
+          path: this.fromRoute.path,
+          query: this.fromRoute.query
+        })
+      } else {
+        this.$router.push('/' + this.season + '/news')
+      }
+    }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

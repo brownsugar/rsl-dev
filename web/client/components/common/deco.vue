@@ -8,20 +8,12 @@
 <script>
 export default {
   name: 'Deco',
-  components: {},
   props: {
     type: {
       type: String,
       default: ''
     }
-  },
-  data: () => ({
-  }),
-  computed: {},
-  watch: {},
-  mounted () {
-  },
-  methods: {}
+  }
 }
 </script>
 
@@ -30,10 +22,11 @@ export default {
   width: $height * $ratio;
   height: $height;
 }
+
 .rsl-deco {
   display: inline-block;
-  background: transparent center / auto 100% no-repeat;
   vertical-align: middle;
+  background: transparent center / auto 100% no-repeat;
 
   &.hot-tire {
     $ratio: 512 / 214;

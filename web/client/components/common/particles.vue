@@ -11,7 +11,6 @@
 <script>
 export default {
   name: 'Particles',
-  components: {},
   props: {
     color: {
       type: String,

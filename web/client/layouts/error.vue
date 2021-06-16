@@ -54,20 +54,21 @@
 <script>
 export default {
   name: 'Error',
+  layout: 'season2',
   props: {
     error: {
       type: Object,
       default: null
     }
   },
+  head: self => ({
+    title: self.title
+  }),
   computed: {
     title () {
       const title = this.error.statusCode === 404 ? '頁面不存在' : `發生內部錯誤 (Error ${this.error.statusCode})`
       return title
     }
-  },
-  head: self => ({
-    title: self.title
-  })
+  }
 }
 </script>
