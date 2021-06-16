@@ -11,7 +11,7 @@ import { fal } from '@fortawesome/pro-light-svg-icons'
 import { fad } from '@fortawesome/pro-duotone-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-config.autoAddCss = false
+config.autoAddCss = process.env.NODE_ENV === 'production'
 
 library.add(fas, fasPro, far, farPro, fal, fad, fab)
 
