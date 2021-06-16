@@ -47,6 +47,7 @@
               <v-card>
                 <n-link :to="'/season2/news/' + post.id">
                   <v-img
+                    class="post-image"
                     :aspect-ratio="1280 / 628"
                     :src="featuredImage(post._embedded)"
                     width="100%"
@@ -227,6 +228,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.post-image {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
 .post-title {
   margin-bottom: .3em;
   line-height: 1.2;
