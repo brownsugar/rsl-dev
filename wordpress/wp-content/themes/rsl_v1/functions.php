@@ -10,11 +10,11 @@ require_once 'inc/acf.php';
  * Improve oembed feature
  */
 function rsl_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
-	if ( strpos( $url, 'imgur.com' ) !== false ) {
+	if ( strpos( $url, 'imgur.com' ) !== false || strpos( $cache, 'data-secret' ) !== false ) {
 		/**
-		 * Do not embed imgur images
+		 * Do not embed Imgur images & WordPress post links
 		 */
-		return '<a href="' . $url . '" target="_blank">' . $url . '</a>';
+		return null;
 	} else {
 		/**
 		 * Make embeded content responsive (16:9)
