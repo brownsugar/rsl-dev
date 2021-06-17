@@ -214,6 +214,10 @@ export default {
         to: '/season2/news'
       },
       {
+        label: '媒體報導',
+        to: '/season2/press'
+      },
+      {
         label: '認識 RSL',
         children: [
           { label: '關於我們', to: '/season2/about' },
