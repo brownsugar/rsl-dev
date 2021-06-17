@@ -7,7 +7,7 @@
       elevate-on-scroll
       fixed
     >
-      <v-toolbar-title>
+      <v-toolbar-title class="main-logo">
         <n-link to="/season2">
           <v-img
             src="~/assets/images/rsl/rsl-color-full.svg"
@@ -282,17 +282,12 @@ export default {
   background-color: rgba(#FFF, 0) !important;
   transition: background-color .2s linear;
 
-  .v-toolbar__title {
+  .main-logo {
     opacity: 0;
-    transition: background-color .2s linear;
   }
-  &:hover {
-    background-color: #FFF !important;
-
-    .v-toolbar__title {
-      opacity: 1;
-    }
-  }
+}
+.main-logo {
+  transition: opacity .2s linear;
 }
 .mt-app-bar {
   margin-top: 80px;
