@@ -1,6 +1,7 @@
 <template>
   <v-app class="season-2">
     <v-app-bar
+      class="app-bar"
       :class="{ transparent: appBarTransparent }"
       color="white"
       height="80"
@@ -282,15 +283,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.transparent {
-  background-color: rgba(#FFF, 0) !important;
+.v-app-bar.app-bar {
+  background-color: rgba(#FFF, .65) !important;
+  backdrop-filter: blur(20px);
   transition: background-color .2s linear;
 
-  .main-logo {
-    opacity: 0;
+  &.transparent {
+    background-color: rgba(#FFF, 0) !important;
+
+    .main-logo {
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 }
 .main-logo {
+  visibility: visible;
   transition: opacity .2s linear;
 }
 .mt-app-bar {
