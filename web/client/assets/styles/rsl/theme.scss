@@ -14,41 +14,38 @@
 .post-content {
   $base-distance: 20px;
 
-  * {
-    border: 0;
-  }
+  line-height: 1.7;
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    margin: $base-distance 0 $base-distance / 2;
-
-    &:first-child {
-      margin-top: 0;
-    }
+    margin-bottom: $base-distance;
+    line-height: 1.5;
   }
   hr {
-    margin: $base-distance 0;
+    margin-bottom: $base-distance;
     border: 1px solid #DDD;
   }
   ul,
   ol {
-    margin: 0 0 $base-distance $base-distance;
+    padding-left: $base-distance * 2 !important;
+    margin-bottom: $base-distance;
 
-    @include breakpoint(sm) {
-      padding-left: 0 !important;
+    @include breakpoint(md) {
+      padding-left: $base-distance !important;
     }
   }
   blockquote {
     padding: 8px 0 8px $base-distance;
-    margin: $base-distance 0;
+    margin-bottom: $base-distance;
     border-left: 3px solid var(--v-primary-base);
   }
   pre {
     padding: 10px 15px;
-    margin: $base-distance 0;
+    margin-bottom: $base-distance;
     overflow: auto;
     border: 2px solid var(--v-primary-base);
   }
@@ -59,13 +56,21 @@
     margin-bottom: $base-distance;
     border: 0;
   }
-  p:last-child {
+  :first-child {
+    margin-top: 0;
+  }
+  :last-child {
     margin-bottom: 0;
   }
   img,
   .v-image {
-    max-width: 100%;
+    max-width: 80%;
     height: auto !important;
+    margin-bottom: $base-distance;
+
+    @include breakpoint(md) {
+      max-width: 100%;
+    }
   }
   .aligncenter {
     display: block;

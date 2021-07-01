@@ -47,7 +47,8 @@
         <v-col
           cols="12"
           md="10"
-          lg="6"
+          lg="8"
+          xl="7"
         >
           <v-card
             class="mx-auto mt-n14 mt-md-n16 mb-12"
@@ -139,7 +140,7 @@ export default {
     }
   },
   data: () => ({
-    postContentClass: 'post-content px-3 px-md-6 py-3 py-md-5',
+    postContentClass: 'post-content pa-4 pa-md-6',
     copied: {
       value: false,
       timeout: null
