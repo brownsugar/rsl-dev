@@ -284,12 +284,13 @@ export default {
 
 <style lang="scss" scoped>
 .v-app-bar.app-bar {
-  background-color: rgba(#FFF, .65) !important;
+  background-color: rgba(#FFF, .7) !important;
   backdrop-filter: blur(20px);
-  transition: background-color .2s linear;
+  transition: background-color .2s, backdrop-filter .2s;
 
   &.transparent {
     background-color: rgba(#FFF, 0) !important;
+    backdrop-filter: blur(0);
 
     .main-logo {
       visibility: hidden;
@@ -299,7 +300,7 @@ export default {
 }
 .main-logo {
   visibility: visible;
-  transition: opacity .2s linear;
+  transition: opacity .2s;
 }
 .mt-app-bar {
   margin-top: 80px;
