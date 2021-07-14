@@ -147,6 +147,7 @@ export default {
       this.viewHeight = window.innerHeight * 0.01 + 'px'
     },
     async initBanner () {
+      await this.$nextTick()
       await this.startIntro()
       this.startAnimationLoop()
       this.initParallax()

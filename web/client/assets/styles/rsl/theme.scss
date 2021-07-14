@@ -21,18 +21,34 @@
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  hr,
+  ul,
+  ol,
+  blockquote,
+  pre,
+  table,
+  .v-data-table,
+  img,
+  .v-image,
+  iframe,
+  .responsive-embed {
     margin-bottom: $base-distance;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     line-height: 1.5;
   }
   hr {
-    margin-bottom: $base-distance;
     border: 1px solid #DDD;
   }
   ul,
   ol {
     padding-left: $base-distance * 2 !important;
-    margin-bottom: $base-distance;
 
     @include breakpoint(md) {
       padding-left: $base-distance !important;
@@ -40,48 +56,38 @@
   }
   blockquote {
     padding: 8px 0 8px $base-distance;
-    margin-bottom: $base-distance;
     border-left: 3px solid var(--v-primary-base);
   }
   pre {
     padding: 10px 15px;
-    margin-bottom: $base-distance;
     overflow: auto;
     border: 2px solid var(--v-primary-base);
   }
-  iframe {
-    display: block;
-    width: 100%;
-    height: 800px;
-    margin-bottom: $base-distance;
-    border: 0;
-  }
-  :first-child {
-    margin-top: 0;
-  }
-  :last-child {
-    margin-bottom: 0;
+  table {
+
+    @include breakpoint(sm) {
+      white-space: nowrap;
+    }
   }
   img,
   .v-image {
     max-width: 80%;
     height: auto !important;
-    margin-bottom: $base-distance;
 
     @include breakpoint(md) {
       max-width: 100%;
     }
   }
-  .aligncenter {
+  iframe {
     display: block;
-    margin-right: auto;
-    margin-left: auto;
+    width: 100%;
+    height: 800px;
+    border: 0;
   }
   .responsive-embed {
     position: relative;
     height: 0;
     padding-bottom: 56.25%;
-    margin: 10px 0;
     overflow: hidden;
   }
   .responsive-embed iframe {
@@ -90,5 +96,16 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+  :first-child {
+    margin-top: 0;
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
+  .aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
