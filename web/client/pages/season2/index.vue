@@ -24,6 +24,3 @@ export default {
   layout: 'season2'
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

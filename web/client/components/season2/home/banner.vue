@@ -118,8 +118,6 @@ import { randomInt } from '~/assets/utils/random'
 
 export default {
   name: 'Banner',
-  components: {},
-  props: {},
   data: () => ({
     ready: false,
     viewHeight: '',
@@ -129,8 +127,6 @@ export default {
       anime: null
     }
   }),
-  computed: {},
-  watch: {},
   mounted () {
     if (this.$md.mobile()) {
       this.initViewSize()

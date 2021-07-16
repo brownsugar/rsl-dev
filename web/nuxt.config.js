@@ -61,6 +61,11 @@ export default {
         path: '/season2/news/category/:slug',
         component: resolve(__dirname, 'client/pages/season2/news/index.vue')
       })
+      routes.push({
+        name: 'season2-stats-type',
+        path: '/season2/stats/:slug',
+        component: resolve(__dirname, 'client/pages/season2/stats.vue')
+      })
     }
   },
   /**
@@ -107,6 +112,7 @@ export default {
     '~/plugins/clipboard.js',
     '~/plugins/vue-youtube.js',
     { src: '~/plugins/vue-affix.js', mode: 'client' },
+    { src: '~/plugins/vue-scrollspy.js', mode: 'client' },
     { src: '~/plugins/anime.js', mode: 'client' }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components

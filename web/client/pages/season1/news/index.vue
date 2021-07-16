@@ -20,82 +20,71 @@
             {{ category.name }}
           </v-chip>
         </v-chip-group>
-        <v-row>
-          <template v-if="loading">
-            <v-col
-              v-for="i in 3"
-              :key="i"
-              cols="12"
-              sm="6"
-              md="4"
-            >
-              <v-skeleton-loader type="card" />
-            </v-col>
-          </template>
-          <template v-else-if="current.length">
-            <v-col
-              v-for="post in current"
-              :key="post.id"
-              cols="12"
-              sm="6"
-              md="4"
-            >
-              <v-card>
-                <n-link :to="'/season1/news/' + post.id">
-                  <v-img
-                    :aspect-ratio="1280 / 628"
-                    :src="featuredImage(post._embedded)"
-                    width="100%"
-                  />
-                </n-link>
-
-                <v-card-title class="post-title">
-                  {{ post.title.rendered }}
-                </v-card-title>
-
-                <v-card-subtitle>
-                  <v-chip
-                    v-if="isNew(post.date)"
-                    color="primary"
-                    x-small
-                  >
-                    NEW
-                  </v-chip>
-                  <span :title="formatPostDate(post.date)">
-                    發表於 {{ formatPostDate(post.date, true) }}
-                  </span>
-                  •
-                  {{ categoryName(post.categories[0]) }}
-                </v-card-subtitle>
-
-                <v-card-actions>
-                  <v-spacer />
-                  <v-btn
-                    :to="'/season1/news/' + post.id"
-                    color="primary"
-                    text
-                    nuxt
-                  >
-                    閱讀內文
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-col>
-          </template>
-          <template v-else>
-            <v-col class="my-2" align="center">
-              <v-img
-                class="mx-auto"
-                aspected-ratio="576 / 600"
-                src="~/assets/images/common/climb.png"
-                width="300"
-              />
-              <p class="mt-6">
-                還沒有相關消息，稍後再來看看吧！
-              </p>
-            </v-col>
-          </template>
+        <v-row v-if="loading">
+          <v-col
+            v-for="i in 3"
+            :key="i"
+            cols="12"
+            sm="6"
+            md="4"
+          >
+            <v-skeleton-loader type="card" />
+          </v-col>
         </v-row>
+        <v-row v-else-if="current.length">
+          <v-col
+            v-for="post in current"
+            :key="post.id"
+            cols="12"
+            sm="6"
+            md="4"
+          >
+            <v-card>
+              <n-link :to="'/season1/news/' + post.id">
+                <v-img
+                  :aspect-ratio="1280 / 628"
+                  :src="featuredImage(post._embedded)"
+                  width="100%"
+                />
+              </n-link>
+
+              <v-card-title class="post-title">
+                {{ post.title.rendered }}
+              </v-card-title>
+
+              <v-card-subtitle>
+                <v-chip
+                  v-if="isNew(post.date)"
+                  color="primary"
+                  x-small
+                >
+                  NEW
+                </v-chip>
+                <span :title="formatPostDate(post.date)">
+                  發表於 {{ formatPostDate(post.date, true) }}
+                </span>
+                •
+                {{ categoryName(post.categories[0]) }}
+              </v-card-subtitle>
+
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  :to="'/season1/news/' + post.id"
+                  color="primary"
+                  text
+                  nuxt
+                >
+                  閱讀內文
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <coming-soon
+          v-else
+          message="還沒有相關消息，稍後再來看看吧！"
+        />
         <v-pagination
           v-if="totalPage > 1"
           v-model="page"
@@ -114,13 +103,15 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import PrimaryTitle from '~/components/common/primary-title'
+import ComingSoon from '~/components/common/coming-soon'
 import { DATE_FORMAT, DATETIME_FORMAT } from '~/assets/utils/const'
 import postUtils from '~/assets/utils/post'
 
 export default {
   name: 'NewsList',
   components: {
-    PrimaryTitle
+    PrimaryTitle,
+    ComingSoon
   },
   layout: 'season1',
   async asyncData ({ store, route }) {

@@ -7,6 +7,7 @@
       height="80"
       elevate-on-scroll
       fixed
+      app
     >
       <v-toolbar-title class="main-logo">
         <n-link to="/season2">
@@ -42,7 +43,13 @@
                 v-bind="nav.children ? attrs : {}"
                 v-on="nav.children ? on : {}"
               >
-                {{ nav.label }}
+                <v-badge
+                  :color="nav.badge"
+                  :value="!!nav.badge"
+                  dot
+                >
+                  {{ nav.label }}
+                </v-badge>
                 <fa
                   v-if="nav.blank"
                   class="ml-1"
@@ -67,9 +74,15 @@
                 :disabled="item.disabled"
                 nuxt
               >
-                <v-list-item-content>
+                <v-list-item-content class="pt-0">
                   <v-list-item-title>
-                    {{ item.label }}
+                    <v-badge
+                      :color="item.badge"
+                      :value="!!item.badge"
+                      dot
+                    >
+                      {{ item.label }}
+                    </v-badge>
                     <fa
                       v-if="item.blank"
                       class="ml-2"
@@ -115,8 +128,17 @@
               :value="navChildIsActive(nav)"
             >
               <template #activator>
-                <v-list-item-content>
-                  <v-list-item-title>{{ nav.label }}</v-list-item-title>
+                <v-list-item-content class="pt-0">
+                  <v-list-item-title>
+                    <v-badge
+                      class="mt-2"
+                      :color="nav.badge"
+                      :value="!!nav.badge"
+                      dot
+                    >
+                      {{ nav.label }}
+                    </v-badge>
+                  </v-list-item-title>
                 </v-list-item-content>
               </template>
               <v-list-item
@@ -128,9 +150,16 @@
                 :disabled="item.disabled"
                 nuxt
               >
-                <v-list-item-content>
+                <v-list-item-content class="pt-0">
                   <v-list-item-title>
-                    {{ item.label }}
+                    <v-badge
+                      class="mt-2"
+                      :color="item.badge"
+                      :value="!!item.badge"
+                      dot
+                    >
+                      {{ item.label }}
+                    </v-badge>
                     <fa
                       v-if="item.blank"
                       class="ml-2"
@@ -155,9 +184,16 @@
               :exact="nav.to === '/season2' && $route.path !== '/season2'"
               nuxt
             >
-              <v-list-item-content>
+              <v-list-item-content class="pt-0">
                 <v-list-item-title>
-                  {{ nav.label }}
+                  <v-badge
+                    class="mt-2"
+                    :color="nav.badge"
+                    :value="!!nav.badge"
+                    dot
+                  >
+                    {{ nav.label }}
+                  </v-badge>
                   <fa
                     v-if="nav.blank"
                     class="ml-1"
@@ -174,7 +210,7 @@
 
     <v-main
       :class="{
-        'mt-app-bar': !isHome,
+        'pt-0': isHome,
         'grey lighten-4': !isHome
       }"
     >
@@ -203,12 +239,16 @@ export default {
       },
       {
         label: 'S2 聯賽資訊',
+        badge: 'primary',
         children: [
-          { label: 'S2 聯賽規章', to: '/season2/rules' },
-          { label: 'S2 聯賽懶人包', to: '/season2/summary', note: 'Coming soon!', disabled: true },
-          { label: 'S2 賽道記錄榜', note: 'Coming soon!', to: '/season2/track-records', disabled: true },
-          { label: '特別活動：台韓交流賽', note: 'Taiwan vs. Korea', to: '/season2/friendly-match', disabled: true }
+          { label: '聯賽懶人包', to: '/season2/summary', note: '賽制、好康一目瞭然！' },
+          { label: '賽道/隊伍數據', to: '/season2/stats' },
+          { label: '聯賽規章', to: '/season2/rules' }
         ]
+      },
+      {
+        label: '台韓交流賽',
+        to: '/season2/vs-korea'
       },
       {
         label: '最新消息',
@@ -274,7 +314,7 @@ export default {
     },
     navChildIsActive (nav) {
       if (nav.children && Array.isArray(nav.children)) {
-        return nav.children.some(item => item.to === this.$route.path)
+        return nav.children.some(item => this.$route.path.startsWith(item.to))
       }
       return false
     }
@@ -301,8 +341,5 @@ export default {
 .main-logo {
   visibility: visible;
   transition: opacity .2s;
-}
-.mt-app-bar {
-  margin-top: 80px;
 }
 </style>

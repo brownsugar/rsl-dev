@@ -35,20 +35,28 @@
         </v-col>
       </v-row>
     </v-container>
-    <swiper
-      ref="swiper"
+    <v-lazy
+      height="500"
       class="mt-2 mt-md-10 mb-4"
-      :options="swiperOptions"
     >
-      <swiper-slide
-        v-for="(host, i) in hosts"
-        :key="i"
+      <swiper
+        ref="swiper"
+        v-intersect="intersectHandler"
+        :options="swiperOptions"
+        @slide-change="indexChangeHandler"
       >
-        <host-card
-          :host="host"
-        />
-      </swiper-slide>
-    </swiper>
+        <swiper-slide
+          v-for="(host, i) in hosts"
+          :key="i"
+          @click.native="slideTo(i)"
+        >
+          <host-card
+            :host="host"
+            :show-info-button="activeSlide === i"
+          />
+        </swiper-slide>
+      </swiper>
+    </v-lazy>
   </section>
 </template>
 
@@ -69,9 +77,14 @@ export default {
   },
   props: {},
   data: self => ({
+    intersect: {
+      active: false,
+      fired: false
+    },
+    activeSlide: 0,
     hosts,
     swiperOptions: {
-      initialSlide: 3,
+      initialSlide: 0,
       slidesPerView: 1.2,
       spaceBetween: 10,
       centeredSlides: true,
@@ -101,28 +114,43 @@ export default {
   mounted () {
   },
   methods: {
+    intersectHandler (entries) {
+      const isIntersecting = entries[0].isIntersecting
+      if (isIntersecting && !this.intersect.fired) {
+        this.intersect.active = true
+        this.intersect.fired = true
+        this.swiper.slideTo(3, 500)
+      }
+    },
+    indexChangeHandler () {
+      const index = this.swiper.realIndex
+      this.activeSlide = index
+    },
     prev () {
-      let index = this.swiper.realIndex - 1
+      let index = this.activeSlide - 1
       if (index < 0) {
         index = this.hosts.length - 1
       }
       this.swiper.slideTo(index)
     },
     next () {
-      let index = this.swiper.realIndex + 1
+      let index = this.activeSlide + 1
       if (index > this.hosts.length - 1) {
         index = 0
       }
       this.swiper.slideTo(index)
+    },
+    slideTo (index) {
+      const realIndex = this.activeSlide
+      if (index !== realIndex) {
+        this.swiper.slideTo(index)
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.container {
-  position: relative;
-}
 .hosts {
   position: relative;
 
@@ -137,6 +165,23 @@ export default {
     background: image('rsl/rsl-color-full.svg') center/800px auto no-repeat;
     filter: grayscale(1);
     opacity: .35;
+  }
+}
+.container {
+  position: relative;
+}
+.swiper-slide {
+  cursor: pointer;
+  opacity: .65;
+  transition: opacity 1s;
+
+  &.swiper-slide-prev,
+  &.swiper-slide-next {
+    opacity: .85;
+  }
+  &.swiper-slide-active {
+    cursor: default;
+    opacity: 1;
   }
 }
 </style>
