@@ -41,6 +41,9 @@ export default {
       return redirect('/season2/stats/' + defaultSlug)
     }
   },
+  head: self => ({
+    title: self.currentType.name + ' - S2 賽道/隊伍數據'
+  }),
   computed: {
     statTypes () {
       const types = [

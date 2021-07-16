@@ -68,6 +68,9 @@ export default {
     ],
     activeSection: 0
   }),
+  head: () => ({
+    title: 'S2 聯賽懶人包'
+  }),
   computed: {
     affixOffset () {
       const navHeight = this.$vuetify.application.top

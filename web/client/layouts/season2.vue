@@ -243,9 +243,12 @@ export default {
         children: [
           { label: '聯賽懶人包', to: '/season2/summary', note: '賽制、好康一目瞭然！' },
           { label: '賽道/隊伍數據', to: '/season2/stats' },
-          { label: '特別活動：台韓交流賽', to: '/season2/friendly-match', note: 'Taiwan vs. Korea', disabled: true },
           { label: '聯賽規章', to: '/season2/rules' }
         ]
+      },
+      {
+        label: '台韓交流賽',
+        to: '/season2/vs-korea'
       },
       {
         label: '最新消息',
