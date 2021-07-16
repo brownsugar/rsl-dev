@@ -69,11 +69,11 @@
             <v-btn
               class="mt-6"
               color="secondary"
-              to="/season2/rules"
+              to="/season2/summary"
               large
               dark
             >
-              查看完整聯賽資訊
+              查看 S2 聯賽懶人包
               <fa
                 class="ml-2"
                 :icon="['duotone', 'chevrons-right']"

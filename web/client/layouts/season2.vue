@@ -7,6 +7,7 @@
       height="80"
       elevate-on-scroll
       fixed
+      app
     >
       <v-toolbar-title class="main-logo">
         <n-link to="/season2">
@@ -174,7 +175,7 @@
 
     <v-main
       :class="{
-        'mt-app-bar': !isHome,
+        'pt-0': isHome,
         'grey lighten-4': !isHome
       }"
     >
@@ -204,7 +205,7 @@ export default {
       {
         label: 'S2 聯賽資訊',
         children: [
-          { label: '聯賽懶人包', to: '/season2/summary', note: 'New!' },
+          { label: '聯賽懶人包', to: '/season2/summary', note: '賽制、好康一目瞭然！' },
           { label: '賽道/隊伍數據', to: '/season2/stats' },
           { label: '特別活動：台韓交流賽', to: '/season2/friendly-match', note: 'Taiwan vs. Korea', disabled: true },
           { label: '聯賽規章', to: '/season2/rules' }
@@ -301,8 +302,5 @@ export default {
 .main-logo {
   visibility: visible;
   transition: opacity .2s;
-}
-.mt-app-bar {
-  margin-top: 80px;
 }
 </style>

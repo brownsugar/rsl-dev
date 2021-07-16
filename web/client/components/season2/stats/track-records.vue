@@ -15,7 +15,7 @@
           class="ml-auto mr-auto ml-md-0"
           :src="require(`~/assets/images/tracks/${track.id}.jpg`)"
           :aspect-ratio="4 / 3"
-          :width="$breakpoint.is.smAndDown ? 150 : 120"
+          :width="150"
           :alt="track.name"
         />
       </v-col>

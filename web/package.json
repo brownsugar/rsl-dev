@@ -39,6 +39,7 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-clipboard2": "^0.3.1",
     "vue-youtube": "^1.4.0",
+    "vue2-scrollspy": "^2.3.1",
     "wp-nuxt": "^1.0.28"
   },
   "devDependencies": {

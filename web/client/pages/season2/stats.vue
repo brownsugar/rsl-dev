@@ -7,7 +7,7 @@
         lg="8"
       >
         <sub-title
-          text="賽道/隊伍數據"
+          text="Season 2 賽道/隊伍數據"
         />
         <link-tabs
           class="mt-8 mb-4"

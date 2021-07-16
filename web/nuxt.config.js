@@ -112,6 +112,7 @@ export default {
     '~/plugins/clipboard.js',
     '~/plugins/vue-youtube.js',
     { src: '~/plugins/vue-affix.js', mode: 'client' },
+    { src: '~/plugins/vue-scrollspy.js', mode: 'client' },
     { src: '~/plugins/anime.js', mode: 'client' }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
