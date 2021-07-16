@@ -5,6 +5,7 @@ require_once 'inc/extends.php';
 require_once 'inc/uploads.php';
 require_once 'inc/shortcode.php';
 require_once 'inc/acf.php';
+require_once 'acf/rsl-fe-config.php';
 
 /**
  * Improve oembed feature
