@@ -73,9 +73,9 @@ export default {
     ActionAlert
   },
   computed: {
-    ...mapState([
-      'config'
-    ])
+    ...mapState({
+      config: state => state.config.season1
+    })
   },
   methods: {
     parseHtml (string) {

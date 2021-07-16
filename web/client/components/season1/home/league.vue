@@ -643,9 +643,9 @@ export default {
     }
   }),
   computed: {
-    ...mapState([
-      'config'
-    ]),
+    ...mapState({
+      config: state => state.config.season1
+    }),
     affixTitleOffset () {
       const navHeight = this.$vuetify.application.top
       const padding = 48 + 12 // parent + inner
