@@ -43,7 +43,13 @@
                 v-bind="nav.children ? attrs : {}"
                 v-on="nav.children ? on : {}"
               >
-                {{ nav.label }}
+                <v-badge
+                  :color="nav.badge"
+                  :value="!!nav.badge"
+                  dot
+                >
+                  {{ nav.label }}
+                </v-badge>
                 <fa
                   v-if="nav.blank"
                   class="ml-1"
@@ -68,9 +74,15 @@
                 :disabled="item.disabled"
                 nuxt
               >
-                <v-list-item-content>
+                <v-list-item-content class="pt-0">
                   <v-list-item-title>
-                    {{ item.label }}
+                    <v-badge
+                      :color="item.badge"
+                      :value="!!item.badge"
+                      dot
+                    >
+                      {{ item.label }}
+                    </v-badge>
                     <fa
                       v-if="item.blank"
                       class="ml-2"
@@ -116,8 +128,17 @@
               :value="navChildIsActive(nav)"
             >
               <template #activator>
-                <v-list-item-content>
-                  <v-list-item-title>{{ nav.label }}</v-list-item-title>
+                <v-list-item-content class="pt-0">
+                  <v-list-item-title>
+                    <v-badge
+                      class="mt-2"
+                      :color="nav.badge"
+                      :value="!!nav.badge"
+                      dot
+                    >
+                      {{ nav.label }}
+                    </v-badge>
+                  </v-list-item-title>
                 </v-list-item-content>
               </template>
               <v-list-item
@@ -129,9 +150,16 @@
                 :disabled="item.disabled"
                 nuxt
               >
-                <v-list-item-content>
+                <v-list-item-content class="pt-0">
                   <v-list-item-title>
-                    {{ item.label }}
+                    <v-badge
+                      class="mt-2"
+                      :color="item.badge"
+                      :value="!!item.badge"
+                      dot
+                    >
+                      {{ item.label }}
+                    </v-badge>
                     <fa
                       v-if="item.blank"
                       class="ml-2"
@@ -156,9 +184,16 @@
               :exact="nav.to === '/season2' && $route.path !== '/season2'"
               nuxt
             >
-              <v-list-item-content>
+              <v-list-item-content class="pt-0">
                 <v-list-item-title>
-                  {{ nav.label }}
+                  <v-badge
+                    class="mt-2"
+                    :color="nav.badge"
+                    :value="!!nav.badge"
+                    dot
+                  >
+                    {{ nav.label }}
+                  </v-badge>
                   <fa
                     v-if="nav.blank"
                     class="ml-1"
@@ -204,6 +239,7 @@ export default {
       },
       {
         label: 'S2 聯賽資訊',
+        badge: 'primary',
         children: [
           { label: '聯賽懶人包', to: '/season2/summary', note: '賽制、好康一目瞭然！' },
           { label: '賽道/隊伍數據', to: '/season2/stats' },
