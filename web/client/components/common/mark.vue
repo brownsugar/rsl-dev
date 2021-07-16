@@ -1,8 +1,8 @@
 <template>
-  <img
+  <v-img
     :key="markId"
     :src="require('~/assets/images/marks/' + markId + (small ? '_s' : '') + '.png')"
-  >
+  />
 </template>
 
 <script>
