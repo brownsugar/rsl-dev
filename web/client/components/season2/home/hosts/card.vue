@@ -28,18 +28,21 @@
             class="d-flex justify-end align-end"
             cols="2"
           >
-            <v-btn
-              color="tertiary"
-              large
-              icon
-              dark
-              @click="panelVisible = true"
-            >
-              <fa
-                :icon="['fas', 'circle-info']"
-                size="lg"
-              />
-            </v-btn>
+            <v-scale-transition origin="center center">
+              <v-btn
+                v-if="showInfoButton"
+                color="tertiary"
+                large
+                icon
+                dark
+                @click="panelVisible = true"
+              >
+                <fa
+                  :icon="['fas', 'circle-info']"
+                  size="lg"
+                />
+              </v-btn>
+            </v-scale-transition>
           </v-col>
         </v-row>
       </v-fade-transition>
@@ -109,11 +112,22 @@ export default {
     host: {
       type: Object,
       default: () => ({})
+    },
+    showInfoButton: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({
     panelVisible: false
-  })
+  }),
+  watch: {
+    showInfoButton (value) {
+      if (!value) {
+        this.panelVisible = false
+      }
+    }
+  }
 }
 </script>
 

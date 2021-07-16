@@ -239,7 +239,7 @@ export default {
     }
   }
 }
-.block-twitch {
+.v-application .block-twitch {
   @include breakpoint(xl, false) {
     padding-top: 120px !important;
     padding-bottom: 120px !important;
