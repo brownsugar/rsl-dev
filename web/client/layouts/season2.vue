@@ -8,6 +8,7 @@
       elevate-on-scroll
       fixed
       app
+      @click="appBarClickHandler"
     >
       <v-toolbar-title class="main-logo">
         <n-link to="/season2">
@@ -311,6 +312,14 @@ export default {
   methods: {
     scrollHandler () {
       this.scrollTop = window.scrollY
+    },
+    appBarClickHandler (e) {
+      if (e.target.classList.contains('v-toolbar__content')) {
+        this.$vuetify.goTo(0, {
+          duration: 300,
+          easing: 'easeInOutCubic'
+        })
+      }
     },
     navChildIsActive (nav) {
       if (nav.children && Array.isArray(nav.children)) {
