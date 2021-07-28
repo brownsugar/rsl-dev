@@ -1,66 +1,40 @@
 <template>
-  <v-container class="tracks white">
-    <v-row
-      v-for="(track, i) in tracks.speed"
-      :key="track.id"
-      class="track"
-      :class="{ 'grey lighten-5': i % 2 !== 0 }"
+  <div class="tracks white">
+    <v-data-table
+      :headers="headers"
+      :items="trackRecords"
+      :items-per-page="trackRecords.length"
+      hide-default-footer
     >
-      <v-col
-        class="px-4"
-        cols="12"
-        md="2"
-      >
-        <v-img
-          class="ml-auto mr-auto ml-md-0"
-          :src="require(`~/assets/images/tracks/${track.id}.jpg`)"
-          :aspect-ratio="4 / 3"
-          :width="150"
-          :alt="track.name"
-        />
-      </v-col>
-      <v-col
-        class="text-md-h6 d-flex justify-center justify-md-start align-center py-0 py-md-3"
-        cols="12"
-        md="3"
-      >
-        {{ track.name }}
-      </v-col>
-      <v-col
-        class="text-h6 font-weight-regular d-flex justify-center justify-md-start align-center py-0 py-md-3"
-        cols="12"
-        md="2"
-      >
-        {{ trackBest[track.id].time }}
-      </v-col>
-      <v-col
-        class="d-flex flex-column justify-center align-center align-md-start py-2 py-md-3"
-        cols="12"
-        md="4"
-      >
-        <div class="text-h6 font-weight-bold">
-          {{ trackBest[track.id].player }}
+      <template #item.name="{ item, value }">
+        <div class="d-md-flex align-center">
+          <v-img
+            class="flex-grow-0 mt-3 mb-1 mb-md-3 mr-md-4"
+            :src="require(`~/assets/images/tracks/${item.id}.jpg`)"
+            :aspect-ratio="4 / 3"
+            :width="150"
+            :alt="value"
+          />
+          {{ value }}
+        </div>
+      </template>
+      <template #item.player="{ item, value }">
+        <div class="text-body-1 font-weight-bold">
+          {{ value }}
         </div>
         <div class="d-flex align-center">
           <Mark
             category="season2"
-            :team="trackBest[track.id].team"
+            :team="item.team"
             small
           />
           <span class="grey--text text--darken-2 ml-1">
-            {{ trackBest[track.id].team }}
+            {{ item.team }}
           </span>
         </div>
-      </v-col>
-      <v-col
-        class="font-weight-light d-flex justify-center justify-md-start align-center"
-        cols="12"
-        md="1"
-      >
-        {{ trackBest[track.id].stage }}
-      </v-col>
-    </v-row>
-  </v-container>
+      </template>
+    </v-data-table>
+  </div>
 </template>
 
 <script>
@@ -74,17 +48,44 @@ export default {
     Mark
   },
   data: () => ({
-    tracks
+    headers: [
+      {
+        text: '賽道名稱',
+        value: 'name',
+        sortable: false
+      },
+      {
+        text: '最佳記錄',
+        value: 'time',
+        sortable: false
+      },
+      {
+        text: '記錄保持人',
+        value: 'player',
+        sortable: false
+      },
+      {
+        text: '刷新階段',
+        value: 'stage',
+        sortable: false
+      }
+    ]
   }),
   computed: {
     ...mapState({
-      trackRecords: state => state.config.season2.track_record
+      trackRecordsRaw: state => state.config.season2.track_record
     }),
-    trackBest () {
-      return this.trackRecords.reduce((result, track) => {
-        result[track.id] = track
+    tracks () {
+      return tracks.speed.reduce((result, track) => {
+        result[track.id] = track.name
         return result
       }, {})
+    },
+    trackRecords () {
+      return this.trackRecordsRaw.map(track => ({
+        ...track,
+        name: this.tracks[track.id]
+      }))
     }
   }
 }
