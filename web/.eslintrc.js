@@ -14,6 +14,9 @@ module.exports = {
   // add your custom rules here
   rules: {
     'nuxt/no-cjs-in-config': 'off',
-    'vue/no-v-html': 'off'
+    'vue/no-v-html': 'off',
+    'vue/valid-v-slot': ['error', {
+      allowModifiers: true
+    }]
   }
 }

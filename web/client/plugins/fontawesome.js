@@ -22,28 +22,47 @@ Vue.component('FontAwesomeIcon', FontAwesomeIcon) // For Vuetify
 export default {
   iconfont: 'faSvg',
   values: {
-    heart: {
-      component: FontAwesomeIcon,
-      props: {
-        icon: ['fas', 'heart']
-      }
-    },
     angleLeft: {
       component: FontAwesomeIcon,
       props: {
-        icon: ['fas', 'angle-left']
+        icon: 'fas fa-angle-left'
       }
     },
     angleRight: {
       component: FontAwesomeIcon,
       props: {
-        icon: ['fas', 'angle-right']
+        icon: 'fas fa-angle-right'
       }
     },
     random: {
       component: FontAwesomeIcon,
       props: {
-        icon: ['fad', 'random']
+        icon: 'fad fa-random'
+      }
+    },
+    notes: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: 'fa-duotone fa-notes'
+      }
+    },
+    // Following options override Vuetify default variables
+    prev: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: 'far fa-angle-left'
+      }
+    },
+    next: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: 'far fa-angle-right'
+      }
+    },
+    expand: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: 'far fa-angle-down'
       }
     }
   }

@@ -7,7 +7,7 @@
         lg="8"
       >
         <sub-title
-          text="Season 2 賽道/隊伍數據"
+          text="Season 2 數據記錄"
         />
         <link-tabs
           class="mt-8 mb-4"
@@ -25,8 +25,9 @@
 <script>
 import SubTitle from '~/components/season2/common/sub-title'
 import LinkTabs from '~/components/season2/common/link-tabs'
-import TrackRecords from '~/components/season2/stats/track-records'
-import TeamStats from '~/components/season2/stats/team-stats'
+import Tracks from '~/components/season2/stats/tracks'
+import Teams from '~/components/season2/stats/teams'
+import Players from '~/components/season2/stats/players'
 
 export default {
   name: 'Stats',
@@ -42,20 +43,25 @@ export default {
     }
   },
   head: self => ({
-    title: self.currentType.name + ' - S2 賽道/隊伍數據'
+    title: self.currentType.name + ' - S2 聯賽數據記錄'
   }),
   computed: {
     statTypes () {
       const types = [
         {
-          slug: 'track-records',
+          slug: 'tracks',
           name: '賽道記錄榜',
-          component: TrackRecords
+          component: Tracks
         },
         {
-          slug: 'track-stats',
+          slug: 'teams',
           name: '隊伍賽道數據',
-          component: TeamStats
+          component: Teams
+        },
+        {
+          slug: 'players',
+          name: '選手首位數據',
+          component: Players
         }
       ]
       return types
@@ -67,9 +73,20 @@ export default {
       const item = this.statTypes.find(type => type.slug === this.slug)
       return item || {}
     }
+  },
+  watch: {
+    'currentType.name': {
+      handler (val) {
+        if (!val) {
+          this.$router.replace({
+            params: {
+              slug: this.statTypes[0].slug
+            }
+          })
+        }
+      },
+      immediate: true
+    }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

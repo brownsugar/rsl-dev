@@ -1,7 +1,13 @@
 <template>
   <h3 class="text-h3 text-sm-h2 font-weight-black text-uppercase">
     <span class="d-block text-h5 primary--text font-weight-regular">{{ top }}</span>
-    {{ bottom }}
+    <slot
+      v-if="$slots.bottom"
+      name="bottom"
+    />
+    <span
+      v-else
+    >{{ bottom }}</span>
   </h3>
 </template>
 

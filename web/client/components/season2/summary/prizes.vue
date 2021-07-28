@@ -89,7 +89,7 @@ export default {
             image: 'TT-1',
             content: [
               '獎金：NTD $30,000',
-              '遊戲虛寶：V1 競速稀有車種 (永久)、X 競速神話車種 (永久)、尼歐的新品車款齒輪9代 (40 個)',
+              '遊戲虛寶：V1 競速稀有車種 (永久)、黃金遊俠 X (永久)、尼歐的新品車款齒輪9代 (40 個)',
               '跑跑實體週邊：遊戲橘子提供 [睏寶娃娃]、[舒適 SR 模型]（各 3 個）',
               '專業電競週邊：TT 曜越科技提供 [幻銀 ARGENT K5 RGB Cherry 銀軸機械式鍵盤]（4 組）'
             ]
@@ -100,7 +100,7 @@ export default {
             image: 'Philips',
             content: [
               '獎金：NTD $15,000',
-              '遊戲虛寶：V1 競速稀有車種 (永久)、X 競速神話車種 (永久)、尼歐的新品車款齒輪9代 (30 個)',
+              '遊戲虛寶：V1 競速稀有車種 (永久)、黃金遊俠 X (永久)、尼歐的新品車款齒輪9代 (30 個)',
               '跑跑實體週邊：遊戲橘子提供 [睏寶娃娃]、[舒適 SR 模型]（各 3 個）',
               '專業電競週邊：Philips Monitors 提供 [PHILIPS 24型 VA 144Hz 電競螢幕 (242E1GAJ)]（4 組）'
             ]
@@ -111,7 +111,7 @@ export default {
             image: 'HyperX-1',
             content: [
               '獎金：NTD $5,000',
-              'V1 競速稀有車種 (永久)、X 競速神話車種 (永久)、尼歐的新品車款齒輪9代 (20 個)',
+              '遊戲虛寶：V1 競速稀有車種 (永久)、黃金遊俠 X (永久)、尼歐的新品車款齒輪9代 (20 個)',
               '跑跑實體週邊：遊戲橘子提供 [睏寶娃娃]、[舒適 SR 模型]（各 3 個）',
               '專業電競週邊：HyperX 提供 [HyperX Cloud Revolver 7.1 電競耳機]（4 組）'
             ]
@@ -131,7 +131,7 @@ export default {
         details: [
           {
             title: '冠軍賽 MVP',
-            subtitle: 'Special',
+            subtitle: 'Championship MVP',
             description: '冠軍賽結束並產生最終勝利隊伍後，由主播賽評團評選即時公佈。',
             image: 'TT-2',
             content: [
@@ -141,8 +141,8 @@ export default {
           },
           {
             title: '賽道紀錄霸主',
-            subtitle: 'Special',
-            description: 'S2 賽季結束後，保有最多張競速賽道最佳記錄的選手。',
+            subtitle: 'Track Master',
+            description: 'S2 賽季結束後（不包含台韓交流賽），保有最多張競速賽道最佳記錄的選手。',
             image: 'TT-3',
             content: [
               '獎金：NTD $3,000',
@@ -151,7 +151,7 @@ export default {
           },
           {
             title: '觀眾票選人氣王',
-            subtitle: 'Special',
+            subtitle: 'Most Popular Player',
             description: '打進 8 強之隊伍所屬成員皆可成為候選人，由觀眾票選支持，獲得最高票者，投票方式請關注後續公告。',
             image: 'TT-4',
             content: [
@@ -185,18 +185,19 @@ export default {
         details: [
           {
             title: 'RRR 幣兌換',
-            subtitle: 'Lottery',
+            subtitle: 'Redeem by Channel Points',
             description: '於賽事直播期間在 RSL 官方 Twitch 頻道互動累積忠誠點數，就能兌換抽獎券。',
             image: 'HyperX-2',
             content: [
               '跑跑實體週邊：遊戲橘子提供 [睏寶娃娃]、[舒適 SR 模型]（各抽 4 名，共 8 名）',
               '電競能量飲料：PredatorShot 提供 [PredatorShot 掠奪者能量飲] 一箱 24 罐（共 3 名）',
-              '專業電競週邊：HyperX 提供 [HyperX Cloud Alpha S 電競耳機]（共 4 名）'
+              '專業電競週邊：HyperX 提供 [HyperX Cloud Alpha S 電競耳機]（共 4 名）',
+              '限量品牌週邊：Twitch 提供 [Twitch 帽子]、[Twitch Shirt]、[Twitch 滑鼠墊]（共 10 名）'
             ]
           },
           {
             title: '冠軍賽終極獎勵',
-            subtitle: 'Lottery',
+            subtitle: 'Championship Lottery',
             description: '活動方式後續公開，敬請關注 RSL 官方消息。',
             image: 'TT-5',
             content: [
@@ -205,7 +206,7 @@ export default {
           },
           {
             title: '台韓交流賽終極獎勵',
-            subtitle: 'Lottery',
+            subtitle: 'Friendly Match Lottery',
             description: '活動方式後續公開，敬請關注 RSL 官方消息。',
             image: 'HyperX-3',
             content: [

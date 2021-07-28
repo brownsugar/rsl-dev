@@ -1,5 +1,8 @@
 <template>
-  <v-tabs show-arrows>
+  <v-tabs
+    centered
+    show-arrows
+  >
     <v-tabs-slider color="secondary" />
     <v-tab
       v-for="item in items"
