@@ -1,5 +1,8 @@
 <template>
   <v-img
+    class="flex-grow-0"
+    :width="markWidth"
+    aspect-ratio="1"
     :src="require('~/assets/images/marks/' + markId + (small ? '_s' : '') + '.png')"
   />
 </template>
@@ -24,6 +27,10 @@ export default {
       default: defaultId
     },
     team: {
+      type: [Number, String],
+      default: ''
+    },
+    width: {
       type: [Number, String],
       default: ''
     },
@@ -61,6 +68,12 @@ export default {
         }
       }
       return defaultId
+    },
+    markWidth () {
+      if (this.width) {
+        return this.width
+      }
+      return this.small ? 20 : 100
     }
   }
 }

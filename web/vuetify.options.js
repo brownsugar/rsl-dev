@@ -1,4 +1,5 @@
 import defu from 'defu'
+import zhHant from 'vuetify/lib/locale/zh-Hant'
 import fontawesome from '~/plugins/fontawesome'
 import common from '~/assets/theme/common'
 import season1 from '~/assets/theme/season1'
@@ -16,6 +17,10 @@ export default function ({ route }) {
 
   return {
     icons: fontawesome,
+    lang: {
+      locales: { zhHant },
+      current: 'zhHant'
+    },
     theme: {
       dark: false,
       options: {

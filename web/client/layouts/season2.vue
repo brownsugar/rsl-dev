@@ -243,7 +243,7 @@ export default {
         badge: 'primary',
         children: [
           { label: '聯賽懶人包', to: '/season2/summary', note: '福利、賽程完全掌握！' },
-          { label: '賽道/隊伍數據', to: '/season2/stats' },
+          { label: '聯賽數據記錄', to: '/season2/stats' },
           { label: '聯賽規章', to: '/season2/rules' }
         ]
       },

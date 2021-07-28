@@ -86,8 +86,6 @@
           v-model="page"
           class="mt-10"
           :length="totalPage"
-          prev-icon="$angleLeft"
-          next-icon="$angleRight"
           :disabled="loading"
           @input="switchPage"
         />

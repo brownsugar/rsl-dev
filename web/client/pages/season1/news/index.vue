@@ -90,8 +90,6 @@
           v-model="page"
           class="mt-4"
           :length="totalPage"
-          prev-icon="$angleLeft"
-          next-icon="$angleRight"
           :disabled="loading"
           @input="switchPage"
         />
@@ -102,8 +100,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import PrimaryTitle from '~/components/common/primary-title'
 import ComingSoon from '~/components/common/coming-soon'
+import PrimaryTitle from '~/components/season1/common/primary-title'
 import { DATE_FORMAT, DATETIME_FORMAT } from '~/assets/utils/const'
 import postUtils from '~/assets/utils/post'
 

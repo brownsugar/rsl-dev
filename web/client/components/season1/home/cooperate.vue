@@ -66,8 +66,8 @@
 </template>
 
 <script>
-import PrimaryTitle from '~/components/common/primary-title'
 import ActionAlert from '~/components/common/action-alert'
+import PrimaryTitle from '~/components/season1/common/primary-title'
 import cooperators from '~/data/season1/cooperators'
 
 export default {

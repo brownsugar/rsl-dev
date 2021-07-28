@@ -1,5 +1,5 @@
 <template>
-  <v-container class="track-records white">
+  <v-container class="tracks white">
     <v-row
       v-for="(track, i) in tracks.speed"
       :key="track.id"
@@ -69,7 +69,7 @@ import Mark from '~/components/common/mark'
 import tracks from '~/data/season2/tracks'
 
 export default {
-  name: 'TrackRecords',
+  name: 'Tracks',
   components: {
     Mark
   },
@@ -78,10 +78,10 @@ export default {
   }),
   computed: {
     ...mapState({
-      config: state => state.config.season2
+      trackRecords: state => state.config.season2.track_record
     }),
     trackBest () {
-      return this.config.track_record.reduce((result, track) => {
+      return this.trackRecords.reduce((result, track) => {
         result[track.id] = track
         return result
       }, {})
