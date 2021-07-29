@@ -23,7 +23,7 @@
         </v-tab>
         <v-tab-item
           :key="'tab-item-' + stat.team"
-          class="pt-6 pb-4 px-2 px-md-4"
+          class="pt-6 pb-4 px-2 px-md-6"
           eager
         >
           <two-line-title
@@ -35,7 +35,7 @@
                   class="mr-2"
                   category="season2"
                   :team="stat.team"
-                  width="50"
+                  width="48"
                 />
                 {{ stat.team }}
               </div>
@@ -72,7 +72,13 @@
                 {{ tracks[item.modeKey][value] }}
               </template>
               <template #item.rate="{ value }">
-                {{ value === -1 ? 'N/A' : (value + '%') }}
+                <span
+                  v-if="value === -1"
+                  class="grey--text text--lighten-1"
+                >N/A</span>
+                <span
+                  v-else
+                >{{ value }}%</span>
               </template>
             </v-data-table>
           </v-sheet>
@@ -108,6 +114,7 @@ export default {
     Mark,
     TwoLineTitle
   },
+  layout: 'season2',
   data: () => ({
     headers: [
       {

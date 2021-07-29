@@ -4,19 +4,17 @@
       :headers="headers"
       :items="trackRecords"
       :items-per-page="trackRecords.length"
+      disable-sort
       hide-default-footer
     >
-      <template #item.name="{ item, value }">
-        <div class="d-md-flex align-center">
-          <v-img
-            class="flex-grow-0 mt-3 mb-1 mb-md-3 mr-md-4"
-            :src="require(`~/assets/images/tracks/${item.id}.jpg`)"
-            :aspect-ratio="4 / 3"
-            :width="150"
-            :alt="value"
-          />
-          {{ value }}
-        </div>
+      <template #item.id="{ item, value }">
+        <v-img
+          class="mt-4 mt-md-3 mb-1 mb-md-3 mr-md-4"
+          :src="require(`~/assets/images/tracks/${value}.jpg`)"
+          :aspect-ratio="4 / 3"
+          :width="150"
+          :alt="item.name"
+        />
       </template>
       <template #item.player="{ item, value }">
         <div class="text-body-1 font-weight-bold">
@@ -47,27 +45,29 @@ export default {
   components: {
     Mark
   },
+  layout: 'season2',
   data: () => ({
     headers: [
       {
+        text: '',
+        value: 'id',
+        width: 220
+      },
+      {
         text: '賽道名稱',
-        value: 'name',
-        sortable: false
+        value: 'name'
       },
       {
         text: '最佳記錄',
-        value: 'time',
-        sortable: false
+        value: 'time'
       },
       {
         text: '記錄保持人',
-        value: 'player',
-        sortable: false
+        value: 'player'
       },
       {
         text: '刷新階段',
-        value: 'stage',
-        sortable: false
+        value: 'stage'
       }
     ]
   }),
@@ -90,3 +90,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.v-data-table::v-deep {
+
+  .v-data-table-header {
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+  .v-data-table__mobile-row:first-child {
+
+    .v-data-table__mobile-row__header {
+      display: none;
+    }
+    .v-data-table__mobile-row__cell {
+      display: flex;
+      flex-grow: 1;
+    }
+  }
+}
+</style>

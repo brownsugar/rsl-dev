@@ -1,13 +1,15 @@
 <template>
   <h3 class="text-h3 text-sm-h2 font-weight-black text-uppercase">
     <span class="d-block text-h5 primary--text font-weight-regular">{{ top }}</span>
-    <slot
-      v-if="$slots.bottom"
-      name="bottom"
-    />
-    <span
-      v-else
-    >{{ bottom }}</span>
+    <div class="bottom">
+      <slot
+        v-if="$slots.bottom"
+        name="bottom"
+      />
+      <span
+        v-else
+      >{{ bottom }}</span>
+    </div>
   </h3>
 </template>
 
@@ -28,4 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bottom {
+  word-break: break-all;
+}
 </style>

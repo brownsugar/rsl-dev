@@ -33,9 +33,16 @@ export default {
   props: {},
   data: () => ({
   }),
-  head: () => ({
-    title: '台韓交流賽'
-  }),
+  head () {
+    const title = '台韓交流賽'
+
+    return {
+      title,
+      meta: [
+        { property: 'og:title', content: title, hid: 'og:title' }
+      ]
+    }
+  },
   computed: {},
   watch: {},
   mounted () {
