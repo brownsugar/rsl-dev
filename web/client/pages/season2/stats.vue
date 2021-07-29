@@ -42,9 +42,16 @@ export default {
       return redirect('/season2/stats/' + defaultSlug)
     }
   },
-  head: self => ({
-    title: self.currentType.name + ' - S2 聯賽數據記錄'
-  }),
+  head () {
+    const title = this.currentType.name + ' - S2 聯賽數據記錄'
+
+    return {
+      title,
+      meta: [
+        { property: 'og:title', content: title, hid: 'og:title' }
+      ]
+    }
+  },
   computed: {
     statTypes () {
       const types = [

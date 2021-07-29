@@ -84,7 +84,8 @@
         <v-pagination
           v-if="totalPage > 1"
           v-model="page"
-          class="mt-10"
+          class="mt-10 mx-2"
+          total-visible="6"
           :length="totalPage"
           :disabled="loading"
           @input="switchPage"
@@ -129,7 +130,10 @@ export default {
     const title = (category ? '「' + category + '」分類的' : '') + '最新消息'
 
     return {
-      title
+      title,
+      meta: [
+        { property: 'og:title', content: title, hid: 'og:title' }
+      ]
     }
   },
   computed: {

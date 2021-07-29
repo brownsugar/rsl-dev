@@ -278,7 +278,14 @@ export default {
     }
   }),
   head () {
-    const staticPages = ['season2', 'season2-summary', 'season2-news', 'season2-about']
+    const staticPages = [
+      'season2',
+      'season2-summary',
+      'season2-stats-type',
+      'season2-vs-korea',
+      'season2-news',
+      'season2-about'
+    ]
     const themeColor = '#272727'
     const ogImage = this.$config.rsl.cover.season2
     const defaultTitle = '夢想盃跑跑聯賽 Season 2'
