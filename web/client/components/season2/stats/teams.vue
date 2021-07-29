@@ -35,7 +35,7 @@
                   class="mr-2"
                   category="season2"
                   :team="stat.team"
-                  width="50"
+                  width="48"
                 />
                 {{ stat.team }}
               </div>
@@ -72,7 +72,13 @@
                 {{ tracks[item.modeKey][value] }}
               </template>
               <template #item.rate="{ value }">
-                {{ value === -1 ? 'N/A' : (value + '%') }}
+                <span
+                  v-if="value === -1"
+                  class="grey--text text--lighten-1"
+                >N/A</span>
+                <span
+                  v-else
+                >{{ value }}%</span>
               </template>
             </v-data-table>
           </v-sheet>
