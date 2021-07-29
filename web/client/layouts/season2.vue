@@ -281,7 +281,9 @@ export default {
     const staticPages = [
       'season2',
       'season2-summary',
-      'season2-stats-type',
+      'season2-stats-tracks',
+      'season2-stats-teams',
+      'season2-stats-players',
       'season2-vs-korea',
       'season2-news',
       'season2-about'
