@@ -95,7 +95,9 @@ export default {
 .v-data-table::v-deep {
 
   .v-data-table-header {
-    display: none;
+    @include breakpoint(md) {
+      display: none;
+    }
   }
   .v-data-table__mobile-row:first-child {
 
