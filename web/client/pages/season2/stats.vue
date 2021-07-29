@@ -11,12 +11,12 @@
         />
         <link-tabs
           class="mt-8 mb-4"
-          :items="statTypes"
+          :items="children"
           base-path="/season2/stats"
         />
-        <component
-          :is="currentType.component"
-        />
+        <v-fade-transition mode="out-in">
+          <nuxt />
+        </v-fade-transition>
       </v-col>
     </v-row>
   </v-container>
@@ -25,9 +25,21 @@
 <script>
 import SubTitle from '~/components/season2/common/sub-title'
 import LinkTabs from '~/components/season2/common/link-tabs'
-import Tracks from '~/components/season2/stats/tracks'
-import Teams from '~/components/season2/stats/teams'
-import Players from '~/components/season2/stats/players'
+
+const children = [
+  {
+    slug: 'tracks',
+    name: '賽道記錄榜'
+  },
+  {
+    slug: 'teams',
+    name: '隊伍賽道數據'
+  },
+  {
+    slug: 'players',
+    name: '選手首位數據'
+  }
+]
 
 export default {
   name: 'Stats',
@@ -37,11 +49,14 @@ export default {
   },
   layout: 'season2',
   middleware ({ route, redirect }) {
-    const defaultSlug = 'track-records'
-    if (!route.params.slug) {
+    if (route.matched.length === 1) {
+      const defaultSlug = children[0].slug
       return redirect('/season2/stats/' + defaultSlug)
     }
   },
+  data: () => ({
+    children
+  }),
   head () {
     const title = this.currentType.name + ' - S2 聯賽數據記錄'
 
@@ -53,31 +68,16 @@ export default {
     }
   },
   computed: {
-    statTypes () {
-      const types = [
-        {
-          slug: 'tracks',
-          name: '賽道記錄榜',
-          component: Tracks
-        },
-        {
-          slug: 'teams',
-          name: '隊伍賽道數據',
-          component: Teams
-        },
-        {
-          slug: 'players',
-          name: '選手首位數據',
-          component: Players
-        }
-      ]
-      return types
-    },
     slug () {
-      return this.$route.params.slug
+      const path = this.$route.path
+      const pattern = /stats\/(.+)/i
+      if (pattern.test(path)) {
+        return path.match(pattern)[1]
+      }
+      return null
     },
     currentType () {
-      const item = this.statTypes.find(type => type.slug === this.slug)
+      const item = this.children.find(type => type.slug === this.slug)
       return item || {}
     }
   },
@@ -85,11 +85,7 @@ export default {
     'currentType.name': {
       handler (val) {
         if (!val) {
-          this.$router.replace({
-            params: {
-              slug: this.statTypes[0].slug
-            }
-          })
+          this.$router.replace('/season2/stats/' + this.children[0].slug)
         }
       },
       immediate: true

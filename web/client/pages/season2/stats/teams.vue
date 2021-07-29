@@ -23,7 +23,7 @@
         </v-tab>
         <v-tab-item
           :key="'tab-item-' + stat.team"
-          class="pt-6 pb-4 px-2 px-md-4"
+          class="pt-6 pb-4 px-2 px-md-6"
           eager
         >
           <two-line-title
@@ -114,6 +114,7 @@ export default {
     Mark,
     TwoLineTitle
   },
+  layout: 'season2',
   data: () => ({
     headers: [
       {

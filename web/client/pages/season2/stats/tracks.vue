@@ -45,6 +45,7 @@ export default {
   components: {
     Mark
   },
+  layout: 'season2',
   data: () => ({
     headers: [
       {
