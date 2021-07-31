@@ -191,8 +191,16 @@ export default {
             content: [
               '跑跑實體週邊：遊戲橘子提供 [睏寶娃娃]、[舒適 SR 模型]（各抽 4 名，共 8 名）',
               '電競能量飲料：PredatorShot 提供 [PredatorShot 掠奪者能量飲] 一箱 24 罐（共 3 名）',
-              '專業電競週邊：HyperX 提供 [HyperX Cloud Alpha S 電競耳機]（共 4 名）',
-              '限量品牌週邊：Twitch 提供 [Twitch 帽子]、[Twitch Shirt]、[Twitch 滑鼠墊]（共 10 名）'
+              '專業電競週邊：HyperX 提供 [HyperX Cloud Alpha S 電競耳機]（共 4 名）'
+            ]
+          },
+          {
+            title: '直播互動抽獎',
+            subtitle: 'Chat & Redeem by Channel Points',
+            description: '於賽事直播期間在 RSL 官方 Twitch 頻道留下關鍵字抽獎或是累積忠誠點數兌換抽獎券。',
+            image: 'Twitch',
+            content: [
+              '限量品牌週邊：Twitch 提供 [Twitch 後扣帽]、[Twitch Stream T-Shirt]（共 9 名）'
             ]
           },
           {
