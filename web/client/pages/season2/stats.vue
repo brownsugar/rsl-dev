@@ -48,10 +48,13 @@ export default {
     LinkTabs
   },
   layout: 'season2',
-  middleware ({ route, redirect }) {
-    if (route.matched.length === 1) {
+  middleware ({ route: { query, matched }, redirect }) {
+    if (matched.length === 1) {
       const defaultSlug = children[0].slug
-      return redirect('/season2/stats/' + defaultSlug)
+      return redirect({
+        path: '/season2/stats/' + defaultSlug,
+        query
+      })
     }
   },
   data: () => ({

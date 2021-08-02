@@ -6,9 +6,12 @@
 
 <script>
 export default {
-  middleware ({ redirect }) {
+  middleware ({ redirect, route: { query } }) {
     // We don't have main homepage now, redirect to the league homepage
-    return redirect('/season2')
+    return redirect({
+      path: '/season2',
+      query
+    })
   }
 }
 </script>
