@@ -29,9 +29,14 @@ add_filter( 'embed_oembed_html', 'rsl_embed_oembed_html', 99, 4 );
  * Change excerpt ellipsis
  */
 function rsl_excerpt_more( $more ) {
-	return ' ...';
+	return '...';
 }
 add_filter( 'excerpt_more', 'rsl_excerpt_more' );
+
+/**
+ * Disable the wpautop filter in excerpt
+ */
+remove_filter( 'the_excerpt', 'wpautop' );
 
 /**
  * Disable transform symbols
