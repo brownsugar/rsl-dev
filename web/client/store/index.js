@@ -23,7 +23,8 @@ export const actions = {
     })
   },
   async initConfig ({ commit }) {
-    const data = await this.$wp.options().id('rsl-fe-config')
+    const data = await this.$wp.options()
+      .id('rsl-fe-config')
     commit('setData', {
       key: 'config',
       value: data.acf

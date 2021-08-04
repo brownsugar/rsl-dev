@@ -100,7 +100,9 @@ export default {
         return this.title
       }
       if (this.post && this.post.title) {
-        return this.post.title.rendered
+        const isPreview = ['draft', 'future'].includes(this.post.status)
+        const prefix = isPreview ? '[預覽] ' : ''
+        return prefix + this.post.title.rendered
       }
       return '404 Not Found'
     },
@@ -146,7 +148,21 @@ export default {
       return base
     }
   },
+  created () {
+    // this.removePreviewQueries()
+  },
   methods: {
+    removePreviewQueries () {
+      this.$router.replace({
+        ...this.$route,
+        query: {
+          ...this.$route.query,
+          ck: undefined,
+          cv: undefined,
+          nonce: undefined
+        }
+      })
+    },
     backToList () {
       const routeName = this.fromRoute ? this.fromRoute.name : ''
       if (routeName && routeName.startsWith(this.season + '-news')) {

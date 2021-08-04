@@ -46,3 +46,50 @@ function rsl_the_title( $title, $id ) {
 	return $title;
 }
 add_filter( 'the_title', 'rsl_the_title', 10, 2 );
+
+/**
+ * Append the cookie info and nonce on preview links
+ */
+function rsl_preview_post_link( $preview_link, $post ) {
+	list($permalink) = get_sample_permalink( $post );
+
+	$cookie = array_filter(
+		$_COOKIE,
+		function ( $k ) {
+			return strpos( $k, 'wordpress_logged_in_' ) === 0;
+		},
+		ARRAY_FILTER_USE_KEY
+	);
+	$ck     = key( $cookie );
+	$cv     = $cookie[ $ck ];
+	$nonce  = wp_create_nonce( 'wp_rest' );
+
+	$query_args = array(
+		'ck'    => $ck,
+		'cv'    => $cv,
+		'nonce' => $nonce,
+	);
+	$new_link   = add_query_arg( $query_args, $permalink );
+	return $new_link;
+}
+add_filter( 'preview_post_link', 'rsl_preview_post_link', 10, 2 );
+
+/**
+ * Update the preview link html output in post slug editor
+ */
+function rsl_get_sample_permalink_html( $return, $post_id, $new_title, $new_slug, $post ) {
+	list($permalink) = get_sample_permalink( $post->ID, $new_title, $new_slug );
+	$preview_link    = get_preview_post_link( $post );
+	if ( in_array( $post->post_status, array( 'draft', 'future' ), true ) ) {
+		/**
+		 * To format <a href="{PREVIEW_LINK}">{PERMALINK}</a>
+		 */
+		$return = preg_replace(
+			'/(<a id="sample-permalink" href=")[^"]+("[^>]*>)[^<]+(<\/a>)/',
+			'$1' . esc_url( $preview_link ) . '$2' . $permalink . '$3',
+			$return
+		);
+	}
+	return $return;
+}
+add_filter( 'get_sample_permalink_html', 'rsl_get_sample_permalink_html', 10, 5 );
