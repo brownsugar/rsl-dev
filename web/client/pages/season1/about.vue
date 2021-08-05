@@ -142,7 +142,7 @@
                       v-bind="attrs"
                       v-on="on"
                     >
-                      <fa :icon="['fas', 'external-link-alt']" />
+                      <fa icon="fa-solid fa-up-right-from-square" />
                     </v-btn>
                   </template>
                   <span>查看</span>

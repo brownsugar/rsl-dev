@@ -69,7 +69,7 @@
               <template #prepend>
                 <fa
                   class="mr-3"
-                  :icon="['fas', 'heart']"
+                  icon="fa-solid fa-heart"
                 />
               </template>
             </v-alert>
@@ -289,14 +289,14 @@
                                 v-for="j in track.level"
                                 :key="j"
                                 class="grey--text"
-                                :icon="['fas', 'star']"
+                                icon="fa-solid fa-star"
                                 size="sm"
                               />
                               <fa
                                 v-for="j in 5 - track.level"
                                 :key="j"
                                 class="grey--text text--lighten-2"
-                                :icon="['far', 'star']"
+                                icon="fa-solid fa-star"
                                 size="sm"
                               />
                             </div>
@@ -321,7 +321,7 @@
                               <span>
                                 <fa
                                   class="mr-1"
-                                  :icon="['far', 'stopwatch']"
+                                  icon="far-regular fa-stopwatch"
                                 />
                                 {{ trackBest[track.id].time }}
                               </span>
@@ -329,7 +329,7 @@
                               <span>
                                 <fa
                                   class="mr-1"
-                                  :icon="['far', 'user-crown']"
+                                  icon="far-regular fa-user-crown"
                                 />
                                 {{ trackBest[track.id].player }}
                               </span>
@@ -401,7 +401,7 @@
                       small
                       @click="showHostDialog(host)"
                     >
-                      <fa :icon="['far', 'search']" />
+                      <fa icon="far-regular fa-magnifying-glass" />
                     </v-btn>
                   </v-col>
                 </v-row>

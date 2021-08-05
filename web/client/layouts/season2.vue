@@ -54,14 +54,14 @@
                 <fa
                   v-if="nav.blank"
                   class="ml-1"
-                  :icon="['far', 'up-right-from-square']"
+                  icon="far-regular fa-up-right-from-square"
                   size="sm"
                 />
                 <fa
                   v-else-if="nav.children"
                   class="ml-1"
                   size="sm"
-                  :icon="['fal', 'chevron-down']"
+                  icon="fa-light fa-chevron-down"
                 />
               </v-btn>
             </template>
@@ -87,7 +87,7 @@
                     <fa
                       v-if="item.blank"
                       class="ml-2"
-                      :icon="['far', 'up-right-from-square']"
+                      icon="far-regular fa-up-right-from-square"
                       size="sm"
                     />
                   </v-list-item-title>
@@ -109,7 +109,7 @@
         @click="drawer.visible = true"
       >
         <fa
-          :icon="['far', 'bars']"
+          icon="far-regular fa-bars"
           size="lg"
         />
       </v-btn>
@@ -164,7 +164,7 @@
                     <fa
                       v-if="item.blank"
                       class="ml-2"
-                      :icon="['far', 'up-right-from-square']"
+                      icon="far-regular fa-up-right-from-square"
                       size="sm"
                     />
                   </v-list-item-title>
@@ -198,7 +198,7 @@
                   <fa
                     v-if="nav.blank"
                     class="ml-1"
-                    :icon="['far', 'up-right-from-square']"
+                    icon="far-regular fa-up-right-from-square"
                     size="sm"
                   />
                 </v-list-item-title>

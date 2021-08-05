@@ -54,7 +54,7 @@
         icon
         @click="drawer.visible = true"
       >
-        <fa :icon="['far', 'bars']" />
+        <fa icon="far-regular fa-bars" />
       </v-btn>
     </v-app-bar>
 
@@ -133,7 +133,7 @@
                 v-on="on"
               >
                 <fa
-                  :icon="['fab', social.brand]"
+                  :icon="['fa-brands', social.brand]"
                   size="lg"
                 />
               </v-btn>
@@ -153,7 +153,7 @@
             icon
           >
             <fa
-              :icon="['fab', 'github']"
+              icon="fa-brands fa-github"
               size="lg"
             />
           </v-btn>

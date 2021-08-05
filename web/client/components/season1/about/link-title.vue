@@ -8,7 +8,7 @@
       {{ text }}
       <fa
         class="link-icon ml-2"
-        :icon="['fas', 'link']"
+        icon="fa-solid fa-link"
       />
     </a>
   </h1>

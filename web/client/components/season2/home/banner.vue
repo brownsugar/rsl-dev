@@ -106,7 +106,7 @@
       :class="{ hidden: !scrollDown.visible }"
     >
       <div class="animation-wrap">
-        <fa :icon="['duotone', 'angles-down']" />
+        <fa icon="fa-duotone fa-angles-down" />
       </div>
     </div>
   </section>

@@ -37,7 +37,7 @@
           target="_blank"
           icon
         >
-          <fa :icon="['fab', 'youtube']" />
+          <fa icon="fa-brands fa-youtube" />
         </v-btn>
         <v-spacer />
         <v-btn

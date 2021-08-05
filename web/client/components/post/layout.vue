@@ -69,13 +69,13 @@
                       <fa
                         v-if="copied.value"
                         key="copied-true"
-                        :icon="['fas', 'check']"
+                        icon="fa-solid fa-check"
                         class="green--text"
                       />
                       <fa
                         v-else
                         key="copied-false"
-                        :icon="['fas', 'link']"
+                        icon="fa-solid fa-link"
                       />
                     </v-scale-transition>
                   </v-btn>

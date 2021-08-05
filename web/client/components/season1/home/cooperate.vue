@@ -48,7 +48,7 @@
         dense
       >
         <template #icon>
-          <fa :icon="['fas', 'info-circle']" />
+          <fa icon="fa-solid fa-circle-info" />
         </template>
         <template #button>
           <v-btn

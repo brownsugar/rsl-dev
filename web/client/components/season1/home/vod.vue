@@ -38,7 +38,7 @@
             <template #icon>
               <fa
                 class="primary--text"
-                :icon="['fas', 'bell']"
+                icon="fa-solid fa-bell"
                 size="lg"
               />
             </template>
