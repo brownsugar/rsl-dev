@@ -21,7 +21,7 @@
               關於 RSL 賽事聯盟
               <fa
                 class="ml-1"
-                :icon="['fas', 'right']"
+                icon="fa-solid fa-right"
               />
             </n-link>
           </h5>
@@ -55,13 +55,14 @@
               :color="social.brand"
               :href="$config.rsl[social.brand].url"
               target="_blank"
+              rel="noreferrer noopener"
               depressed
               large
               dark
             >
               <fa
                 class="mr-2"
-                :icon="['fab', social.brand]"
+                :icon="['fa-brands', social.brand]"
                 size="lg"
               />
               {{ social.action }}
@@ -76,10 +77,15 @@
           <span class="mx-2 d-none d-sm-inline">|</span>
           <span class="d-block d-sm-inline mt-1 mt-sm-0">
             Design by
-            <a class="white--text text-decoration-none hover-color" href="https://brownsugar.tw" target="_blank">
+            <a
+              class="white--text text-decoration-none hover-color"
+              href="https://brownsugar.tw"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Brownsugar
               <fa
-                :icon="['far', 'up-right-from-square']"
+                icon="far-regular fa-up-right-from-square"
                 size="sm"
               />
             </a>
@@ -87,13 +93,14 @@
             <v-btn
               href="https://github.com/brownsugar/rsl-dev"
               target="_blank"
+              rel="noreferrer noopener"
               x-small
               text
               dark
             >
               <fa
                 class="mr-1"
-                :icon="['fab', 'github']"
+                icon="fa-brands fa-github"
                 size="lg"
               />
               GitHub

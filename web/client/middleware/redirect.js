@@ -23,7 +23,10 @@ export default function ({ route, redirect }) {
   redirects.some((redirector) => {
     const path = redirector(route)
     if (path) {
-      return redirect(path)
+      return redirect({
+        path,
+        query: route.query
+      })
     }
     return false
   })

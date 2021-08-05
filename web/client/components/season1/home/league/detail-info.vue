@@ -3,7 +3,7 @@
     <h2 class="text-h5">
       <fa
         class="mr-1"
-        :icon="['fad', icon]"
+        :icon="['fa-duotone', icon]"
         size="sm"
       />
       {{ title }}
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     icon () {
-      return this.iconDouble ? 'chevron-double-right' : 'chevron-right'
+      return this.iconDouble ? 'chevrons-right' : 'chevron-right'
     },
     className () {
       return this.iconDouble ? 'ml-8' : 'ml-6'

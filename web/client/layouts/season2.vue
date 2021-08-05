@@ -39,6 +39,7 @@
                 :to="nav.to"
                 :exact="nav.to === '/season2' && $route.path !== '/season2'"
                 :target="nav.blank ? '_blank' : ''"
+                :rel="nav.blank ? 'noreferrer noopener' : ''"
                 text
                 nuxt
                 v-bind="nav.children ? attrs : {}"
@@ -54,14 +55,14 @@
                 <fa
                   v-if="nav.blank"
                   class="ml-1"
-                  :icon="['far', 'up-right-from-square']"
+                  icon="far-regular fa-up-right-from-square"
                   size="sm"
                 />
                 <fa
                   v-else-if="nav.children"
                   class="ml-1"
                   size="sm"
-                  :icon="['fal', 'chevron-down']"
+                  icon="fa-light fa-chevron-down"
                 />
               </v-btn>
             </template>
@@ -72,6 +73,7 @@
                 active-class="primary--text"
                 :to="item.to"
                 :target="item.blank ? '_blank' : ''"
+                :rel="nav.blank ? 'noreferrer noopener' : ''"
                 :disabled="item.disabled"
                 nuxt
               >
@@ -87,7 +89,7 @@
                     <fa
                       v-if="item.blank"
                       class="ml-2"
-                      :icon="['far', 'up-right-from-square']"
+                      icon="far-regular fa-up-right-from-square"
                       size="sm"
                     />
                   </v-list-item-title>
@@ -109,7 +111,7 @@
         @click="drawer.visible = true"
       >
         <fa
-          :icon="['far', 'bars']"
+          icon="far-regular fa-bars"
           size="lg"
         />
       </v-btn>
@@ -148,6 +150,7 @@
                 active-class="primary--text"
                 :to="item.to"
                 :target="item.blank ? '_blank' : ''"
+                :rel="nav.blank ? 'noreferrer noopener' : ''"
                 :disabled="item.disabled"
                 nuxt
               >
@@ -164,7 +167,7 @@
                     <fa
                       v-if="item.blank"
                       class="ml-2"
-                      :icon="['far', 'up-right-from-square']"
+                      icon="far-regular fa-up-right-from-square"
                       size="sm"
                     />
                   </v-list-item-title>
@@ -182,6 +185,7 @@
               active-class="primary white--text"
               :to="nav.to"
               :target="nav.blank ? '_blank' : ''"
+              :rel="nav.blank ? 'noreferrer noopener' : ''"
               :exact="nav.to === '/season2' && $route.path !== '/season2'"
               nuxt
             >
@@ -198,7 +202,7 @@
                   <fa
                     v-if="nav.blank"
                     class="ml-1"
-                    :icon="['far', 'up-right-from-square']"
+                    icon="far-regular fa-up-right-from-square"
                     size="sm"
                   />
                 </v-list-item-title>

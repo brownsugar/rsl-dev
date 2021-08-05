@@ -22,7 +22,7 @@
             icon
             @click="prev"
           >
-            <fa :icon="['fas', 'chevron-left']" />
+            <fa icon="fa-solid fa-chevron-left" />
           </v-btn>
           <v-btn
             color="secondary"
@@ -30,7 +30,7 @@
             icon
             @click="next"
           >
-            <fa :icon="['fas', 'chevron-right']" />
+            <fa icon="fa-solid fa-chevron-right" />
           </v-btn>
         </v-col>
       </v-row>

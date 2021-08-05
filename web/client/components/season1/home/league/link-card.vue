@@ -7,6 +7,7 @@
       height="180"
       :href="link"
       target="_blank"
+      rel="noreferrer noopener"
     >
       <v-scroll-y-transition mode="out-in">
         <div
@@ -16,7 +17,7 @@
         >
           <span>{{ hoverText }}</span>
           <span class="text-body-1">
-            <fa :icon="['fas', 'external-link-alt']" />
+            <fa icon="fa-solid fa-up-right-from-square" />
           </span>
         </div>
         <div
@@ -24,7 +25,7 @@
           key="origin"
           class="content text-h2"
         >
-          <fa :icon="['fab', brand]" />
+          <fa :icon="['fa-brands', brand]" />
         </div>
       </v-scroll-y-transition>
     </v-card>

@@ -19,7 +19,9 @@ export const actions = {
     if (slug in state.single) {
       return Promise.resolve(state.single[slug])
     } else {
-      return this.$wp.pages().slug(slug).embed()
+      return this.$wp.pages()
+        .slug(slug)
+        .embed()
         .then((posts) => {
           const post = posts[0]
           if (post) {

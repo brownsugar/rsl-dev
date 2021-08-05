@@ -69,7 +69,7 @@
               <template #prepend>
                 <fa
                   class="mr-3"
-                  :icon="['fas', 'heart']"
+                  icon="fa-solid fa-heart"
                 />
               </template>
             </v-alert>
@@ -289,14 +289,14 @@
                                 v-for="j in track.level"
                                 :key="j"
                                 class="grey--text"
-                                :icon="['fas', 'star']"
+                                icon="fa-solid fa-star"
                                 size="sm"
                               />
                               <fa
                                 v-for="j in 5 - track.level"
                                 :key="j"
                                 class="grey--text text--lighten-2"
-                                :icon="['far', 'star']"
+                                icon="fa-solid fa-star"
                                 size="sm"
                               />
                             </div>
@@ -321,7 +321,7 @@
                               <span>
                                 <fa
                                   class="mr-1"
-                                  :icon="['far', 'stopwatch']"
+                                  icon="far-regular fa-stopwatch"
                                 />
                                 {{ trackBest[track.id].time }}
                               </span>
@@ -329,7 +329,7 @@
                               <span>
                                 <fa
                                   class="mr-1"
-                                  :icon="['far', 'user-crown']"
+                                  icon="far-regular fa-user-crown"
                                 />
                                 {{ trackBest[track.id].player }}
                               </span>
@@ -401,7 +401,7 @@
                       small
                       @click="showHostDialog(host)"
                     >
-                      <fa :icon="['far', 'search']" />
+                      <fa icon="far-regular fa-magnifying-glass" />
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -493,11 +493,11 @@ export default {
       },
       {
         title: '報名網址',
-        content: '<a href="https://www.accupass.com/go/restartkartrider" target="_blank">https://www.accupass.com/go/restartkartrider</a>'
+        content: '<a href="https://www.accupass.com/go/restartkartrider" target="_blank" rel="noreferrer noopener">https://www.accupass.com/go/restartkartrider</a>'
       },
       {
         title: '報名須知',
-        content: '報名及付款完成後可獲得專屬 QRcode，報名人員需完成<a href="https://forms.gle/ReXkzUen1bxAX8MG9" target="_blank">資料回傳表單</a>填寫後，由主辦單位核准並發送信件通知才算報名成功。'
+        content: '報名及付款完成後可獲得專屬 QRcode，報名人員需完成<a href="https://forms.gle/ReXkzUen1bxAX8MG9" target="_blank" rel="noreferrer noopener">資料回傳表單</a>填寫後，由主辦單位核准並發送信件通知才算報名成功。'
       }
     ],
     leagueInfo: {

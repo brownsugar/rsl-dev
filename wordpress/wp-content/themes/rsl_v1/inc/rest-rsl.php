@@ -36,8 +36,9 @@ function rsl_rest_api_init() {
 			$endpoint['namespace'],
 			$endpoint['route'],
 			array(
-				'methods'  => 'GET',
-				'callback' => $endpoint['callback'],
+				'methods'             => 'GET',
+				'callback'            => $endpoint['callback'],
+				'permission_callback' => '__return_true',
 			)
 		);
 	}

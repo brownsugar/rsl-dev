@@ -54,7 +54,7 @@
         icon
         @click="drawer.visible = true"
       >
-        <fa :icon="['far', 'bars']" />
+        <fa icon="far-regular fa-bars" />
       </v-btn>
     </v-app-bar>
 
@@ -127,13 +127,14 @@
                 :color="social.brand"
                 :href="social.to"
                 target="_blank"
+                rel="noreferrer noopener"
                 large
                 icon
                 v-bind="attrs"
                 v-on="on"
               >
                 <fa
-                  :icon="['fab', social.brand]"
+                  :icon="['fa-brands', social.brand]"
                   size="lg"
                 />
               </v-btn>
@@ -145,15 +146,16 @@
         <v-card-text>
           &copy; 2020 <strong>RE:START League</strong>
           <span class="divider">|</span>
-          Design by <a class="white--text" href="https://brownsugar.tw" target="_blank">Brownsugar</a>
+          Design by <a class="white--text" href="https://brownsugar.tw" target="_blank" rel="noreferrer noopener">Brownsugar</a>
           <v-btn
             href="https://github.com/brownsugar/rsl-dev"
             target="_blank"
+            rel="noreferrer noopener"
             x-small
             icon
           >
             <fa
-              :icon="['fab', 'github']"
+              icon="fa-brands fa-github"
               size="lg"
             />
           </v-btn>

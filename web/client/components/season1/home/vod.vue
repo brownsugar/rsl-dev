@@ -38,7 +38,7 @@
             <template #icon>
               <fa
                 class="primary--text"
-                :icon="['fas', 'bell']"
+                icon="fa-solid fa-bell"
                 size="lg"
               />
             </template>
@@ -47,6 +47,7 @@
                 color="primary"
                 :href="$config.rsl.youtube.url"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 前往 YouTube
               </v-btn>

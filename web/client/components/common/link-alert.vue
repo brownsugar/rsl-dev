@@ -4,11 +4,12 @@
     class="d-block text-decoration-none"
     :href="href"
     target="_blank"
+    rel="noreferrer noopener"
   >
     <v-alert v-bind="$attrs">
       <slot />
       <template #append>
-        <fa :icon="['fas', 'external-link-alt']" />
+        <fa icon="fa-solid fa-up-right-from-square" />
       </template>
     </v-alert>
   </a>

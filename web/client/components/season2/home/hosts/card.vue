@@ -38,7 +38,7 @@
                 @click="panelVisible = true"
               >
                 <fa
-                  :icon="['fas', 'circle-info']"
+                  icon="fa-solid fa-circle-info"
                   size="lg"
                 />
               </v-btn>
@@ -80,6 +80,7 @@
               v-if="host.link"
               :href="host.link"
               target="_blank"
+              rel="noreferrer noopener"
               large
               dark
               text
@@ -87,7 +88,7 @@
               相關連結
               <fa
                 class="ml-2"
-                :icon="['fas', 'up-right-from-square']"
+                icon="fa-solid fa-up-right-from-square"
               />
             </v-btn>
             <v-btn
@@ -96,7 +97,7 @@
               dark
               @click="panelVisible = false"
             >
-              <fa :icon="['fas', 'xmark']" />
+              <fa icon="fa-solid fa-xmark" />
             </v-btn>
           </v-card-actions>
         </div>

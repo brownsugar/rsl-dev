@@ -52,9 +52,9 @@
             </p>
           </div>
           <h4 class="text-h5 mt-12 mb-8">
-            <fa :icon="['duotone', 'quote-left']" />
+            <fa icon="fa-duotone fa-quote-left" />
             <span class="mx-4">夢想啟程，再造傳奇</span>
-            <fa :icon="['duotone', 'quote-right']" />
+            <fa icon="fa-duotone fa-quote-right" />
           </h4>
           <div class="text-h6 font-weight-regular">
             <p>
@@ -76,7 +76,7 @@
               查看 S2 聯賽懶人包
               <fa
                 class="ml-2"
-                :icon="['duotone', 'chevrons-right']"
+                icon="fa-duotone fa-chevrons-right"
               />
             </v-btn>
           </div>
@@ -111,6 +111,7 @@
               :color="block.type + ' darken-1'"
               :href="$config.rsl[block.type].url"
               target="_blank"
+              rel="noreferrer noopener"
               large
               dark
             >
@@ -118,7 +119,7 @@
               <fa
                 class="ml-2"
                 size="lg"
-                :icon="['fas', 'right-long']"
+                icon="fa-solid fa-right-long"
               />
             </v-btn>
           </div>
@@ -152,6 +153,7 @@
               color="youtube darken-1"
               :href="$config.rsl.youtube.url"
               target="_blank"
+              rel="noreferrer noopener"
               large
               dark
             >
@@ -159,7 +161,7 @@
               <fa
                 class="ml-2"
                 size="lg"
-                :icon="['fas', 'right-long']"
+                icon="fa-solid fa-right-long"
               />
             </v-btn>
           </div>

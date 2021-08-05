@@ -46,7 +46,11 @@ export const actions = {
       commit('setLoading', false)
       return null
     }
-    return this.$wp.posts().categories(category.id).perPage(perPage).page(page).embed()
+    return this.$wp.posts()
+      .categories(category.id)
+      .perPage(perPage)
+      .page(page)
+      .embed()
       .then((data) => {
         commit('setTotalPage', data._paging ? data._paging.totalPages : 1)
         commit('setCurrent', data)
@@ -70,7 +74,18 @@ export const actions = {
       if (!id || isNaN(Number(id))) {
         return null
       }
-      return this.$wp.posts().id(id).embed()
+      let request = this.$wp.posts()
+      const { ck, cv, nonce } = this.$router.history.current.query
+      if (ck && cv && nonce) {
+        request = request
+          .setHeaders('Cookie', ck + '=' + cv)
+          .auth({
+            nonce
+          })
+      }
+      return request
+        .id(id)
+        .embed()
         .then((post) => {
           if (post) {
             commit('addSingle', {
