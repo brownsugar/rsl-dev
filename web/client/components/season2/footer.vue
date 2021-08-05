@@ -55,6 +55,7 @@
               :color="social.brand"
               :href="$config.rsl[social.brand].url"
               target="_blank"
+              rel="noreferrer noopener"
               depressed
               large
               dark
@@ -76,7 +77,12 @@
           <span class="mx-2 d-none d-sm-inline">|</span>
           <span class="d-block d-sm-inline mt-1 mt-sm-0">
             Design by
-            <a class="white--text text-decoration-none hover-color" href="https://brownsugar.tw" target="_blank">
+            <a
+              class="white--text text-decoration-none hover-color"
+              href="https://brownsugar.tw"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Brownsugar
               <fa
                 icon="far-regular fa-up-right-from-square"
@@ -87,6 +93,7 @@
             <v-btn
               href="https://github.com/brownsugar/rsl-dev"
               target="_blank"
+              rel="noreferrer noopener"
               x-small
               text
               dark

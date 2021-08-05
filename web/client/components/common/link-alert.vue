@@ -4,6 +4,7 @@
     class="d-block text-decoration-none"
     :href="href"
     target="_blank"
+    rel="noreferrer noopener"
   >
     <v-alert v-bind="$attrs">
       <slot />

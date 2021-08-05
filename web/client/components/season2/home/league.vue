@@ -111,6 +111,7 @@
               :color="block.type + ' darken-1'"
               :href="$config.rsl[block.type].url"
               target="_blank"
+              rel="noreferrer noopener"
               large
               dark
             >
@@ -152,6 +153,7 @@
               color="youtube darken-1"
               :href="$config.rsl.youtube.url"
               target="_blank"
+              rel="noreferrer noopener"
               large
               dark
             >

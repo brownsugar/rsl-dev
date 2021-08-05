@@ -35,6 +35,7 @@
           color="youtube"
           :href="host.link"
           target="_blank"
+          rel="noreferrer noopener"
           icon
         >
           <fa icon="fa-brands fa-youtube" />

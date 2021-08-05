@@ -493,11 +493,11 @@ export default {
       },
       {
         title: '報名網址',
-        content: '<a href="https://www.accupass.com/go/restartkartrider" target="_blank">https://www.accupass.com/go/restartkartrider</a>'
+        content: '<a href="https://www.accupass.com/go/restartkartrider" target="_blank" rel="noreferrer noopener">https://www.accupass.com/go/restartkartrider</a>'
       },
       {
         title: '報名須知',
-        content: '報名及付款完成後可獲得專屬 QRcode，報名人員需完成<a href="https://forms.gle/ReXkzUen1bxAX8MG9" target="_blank">資料回傳表單</a>填寫後，由主辦單位核准並發送信件通知才算報名成功。'
+        content: '報名及付款完成後可獲得專屬 QRcode，報名人員需完成<a href="https://forms.gle/ReXkzUen1bxAX8MG9" target="_blank" rel="noreferrer noopener">資料回傳表單</a>填寫後，由主辦單位核准並發送信件通知才算報名成功。'
       }
     ],
     leagueInfo: {

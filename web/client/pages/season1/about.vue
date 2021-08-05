@@ -138,6 +138,7 @@
                     <v-btn
                       :href="highlight.link"
                       target="_blank"
+                      rel="noreferrer noopener"
                       icon
                       v-bind="attrs"
                       v-on="on"

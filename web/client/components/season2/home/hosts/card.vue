@@ -80,6 +80,7 @@
               v-if="host.link"
               :href="host.link"
               target="_blank"
+              rel="noreferrer noopener"
               large
               dark
               text

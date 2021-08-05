@@ -127,6 +127,7 @@
                 :color="social.brand"
                 :href="social.to"
                 target="_blank"
+                rel="noreferrer noopener"
                 large
                 icon
                 v-bind="attrs"
@@ -145,10 +146,11 @@
         <v-card-text>
           &copy; 2020 <strong>RE:START League</strong>
           <span class="divider">|</span>
-          Design by <a class="white--text" href="https://brownsugar.tw" target="_blank">Brownsugar</a>
+          Design by <a class="white--text" href="https://brownsugar.tw" target="_blank" rel="noreferrer noopener">Brownsugar</a>
           <v-btn
             href="https://github.com/brownsugar/rsl-dev"
             target="_blank"
+            rel="noreferrer noopener"
             x-small
             icon
           >

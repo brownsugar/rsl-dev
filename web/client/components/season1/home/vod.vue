@@ -47,6 +47,7 @@
                 color="primary"
                 :href="$config.rsl.youtube.url"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 前往 YouTube
               </v-btn>

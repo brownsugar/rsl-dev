@@ -7,6 +7,7 @@
       height="180"
       :href="link"
       target="_blank"
+      rel="noreferrer noopener"
     >
       <v-scroll-y-transition mode="out-in">
         <div

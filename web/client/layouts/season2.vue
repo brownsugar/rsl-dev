@@ -39,6 +39,7 @@
                 :to="nav.to"
                 :exact="nav.to === '/season2' && $route.path !== '/season2'"
                 :target="nav.blank ? '_blank' : ''"
+                :rel="nav.blank ? 'noreferrer noopener' : ''"
                 text
                 nuxt
                 v-bind="nav.children ? attrs : {}"
@@ -72,6 +73,7 @@
                 active-class="primary--text"
                 :to="item.to"
                 :target="item.blank ? '_blank' : ''"
+                :rel="nav.blank ? 'noreferrer noopener' : ''"
                 :disabled="item.disabled"
                 nuxt
               >
@@ -148,6 +150,7 @@
                 active-class="primary--text"
                 :to="item.to"
                 :target="item.blank ? '_blank' : ''"
+                :rel="nav.blank ? 'noreferrer noopener' : ''"
                 :disabled="item.disabled"
                 nuxt
               >
@@ -182,6 +185,7 @@
               active-class="primary white--text"
               :to="nav.to"
               :target="nav.blank ? '_blank' : ''"
+              :rel="nav.blank ? 'noreferrer noopener' : ''"
               :exact="nav.to === '/season2' && $route.path !== '/season2'"
               nuxt
             >
