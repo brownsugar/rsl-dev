@@ -1,10 +1,19 @@
 <?php
 
+require_once 'acf/rsl-fe-config.php';
+require_once 'acf/rsl-vote-table.php';
+
 $option_pages = array(
 	array(
-		'slug'  => 'rsl-fe-config',
-		'title' => 'RSL 前台設定',
-		'icon'  => 'dashicons-admin-settings',
+		'slug'   => 'rsl-fe-config',
+		'title'  => '官網前台設定',
+		'icon'   => 'dashicons-admin-settings',
+		'public' => true,
+	),
+	array(
+		'slug'  => 'rsl-vote-table',
+		'title' => '人氣王票選資料表',
+		'icon'  => 'dashicons-database',
 	),
 );
 
@@ -31,10 +40,34 @@ function rsl_acf_init() {
 add_action( 'acf/init', 'rsl_acf_init' );
 
 /**
- * Enable 'show' option in acf setting page
- * https://wordpress.org/plugins/wp-rest-cache/
+ * Enable 'Show in REST API?' option in acf setting page
+ * ONLY works on posts, taxonomies
+ * https://github.com/airesvsg/acf-to-rest-api/
  */
 add_filter( 'acf/rest_api/field_settings/show_in_rest', '__return_true' );
+
+/**
+ * Restrict field data's public access
+ * https://github.com/airesvsg/acf-to-rest-api/
+ */
+function rsl_rest_api_item_permissions( $permission, $request, $type ) {
+	global $option_pages;
+
+	$slug  = $request->get_param( 'id' );
+	$pages = array_filter(
+		$option_pages,
+		function ( $array ) use ( $slug ) {
+			return $slug === $array['slug'];
+		}
+	);
+	$pages = array_values( $pages );
+
+	$public = count( $pages ) && array_key_exists( 'public', $pages[0] )
+		? true === $pages[0]['public']
+		: false;
+	return $public;
+}
+add_filter( 'acf/rest_api/item_permissions/get', 'rsl_rest_api_item_permissions', 10, 3 );
 
 /**
  * Hook actions after saving fields data.
