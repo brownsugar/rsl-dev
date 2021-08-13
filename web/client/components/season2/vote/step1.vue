@@ -14,8 +14,8 @@
     </h4>
     <ul class="mb-4">
       <li>每個手機號碼擁有一次投票資格。</li>
-      <li>每個手機號碼的簡訊驗證碼請求次數上限為 <b>{{ vote.max_request }} 次</b>，達到上限時無法再請求簡訊驗證碼。</li>
-      <li>每個手機號碼的簡訊驗證碼回填次數上限為 <b>{{ vote.max_attempt }} 次</b>，達到上限時喪失投票資格。</li>
+      <li>每個手機號碼的簡訊驗證碼請求次數上限為 <b>{{ getVoteField('max_request') }} 次</b>，達到上限時無法再請求簡訊驗證碼。</li>
+      <li>每個手機號碼的簡訊驗證碼回填次數上限為 <b>{{ getVoteField('max_attempt') }} 次</b>，達到上限時喪失投票資格。</li>
     </ul>
     <h4 class="text-h6 mb-2">
       個人資料保護聲明
@@ -50,6 +50,9 @@ export default {
       vote: state => state.config.season2.vote
     }),
     eventDuration () {
+      if (!this.vote) {
+        return '敬請期待'
+      }
       const durations = [
         new Date(this.vote.from_datetime),
         new Date(this.vote.to_datetime)
@@ -59,7 +62,9 @@ export default {
         .join(' ~ ')
     },
     closedReason () {
-      if (this.vote.maintenance_mode) {
+      if (!this.vote) {
+        return '人氣王投票活動正在準備中，敬請關注 RSL 賽事聯盟官方公告。'
+      } else if (this.vote.maintenance_mode) {
         return '目前人氣王投票功能正在維護中，請稍候再來。'
       } else {
         const now = new Date()
@@ -72,6 +77,11 @@ export default {
         }
       }
       return null
+    }
+  },
+  methods: {
+    getVoteField (field) {
+      return this.vote ? this.vote[field] : '-'
     }
   }
 }
