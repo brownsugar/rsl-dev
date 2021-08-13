@@ -1,6 +1,7 @@
 <?php
 
 require_once 'acf/rsl-fe-config.php';
+require_once 'acf/rsl-be-config.php';
 require_once 'acf/rsl-vote-table.php';
 
 $option_pages = array(
