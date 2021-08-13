@@ -9,11 +9,9 @@
         <sub-title
           text="台韓交流賽"
         />
-        <v-container>
-          <coming-soon
-            message="精彩對決，即將上演。完整資訊八月公開。"
-          />
-        </v-container>
+        <coming-soon
+          message="精彩對決，即將上演。完整交流資訊 8/20 公佈。"
+        />
       </v-col>
     </v-row>
   </v-container>
