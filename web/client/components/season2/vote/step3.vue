@@ -45,11 +45,13 @@
       </v-alert>
     </v-fade-transition>
     <v-form
+      ref="form"
       v-model="formValid"
       :disabled="request.busy || submit.busy"
-      @submit.prevent
+      @submit.prevent="validateCode"
     >
       <v-text-field
+        ref="input"
         v-model="code"
         :rules="codeRules"
         name="code"
@@ -59,6 +61,7 @@
         label="簡訊驗證碼"
         hint="請輸入簡訊驗證碼 6 位數字"
         placeholder="000000"
+        autofocus
         required
       >
         <template #prepend-inner>
@@ -197,13 +200,21 @@ export default {
         this.error = e.message || ''
       } finally {
         this.request.busy = false
+        await this.$nextTick()
+        this.$refs.input.focus()
       }
     },
     confirmRequestCode () {
       this.request.dialogVisible = false
       this.requestCode()
     },
-    async validateCode () {
+    async validateCode (e) {
+      if (e.type === 'submit') {
+        this.$refs.form.validate()
+        if (!this.formValid) {
+          return
+        }
+      }
       this.submit.busy = true
       this.request.success = false
       this.request.already = false
@@ -235,6 +246,10 @@ export default {
         this.error = e.message || ''
       } finally {
         this.submit.busy = false
+        if (this.errorMessage) {
+          await this.$nextTick()
+          this.$refs.input.focus()
+        }
       }
     }
   }

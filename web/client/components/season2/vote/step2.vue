@@ -10,11 +10,13 @@
       </v-alert>
     </v-fade-transition>
     <v-form
+      ref="form"
       v-model="valid"
       :disabled="busy"
-      @submit.prevent
+      @submit.prevent="checkVoteStatus"
     >
       <v-text-field
+        ref="input"
         v-model="phone"
         :rules="phoneRules"
         name="phone"
@@ -25,6 +27,7 @@
         label="手機號碼"
         hint="請輸入 09 開頭手機號碼 10 碼"
         placeholder="09XXXXXXXX"
+        autofocus
         required
       >
         <template #prepend-inner>
@@ -75,7 +78,13 @@ export default {
     }
   },
   methods: {
-    async checkVoteStatus () {
+    async checkVoteStatus (e) {
+      if (e.type === 'submit') {
+        this.$refs.form.validate()
+        if (!this.valid) {
+          return
+        }
+      }
       this.busy = true
       this.error = null
       try {
@@ -97,6 +106,10 @@ export default {
         this.error = e.message || ''
       } finally {
         this.busy = false
+        if (this.errorMessage) {
+          await this.$nextTick()
+          this.$refs.input.focus()
+        }
       }
     }
   }
