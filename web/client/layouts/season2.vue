@@ -244,12 +244,16 @@ export default {
       },
       {
         label: 'S2 聯賽資訊',
-        badge: 'primary',
         children: [
           { label: '聯賽懶人包', to: '/season2/summary', note: '福利、賽程完全掌握！' },
           { label: '聯賽數據記錄', to: '/season2/stats' },
           { label: '聯賽規章', to: '/season2/rules' }
         ]
+      },
+      {
+        label: '人氣王票選',
+        to: '/season2/vote',
+        badge: 'primary'
       },
       {
         label: '台韓交流賽',

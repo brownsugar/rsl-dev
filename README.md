@@ -28,6 +28,10 @@ Add the host settings to `/private/etc/hosts` on Mac or `C:\WINDOWS\system32\dri
 ::1 rsl.local
 ```
 
+### Coding Standards
+
+[WordPress-Core](https://github.com/WordPress/WordPress-Coding-Standards)
+
 ### Required plugins
 
 1. [ACF to REST API](https://wordpress.org/plugins/acf-to-rest-api/)
