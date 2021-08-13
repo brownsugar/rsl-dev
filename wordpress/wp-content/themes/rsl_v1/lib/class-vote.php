@@ -95,7 +95,7 @@ class Vote {
 			} elseif ( $vote_data['request_count'] >= $vote['max_request'] ) {
 				// Reach max request limit
 				$message = 'MAX_REQUEST';
-			} elseif ( ( time() - strtotime( $vote_data['request_datetime'] ) ) / 60 < 5 ) {
+			} elseif ( ( strtotime( wp_date( 'Y-m-d H:i:s' ) ) - strtotime( $vote_data['request_datetime'] ) ) / 60 < 5 ) {
 				// Request too fast (less than 5 mins)
 				$message = 'REQUEST_LIMIT';
 			} else {
@@ -117,7 +117,7 @@ class Vote {
 			$data          = array(
 				'verification_code' => $code,
 				'request_count'     => $request_count + ( $code_sent ? 1 : 0 ),
-				'request_datetime'  => gmdate( 'Y-m-d H:i:s' ),
+				'request_datetime'  => wp_date( 'Y-m-d H:i:s' ),
 			);
 			if ( $vote_data ) {
 				$row = array_merge(
@@ -177,7 +177,7 @@ class Vote {
 			} else {
 				$data = array(
 					'attempt_count'    => $attempted,
-					'attempt_datetime' => gmdate( 'Y-m-d H:i:s' ),
+					'attempt_datetime' => wp_date( 'Y-m-d H:i:s' ),
 				);
 
 				if ( $param['code'] === $vote_data['verification_code'] ) {
@@ -230,7 +230,7 @@ class Vote {
 		$vote = $this->fe_config['season2']['vote'];
 		$from = strtotime( $vote['from_datetime'] );
 		$to   = strtotime( $vote['to_datetime'] );
-		$now  = time();
+		$now  = strtotime( wp_date( 'Y-m-d H:i:s' ) );
 		if ( $vote['maintenance_mode'] ) {
 			throw new Exception( 'Voting feature is currently under maintenance mode.', -3 );
 		} elseif ( $now < $from || $now > $to ) {
