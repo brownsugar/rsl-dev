@@ -58,6 +58,8 @@ class Vote {
 				$eligible = true;
 			}
 			$requested = intval( $vote_data['request_count'] );
+		} else {
+			$eligible = true;
 		}
 
 		return new WP_REST_Response(
