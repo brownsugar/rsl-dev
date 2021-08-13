@@ -1,5 +1,8 @@
 <?php
 
+define( 'THEME_ROOT', get_template_directory() );
+define( 'LIB_ROOT', THEME_ROOT . DIRECTORY_SEPARATOR . 'lib' );
+
 require_once 'inc/rest-rsl.php';
 require_once 'inc/extends.php';
 require_once 'inc/uploads.php';

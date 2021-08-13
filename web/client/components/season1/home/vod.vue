@@ -90,7 +90,7 @@ export default {
 #vod {
   padding-bottom: 160px;
   background:
-    image('season1/background/play.png') left 70px bottom 15px / 300px no-repeat,
+    image('common/play.png') left 70px bottom 15px / 300px no-repeat,
     image('season1/background/play-ground.png') left -20px bottom -28px / 600px no-repeat,
     image('season1/background/race-bg.png') top right / contain no-repeat;
 }

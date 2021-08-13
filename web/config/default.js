@@ -24,8 +24,13 @@ const config = {
         name: 'site'
       },
       {
+        extension: 'rsl/v1',
+        route: '/vote/(?P<action>[\\w\\-\\_]+)',
+        name: 'vote'
+      },
+      {
         extension: 'acf/v3',
-        route: '/options/(?P<id>[\\w\\-\\_]+)',
+        route: '/options/(?P<id>[\\w-_]+)',
         name: 'options'
       }
     ]

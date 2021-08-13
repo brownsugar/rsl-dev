@@ -11,6 +11,11 @@ $option_pages = array(
 		'public' => true,
 	),
 	array(
+		'slug'  => 'rsl-be-config',
+		'title' => '官網後台設定',
+		'icon'  => 'dashicons-admin-settings',
+	),
+	array(
 		'slug'  => 'rsl-vote-table',
 		'title' => '人氣王票選資料表',
 		'icon'  => 'dashicons-database',

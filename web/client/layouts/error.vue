@@ -41,6 +41,14 @@
         <v-btn
           class="ml-2"
           color="primary"
+          outlined
+          @click="reload"
+        >
+          重新整理
+        </v-btn>
+        <v-btn
+          class="ml-2"
+          color="primary"
           to="/"
           nuxt
         >
@@ -68,6 +76,11 @@ export default {
     title () {
       const title = this.error.statusCode === 404 ? '頁面不存在' : `發生內部錯誤 (Error ${this.error.statusCode})`
       return title
+    }
+  },
+  methods: {
+    reload () {
+      window.location.reload()
     }
   }
 }

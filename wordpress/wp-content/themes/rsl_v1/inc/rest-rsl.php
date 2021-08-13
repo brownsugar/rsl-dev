@@ -1,10 +1,20 @@
 <?php
 
+require_once 'rest/site.php';
+require_once 'rest/vote.php';
+
 $rsl_endpoints        = array(
 	array(
 		'namespace' => 'rsl/v1',
 		'route'     => '/site',
-		'callback'  => 'get_site_info',
+		'methods'   => 'GET',
+		'callback'  => 'rest_site_handler',
+	),
+	array(
+		'namespace' => 'rsl/v1',
+		'route'     => '/vote/(?P<action>[\w-]+)',
+		'methods'   => array( 'GET', 'POST', 'PUT' ),
+		'callback'  => 'rest_vote_handler',
 	),
 );
 $rsl_cached_endpoints = array(
@@ -25,7 +35,7 @@ function rsl_rest_url_prefix( $slug ) {
 add_filter( 'rest_url_prefix', 'rsl_rest_url_prefix' );
 
 /**
- * Add rsl/v1 endpoint
+ * Add rsl custom endpoint
  * https://developer.wordpress.org/reference/functions/register_rest_route/
  */
 function rsl_rest_api_init() {
@@ -36,39 +46,19 @@ function rsl_rest_api_init() {
 			$endpoint['namespace'],
 			$endpoint['route'],
 			array(
-				'methods'             => 'GET',
+				'methods'             => $endpoint['methods'],
 				'callback'            => $endpoint['callback'],
 				'permission_callback' => '__return_true',
 			)
 		);
 	}
+
+	header( 'Access-Control-Allow-Origin: *' );
+	header( 'Access-Control-Allow-Methods: OPTIONS, GET, POST, PUT, PATCH, DELETE' );
+	header( 'Access-Control-Allow-Credentials: true' );
+	header( 'Vary: Origin', false );
 };
 add_action( 'rest_api_init', 'rsl_rest_api_init' );
-
-/**
- * Get site infos
- * https://developer.wordpress.org/reference/functions/get_bloginfo/
- */
-function get_site_info( $request ) {
-	$fields = array(
-		'name',
-		'description',
-		'wpurl',
-		'url',
-		'admin_email',
-		'charset',
-		'language',
-		'rss_url',
-		'rss2_url',
-	);
-
-	$data = array();
-	foreach ( $fields as $field ) {
-		$data[ $field ] = get_bloginfo( $field );
-	}
-
-	return $data;
-}
 
 /**
  * Add cache support for custom endpoints
