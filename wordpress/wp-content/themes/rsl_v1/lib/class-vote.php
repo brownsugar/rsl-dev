@@ -178,7 +178,6 @@ class Vote {
 				$message = 'MAX_ATTEMPT';
 			} else {
 				$data = array(
-					'attempt_count'    => $attempted,
 					'attempt_datetime' => wp_date( 'Y-m-d H:i:s' ),
 				);
 
@@ -193,6 +192,8 @@ class Vote {
 					$attempted = $attempted + 1;
 					$message   = 'CODE_ERROR';
 				}
+				$data['attempt_count'] = $attempted;
+
 				$row = array_merge(
 					$vote_data,
 					$data
