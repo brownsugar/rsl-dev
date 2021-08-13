@@ -142,7 +142,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-stepper__content {
+.v-stepper__step--active + .v-stepper__content {
 
   &.static::v-deep .v-stepper__wrapper {
     overflow: visible; // Fix element shadow got cutted off in wrapper
