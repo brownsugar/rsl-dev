@@ -508,8 +508,8 @@ acf_add_local_field_group(array(
               ),
               'show_in_rest' => 1,
               'display_format' => 'Y-m-d H:i:s',
-              'return_format' => 'Y-m-d H:i:s',
-              'first_day' => 1,
+              'return_format' => 'Y/m/d H:i:s',
+              'first_day' => 0,
             ),
             array(
               'key' => 'field_6110a48217d7c',
@@ -526,8 +526,8 @@ acf_add_local_field_group(array(
               ),
               'show_in_rest' => 1,
               'display_format' => 'Y-m-d H:i:s',
-              'return_format' => 'Y-m-d H:i:s',
-              'first_day' => 1,
+              'return_format' => 'Y/m/d H:i:s',
+              'first_day' => 0,
             ),
             array(
               'key' => 'field_61161a5ce588b',
