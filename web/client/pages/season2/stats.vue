@@ -15,7 +15,7 @@
           base-path="/season2/stats"
         />
         <v-fade-transition mode="out-in">
-          <nuxt />
+          <nuxt-child keep-alive />
         </v-fade-transition>
       </v-col>
     </v-row>
