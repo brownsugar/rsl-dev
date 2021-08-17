@@ -7,6 +7,7 @@ import {
   faAngleRight as fasAngleRight,
   faBars as fasBars,
   faBell as fasBell,
+  faCaretUp as fasCaretUp,
   faCaretDown as fasCaretDown,
   faCircleCheck as fasCircleCheck,
   faCheck as fasCheck,
@@ -63,6 +64,7 @@ library.add(
   fasAngleRight,
   fasBars,
   fasBell,
+  fasCaretUp,
   fasCaretDown,
   fasCircleCheck,
   fasCheck,
@@ -157,6 +159,12 @@ export default {
       component: FontAwesomeIcon,
       props: {
         icon: 'far-regular fa-angle-down'
+      }
+    },
+    sort: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: 'fa-solid fa-caret-up'
       }
     }
   }
