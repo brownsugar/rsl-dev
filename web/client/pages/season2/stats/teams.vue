@@ -8,6 +8,7 @@
         <v-divider
           v-if="i > 0 && i % 4 === 0"
           :key="'divider-' + stat.team"
+          :vertical="$breakpoint.is.smAndDown"
         />
         <v-tab
           :key="'tab-' + stat.team"
