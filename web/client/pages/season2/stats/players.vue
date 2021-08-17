@@ -2,12 +2,14 @@
   <div class="players">
     <v-tabs
       :vertical="$breakpoint.is.mdAndUp"
+      :grow="$breakpoint.is.smAndDown"
+      center-active
       show-arrows
     >
       <template v-for="(group, i) in groupStats">
         <v-tab
           :key="'tab-' + i"
-          class="justify-start"
+          class="justify-md-start"
         >
           {{ group.name }}
         </v-tab>
@@ -19,7 +21,7 @@
           <v-row>
             <v-col
               v-for="team in group.teams"
-              :key="team.team"
+              :key="team.name"
               cols="12"
               md="6"
             >
@@ -39,16 +41,16 @@
                             <Mark
                               class="mr-2"
                               category="season2"
-                              :team="team.team"
+                              :team="team.name"
                               small
                             />
-                            {{ team.team }}
+                            {{ team.name }}
                           </div>
                           <div class="text-right grey--text text--darken-1">
-                            總出賽 {{ team.total }} 張
+                            總出賽 {{ playerStats[team.name].total }} 張
                             <br v-if="$breakpoint.is.smAndDown">
                             <span v-else>，</span>
-                            隊伍首位率 {{ team.rateTotal === -1 ? 'N/A' : (team.rateTotal + '%') }}
+                            隊伍首位率 {{ playerStats[team.name].rateTotal === -1 ? 'N/A' : (playerStats[team.name].rateTotal + '%') }}
                           </div>
                         </div>
                       </th>
@@ -64,7 +66,7 @@
                   </thead>
                   <tbody>
                     <tr
-                      v-for="row in team.data"
+                      v-for="row in playerStats[team.name].data"
                       :key="row.player"
                     >
                       <template v-for="header in headers">
@@ -113,6 +115,7 @@
 <script>
 import { mapState } from 'vuex'
 import Mark from '~/components/common/mark'
+import teams from '~/data/season2/teams'
 
 export default {
   name: 'Players',
@@ -120,6 +123,12 @@ export default {
     Mark
   },
   layout: 'season2',
+  props: {
+    topGroups: {
+      type: Number,
+      default: 16
+    }
+  },
   data: () => ({
     headers: [
       {
@@ -146,36 +155,47 @@ export default {
       try {
         obj = JSON.parse(this.playerStatsRaw)
       } catch (e) {}
-      return obj.map((stat) => {
+      return obj.reduce((result, stat) => {
         let sum = 0
-        stat.data = stat.data.map((player) => {
+        const total = stat.total
+        const data = stat.data.map((player) => {
           sum += player.count || 0
 
           return {
             ...player,
-            rate: stat.total === 0 ? -1 : Math.ceil(player.count / stat.total * 100)
+            rate: total === 0 ? -1 : Math.ceil(player.count / total * 100)
           }
         })
-        stat.rateTotal = stat.total === 0 ? -1 : Math.ceil(sum / stat.total * 100)
-        return stat
-      })
+        const rateTotal = total === 0 ? -1 : Math.ceil(sum / total * 100)
+        result[stat.team] = {
+          total,
+          data,
+          rateTotal
+        }
+        return result
+      }, {})
+    },
+    topTeams () {
+      return teams.filter(team => team.top <= this.topGroups)
     },
     groupStats () {
-      const teams = [...this.playerStats]
+      const tops = this.topGroups
+      const groupCount = tops / 4
       const groups = []
-      for (let i = 0; i < this.groups.length; i++) {
+      const topTeams = [...this.topTeams]
+      for (let i = 0; i < groupCount; i++) {
+        let name = ''
+        if (tops > 4) {
+          name = 'Group ' + this.groups[i]
+        } else {
+          name = 'TOP ' + tops
+        }
         groups.push({
-          name: 'Group ' + this.groups[i],
-          teams: teams.splice(0, 4)
+          name,
+          teams: topTeams.splice(0, 4)
         })
       }
       return groups
-    }
-  },
-  methods: {
-    getGroup (i) {
-      const index = Math.ceil((i + 1) / 4) - 1
-      return this.groups[index]
     }
   }
 }

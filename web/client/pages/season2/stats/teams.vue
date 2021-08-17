@@ -2,43 +2,45 @@
   <div class="teams">
     <v-tabs
       :vertical="$breakpoint.is.mdAndUp"
+      :grow="$breakpoint.is.smAndDown"
+      center-active
       show-arrows
     >
-      <template v-for="(stat, i) in trackStats">
+      <template v-for="(team, i) in topTeams">
         <v-divider
           v-if="i > 0 && i % 4 === 0"
-          :key="'divider-' + stat.team"
+          :key="'divider-' + team.name"
           :vertical="$breakpoint.is.smAndDown"
         />
         <v-tab
-          :key="'tab-' + stat.team"
-          class="justify-start"
+          :key="'tab-' + team.name"
+          class="justify-md-start"
         >
           <Mark
             class="flex-grow-0 mr-2"
             category="season2"
-            :team="stat.team"
+            :team="team.name"
             small
           />
-          {{ stat.team }}
+          {{ team.name }}
         </v-tab>
         <v-tab-item
-          :key="'tab-item-' + stat.team"
+          :key="'tab-item-' + team.name"
           class="pt-6 pb-4 px-2 px-md-6"
           eager
         >
           <two-line-title
-            :top="'TOP 16 Group ' + getGroup(i)"
+            :top="getTeamTitle(i)"
           >
             <template #bottom>
               <div class="d-flex align-center">
                 <Mark
                   class="mr-2"
                   category="season2"
-                  :team="stat.team"
+                  :team="team.name"
                   width="48"
                 />
-                {{ stat.team }}
+                {{ team.name }}
               </div>
             </template>
           </two-line-title>
@@ -49,8 +51,8 @@
           >
             <v-data-table
               :headers="headers"
-              :items="stat.data"
-              :items-per-page="stat.data.length"
+              :items="trackStats[team.name]"
+              :items-per-page="trackStats[team.name].length"
               group-by="mode"
               show-group-by
               hide-default-footer
@@ -107,6 +109,7 @@
 import { mapState } from 'vuex'
 import Mark from '~/components/common/mark'
 import TwoLineTitle from '~/components/season2/common/two-line-title'
+import teams from '~/data/season2/teams'
 import tracks from '~/data/season2/tracks'
 
 export default {
@@ -116,6 +119,12 @@ export default {
     TwoLineTitle
   },
   layout: 'season2',
+  props: {
+    topGroups: {
+      type: Number,
+      default: 16
+    }
+  },
   data: () => ({
     headers: [
       {
@@ -172,8 +181,8 @@ export default {
       try {
         obj = JSON.parse(this.trackStatsRaw)
       } catch (e) {}
-      return obj.map((stat) => {
-        stat.data = stat.data.map((track) => {
+      return obj.reduce((result, stat) => {
+        result[stat.team] = stat.data.map((track) => {
           const isSpeed = track.track in this.tracks.speed
           const total = track.wins + track.loses
 
@@ -185,14 +194,23 @@ export default {
             rate: total === 0 ? -1 : Math.ceil(track.wins / total * 100)
           }
         })
-        return stat
-      })
+        return result
+      }, {})
+    },
+    topTeams () {
+      return teams.filter(team => team.top <= this.topGroups)
     }
   },
   methods: {
-    getGroup (i) {
+    getTeamTitle (i) {
+      const tops = this.topGroups
+      const result = ['TOP ' + tops]
       const index = Math.ceil((i + 1) / 4) - 1
-      return this.groups[index]
+      const group = tops > 4 ? this.groups[index] : ''
+      if (group) {
+        result.push('Group ' + group)
+      }
+      return result.join(' ')
     },
     getHeader (value) {
       return this.headers.find(header => header.value === value) || {}

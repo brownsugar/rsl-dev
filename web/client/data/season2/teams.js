@@ -1,7 +1,7 @@
 const teams = [
   {
     name: 'NCP',
-    top: 8,
+    top: 4,
     players: [
       'GKx維骨力',
       'SakuraMiko',
@@ -84,7 +84,7 @@ const teams = [
   },
   {
     name: 'WilsonWeng',
-    top: 8,
+    top: 4,
     players: [
       'KStar_洗髮乳',
       '威爾森夜影',
@@ -108,7 +108,7 @@ const teams = [
   },
   {
     name: '挖礦好果蠅哦',
-    top: 8,
+    top: 4,
     players: [
       '110次普悠瑪',
       '笨蛋吉娃娃',
@@ -144,7 +144,7 @@ const teams = [
   },
   {
     name: 'Few Kids',
-    top: 8,
+    top: 4,
     players: [
       'Str_Noah',
       'KStar_睏平',
