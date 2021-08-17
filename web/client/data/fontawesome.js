@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
+// https://github.com/FortAwesome/vue-fontawesome#nuxtjs
+import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faAngleLeft as fasAngleLeft,
@@ -110,6 +111,8 @@ library.add(
   fabTwitch,
   fabYoutube
 )
+
+config.autoAddCss = false
 
 Vue.component('Fa', FontAwesomeIcon) // For myself
 Vue.component('FontAwesomeIcon', FontAwesomeIcon) // For Vuetify
