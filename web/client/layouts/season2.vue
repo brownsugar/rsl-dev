@@ -348,6 +348,11 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.nuxt-progress {
+  background-color: $s2-tertiary;
+}
+</style>
 <style lang="scss" scoped>
 .v-app-bar.app-bar {
   background-color: rgba(#FFF, .7) !important;
