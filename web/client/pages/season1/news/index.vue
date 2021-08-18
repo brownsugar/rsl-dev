@@ -16,6 +16,7 @@
             :key="category.slug"
             :class="{ 'primary--text': catSlug === category.slug }"
             :to="category.slug ? '/season1/news/category/' + category.slug : '/season1/news'"
+            nuxt
           >
             {{ category.name }}
           </v-chip>

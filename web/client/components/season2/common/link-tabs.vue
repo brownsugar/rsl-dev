@@ -10,6 +10,7 @@
       :class="{ 'primary--text': $route.params.slug === item.slug }"
       :to="makeRoutePath(item.slug)"
       exact
+      nuxt
     >
       {{ item.name }}
     </v-tab>

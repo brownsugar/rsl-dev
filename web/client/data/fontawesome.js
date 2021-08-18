@@ -1,12 +1,14 @@
 import Vue from 'vue'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
+// https://github.com/FortAwesome/vue-fontawesome#nuxtjs
+import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faAngleLeft as fasAngleLeft,
   faAngleRight as fasAngleRight,
   faBars as fasBars,
   faBell as fasBell,
+  faCaretUp as fasCaretUp,
   faCaretDown as fasCaretDown,
   faCircleCheck as fasCircleCheck,
   faCheck as fasCheck,
@@ -63,6 +65,7 @@ library.add(
   fasAngleRight,
   fasBars,
   fasBell,
+  fasCaretUp,
   fasCaretDown,
   fasCircleCheck,
   fasCheck,
@@ -108,6 +111,8 @@ library.add(
   fabTwitch,
   fabYoutube
 )
+
+config.autoAddCss = false
 
 Vue.component('Fa', FontAwesomeIcon) // For myself
 Vue.component('FontAwesomeIcon', FontAwesomeIcon) // For Vuetify
@@ -157,6 +162,12 @@ export default {
       component: FontAwesomeIcon,
       props: {
         icon: 'far-regular fa-angle-down'
+      }
+    },
+    sort: {
+      component: FontAwesomeIcon,
+      props: {
+        icon: 'fa-solid fa-caret-up'
       }
     }
   }

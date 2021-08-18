@@ -10,12 +10,33 @@
           text="Season 2 數據記錄"
         />
         <link-tabs
-          class="mt-8 mb-4"
+          class="mt-8 mb-2"
           :items="children"
           base-path="/season2/stats"
         />
+        <div class="d-flex justify-end mb-2">
+          <v-chip-group
+            v-model="topGroups"
+            color="primary"
+            mandatory
+          >
+            <v-chip
+              v-for="rank in topRanks"
+              :key="rank"
+              :value="rank"
+              :disabled="!currentType.topRanksSelector"
+              filter
+              outlined
+            >
+              TOP {{ rank }}
+            </v-chip>
+          </v-chip-group>
+        </div>
         <v-fade-transition mode="out-in">
-          <nuxt />
+          <nuxt-child
+            keep-alive
+            v-bind="childBindings"
+          />
         </v-fade-transition>
       </v-col>
     </v-row>
@@ -33,13 +54,17 @@ const children = [
   },
   {
     slug: 'teams',
-    name: '隊伍賽道數據'
+    name: '隊伍賽道數據',
+    topRanksSelector: true
   },
   {
     slug: 'players',
-    name: '選手首位數據'
+    name: '選手首位數據',
+    topRanksSelector: true
   }
 ]
+
+const topRanks = [4, 8, 16]
 
 export default {
   name: 'Stats',
@@ -58,7 +83,9 @@ export default {
     }
   },
   data: () => ({
-    children
+    children,
+    topRanks,
+    topGroups: topRanks[0]
   }),
   head () {
     const title = this.currentType.name + ' - S2 聯賽數據記錄'
@@ -82,6 +109,13 @@ export default {
     currentType () {
       const item = this.children.find(type => type.slug === this.slug)
       return item || {}
+    },
+    childBindings () {
+      const bindings = {}
+      if (this.currentType.topRanksSelector) {
+        bindings['top-groups'] = this.topGroups
+      }
+      return bindings
     }
   },
   watch: {

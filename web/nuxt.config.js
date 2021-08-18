@@ -85,10 +85,8 @@ export default {
   loading: { color: '#fff' },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    // Font Awesome integration
-    // https://github.com/FortAwesome/vue-fontawesome#nuxtjs
-    // '@fortawesome/fontawesome-svg-core/styles.css',
-    { src: '~/assets/styles/rsl/theme.scss', lang: 'scss' }
+    '~/assets/styles/rsl/theme.scss',
+    '~/assets/styles/vendor/fontawesome.scss'
   ],
   styleResources: {
     scss: [
@@ -102,8 +100,6 @@ export default {
     '~/plugins/vue-warn.js',
     '~/plugins/mobile-detect.js',
     '~/plugins/breakpoint.js',
-    // Handled in vuetify.options.js now
-    // '~/plugins/fontawesome.js',
     '~/plugins/clipboard.js',
     '~/plugins/vue-youtube.js',
     { src: '~/plugins/vue-affix.js', mode: 'client' },
