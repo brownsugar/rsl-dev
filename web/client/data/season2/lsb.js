@@ -87,7 +87,7 @@ const lsb = {
       playerId: 'LSB_PHS',
       honors: {
         individual: [
-          { name: '2021 SHINHANBANK HEY YOUNG KartRider League Season 1 3rd', rank: 3 }
+          { name: '2021 SHINHANBANK HEY YOUNG KartRider League Season 1', rank: 3 }
         ],
         team: [
           { name: '2019 KT 5G MULTIVEW KartRider League Season 2', rank: 1 },
