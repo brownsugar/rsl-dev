@@ -38,7 +38,7 @@ export default {
         { name: 'description', content: description, hid: 'description' },
         { property: 'og:title', content: title, hid: 'og:title' },
         { property: 'og:description', content: description, hid: 'og:description' },
-        { property: 'og:image', content: this.$config.rsl.url + '/lsb_2021.png', hid: 'og:image' }
+        { property: 'og:image', content: this.$config.rsl.url + '/event/lsb_2021.png', hid: 'og:image' }
       ]
     }
   }
