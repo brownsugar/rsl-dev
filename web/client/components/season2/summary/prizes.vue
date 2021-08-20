@@ -152,7 +152,7 @@ export default {
           {
             title: '觀眾票選人氣王',
             subtitle: 'Most Popular Player',
-            description: '打進 8 強之隊伍所屬成員皆可成為候選人，由觀眾票選支持，獲得最高票者，投票方式請關注後續公告。',
+            description: '打進 8 強之隊伍所屬成員皆可成為候選人，由觀眾票選支持，獲得最高票者。立即前往「人氣王票選」專區投票支持你喜愛的選手！',
             image: 'TT-4',
             content: [
               '獎金：NTD $2,000',
@@ -206,7 +206,7 @@ export default {
           {
             title: '冠軍賽終極獎勵',
             subtitle: 'Championship Lottery',
-            description: '活動方式後續公開，敬請關注 RSL 官方消息。',
+            description: '8/29 總決賽當日賽程結束後，於 RSL 官方 Twitch 頻道聊天室發送指定關鍵字，人人都有機會成為幸運兒！',
             image: 'TT-5',
             content: [
               '專業電競週邊：TT 曜越科技提供 [CyberChair E500 雪白版 人體工學椅]（共 1 名）'
@@ -215,7 +215,7 @@ export default {
           {
             title: '台韓服交流賽終極獎勵',
             subtitle: 'Friendly Match Lottery',
-            description: '活動方式後續公開，敬請關注 RSL 官方消息。',
+            description: '8/29 總決賽當日賽程結束後，於 RSL 官方 Twitch 頻道聊天室發送指定關鍵字，人人都有機會成為幸運兒！',
             image: 'HyperX-3',
             content: [
               '專業電競週邊：HyperX 提供 [HyperX Alloy Elite 2 機械式電競鍵盤]（共 4 名）'

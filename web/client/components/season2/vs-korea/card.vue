@@ -78,7 +78,7 @@
                 class="mr-1"
                 icon="fa-duotone fa-book"
               />
-              比賽規則
+              比賽規則 Rules
             </div>
             <ul class="text-body-1 mt-2">
               <li
