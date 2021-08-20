@@ -7,7 +7,7 @@ const teams = [
       'SakuraMiko',
       'GKxFan',
       'GKxIvaN',
-      'GKxShenHua',
+      'GKxShenhua',
       '魔女o伊蕾娜'
     ]
   },

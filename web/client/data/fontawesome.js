@@ -44,6 +44,8 @@ import {
 import {
   faAnglesDown as fadAnglesDown,
   faAnglesRight as fadAnglesRight,
+  faAward as fadAward,
+  faBook as fadBook,
   faChevronRight as fadChevronRight,
   faChevronsRight as fadChevronsRight,
   faNotes as fadNotes,
@@ -98,6 +100,8 @@ library.add(
   // Duotone, fa-duotone
   fadAnglesDown,
   fadAnglesRight,
+  fadAward,
+  fadBook,
   fadChevronRight,
   fadChevronsRight,
   fadNotes,
