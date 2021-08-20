@@ -47,7 +47,7 @@ export default {
   data: () => ({
     sections: [
       {
-        title: '台韓交流賽',
+        title: '台韓服交流賽',
         description: lsb.event.description
       },
       {

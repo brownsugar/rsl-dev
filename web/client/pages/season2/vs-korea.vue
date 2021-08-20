@@ -29,7 +29,7 @@ export default {
   },
   layout: 'season2',
   head () {
-    const title = '台韓交流賽 ft. Liiv SANDBOX'
+    const title = '台韓服交流賽 ft. Liiv SANDBOX'
     const description = lsb.event.description
 
     return {

@@ -142,7 +142,7 @@ export default {
           {
             title: '賽道紀錄霸主',
             subtitle: 'Track Master',
-            description: 'S2 賽季結束後（不包含台韓交流賽），保有最多張競速賽道最佳記錄的選手。',
+            description: 'S2 賽季結束後（不包含台韓服交流賽），保有最多張競速賽道最佳記錄的選手。',
             image: 'TT-3',
             content: [
               '獎金：NTD $3,000',
@@ -213,7 +213,7 @@ export default {
             ]
           },
           {
-            title: '台韓交流賽終極獎勵',
+            title: '台韓服交流賽終極獎勵',
             subtitle: 'Friendly Match Lottery',
             description: '活動方式後續公開，敬請關注 RSL 官方消息。',
             image: 'HyperX-3',

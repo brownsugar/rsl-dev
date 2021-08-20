@@ -256,7 +256,7 @@ export default {
         badge: 'primary'
       },
       {
-        label: '台韓交流賽',
+        label: '台韓服交流賽',
         to: '/season2/vs-korea',
         badge: 'primary'
       },
