@@ -257,7 +257,8 @@ export default {
       },
       {
         label: '台韓交流賽',
-        to: '/season2/vs-korea'
+        to: '/season2/vs-korea',
+        badge: 'primary'
       },
       {
         label: '最新消息',
