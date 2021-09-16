@@ -199,7 +199,8 @@ export default {
     transpile: [
       'vuetify/lib',
       'wpapi',
-      'superagent'
+      'superagent',
+      'vue-fontawesome'
     ],
     extend (config, { isClient, loaders: { vue } }) {
       config.resolve.alias.vue$ = 'vue/dist/vue.esm.js'
