@@ -252,13 +252,11 @@ export default {
       },
       {
         label: '人氣王票選',
-        to: '/season2/vote',
-        badge: 'primary'
+        to: '/season2/vote'
       },
       {
         label: '台韓服交流賽',
-        to: '/season2/vs-korea',
-        badge: 'primary'
+        to: '/season2/vs-korea'
       },
       {
         label: '最新消息',
