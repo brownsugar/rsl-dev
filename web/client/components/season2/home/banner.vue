@@ -489,7 +489,10 @@ export default {
   .left,
   .right {
     flex-basis: #{$flex-basis}vw;
-    background: image('season2/home/hero_stripe_h.svg') right calc(50% + #{$h-stripe-y-offset} + #{$all-stripe-y-offset})/auto #{$bg-size-h} no-repeat;
+    background:
+      image('season2/home/hero_stripe_h.svg')
+      right calc(50% + #{$h-stripe-y-offset} + #{$all-stripe-y-offset})/auto #{$bg-size-h}
+      no-repeat;
 
     @include breakpoint(lg) {
       background-size: auto $bg-size-h * 1.3;

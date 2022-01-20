@@ -84,7 +84,7 @@ library.add(
   fasStar,
   fasUpRightFromSquare,
   fasXmark,
-  // Regular, fa-regular (bug) > far-regular
+  // Regular, fa-regular
   farAngleDown,
   farAngleLeft,
   farAngleRight,
@@ -153,19 +153,19 @@ export default {
     prev: {
       component: FontAwesomeIcon,
       props: {
-        icon: 'far-regular fa-angle-left'
+        icon: 'fa-regular fa-angle-left'
       }
     },
     next: {
       component: FontAwesomeIcon,
       props: {
-        icon: 'far-regular fa-angle-right'
+        icon: 'fa-regular fa-angle-right'
       }
     },
     expand: {
       component: FontAwesomeIcon,
       props: {
-        icon: 'far-regular fa-angle-down'
+        icon: 'fa-regular fa-angle-down'
       }
     },
     sort: {

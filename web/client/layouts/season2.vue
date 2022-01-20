@@ -55,7 +55,7 @@
                 <fa
                   v-if="nav.blank"
                   class="ml-1"
-                  icon="far-regular fa-up-right-from-square"
+                  icon="fa-regular fa-up-right-from-square"
                   size="sm"
                 />
                 <fa
@@ -89,7 +89,7 @@
                     <fa
                       v-if="item.blank"
                       class="ml-2"
-                      icon="far-regular fa-up-right-from-square"
+                      icon="fa-regular fa-up-right-from-square"
                       size="sm"
                     />
                   </v-list-item-title>
@@ -111,7 +111,7 @@
         @click="drawer.visible = true"
       >
         <fa
-          icon="far-regular fa-bars"
+          icon="fa-regular fa-bars"
           size="lg"
         />
       </v-btn>
@@ -167,7 +167,7 @@
                     <fa
                       v-if="item.blank"
                       class="ml-2"
-                      icon="far-regular fa-up-right-from-square"
+                      icon="fa-regular fa-up-right-from-square"
                       size="sm"
                     />
                   </v-list-item-title>
@@ -202,7 +202,7 @@
                   <fa
                     v-if="nav.blank"
                     class="ml-1"
-                    icon="far-regular fa-up-right-from-square"
+                    icon="fa-regular fa-up-right-from-square"
                     size="sm"
                   />
                 </v-list-item-title>

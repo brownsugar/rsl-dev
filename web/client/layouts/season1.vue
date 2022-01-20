@@ -54,7 +54,7 @@
         icon
         @click="drawer.visible = true"
       >
-        <fa icon="far-regular fa-bars" />
+        <fa icon="fa-regular fa-bars" />
       </v-btn>
     </v-app-bar>
 
