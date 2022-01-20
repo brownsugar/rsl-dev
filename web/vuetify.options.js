@@ -1,6 +1,7 @@
 import defu from 'defu'
 import zhHant from 'vuetify/lib/locale/zh-Hant'
 import fontawesome from '~/data/fontawesome'
+import overallSeasons from '~/data/overallSeasons'
 import common from '~/assets/theme/common'
 import season1 from '~/assets/theme/season1'
 import season2 from '~/assets/theme/season2'
@@ -12,8 +13,9 @@ export default function ({ route }) {
     season1,
     season2
   }
-  const preferTheme = layout ? themes[layout] : null
-  const theme = preferTheme || season1
+  const preferedTheme = layout ? themes[layout] : null
+  const latestLayout = overallSeasons[0].code
+  const theme = preferedTheme || themes[latestLayout]
 
   return {
     icons: fontawesome,

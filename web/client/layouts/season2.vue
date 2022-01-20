@@ -230,6 +230,7 @@
 import { mapState } from 'vuex'
 import LayoutFooter from '~/components/season2/footer'
 import genarateMetaInfo from '~/assets/utils/meta'
+import overallSeasons from '~/data/overallSeasons'
 
 export default {
   components: {
@@ -274,10 +275,13 @@ export default {
         ]
       },
       {
-        label: '往期聯賽',
-        children: [
-          { label: 'Season 1', to: '/season1', blank: true }
-        ]
+        label: '歷屆聯賽',
+        children: overallSeasons
+          .map(season => ({
+            label: season.name,
+            to: '/' + season.code,
+            blank: true
+          }))
       }
     ],
     drawer: {

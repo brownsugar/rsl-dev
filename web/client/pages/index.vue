@@ -5,11 +5,13 @@
 </template>
 
 <script>
+import overallSeasons from '~/data/overallSeasons'
+
 export default {
   middleware ({ redirect, route: { query } }) {
-    // We don't have main homepage now, redirect to the league homepage
+    // Redirect to the latest league homepage
     return redirect({
-      path: '/season2',
+      path: '/' + overallSeasons[0].code,
       query
     })
   }

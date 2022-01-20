@@ -1,10 +1,12 @@
+import overallSeasons from '~/data/overallSeasons'
+
 const redirects = [
   (route) => {
     // Old page paths
     const oldPaths = ['/news', '/contact', '/about']
     const matched = oldPaths.find(path => route.path.startsWith(path))
     if (matched) {
-      return '/season2' + route.path
+      return '/' + overallSeasons[0].code + route.path
     }
     return null
   },
@@ -20,8 +22,8 @@ const redirects = [
 ]
 
 export default function ({ route, redirect }) {
-  redirects.some((redirector) => {
-    const path = redirector(route)
+  redirects.some((redirect) => {
+    const path = redirect(route)
     if (path) {
       return redirect({
         path,

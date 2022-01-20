@@ -3,7 +3,7 @@
 A web app for RSL official site.
 
 
-## RE:START KartRider League Season 2
+## RE:START KartRider League
 
 https://rsl.tw
 
