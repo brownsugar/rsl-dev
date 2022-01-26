@@ -249,6 +249,7 @@ export default {
               to: '/' + season.code,
               blank: true
             }))
+            .filter(child => child.to !== '/season1')
         }
       ],
       drawer: {
