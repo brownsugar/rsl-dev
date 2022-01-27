@@ -51,7 +51,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import voteErrorMessages from '~/data/season2/voteErrorMessages'
+import voteErrorMessages from '~/data/season2/vote-error-messages'
 
 export default {
   name: 'VoteStep2',

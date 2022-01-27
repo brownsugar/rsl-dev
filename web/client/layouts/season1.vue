@@ -206,7 +206,7 @@
 <script>
 import { mapState } from 'vuex'
 import genarateMetaInfo from '~/assets/utils/meta'
-import overallSeasons from '~/data/overallSeasons'
+import overallSeasons from '~/data/overall-seasons'
 
 export default {
   data () {

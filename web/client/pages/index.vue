@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import overallSeasons from '~/data/overallSeasons'
+import overallSeasons from '~/data/overall-seasons'
 
 export default {
   middleware ({ redirect, route: { query } }) {
