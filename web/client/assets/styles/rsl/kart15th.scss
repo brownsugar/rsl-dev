@@ -7,10 +7,10 @@
   ::selection {
     background: var(--v-primary-base);
   }
-  .v-btn:not(.v-btn--outlined).primary {
-
-    .v-btn__content {
-      color: var(--v-secondary-base);
-    }
+  // Buttons
+  .v-btn:not(.v-btn--outlined).primary .v-btn__content,
+  // Paginations
+  .theme--dark.v-pagination .v-pagination__item--active.primary {
+    color: var(--v-secondary-base);
   }
 }

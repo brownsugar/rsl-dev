@@ -13,7 +13,7 @@
     @click="appBarClickHandler"
   >
     <v-toolbar-title class="main-logo">
-      <n-link to="/season2">
+      <n-link :to="rootPath">
         <v-img
           src="~/assets/images/rsl/rsl-color-full.svg"
           :width="(height * 194) / 150"
