@@ -1,11 +1,12 @@
 <template>
   <v-app class="season-2">
     <app-bar
-      :class="{ transparent: appBarTransparent }"
       :items="navItems"
-      color="white"
+      color="rgba(255, 255, 255, .7)"
       root-path="/season2"
       height="80"
+      use-transparent
+      use-blur
     />
 
     <nav-drawer
@@ -40,7 +41,6 @@ export default {
     LayoutFooter
   },
   data: () => ({
-    scrollTop: 0,
     navItems: [
       {
         label: '首頁',
@@ -108,23 +108,8 @@ export default {
     ...mapState([
       'site'
     ]),
-    appBarTransparent () {
-      return this.isHome && this.scrollTop === 0
-    },
     isHome () {
       return this.$route.path === '/season2'
-    }
-  },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.scrollHandler)
-  },
-  mounted () {
-    window.addEventListener('scroll', this.scrollHandler)
-    this.scrollHandler()
-  },
-  methods: {
-    scrollHandler () {
-      this.scrollTop = window.scrollY
     }
   }
 }
@@ -133,26 +118,5 @@ export default {
 <style lang="scss">
 .nuxt-progress {
   background-color: $s2-tertiary;
-}
-</style>
-<style lang="scss" scoped>
-.v-app-bar.app-bar {
-  background-color: rgba(#FFF, .7) !important;
-  backdrop-filter: blur(20px);
-  transition: background-color .2s, backdrop-filter .2s;
-
-  &.transparent {
-    background-color: rgba(#FFF, 0) !important;
-    backdrop-filter: blur(0);
-
-    .main-logo {
-      visibility: hidden;
-      opacity: 0;
-    }
-  }
-}
-.main-logo {
-  visibility: visible;
-  transition: opacity .2s;
 }
 </style>

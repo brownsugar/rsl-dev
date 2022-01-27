@@ -1,6 +1,10 @@
 <template>
   <v-app-bar
     class="app-bar"
+    :class="{
+      transparent: useTransparent && appBarTransparent,
+      blur: useBlur
+    }"
     :color="color"
     :height="height"
     elevate-on-scroll
@@ -12,9 +16,10 @@
       <n-link to="/season2">
         <v-img
           src="~/assets/images/rsl/rsl-color-full.svg"
-          width="95"
-          :aspect-ratio="194 / 150"
+          :width="(height * 194) / 150"
+          :height="height"
           :title="site.name"
+          :alt="site.name"
         />
       </n-link>
     </v-toolbar-title>
@@ -128,22 +133,49 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'white'
+      default: ''
     },
     height: {
       type: [String, Number],
       default: '80'
+    },
+    useTransparent: {
+      type: Boolean,
+      default: false
+    },
+    useBlur: {
+      type: Boolean,
+      default: false
     }
   },
+  data: () => ({
+    scrollTop: 0
+  }),
   computed: {
     ...mapState([
       'site'
-    ])
+    ]),
+    isHome () {
+      return this.$route.path === this.rootPath
+    },
+    appBarTransparent () {
+      return this.isHome && this.scrollTop === 0
+    }
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.scrollHandler)
+  },
+  mounted () {
+    window.addEventListener('scroll', this.scrollHandler)
+    this.scrollHandler()
   },
   methods: {
     ...mapMutations('drawer', {
       setDrawerVisible: 'setVisible'
     }),
+    scrollHandler () {
+      this.scrollTop = window.scrollY
+    },
     appBarClickHandler (e) {
       if (e.target.classList.contains('v-toolbar__content')) {
         this.$vuetify.goTo(0, {
@@ -155,3 +187,26 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.v-app-bar.app-bar {
+  transition: background-color .2s, backdrop-filter .2s;
+
+  &.blur {
+    backdrop-filter: blur(20px);
+  }
+  &.transparent {
+    background-color: transparent !important;
+    backdrop-filter: blur(0);
+
+    .main-logo {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+.main-logo {
+  visibility: visible;
+  transition: opacity .2s;
+}
+</style>

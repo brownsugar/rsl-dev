@@ -12,7 +12,8 @@
         <link-tabs
           class="mt-8 mb-4"
           :items="categoryItems"
-          base-path="/season2/news"
+          color="primary"
+          base-path="/kart15th/news"
           slug-glue="category"
         />
         <v-row v-if="loading">
@@ -35,10 +36,10 @@
             md="4"
           >
             <v-card>
-              <n-link :to="'/season2/news/' + post.id">
+              <n-link :to="'/kart15th/news/' + post.id">
                 <v-img
                   class="post-image"
-                  :aspect-ratio="1280 / 628"
+                  :aspect-ratio="1200 / 628"
                   :src="featuredImage(post._embedded)"
                   width="100%"
                 />
@@ -52,6 +53,7 @@
                 <v-chip
                   v-if="isNew(post.date)"
                   color="primary"
+                  text-color="secondary"
                   x-small
                 >
                   NEW
@@ -66,7 +68,7 @@
               <v-card-actions>
                 <v-spacer />
                 <v-btn
-                  :to="'/season2/news/' + post.id"
+                  :to="'/kart15th/news/' + post.id"
                   color="primary"
                   text
                   nuxt
@@ -110,7 +112,7 @@ export default {
     LinkTabs,
     ComingSoon
   },
-  layout: 'season2',
+  layout: 'kart15th',
   async asyncData ({ store, route }) {
     const catSlug = route.params.slug
     const page = Number(route.query.page || 1)
@@ -170,7 +172,7 @@ export default {
   methods: {
     featuredImage (embedded) {
       const image = postUtils.getFeaturedImage(embedded)
-      return image || this.$config.rsl.cover.season2
+      return image || this.$config.rsl.cover.kart15th
     },
     isNew (date) {
       const posted = new Date(date)

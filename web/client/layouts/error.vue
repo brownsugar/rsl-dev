@@ -62,7 +62,7 @@
 <script>
 export default {
   name: 'Error',
-  layout: 'season2',
+  layout: 'kart15th',
   props: {
     error: {
       type: Object,

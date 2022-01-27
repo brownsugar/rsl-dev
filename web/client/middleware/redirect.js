@@ -12,7 +12,8 @@ const redirects = [
   },
   (route) => {
     // Slugs for WP pages
-    const wpSlugPattern = /season\d-(.+)/
+    const codes = overallSeasons.map(season => season.code)
+    const wpSlugPattern = new RegExp('(' + codes.join('|') + ')-.+')
     const matched = wpSlugPattern.test(route.path)
     if (matched) {
       return route.path.replace(/-/g, '/')
