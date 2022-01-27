@@ -1,7 +1,7 @@
 <template>
   <div class="meet-rsl">
     <post-layout
-      banner="season2/common/post-banner.jpg"
+      :banner="banner"
       :title="title"
       :content="content"
     >
@@ -17,8 +17,8 @@
           {{ nav.label }}
         </v-btn>
       </template>
-      <template v-if="$slots.content" #content>
-        <slot name="content" />
+      <template v-if="$slots.default" #content>
+        <slot />
       </template>
     </post-layout>
   </div>
@@ -33,23 +33,21 @@ export default {
     PostLayout
   },
   props: {
+    rootPath: {
+      type: String,
+      default: ''
+    },
+    banner: {
+      type: String,
+      default: ''
+    },
     content: {
       type: String,
       default: ''
     }
   },
   data: () => ({
-    title: '認識 RSL 賽事聯盟',
-    navs: [
-      {
-        label: '關於我們',
-        to: '/season2/about'
-      },
-      {
-        label: '聯絡我們',
-        to: '/season2/contact'
-      }
-    ]
+    title: '認識 RSL 賽事聯盟'
   }),
   head: self => ({
     title: self.activedTitle
@@ -58,6 +56,18 @@ export default {
     activedTitle () {
       const nav = this.navs.find(nav => nav.to === this.$route.path)
       return nav.label
+    },
+    navs () {
+      return [
+        {
+          label: '關於我們',
+          to: this.rootPath + '/about'
+        },
+        {
+          label: '聯絡我們',
+          to: this.rootPath + '/contact'
+        }
+      ]
     }
   }
 }
