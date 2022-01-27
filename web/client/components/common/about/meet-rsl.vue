@@ -55,7 +55,7 @@ export default {
   computed: {
     activedTitle () {
       const nav = this.navs.find(nav => nav.to === this.$route.path)
-      return nav.label
+      return nav ? nav.label : ''
     },
     navs () {
       return [
