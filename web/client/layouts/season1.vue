@@ -205,7 +205,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import genarateMetaInfo from '~/assets/utils/meta'
+import createMeta from '~/assets/utils/create-meta'
 import overallSeasons from '~/data/overall-seasons'
 
 export default {
@@ -280,8 +280,10 @@ export default {
     const ogImage = this.$config.rsl.cover.season1
     const defaultTitle = '夢想盃跑跑聯賽 Season 1'
 
-    return genarateMetaInfo({
-      vm: this,
+    return createMeta({
+      config: this.$config,
+      site: this.site,
+      route: this.$route,
       staticPages,
       themeColor,
       ogImage,

@@ -31,7 +31,7 @@ import { mapState } from 'vuex'
 import AppBar from '~/components/layout/app-bar'
 import NavDrawer from '~/components/layout/nav-drawer'
 import LayoutFooter from '~/components/season2/footer'
-import genarateMetaInfo from '~/assets/utils/meta'
+import createMeta from '~/assets/utils/create-meta'
 
 export default {
   components: {
@@ -94,8 +94,10 @@ export default {
     const ogImage = this.$config.rsl.cover.season2
     const defaultTitle = '夢想盃跑跑聯賽 Season 2'
 
-    return genarateMetaInfo({
-      vm: this,
+    return createMeta({
+      config: this.$config,
+      site: this.site,
+      route: this.$route,
       staticPages,
       themeColor,
       ogImage,
