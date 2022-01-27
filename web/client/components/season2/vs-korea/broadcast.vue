@@ -24,7 +24,7 @@
         立即追蹤 Twitch 頻道
         <fa
           class="ml-2"
-          icon="far-regular fa-up-right-from-square"
+          icon="fa-regular fa-up-right-from-square"
           size="sm"
         />
       </v-btn>

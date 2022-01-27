@@ -67,7 +67,7 @@
         <template #prepend-inner>
           <fa
             class="mt-1 mr-1"
-            icon="far-regular fa-message-lines"
+            icon="fa-regular fa-message-lines"
           />
         </template>
       </v-text-field>
@@ -126,7 +126,7 @@
 </template>
 
 <script>
-import voteErrorMessages from '~/data/season2/voteErrorMessages'
+import voteErrorMessages from '~/data/season2/vote-error-messages'
 
 export default {
   name: 'VoteStep3',

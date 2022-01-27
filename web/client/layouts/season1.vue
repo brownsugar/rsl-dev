@@ -27,12 +27,20 @@
                 active-class="primary"
                 :to="nav.to"
                 :exact="nav.to === '/season1' && $route.path !== '/season1'"
+                :target="nav.blank ? '_blank' : ''"
+                :rel="nav.blank ? 'noreferrer noopener' : ''"
                 depressed
                 nuxt
                 v-bind="attrs"
                 v-on="on"
               >
                 {{ nav.label }}
+                <fa
+                  v-if="nav.blank"
+                  class="ml-1"
+                  icon="fa-regular fa-up-right-from-square"
+                  size="sm"
+                />
               </v-btn>
             </template>
             <v-list v-if="nav.children">
@@ -40,9 +48,19 @@
                 v-for="(item, j) in nav.children"
                 :key="j"
                 :to="item.to"
+                :target="item.blank ? '_blank' : ''"
+                :rel="item.blank ? 'noreferrer noopener' : ''"
                 nuxt
               >
-                <v-list-item-title>{{ item.label }}</v-list-item-title>
+                <v-list-item-title>
+                  {{ item.label }}
+                  <fa
+                    v-if="item.blank"
+                    class="ml-2"
+                    icon="fa-regular fa-up-right-from-square"
+                    size="sm"
+                  />
+                </v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -54,7 +72,7 @@
         icon
         @click="drawer.visible = true"
       >
-        <fa icon="far-regular fa-bars" />
+        <fa icon="fa-regular fa-bars" />
       </v-btn>
     </v-app-bar>
 
@@ -80,9 +98,19 @@
                 v-for="(item, j) in nav.children"
                 :key="j"
                 :to="item.to"
+                :target="item.blank ? '_blank' : ''"
+                :rel="item.blank ? 'noreferrer noopener' : ''"
                 nuxt
               >
-                <v-list-item-title>{{ item.label }}</v-list-item-title>
+                <v-list-item-title>
+                  {{ item.label }}
+                  <fa
+                    v-if="item.blank"
+                    class="ml-1"
+                    icon="fa-regular fa-up-right-from-square"
+                    size="sm"
+                  />
+                </v-list-item-title>
               </v-list-item>
             </v-list-group>
             <v-list-item
@@ -90,11 +118,21 @@
               :key="i"
               active-class="primary"
               :to="nav.to"
+              :target="nav.blank ? '_blank' : ''"
+              :rel="nav.blank ? 'noreferrer noopener' : ''"
               :exact="nav.to === '/season1' && $route.path !== '/season1'"
               nuxt
             >
               <v-list-item-content>
-                <v-list-item-title>{{ nav.label }}</v-list-item-title>
+                <v-list-item-title>
+                  {{ nav.label }}
+                  <fa
+                    v-if="nav.blank"
+                    class="ml-1"
+                    icon="fa-regular fa-up-right-from-square"
+                    size="sm"
+                  />
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </template>
@@ -167,7 +205,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import genarateMetaInfo from '~/assets/utils/meta'
+import createMeta from '~/assets/utils/create-meta'
+import overallSeasons from '~/data/overall-seasons'
 
 export default {
   data () {
@@ -201,6 +240,16 @@ export default {
             { label: '關於我們', to: '/season1/about' },
             { label: '聯絡我們', to: '/season1/contact' }
           ]
+        },
+        {
+          label: '歷屆聯賽',
+          children: overallSeasons
+            .map(season => ({
+              label: season.name,
+              to: '/' + season.code,
+              blank: true
+            }))
+            .filter(child => child.to !== '/season1')
         }
       ],
       drawer: {
@@ -231,8 +280,10 @@ export default {
     const ogImage = this.$config.rsl.cover.season1
     const defaultTitle = '夢想盃跑跑聯賽 Season 1'
 
-    return genarateMetaInfo({
-      vm: this,
+    return createMeta({
+      config: this.$config,
+      site: this.site,
+      route: this.$route,
       staticPages,
       themeColor,
       ogImage,

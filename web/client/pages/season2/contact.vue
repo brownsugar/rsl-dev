@@ -1,11 +1,13 @@
 <template>
   <meet-rsl
     :content="post.content.rendered"
+    root-path="/season2"
+    banner="season2/common/post-banner.jpg"
   />
 </template>
 
 <script>
-import MeetRsl from '~/components/season2/about/meet-rsl'
+import MeetRsl from '~/components/common/about/meet-rsl'
 
 export default {
   name: 'Contact',

@@ -45,7 +45,7 @@
 
 <script>
 import SubTitle from '~/components/season2/common/sub-title'
-import LinkTabs from '~/components/season2/common/link-tabs'
+import LinkTabs from '~/components/common/link-tabs'
 
 const children = [
   {

@@ -85,7 +85,7 @@
             >
               Brownsugar
               <fa
-                icon="far-regular fa-up-right-from-square"
+                icon="fa-regular fa-up-right-from-square"
                 size="sm"
               />
             </a>

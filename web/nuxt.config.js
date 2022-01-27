@@ -1,5 +1,6 @@
 import CompressionPlugin from 'compression-webpack-plugin'
 import config from 'config'
+import overallSeasons from './client/data/overall-seasons'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -51,15 +52,13 @@ export default {
     middleware: ['redirect'],
     extendRoutes (routes, resolve) {
       // Treat as same component
-      routes.push({
-        name: 'season1-news-category',
-        path: '/season1/news/category/:slug',
-        component: resolve(__dirname, 'client/pages/season1/news/index.vue')
-      })
-      routes.push({
-        name: 'season2-news-category',
-        path: '/season2/news/category/:slug',
-        component: resolve(__dirname, 'client/pages/season2/news/index.vue')
+      overallSeasons.forEach((season) => {
+        const code = season.code
+        routes.push({
+          name: `${code}-news-category`,
+          path: `/${code}/news/category/:slug`,
+          component: resolve(__dirname, `client/pages/${code}/news/index.vue`)
+        })
       })
     }
   },
@@ -110,6 +109,7 @@ export default {
   components: false,
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxt/postcss8',
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',

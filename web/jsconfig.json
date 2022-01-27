@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "client/*"
+      ],
+      "@/*": [
+        "client/*"
+      ]
+    }
+  },
+  "exclude": [
+    ".nuxt",
+    "node_modules"
+  ]
+}

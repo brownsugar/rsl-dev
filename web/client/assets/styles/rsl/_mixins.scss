@@ -14,6 +14,7 @@
 
     .v-parallax__image-container::before {
       @include fit-parent();
+
       z-index: 2;
       content: '';
       background-repeat: repeat;
@@ -27,6 +28,7 @@
 
     .v-image__image::before {
       @include fit-parent();
+
       content: '';
       background-repeat: repeat;
       @content;
@@ -38,7 +40,7 @@
     $type: if($max, max-width, min-width);
     $offset: if($max, 1px, 0);
     $width: map-get($grid-breakpoints, $size);
-    @media ($type: $width - $offset) {
+    @media ($type: ($width - $offset)) {
       @content;
     }
   } @else {

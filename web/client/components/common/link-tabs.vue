@@ -3,7 +3,7 @@
     centered
     show-arrows
   >
-    <v-tabs-slider color="secondary" />
+    <v-tabs-slider :color="color" />
     <v-tab
       v-for="item in items"
       :key="item.slug"
@@ -24,6 +24,10 @@ export default {
     items: {
       type: Array,
       default: () => []
+    },
+    color: {
+      type: String,
+      default: 'secondary'
     },
     basePath: {
       type: String,

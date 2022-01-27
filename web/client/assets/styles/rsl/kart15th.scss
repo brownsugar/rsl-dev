@@ -1,0 +1,16 @@
+/**
+ * Theme for Kart 15th
+ */
+.kart-15th {
+  font-family: Roboto, 'Noto Sans TC', 'Microsoft JhengHei', PingFang, sans-serif;
+
+  ::selection {
+    background: var(--v-primary-base);
+  }
+  .v-btn:not(.v-btn--outlined).primary {
+
+    .v-btn__content {
+      color: var(--v-secondary-base);
+    }
+  }
+}

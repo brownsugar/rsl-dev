@@ -321,7 +321,7 @@
                               <span>
                                 <fa
                                   class="mr-1"
-                                  icon="far-regular fa-stopwatch"
+                                  icon="fa-regular fa-stopwatch"
                                 />
                                 {{ trackBest[track.id].time }}
                               </span>
@@ -329,7 +329,7 @@
                               <span>
                                 <fa
                                   class="mr-1"
-                                  icon="far-regular fa-user-crown"
+                                  icon="fa-regular fa-user-crown"
                                 />
                                 {{ trackBest[track.id].player }}
                               </span>
@@ -401,7 +401,7 @@
                       small
                       @click="showHostDialog(host)"
                     >
-                      <fa icon="far-regular fa-magnifying-glass" />
+                      <fa icon="fa-regular fa-magnifying-glass" />
                     </v-btn>
                   </v-col>
                 </v-row>
