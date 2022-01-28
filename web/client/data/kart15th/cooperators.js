@@ -43,14 +43,19 @@ const cooperators = [
           height: 55
         },
         link: 'https://tw.thermaltake.com'
-      },
+      }
+    ]
+  },
+  {
+    title: '指定賽事平台',
+    data: [
       {
         name: 'Planet 9',
         logo: {
           file: 'planet9.png',
           height: 75
         },
-        link: 'https://www.planet9.gg/TW/zh/user/sign-up?utm_source=Website&utm_medium=RSL&utm_campaign=210614_event_RSL'
+        link: 'https://www.planet9.gg/TW/zh?utm_source=Website&utm_medium=RSL&utm_campaign=220125_tournament_RSL'
       }
     ]
   }

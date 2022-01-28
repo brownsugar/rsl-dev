@@ -5,16 +5,16 @@
         text="合作伙伴"
       />
       <v-row
-        class="mx-4"
+        class="mx-4 mt-n6"
         no-gutters
       >
         <v-col
           v-for="(cooperator, i) in cooperators"
           :key="i"
-          class="mt-10"
+          class="mt-16"
           cols="12"
           md="6"
-          lg="4"
+          xl="3"
         >
           <sub-title
             :text="cooperator.title"
