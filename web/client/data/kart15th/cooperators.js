@@ -43,6 +43,14 @@ const cooperators = [
           height: 55
         },
         link: 'https://tw.thermaltake.com'
+      },
+      {
+        name: 'Predator Shot',
+        logo: {
+          file: 'predatorshot.png',
+          height: 110
+        },
+        link: 'https://instagram.com/predatorshot_tw'
       }
     ]
   },
