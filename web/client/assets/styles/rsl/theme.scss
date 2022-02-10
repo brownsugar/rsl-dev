@@ -10,6 +10,13 @@
 }
 
 /**
+ * Iframe
+ */
+iframe {
+  border: 0;
+}
+
+/**
  * Single post content
  */
 .post-content {
@@ -83,7 +90,6 @@
     display: block;
     width: 100%;
     height: 800px;
-    border: 0;
   }
   .responsive-embed {
     position: relative;

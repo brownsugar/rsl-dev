@@ -19,7 +19,7 @@
             cols="12"
             xl="10"
           >
-            <v-card>
+            <v-card shaped>
               <v-container>
                 <v-row>
                   <v-col
