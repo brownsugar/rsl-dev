@@ -20,7 +20,6 @@
           :height="height"
           :title="site.name"
           :alt="site.name"
-          eager
         />
       </n-link>
     </v-toolbar-title>

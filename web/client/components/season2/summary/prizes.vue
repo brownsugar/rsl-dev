@@ -28,7 +28,6 @@
                       aspect-ratio="1"
                       :src="require(`~/assets/images/season2/cooperator/products/${detail.image}.png`)"
                       :alt="detail.title"
-                      eager
                     />
                   </v-col>
                   <v-col

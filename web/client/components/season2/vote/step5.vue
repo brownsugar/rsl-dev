@@ -4,7 +4,6 @@
       src="~/assets/images/common/play.png"
       :aspect-ratio="1365 / 778"
       width="300"
-      eager
     />
     <h4 class="text-h5 font-weight-bold my-4">
       投票成功！🎉

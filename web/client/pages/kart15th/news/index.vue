@@ -42,7 +42,6 @@
                   :aspect-ratio="1200 / 628"
                   :src="featuredImage(post._embedded)"
                   width="100%"
-                  eager
                 />
               </n-link>
 

@@ -6,7 +6,6 @@
         aspected-ratio="576 / 600"
         src="~/assets/images/common/climb.png"
         width="300"
-        eager
       />
       <p class="mt-6">
         {{ message }}

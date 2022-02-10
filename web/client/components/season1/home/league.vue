@@ -85,7 +85,6 @@
               aspect-ratio="1"
               src="~/assets/images/season1/cooperator/redbull.png"
               width="400"
-              eager
             />
           </category>
           <category name="聯賽資訊">
@@ -247,7 +246,6 @@
                       class="mx-auto"
                       :src="require('~/assets/images/season1/' + set.image)"
                       :width="$breakpoint.is.xsOnly ? '50%' : '80%'"
-                      eager
                     />
                     <div class="mt-1">
                       {{ set.description }}
@@ -344,7 +342,6 @@
                             :width="$breakpoint.is.xsOnly ? 100 : 160"
                             :height="$breakpoint.is.xsOnly ? 75 : 120"
                             :alt="track.name"
-                            eager
                           />
                         </div>
                       </v-card>
@@ -384,7 +381,6 @@
                 width="250"
                 :height="$breakpoint.is.mdAndDown ? 250 : 350"
                 :alt="host.name"
-                eager
               >
                 <v-row
                   class="px-4 px-sm-8 py-2 fill-height white--text"

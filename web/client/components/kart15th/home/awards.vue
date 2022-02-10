@@ -32,7 +32,6 @@
                       aspect-ratio="1"
                       :src="require(`~/assets/images/kart15th/cooperator/products/${detail.image}.png`)"
                       :alt="detail.title"
-                      eager
                     />
                   </v-col>
                   <v-col
