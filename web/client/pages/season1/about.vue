@@ -160,7 +160,7 @@
 
 <script>
 import MeetRsl from '~/components/common/about/meet-rsl'
-import LinkTitle from '~/components/season1/about/link-title'
+import LinkTitle from '~/components/common/about/link-title'
 import members from '~/data/common/rsl-members'
 import highlights from '~/data/common/rsl-highlights'
 

@@ -114,6 +114,7 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
+    '@nuxtjs/google-fonts',
     '@nuxtjs/date-fns',
     '@nuxtjs/google-analytics'
   ],
@@ -135,13 +136,19 @@ export default {
   },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    // customVariables: ['~/assets/styles/vuetify/variables.scss'],
+    customVariables: ['~/assets/styles/vuetify/variables.scss'],
     optionsPath: '~~vuetify.options.js',
-    defaultAssets: {
-      icons: false
-    },
+    defaultAssets: false,
     // custom variables only works with tree-shaking.
     treeShake: isProd
+  },
+  // Google Fonts module configuration: https://github.com/nuxt-community/google-fonts-module
+  googleFonts: {
+    families: {
+      Roboto: true,
+      'Noto+Sans+TC': [400, 700, 900]
+    },
+    display: 'swap'
   },
   // date-fns module configuration: https://github.com/nuxt-community/date-fns-module
   dateFns: {

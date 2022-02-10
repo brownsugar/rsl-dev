@@ -48,7 +48,7 @@ const cooperators = [
         name: 'Predator Shot',
         logo: {
           file: 'predatorshot.png',
-          height: 110
+          height: 105
         },
         link: 'https://instagram.com/predatorshot_tw'
       }

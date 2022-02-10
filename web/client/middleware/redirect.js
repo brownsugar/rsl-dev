@@ -23,8 +23,8 @@ const redirects = [
 ]
 
 export default function ({ route, redirect }) {
-  redirects.some((redirect) => {
-    const path = redirect(route)
+  redirects.some((redirector) => {
+    const path = redirector(route)
     if (path) {
       return redirect({
         path,

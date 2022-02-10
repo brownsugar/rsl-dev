@@ -155,6 +155,7 @@ export default {
 
       const sceneLogo =
         this.$anime.timeline({
+          targets: '.logo img',
           easing: 'easeOutBack',
           duration: 500,
           delay: 300,
@@ -164,7 +165,6 @@ export default {
           }
         })
           .add({
-            targets: '.logo img',
             scale: [2.5, 1],
             opacity: [0, 1]
           })
@@ -202,6 +202,7 @@ export default {
 
       const sceneSlogan =
         this.$anime.timeline({
+          targets: '.slogan img',
           easing: 'linear',
           duration: 150,
           autoplay: false,
@@ -210,19 +211,15 @@ export default {
           }
         })
           .add({
-            targets: '.slogan img',
             opacity: [0, 0.5]
           })
           .add({
-            targets: '.slogan img',
             opacity: [0.3, 0.7]
           }, '+=100')
           .add({
-            targets: '.slogan img',
             opacity: [0.2, 0.8]
           }, '+=150')
           .add({
-            targets: '.slogan img',
             duration: 150,
             opacity: [0.5, 1]
           }, '+=200')
