@@ -4,6 +4,7 @@
       :post="post"
       list-path="/kart15th/news"
       list-label="最新消息"
+      banner="kart15th/common/post-banner.jpg"
       :from-route="fromRoute"
     />
   </div>
