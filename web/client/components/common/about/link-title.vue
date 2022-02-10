@@ -1,15 +1,17 @@
 <template>
   <h1 class="mb-3">
     <a
-      class="link-title text--primary text-decoration-none d-flex align-center"
+      class="link-title text--primary text-decoration-none d-inline-block"
       :href="'#' + target"
       @click.stop="$vuetify.goTo('#' + target)"
     >
-      {{ text }}
-      <fa
-        class="link-icon ml-2"
-        icon="fa-solid fa-link"
-      />
+      <span class="d-flex align-center">
+        {{ text }}
+        <fa
+          class="link-icon ml-2"
+          icon="fa-solid fa-link"
+        />
+      </span>
     </a>
   </h1>
 </template>
