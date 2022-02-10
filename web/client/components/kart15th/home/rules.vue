@@ -81,7 +81,6 @@
                       aspect-ratio="1"
                       :src="require(`~/assets/images/kart15th/rules/${rule.flow}.png`)"
                       :alt="rule.title"
-                      eager
                     />
                   </a>
                 </v-sheet>

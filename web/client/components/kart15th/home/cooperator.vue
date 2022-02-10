@@ -4,13 +4,13 @@
       text="合作伙伴"
     />
     <v-row
-      class="mt-n6"
+      class="mt-n8"
       no-gutters
     >
       <v-col
         v-for="(cooperator, i) in cooperators"
         :key="i"
-        class="mt-16"
+        class="mt-12"
         cols="12"
         md="6"
         xl="3"

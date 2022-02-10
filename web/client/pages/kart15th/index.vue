@@ -5,7 +5,7 @@
       <intro />
       <awards />
       <rules />
-      <!-- <hosts /> -->
+      <hosts />
       <cooperator />
     </v-container>
   </div>
@@ -16,7 +16,7 @@ import Banner from '~/components/kart15th/home/banner'
 import Intro from '~/components/kart15th/home/intro'
 import Awards from '~/components/kart15th/home/awards'
 import Rules from '~/components/kart15th/home/rules'
-// import Hosts from '~/components/kart15th/home/hosts'
+import Hosts from '~/components/kart15th/home/hosts'
 import Cooperator from '~/components/kart15th/home/cooperator'
 
 export default {
@@ -26,7 +26,7 @@ export default {
     Intro,
     Awards,
     Rules,
-    // Hosts,
+    Hosts,
     Cooperator
   },
   layout: 'kart15th'
