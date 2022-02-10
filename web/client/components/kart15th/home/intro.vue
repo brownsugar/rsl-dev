@@ -54,22 +54,21 @@
             {{ content }}
           </p>
         </div>
-        <div class="">
-          <v-btn
-            class="mt-6"
-            color="twitch"
-            :to="$config.rsl.twitch.url"
-            target="_blank"
-            large
-            dark
-          >
-            立即關注 Twitch 頻道
-            <fa
-              class="ml-2"
-              icon="fa-regular fa-up-right-from-square"
-            />
-          </v-btn>
-        </div>
+        <v-btn
+          class="mt-6"
+          color="twitch"
+          :to="$config.rsl.twitch.url"
+          target="_blank"
+          rel="noreferrer noopener"
+          large
+          dark
+        >
+          立即關注 Twitch 頻道
+          <fa
+            class="ml-2"
+            icon="fa-regular fa-up-right-from-square"
+          />
+        </v-btn>
       </v-col>
     </v-row>
   </section>
