@@ -172,7 +172,7 @@ export default {
             description: '關注 Twitch 頻道並在賽事直播期間留下關鍵字就有機會獲得。',
             image: 'PredatorShot',
             content: [
-              'PredatorShot 提供：[PredatorShot 掠奪者能量飲] 一箱 24 罐（共 2 名）'
+              'PredatorShot 提供：[PredatorShot 掠奪者能量飲] 一箱 24 罐（共 5 名）'
             ]
           },
           {
