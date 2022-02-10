@@ -1,17 +1,19 @@
 <template>
   <div class="home">
     <banner />
-    <intro />
-    <Summary />
-    <!-- <hosts /> -->
-    <cooperator />
+    <v-container>
+      <intro />
+      <awards />
+      <!-- <hosts /> -->
+      <cooperator />
+    </v-container>
   </div>
 </template>
 
 <script>
 import Banner from '~/components/kart15th/home/banner'
 import Intro from '~/components/kart15th/home/intro'
-import Summary from '~/components/kart15th/home/summary'
+import Awards from '~/components/kart15th/home/awards'
 // import Hosts from '~/components/kart15th/home/hosts'
 import Cooperator from '~/components/kart15th/home/cooperator'
 
@@ -20,7 +22,7 @@ export default {
   components: {
     Banner,
     Intro,
-    Summary,
+    Awards,
     // Hosts,
     Cooperator
   },
