@@ -64,7 +64,7 @@
                   </ul>
                 </div>
               </v-card-text>
-              <div class="pa-2 pa-md-4 pt-0">
+              <div class="pa-2 pa-md-4 pt-0 pt-md-0">
                 <v-sheet
                   class="overflow-hidden"
                   outlined
