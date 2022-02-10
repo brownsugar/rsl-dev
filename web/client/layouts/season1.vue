@@ -11,6 +11,7 @@
             src="~/assets/images/rsl/rsl-color-dark.svg"
             width="100"
             :title="site.name"
+            eager
           />
         </n-link>
       </v-toolbar-title>

@@ -12,7 +12,10 @@
             class="mt-3"
             size="50"
           >
-            <v-img :src="require(`~/assets/images/season1/host/${host.avatar}`)" />
+            <v-img
+              :src="require(`~/assets/images/season1/host/${host.avatar}`)"
+              eager
+            />
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title class="text-h5">

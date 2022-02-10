@@ -35,6 +35,7 @@
                   aspect-ratio="1"
                   :src="require(`~/assets/images/season2/common/${mode.image}.png`)"
                   :alt="mode.title"
+                  eager
                 />
               </v-avatar>
             </div>

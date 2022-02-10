@@ -31,6 +31,7 @@
           <v-img
             :aspect-ratio="750 / 800"
             src="~/assets/images/season2/home/summary.jpg"
+            eager
           />
         </v-col>
         <v-col

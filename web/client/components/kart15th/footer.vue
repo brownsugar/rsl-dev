@@ -29,6 +29,7 @@
             class="mb-6"
             src="~/assets/images/rsl/rsl-color-full.svg"
             max-width="120"
+            eager
           />
           <p class="grey--text text--lighten-3 text-body-1 mb-0">
             RSL 賽事聯盟，全名為「RE:START LEAGUE」，由三名兼具賽事舉辦經驗、玩家社群經營與遊戲領域影響力的核心玩家所組成。<br>

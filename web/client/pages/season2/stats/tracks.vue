@@ -14,6 +14,7 @@
           :aspect-ratio="4 / 3"
           :width="150"
           :alt="item.name"
+          eager
         />
       </template>
       <template #item.player="{ item, value }">

@@ -53,7 +53,7 @@ function parse (content) {
     imageTagRegex,
     (string, linkTagStart = '', attrs, linkTagEnd = '') => {
       attrs = attrs.trim().endsWith('/') ? attrs : attrs + ' /'
-      return `${linkTagStart}<v-img ${attrs}>${linkTagEnd}`
+      return `${linkTagStart}<v-img eager ${attrs}>${linkTagEnd}`
     }
   )
 

@@ -14,6 +14,7 @@
         aspected-ratio="601 / 328"
         src="~/assets/images/common/broken.png"
         width="500"
+        eager
       />
       <div class="content mb-5">
         <h1 class="text-h4 primary--text my-5">

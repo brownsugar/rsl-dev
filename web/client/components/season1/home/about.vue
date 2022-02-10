@@ -15,6 +15,7 @@
             class="mx-auto"
             src="~/assets/images/rsl/rsl-color-full.svg"
             :max-width="$breakpoint.is.smAndDown ? 200 : '100%'"
+            eager
           />
         </v-col>
         <v-col
