@@ -67,7 +67,7 @@
             <v-btn
               class="mt-4"
               color="twitch"
-              :to="$config.rsl.twitch.url"
+              :href="$config.rsl.twitch.url"
               target="_blank"
               rel="noreferrer noopener"
               large
