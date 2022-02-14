@@ -27,7 +27,7 @@ export default {
   }
 }
 function parse (content) {
-  // Replace links to nuxt link / external link
+  // Replace links with nuxt link / external link
   const linkTagRegex = /<a(.*)href="([^"]+)"([^>]*)>(.+)<\/a>/ig
   const targetAttrRegex = /\s(?:target|rel)="[^"]+"/ig
   content = content.replace(
@@ -35,7 +35,7 @@ function parse (content) {
     (string, before, url, after, linkText) => {
       const site = config.rsl.url
       if (url.startsWith(site)) {
-        // replace in-site link to nuxt link
+        // replace in-site link with nuxt link
         const path = url.replace(site, '')
         return '<n-link to="' + path + '">' + linkText + '</n-link>'
       } else {
@@ -46,7 +46,7 @@ function parse (content) {
     }
   )
 
-  // Replace <img> tag to <v-img>
+  // Replace <img> tag with <v-img>
   // <p> = Fix "Mismatching childNodes vs. VNodes"
   const imageTagRegex = /<p>(<a[^>]*>)?<img([^>]+)>(<\/a>)?<\/p>/ig
   content = content.replace(
@@ -57,7 +57,7 @@ function parse (content) {
     }
   )
 
-  // Replace <table> tag to <v-simple-table>
+  // Replace <table> tag with <v-simple-table>
   const tableTagStartRegex = /<table[^>]*>/ig
   const tableTagEndRegex = /<\/table>/ig
   content = content.replace(tableTagStartRegex, '<v-simple-table>')
@@ -70,6 +70,10 @@ function parse (content) {
     iframeTagRegex,
     (string, iframe) => `<v-lazy>${iframe}</v-lazy>`
   )
+
+  // Replace <hr> tag with <v-divider>
+  const hrTagRegex = /<hr[^>]*>/ig
+  content = content.replace(hrTagRegex, '<v-divider />')
 
   return content
 }
