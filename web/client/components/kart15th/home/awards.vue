@@ -169,10 +169,11 @@ export default {
         details: [
           {
             title: '直播互動抽獎',
-            description: '關注 Twitch 頻道並在賽事直播期間留下關鍵字就有機會獲得。',
+            description: '關注 Twitch 頻道並在賽事直播期間於聊天室中留下關鍵字就有機會獲得。',
             image: 'PredatorShot',
             content: [
-              'PredatorShot 提供：[PredatorShot 掠奪者能量飲] 一箱 24 罐（共 5 名）'
+              'PredatorShot 提供：[PredatorShot 掠奪者能量飲] 一箱 24 罐（共 5 名）',
+              '遊戲橘子提供：睏寶娃娃、舒適 SR 模型（共 4 名）'
             ]
           },
           {
