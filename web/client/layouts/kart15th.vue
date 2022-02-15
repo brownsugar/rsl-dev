@@ -70,7 +70,8 @@ export default {
   head () {
     const staticPages = [
       'kart15th',
-      'kart15th-stats',
+      'kart15th-stats-tracks',
+      'kart15th-stats-players',
       'kart15th-news',
       'kart15th-about'
     ]

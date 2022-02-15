@@ -12,7 +12,7 @@
         <link-tabs
           class="mt-8 mb-4"
           :items="categoryItems"
-          color="primary"
+          slider-color="primary"
           base-path="/kart15th/news"
           slug-glue="category"
         />
