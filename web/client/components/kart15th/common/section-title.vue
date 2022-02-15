@@ -1,6 +1,11 @@
 <template>
   <div
-    v-intersect="intersectHandler"
+    v-intersect="{
+      handler: intersectHandler,
+      options: {
+        threshold: 1.0
+      }
+    }"
     class="section-title"
     :class="{ active: isIntersecting }"
   >
