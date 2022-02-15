@@ -24,10 +24,10 @@ const cooperators = [
         link: 'https://tw.beanfun.com'
       },
       {
-        name: '正修科技大學 電競科技管理系',
+        name: '正修科技大學',
         logo: {
-          file: 'csuestm.png',
-          height: 130
+          file: 'csu.png',
+          height: 90
         },
         link: 'https://estm.csu.edu.tw'
       }
