@@ -141,7 +141,7 @@ export default {
       },
       {
         date: '02/19（六）',
-        time: '時段後續公佈',
+        time: '13:00',
         location: '線下賽（轉播）',
         title: '16 強賽',
         promotion: '復活賽制，取 8 名選手晉級決賽',
@@ -159,7 +159,7 @@ export default {
       },
       {
         date: '02/19（六）',
-        time: '時段後續公佈',
+        time: '17:20',
         location: '線下賽（轉播）',
         title: '總決賽',
         promotion: '8 強賽單淘汰賽制、4 強賽冒泡賽制',
