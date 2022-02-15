@@ -2,11 +2,11 @@
   <div class="home">
     <banner />
     <v-container>
-      <intro />
-      <awards />
-      <rules />
-      <hosts />
-      <cooperator />
+      <intro id="intro" />
+      <awards id="awards" />
+      <rules id="rules" />
+      <hosts id="hosts" />
+      <cooperator id="cooperator" />
     </v-container>
   </div>
 </template>
