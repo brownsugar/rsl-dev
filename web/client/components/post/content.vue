@@ -1,6 +1,6 @@
 <script>
 import { config } from 'nuxt-config'
-import { VImg, VSimpleTable, VLazy } from 'vuetify/lib'
+import { VImg, VSimpleTable, VDivider, VLazy } from 'vuetify/lib'
 
 export default {
   functional: true,
@@ -15,6 +15,7 @@ export default {
       components: {
         VImg,
         VSimpleTable,
+        VDivider,
         VLazy
       },
       template: `
