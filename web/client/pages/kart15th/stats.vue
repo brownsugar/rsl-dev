@@ -60,8 +60,7 @@ const children = [
   }
 ]
 
-// const topRanks = [8, 16, 32]
-const topRanks = [16, 32]
+const topRanks = [8, 16, 32]
 
 export default {
   name: 'Stats',

@@ -12,22 +12,22 @@ export default [
   {
     name: 'GDxXR',
     alt: 'XR',
-    top: 16
+    top: 8
   },
   {
     name: 'KStar_Yain',
     alt: 'Yain',
-    top: 16
+    top: 8
   },
   {
     name: '51的蛇蛇',
     alt: '蛇蛇',
-    top: 16
+    top: 8
   },
   {
     name: 'STRxSB',
     alt: 'SB',
-    top: 16
+    top: 8
   },
   {
     name: 'kunping',
@@ -102,12 +102,12 @@ export default [
   {
     name: 'Tatsuaki',
     alt: 'Tatsu.',
-    top: 16
+    top: 8
   },
   {
     name: 'GKxMars',
     alt: 'Mars',
-    top: 16
+    top: 8
   },
   {
     name: 'KStar_洗髮乳',
@@ -117,12 +117,12 @@ export default [
   {
     name: 'GKxYGzz',
     alt: 'YG',
-    top: 16
+    top: 8
   },
   {
     name: 'SPExXI',
     alt: 'XI',
-    top: 16
+    top: 8
   },
   {
     name: '00虎蝦妹00',
