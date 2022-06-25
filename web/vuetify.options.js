@@ -1,4 +1,4 @@
-import defu from 'defu'
+import { defu } from 'defu'
 import zhHant from 'vuetify/lib/locale/zh-Hant'
 import fontawesome from '~/data/fontawesome'
 import overallSeasons from '~/data/overall-seasons'
