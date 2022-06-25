@@ -1,5 +1,9 @@
 export default [
   {
+    code: 'season3',
+    name: 'Season 3'
+  },
+  {
     code: 'kart15th',
     name: '15 周年經典賽'
   },

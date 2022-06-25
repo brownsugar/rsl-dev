@@ -43,9 +43,10 @@ const config = {
     name: 'RSL 賽事聯盟',
     url: 'http://localhost:3000',
     cover: {
-      season1: defer(self => self.rsl.url + '/RSL_cover_v1.png'),
-      season2: defer(self => self.rsl.url + '/RSL_cover_v2.png'),
-      kart15th: defer(self => self.rsl.url + '/RSL_cover_kart15th.png')
+      season1: defer(self => self.rsl.url + '/RSL_cover_s1.png'),
+      season2: defer(self => self.rsl.url + '/RSL_cover_s2.png'),
+      kart15th: defer(self => self.rsl.url + '/RSL_cover_kart15th.png'),
+      season3: defer(self => self.rsl.url + '/RSL_cover_s3.png')
     },
     ga: 'UA-106820667-3',
     facebook: {
