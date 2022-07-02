@@ -1,8 +1,8 @@
 export default {
   themes: {
     light: {
-      primary: '#3235E9',
-      secondary: '#8119EB',
+      primary: '#8119EB',
+      secondary: '#3235E9',
       tertiary: '#A0C6EF',
       anchor: '#E800FF',
       facebook: '#1877F2',
