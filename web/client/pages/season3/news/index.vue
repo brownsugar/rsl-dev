@@ -53,7 +53,6 @@
                 <v-chip
                   v-if="isNew(post.date)"
                   color="primary"
-                  text-color="secondary"
                   x-small
                 >
                   NEW
