@@ -43,6 +43,7 @@
               :exact="item.to === rootPath && $route.path !== rootPath"
               :target="item.blank ? '_blank' : ''"
               :rel="item.blank ? 'noreferrer noopener' : ''"
+              :disabled="item.disabled"
               text
               nuxt
               v-bind="item.children ? attrs : {}"

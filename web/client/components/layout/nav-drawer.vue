@@ -68,8 +68,9 @@
             active-class="primary white--text"
             :to="item.to"
             :target="item.blank ? '_blank' : ''"
-            :rel="item.blank ? 'noreferrer noopener' : ''"
             :exact="item.to === rootPath && $route.path !== rootPath"
+            :rel="item.blank ? 'noreferrer noopener' : ''"
+            :disabled="item.disabled"
             nuxt
           >
             <v-list-item-content class="pt-0">

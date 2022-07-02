@@ -47,22 +47,38 @@ export default {
         label: '首頁',
         to: '/season3'
       },
-      // {
-      //   label: 'S3 聯賽資訊',
-      //   children: [
-      //     { label: '聯賽懶人包', to: '/season3/summary', note: '福利、賽程完全掌握！' },
-      //     { label: '聯賽數據記錄', to: '/season3/stats' },
-      //     { label: '聯賽規章', to: '/season3/rules' }
-      //   ]
-      // },
       {
         label: 'S3 聯賽規章',
-        to: '/season3/rules'
+        to: '/season3/rules',
+        badge: 'primary'
       },
-      // {
-      //   label: '人氣王票選',
-      //   to: '/season3/vote'
-      // },
+      {
+        label: 'S3 聯賽資訊',
+        children: [
+          {
+            label: '聯賽懶人包',
+            to: '/season3/summary',
+            // note: '福利、賽程完全掌握！',
+            note: 'Coming soon...',
+            disabled: true
+          },
+          {
+            label: '聯賽數據記錄',
+            to: '/season3/stats',
+            note: 'Coming soon...',
+            disabled: true
+          }
+          // {
+          //   label: '聯賽規章',
+          //   to: '/season3/rules'
+          // }
+        ]
+      },
+      {
+        label: '人氣王票選',
+        to: '/season3/vote',
+        disabled: true
+      },
       {
         label: '最新消息',
         to: '/season3/news'
