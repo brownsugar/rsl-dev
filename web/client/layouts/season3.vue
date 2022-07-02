@@ -1,9 +1,9 @@
 <template>
-  <v-app class="season-2">
+  <v-app class="season-3">
     <app-bar
       :items="navItems"
       color="rgba(255, 255, 255, .7)"
-      root-path="/season2"
+      root-path="/season3"
       height="80"
       use-transparent
       use-blur
@@ -11,12 +11,11 @@
 
     <nav-drawer
       :items="navItems"
-      root-path="/season2"
+      root-path="/season3"
     />
 
     <v-main
       :class="{
-        'pt-0': isHome,
         'grey lighten-4': !isHome
       }"
     >
@@ -24,7 +23,7 @@
     </v-main>
 
     <layout-footer
-      root-path="/season2"
+      root-path="/season3"
     />
   </v-app>
 </template>
@@ -46,55 +45,66 @@ export default {
     navItems: [
       {
         label: '首頁',
-        to: '/season2'
+        to: '/season3'
       },
       {
-        label: 'S2 聯賽資訊',
+        label: 'S3 聯賽規章',
+        to: '/season3/rules',
+        badge: 'primary'
+      },
+      {
+        label: 'S3 聯賽資訊',
         children: [
-          { label: '聯賽懶人包', to: '/season2/summary', note: '福利、賽程完全掌握！' },
-          { label: '聯賽數據記錄', to: '/season2/stats' },
-          { label: '聯賽規章', to: '/season2/rules' }
+          {
+            label: '聯賽懶人包',
+            to: '/season3/summary',
+            // note: '福利、賽程完全掌握！',
+            note: 'Coming soon...',
+            disabled: true
+          },
+          {
+            label: '聯賽數據記錄',
+            to: '/season3/stats',
+            note: 'Coming soon...',
+            disabled: true
+          }
+          // {
+          //   label: '聯賽規章',
+          //   to: '/season3/rules'
+          // }
         ]
       },
       {
         label: '人氣王票選',
-        to: '/season2/vote'
-      },
-      {
-        label: '台韓服交流賽',
-        to: '/season2/vs-korea'
+        to: '/season3/vote',
+        disabled: true
       },
       {
         label: '最新消息',
-        to: '/season2/news'
+        to: '/season3/news'
       },
       {
         label: '媒體報導',
-        to: '/season2/press'
+        to: '/season3/press'
       },
       {
         label: '認識 RSL',
         children: [
-          { label: '關於我們', to: '/season2/about' },
-          { label: '聯絡我們', to: '/season2/contact' }
+          { label: '關於我們', to: '/season3/about' },
+          { label: '聯絡我們', to: '/season3/contact' }
         ]
       }
     ]
   }),
   head () {
     const staticPages = [
-      'season2',
-      'season2-summary',
-      'season2-stats-tracks',
-      'season2-stats-teams',
-      'season2-stats-players',
-      'season2-vs-korea',
-      'season2-news',
-      'season2-about'
+      'season3',
+      'season3-news',
+      'season3-about'
     ]
-    const themeColor = '#272727'
-    const ogImage = this.$config.rsl.cover.season2
-    const defaultTitle = '夢想盃跑跑聯賽 Season 2'
+    const themeColor = '#A0C6EF'
+    const ogImage = this.$config.rsl.cover.season3
+    const defaultTitle = '夢想盃跑跑聯賽 Season 3'
 
     return createMeta({
       config: this.$config,
@@ -111,7 +121,7 @@ export default {
       'site'
     ]),
     isHome () {
-      return this.$route.path === '/season2'
+      return this.$route.path === '/season3'
     }
   }
 }
@@ -119,6 +129,6 @@ export default {
 
 <style lang="scss">
 .nuxt-progress {
-  background-color: $s2-tertiary;
+  background-color: var(--v-primary-base);
 }
 </style>

@@ -23,7 +23,9 @@
       <nuxt />
     </v-main>
 
-    <layout-footer />
+    <layout-footer
+      root-path="/kart15th"
+    />
   </v-app>
 </template>
 
@@ -31,7 +33,7 @@
 import { mapState } from 'vuex'
 import AppBar from '~/components/layout/app-bar'
 import NavDrawer from '~/components/layout/nav-drawer'
-import LayoutFooter from '~/components/kart15th/footer'
+import LayoutFooter from '~/components/common/footer'
 import createMeta from '~/assets/utils/create-meta'
 
 export default {

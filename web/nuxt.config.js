@@ -148,7 +148,7 @@ export default {
       Roboto: true,
       'Noto+Sans+TC': [400, 700, 900]
     },
-    display: 'swap'
+    download: false
   },
   // date-fns module configuration: https://github.com/nuxt-community/date-fns-module
   dateFns: {
