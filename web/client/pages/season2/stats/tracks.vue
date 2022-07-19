@@ -92,14 +92,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-data-table::v-deep {
+.v-data-table {
 
-  .v-data-table-header {
+  :deep(.v-data-table-header) {
     @include breakpoint(md) {
       display: none;
     }
   }
-  .v-data-table__mobile-row:first-child {
+  :deep(.v-data-table__mobile-row:first-child) {
 
     .v-data-table__mobile-row__header {
       display: none;
