@@ -6,6 +6,7 @@
       root-path="/season3"
       height="80"
       use-transparent
+      use-dark
       use-blur
     />
 
@@ -16,6 +17,7 @@
 
     <v-main
       :class="{
+        'pt-0': isHome,
         'grey lighten-4': !isHome
       }"
     >
@@ -129,6 +131,6 @@ export default {
 
 <style lang="scss">
 .nuxt-progress {
-  background-color: var(--v-primary-base);
+  background-color: var(--v-tertiary-base);
 }
 </style>
