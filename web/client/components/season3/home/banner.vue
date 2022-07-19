@@ -34,7 +34,7 @@
         class="arrow"
         :class="dir"
       >
-        <img src="~/assets/images/season3/home/arrow.png">
+        <img src="~/assets/images/season3/home/banner/arrow.png">
       </div>
     </div>
     <div class="layer decoration">
@@ -47,7 +47,7 @@
           <span>RSL 賽事聯盟</span>
         </div>
         <h1 class="title mt-2 mt-lg-3">
-          <img src="~/assets/images/season3/home/title.png" alt="夢想盃跑跑聯賽 Season 3">
+          <img src="~/assets/images/season3/home/banner/title.png" alt="夢想盃跑跑聯賽 Season 3">
           <span>夢想盃跑跑聯賽 Season 3</span>
         </h1>
         <h2 class="subtitle font-weight-bold text-no-wrap">
@@ -56,20 +56,20 @@
       </div>
       <div class="character mt-0 mt-md-12 d-flex align-end">
         <div class="marid">
-          <img src="~/assets/images/season3/home/marid@2x.png">
+          <img src="~/assets/images/season3/home/banner/marid@2x.png">
         </div>
         <div class="dao">
-          <img src="~/assets/images/season3/home/dao@2x.png">
+          <img src="~/assets/images/season3/home/banner/dao@2x.png">
         </div>
         <div class="dizni">
-          <img src="~/assets/images/season3/home/dizni@2x.png">
+          <img src="~/assets/images/season3/home/banner/dizni@2x.png">
         </div>
       </div>
     </div>
     <div class="layer slogan d-flex align-center pt-0 pt-md-10 pb-10 pb-sm-0">
       <div class="wrap fill-width d-flex justify-space-between">
-        <img class="left" src="~/assets/images/season3/home/slogan_left@2x.png" alt="超越極限">
-        <img class="right" src="~/assets/images/season3/home/slogan_right@2x.png" alt="挑戰新王">
+        <img class="left" src="~/assets/images/season3/home/banner/slogan_left@2x.png" alt="超越極限">
+        <img class="right" src="~/assets/images/season3/home/banner/slogan_right@2x.png" alt="挑戰新王">
       </div>
       <span>超越極限，挑戰新王</span>
     </div>
@@ -338,19 +338,19 @@ export default {
   }
 }
 .lights-effect {
-  background: image('season3/home/lights_effect.png') center top / cover no-repeat;
+  background: image('season3/home/banner/lights_effect.png') center top / cover no-repeat;
   mix-blend-mode: screen;
 }
 .castle {
 
   .building {
-    background: image('season3/home/castle.png') top 50px center no-repeat;
+    background: image('season3/home/banner/castle.png') top 50px center no-repeat;
   }
 }
 .platform {
 
   .stage {
-    background: image('season3/home/stage.png') top center / cover no-repeat;
+    background: image('season3/home/banner/stage.png') top center / cover no-repeat;
   }
   .lights-effect {
     top: 50%;
@@ -404,7 +404,7 @@ export default {
       --duration: 130s;
     }
 
-    background: image('season3/home/splash.png') center / cover repeat-x;
+    background: image('season3/home/banner/splash.png') center / cover repeat-x;
     mix-blend-mode: overlay;
     opacity: .9;
     animation: splash var(--duration) infinite;
