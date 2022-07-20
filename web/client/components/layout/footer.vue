@@ -114,7 +114,7 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: 'PageFooter',
   props: {
     rootPath: {
       type: String,
