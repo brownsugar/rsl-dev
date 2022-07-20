@@ -3,14 +3,13 @@
     <v-container class="py-16">
       <bordered-box>
         <div class="section-title d-flex justify-center align-center">
-          <h3 class="gradient-text text-h3 text-md-h1 font-weight-bold">
+          <h3 class="gradient-text text-h4 text-sm-h3 text-md-h1 font-weight-bold">
             賽事簡介
           </h3>
         </div>
-        <v-container class="mt-md-15">
-          <v-row>
+        <v-container class="mt-4 mt-sm-10 mt-lg-14">
+          <v-row class="flex-column-reverse flex-lg-row">
             <v-col
-              class="align-self-center pa-6 pb-15 pb-xl-6"
               cols="12"
               lg="8"
               xl="7"
@@ -33,7 +32,7 @@
                 </p>
               </div>
               <v-btn
-                class="mt-4"
+                class="mt-2 mt-md-4"
                 color="primary"
                 to="/season3/summary"
                 depressed
@@ -49,7 +48,6 @@
               </v-btn>
             </v-col>
             <v-col
-              class="align-self-start"
               cols="12"
               lg="4"
               xl="5"
@@ -62,7 +60,7 @@
           </v-row>
         </v-container>
         <v-responsive
-          class="mt-12 mx-auto"
+          class="mt-8 mt-md-12 mx-3 mx-sm-auto"
           :aspect-ratio="16 / 9"
           max-width="1400"
         >
@@ -74,26 +72,26 @@
             loop
           />
         </v-responsive>
-        <v-container class="social-box mt-12">
-          <v-row>
+        <v-container class="social-box mt-6 mt-md-12">
+          <v-row class="mx-n6">
             <v-col
               v-for="block in blocks"
               :key="block.type"
+              cols="12"
+              lg="4"
             >
               <div
-                class="white--text pa-10 rounded-xl"
+                class="white--text pa-6 pa-xl-10 rounded-xl"
                 :class="['block-' + block.type, block.type]"
               >
-                <div class="text-h4">
-                  <div class="font-weight-black text-uppercase">
-                    {{ block.title }}
-                  </div>
-                  <div class="font-weight-bold">
-                    @{{ $config.rsl[block.type].username }}
-                  </div>
+                <div class="text-h4 font-weight-black">
+                  {{ block.title }}
+                </div>
+                <div class="text-h5 font-weight-bold">
+                  @{{ $config.rsl[block.type].username }}
                 </div>
                 <div
-                  class="text-h6 text-md-h5 mt-6"
+                  class="text-h5 mt-6"
                 >
                   {{ block.description }}
                 </div>
@@ -141,19 +139,19 @@ export default {
     blocks: [
       {
         type: 'twitch',
-        title: '官方 Twitch 頻道',
+        title: 'Twitch 頻道',
         description: '每周聯賽準時轉播',
         action: '立即追隨'
       },
       {
         type: 'facebook',
-        title: '官方 Facebook 專頁',
+        title: 'Facebook 專頁',
         description: '聯賽情報即時掌握',
         action: '立即按讚'
       },
       {
         type: 'youtube',
-        title: '官方 YouTube 頻道',
+        title: 'YouTube 頻道',
         description: '精彩賽事隨時重溫',
         action: '立即訂閱'
       }
@@ -169,21 +167,34 @@ export default {
   margin-bottom: var(--bottom-offset);
 }
 .section-title {
-  $margin-x: 50px;
+  --width: 100px;
+  --height: 50px;
+  --margin-x: 50px;
+
+  @include breakpoint(md) {
+    --width: 60px;
+    --height: 30px;
+    --margin-x: 25px;
+  }
+  @include breakpoint(sm) {
+    --width: 40px;
+    --height: 20px;
+    --margin-x: 15px;
+  }
 
   &::before,
   &::after {
     display: block;
-    width: 100px;
-    height: 50px;
+    width: var(--width);
+    height: var(--height);
     content: '';
     background: image('season3/home/league/checkered_flag.svg') center / cover no-repeat;
   }
   &::before {
-    margin-right: $margin-x;
+    margin-right: var(--margin-x);
   }
   &::after {
-    margin-left: $margin-x;
+    margin-left: var(--margin-x);
     transform: rotateZ(180deg);
   }
 }

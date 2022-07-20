@@ -1,6 +1,6 @@
 <template>
-  <div class="bordered-box pa-3">
-    <div class="inner white pa-16">
+  <div class="bordered-box pa-2 pa-sm-3">
+    <div class="inner white pa-6 px-0 pa-sm-10 pa-md-16">
       <slot />
     </div>
   </div>
