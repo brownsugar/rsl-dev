@@ -108,7 +108,7 @@ const awards = [
         ]
       },
       {
-        title: '總決賽賽終極獎勵',
+        title: '總決賽終極獎勵',
         subtitle: 'Finals Lottery',
         description: '將於 8/27 總決賽當日直播抽出，人人都有機會成為幸運兒，敬請關注賽事轉播。',
         image: 'tt-1',
