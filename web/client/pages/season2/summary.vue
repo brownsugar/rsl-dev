@@ -51,7 +51,7 @@ import Modes from '~/components/season2/summary/modes'
 import Schedules from '~/components/season2/summary/schedules'
 
 export default {
-  name: 'Summary',
+  name: 'LeagueSummary',
   components: {
     Prizes,
     Modes,
