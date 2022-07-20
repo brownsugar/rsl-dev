@@ -72,8 +72,7 @@ export default {
       },
       {
         label: '人氣王票選',
-        to: '/season3/vote',
-        disabled: true
+        to: '/season3/vote'
       },
       {
         label: '最新消息',
