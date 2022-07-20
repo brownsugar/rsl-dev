@@ -38,7 +38,7 @@
                       >
                         <div class="d-flex justify-space-between">
                           <div class="text-body-2 font-weight-bold d-flex justify-center align-center">
-                            <Mark
+                            <team-mark
                               class="mr-2"
                               category="season2"
                               :team="team.name"
@@ -114,13 +114,13 @@
 
 <script>
 import { mapState } from 'vuex'
-import Mark from '~/components/common/mark'
+import TeamMark from '~/components/common/team-mark'
 import teams from '~/data/season2/teams'
 
 export default {
   name: 'Players',
   components: {
-    Mark
+    TeamMark
   },
   layout: 'season2',
   props: {

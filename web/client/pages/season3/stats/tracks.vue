@@ -21,7 +21,7 @@
           {{ value }}
         </div>
         <div class="d-flex align-center">
-          <Mark
+          <team-mark
             category="season3"
             :team="item.team"
             small
@@ -37,13 +37,13 @@
 
 <script>
 import { mapState } from 'vuex'
-import Mark from '~/components/common/mark'
+import TeamMark from '~/components/common/team-mark'
 import tracks from '~/data/season3/tracks'
 
 export default {
   name: 'Tracks',
   components: {
-    Mark
+    TeamMark
   },
   layout: 'season3',
   data: () => ({
