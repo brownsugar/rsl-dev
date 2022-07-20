@@ -3,7 +3,7 @@
     <v-container>
       <bordered-box>
         <div class="section-title d-flex justify-center align-center">
-          <h3 class="gradient-text text-h4 text-sm-h3 text-md-h1 font-weight-bold">
+          <h3 class="gradient-text text-h4 text-sm-h3 text-lg-h1 font-weight-bold">
             賽事簡介
           </h3>
         </div>
@@ -34,13 +34,13 @@
               <v-btn
                 class="mt-2 mt-md-4"
                 color="primary"
-                to="/season3/summary"
+                to="/season3/benefits"
                 depressed
                 rounded
                 large
                 dark
               >
-                查看 S3 聯賽懶人包
+                查看 S3 聯賽福利
                 <fa
                   class="ml-2"
                   icon="fa-duotone fa-chevrons-right"
@@ -171,7 +171,7 @@ export default {
   --height: 50px;
   --margin-x: 50px;
 
-  @include breakpoint(md) {
+  @include breakpoint(lg) {
     --width: 60px;
     --height: 30px;
     --margin-x: 25px;

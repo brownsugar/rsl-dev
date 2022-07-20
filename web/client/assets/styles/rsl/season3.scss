@@ -7,8 +7,12 @@
     background: var(--v-tertiary-base);
   }
   .container {
-    @include breakpoint(xl, false) {
+    @include breakpoint(lg, false) {
       max-width: 1350px;
+    }
+    // Default
+    @include breakpoint(xl, false) {
+      max-width: 1785px;
     }
   }
   .gradient-text {

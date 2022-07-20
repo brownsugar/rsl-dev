@@ -50,30 +50,24 @@ export default {
         to: '/season3'
       },
       {
-        label: 'S3 聯賽規章',
-        to: '/season3/rules',
-        badge: 'primary'
-      },
-      {
         label: 'S3 聯賽資訊',
+        badge: 'primary',
         children: [
           {
-            label: '聯賽懶人包',
-            to: '/season3/summary',
-            // note: '福利、賽程完全掌握！',
-            note: 'Coming soon...',
-            disabled: true
+            label: '聯賽福利',
+            to: '/season3/benefits',
+            badge: 'primary'
           },
           {
             label: '聯賽數據記錄',
             to: '/season3/stats',
             note: 'Coming soon...',
             disabled: true
+          },
+          {
+            label: '聯賽規章',
+            to: '/season3/rules'
           }
-          // {
-          //   label: '聯賽規章',
-          //   to: '/season3/rules'
-          // }
         ]
       },
       {
