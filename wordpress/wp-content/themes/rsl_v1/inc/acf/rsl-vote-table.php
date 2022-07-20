@@ -7,7 +7,7 @@ acf_add_local_field_group(array(
   'fields' => array(
     array(
       'key' => 'field_611088b02bcf3',
-      'label' => 'Season 2',
+      'label' => 'Season 3',
       'name' => '',
       'type' => 'accordion',
       'instructions' => '',
@@ -26,7 +26,7 @@ acf_add_local_field_group(array(
     array(
       'key' => 'field_61108ac531654',
       'label' => '票選資料',
-      'name' => 's2_vote_table',
+      'name' => 's3_vote_table',
       'type' => 'repeater',
       'instructions' => '',
       'required' => 0,
@@ -205,6 +205,7 @@ acf_add_local_field_group(array(
   'hide_on_screen' => '',
   'active' => true,
   'description' => '',
+  'show_in_rest' => 0,
 ));
 
 endif;
