@@ -1,5 +1,10 @@
 <template>
-  <h5 class="text-h4 text-sm-h3 font-weight-bold d-flex align-end pb-1">
+  <h5
+    class="text-h4 text-sm-h3 font-weight-bold d-flex align-end pb-1"
+    :class="{
+      'ml-15 ml-md-0': shrinkBelowSm
+    }"
+  >
     <span>{{ text }}</span>
   </h5>
 </template>
@@ -11,6 +16,10 @@ export default {
     text: {
       type: String,
       default: ''
+    },
+    shrinkBelowSm: {
+      type: Boolean,
+      default: false
     }
   }
 }

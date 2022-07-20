@@ -33,6 +33,3 @@ export default {
   layout: 'season3'
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

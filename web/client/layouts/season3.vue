@@ -60,9 +60,7 @@ export default {
           },
           {
             label: '聯賽數據記錄',
-            to: '/season3/stats',
-            note: 'Coming soon...',
-            disabled: true
+            to: '/season3/stats'
           },
           {
             label: '聯賽規章',
@@ -94,6 +92,12 @@ export default {
   head () {
     const staticPages = [
       'season3',
+      'season3-benefits',
+      'season3-stats',
+      'season3-stats-tracks',
+      'season3-stats-teams',
+      'season3-stats-players',
+      'season3-vote',
       'season3-news',
       'season3-about'
     ]

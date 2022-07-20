@@ -8,6 +8,7 @@
       >
         <sub-title
           text="S3 人氣王票選"
+          shrink-below-sm
         />
         <div class="mt-8">
           <coming-soon
