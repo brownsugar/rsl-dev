@@ -1,5 +1,8 @@
 <template>
-  <h4 class="text-h3 text-sm-h2 font-weight-black text-uppercase">
+  <h4
+    class="text-h3 text-sm-h2 font-weight-black text-uppercase"
+    :class="{ 'text-center': center }"
+  >
     <span class="d-block text-h5 secondary--text font-weight-bold">{{ top }}</span>
     <div class="bottom">
       <slot
@@ -24,6 +27,10 @@ export default {
     bottom: {
       type: String,
       default: ''
+    },
+    center: {
+      type: Boolean,
+      default: false
     }
   }
 }
