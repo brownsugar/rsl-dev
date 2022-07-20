@@ -66,7 +66,7 @@
 import LinkAlert from '~/components/common/link-alert'
 import Mark from '~/components/common/mark'
 import teams from '~/data/season2/teams'
-import voteErrorMessages from '~/data/season2/vote-error-messages'
+import voteErrorMessages from '~/data/common/vote-error-messages'
 
 export default {
   name: 'VoteStep4',
