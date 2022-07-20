@@ -1,6 +1,6 @@
 <template>
-  <section class="league py-4">
-    <v-container class="py-16">
+  <section class="league py-16">
+    <v-container>
       <bordered-box>
         <div class="section-title d-flex justify-center align-center">
           <h3 class="gradient-text text-h4 text-sm-h3 text-md-h1 font-weight-bold">
@@ -73,7 +73,7 @@
           />
         </v-responsive>
         <v-container class="social-box mt-6 mt-md-12">
-          <v-row class="mx-n6">
+          <v-row class="mx-sm-n6">
             <v-col
               v-for="block in blocks"
               :key="block.type"

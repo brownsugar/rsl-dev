@@ -10,6 +10,7 @@
       :src="require('~/assets/images/season3/host/' + host.avatar)"
       gradient="to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .8)"
       :alt="host.name"
+      eager
     >
       <div class="pa-6">
         <v-card-title class="text-h4 text-sm-h3 font-weight-bold text-uppercase pa-0">
