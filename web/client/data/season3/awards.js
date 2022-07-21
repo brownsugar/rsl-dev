@@ -108,6 +108,14 @@ const awards = [
         ]
       },
       {
+        title: '購物折扣碼',
+        subtitle: 'Discount Coupon',
+        image: 'planet9',
+        content: [
+          '至 PLANET9 商城結帳時輸入折扣碼「RSL150」即可享滿 1000 元折 150 元的優惠，使用期限至 8/31 23:59 止'
+        ]
+      },
+      {
         title: '總決賽終極獎勵',
         subtitle: 'Finals Lottery',
         description: '將於 8/27 總決賽當日直播抽出，人人都有機會成為幸運兒，敬請關注賽事轉播。',
