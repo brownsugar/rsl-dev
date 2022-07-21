@@ -1,7 +1,6 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "ikappas.phpcs",
     "stylelint.vscode-stylelint",
     "octref.vetur"
   ]

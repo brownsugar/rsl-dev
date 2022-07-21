@@ -21,7 +21,7 @@
           {{ value }}
         </div>
         <div class="d-flex align-center">
-          <Mark
+          <team-mark
             category="season2"
             :team="item.team"
             small
@@ -37,13 +37,13 @@
 
 <script>
 import { mapState } from 'vuex'
-import Mark from '~/components/common/mark'
+import TeamMark from '~/components/common/team-mark'
 import tracks from '~/data/season2/tracks'
 
 export default {
   name: 'Tracks',
   components: {
-    Mark
+    TeamMark
   },
   layout: 'season2',
   data: () => ({
@@ -92,14 +92,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-data-table::v-deep {
+.v-data-table {
 
-  .v-data-table-header {
+  :deep(.v-data-table-header) {
     @include breakpoint(md) {
       display: none;
     }
   }
-  .v-data-table__mobile-row:first-child {
+  :deep(.v-data-table__mobile-row:first-child) {
 
     .v-data-table__mobile-row__header {
       display: none;

@@ -6,4 +6,29 @@
   ::selection {
     background: var(--v-tertiary-base);
   }
+  .container {
+    @include breakpoint(lg, false) {
+      max-width: 1350px;
+    }
+    // Default
+    @include breakpoint(xl, false) {
+      max-width: 1785px;
+    }
+  }
+  .gradient-text {
+    color: var(--v-primary-base);
+    background:
+      linear-gradient(
+        to right,
+        var(--v-secondary-base) 0%,
+        var(--v-primary-base) 33%,
+        var(--v-secondary-lighten1) 66%,
+        var(--v-primary-lighten1) 100%
+      );
+    filter: drop-shadow(0 0 2px #FFD6FF);
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

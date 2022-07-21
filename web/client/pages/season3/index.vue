@@ -1,26 +1,35 @@
 <template>
   <div class="home">
-    <v-container class="py-12">
-      <v-img
-        class="mx-auto"
-        src="~/assets/images/season3/coming-soon.png"
-        alt="Season 3 賽事官網即將發佈"
-        max-width="1200"
-        :aspect-ratio="1200 / 628"
-        eager
+    <banner />
+    <league />
+    <section-break />
+    <hosts />
+    <div class="text-center py-12">
+      <fa
+        icon="fa-regular fa-hyphen"
+        size="3x"
       />
-    </v-container>
+    </div>
+    <cooperator />
   </div>
 </template>
 
 <script>
+import Banner from '~/components/season3/home/banner'
+import League from '~/components/season3/home/league'
+import Hosts from '~/components/season3/home/hosts'
+import Cooperator from '~/components/season3/home/cooperator'
+import SectionBreak from '~/components/season3/common/section-break'
+
 export default {
   name: 'Index',
   components: {
+    Banner,
+    League,
+    Hosts,
+    Cooperator,
+    SectionBreak
   },
   layout: 'season3'
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

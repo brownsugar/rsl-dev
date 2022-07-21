@@ -16,7 +16,7 @@ const categories = {
 const defaultId = 48 // [?] mark
 
 export default {
-  name: 'Mark',
+  name: 'TeamMark',
   props: {
     category: {
       type: String,

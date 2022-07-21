@@ -14,14 +14,6 @@ const serverMiddlewares = config.server.proxy.map((path) => {
   }
 })
 /**
- * Automatic polyfills
- * https://github.com/wessberg/polyfiller
- */
-const polyfills = [
-  'intersection-observer',
-  'scroll-behavior'
-].join(',')
-/**
  * Assets gzip compression
  * https://github.com/webpack-contrib/compression-webpack-plugin
  */
@@ -77,9 +69,7 @@ export default {
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' }
     ],
-    script: [
-      { src: `https://polyfill.app/api/polyfill?features=${polyfills}`, body: true }
-    ]
+    script: []
   },
   loading: { color: '#fff' },
   // Global CSS: https://go.nuxtjs.dev/config-css

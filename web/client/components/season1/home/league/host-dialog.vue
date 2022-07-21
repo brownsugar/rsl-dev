@@ -27,8 +27,9 @@
       </div>
       <v-card-text
         class="host-exp mt-2"
-        v-text="host.experience"
-      />
+      >
+        {{ host.experience }}
+      </v-card-text>
       <v-card-actions>
         <v-btn
           v-if="host.link"

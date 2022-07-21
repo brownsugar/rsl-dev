@@ -302,8 +302,9 @@
                             </div>
                             <v-card-title
                               class="pt-0"
-                              v-text="track.name"
-                            />
+                            >
+                              {{ track.name }}
+                            </v-card-title>
                             <v-spacer />
                             <v-card-text
                               v-if="tab.type === 'speed' && trackBest[track.id]"

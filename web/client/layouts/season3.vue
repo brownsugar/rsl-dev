@@ -6,6 +6,7 @@
       root-path="/season3"
       height="80"
       use-transparent
+      use-dark
       use-blur
     />
 
@@ -16,13 +17,14 @@
 
     <v-main
       :class="{
+        'pt-0': isHome,
         'grey lighten-4': !isHome
       }"
     >
       <nuxt />
     </v-main>
 
-    <layout-footer
+    <page-footer
       root-path="/season3"
     />
   </v-app>
@@ -32,14 +34,14 @@
 import { mapState } from 'vuex'
 import AppBar from '~/components/layout/app-bar'
 import NavDrawer from '~/components/layout/nav-drawer'
-import LayoutFooter from '~/components/common/footer'
+import PageFooter from '~/components/layout/footer'
 import createMeta from '~/assets/utils/create-meta'
 
 export default {
   components: {
     AppBar,
     NavDrawer,
-    LayoutFooter
+    PageFooter
   },
   data: () => ({
     navItems: [
@@ -48,36 +50,27 @@ export default {
         to: '/season3'
       },
       {
-        label: 'S3 聯賽規章',
-        to: '/season3/rules',
-        badge: 'primary'
-      },
-      {
         label: 'S3 聯賽資訊',
+        badge: 'primary',
         children: [
           {
-            label: '聯賽懶人包',
-            to: '/season3/summary',
-            // note: '福利、賽程完全掌握！',
-            note: 'Coming soon...',
-            disabled: true
+            label: '聯賽福利',
+            to: '/season3/benefits',
+            badge: 'primary'
           },
           {
             label: '聯賽數據記錄',
-            to: '/season3/stats',
-            note: 'Coming soon...',
-            disabled: true
+            to: '/season3/stats'
+          },
+          {
+            label: '聯賽規章',
+            to: '/season3/rules'
           }
-          // {
-          //   label: '聯賽規章',
-          //   to: '/season3/rules'
-          // }
         ]
       },
       {
         label: '人氣王票選',
-        to: '/season3/vote',
-        disabled: true
+        to: '/season3/vote'
       },
       {
         label: '最新消息',
@@ -99,6 +92,12 @@ export default {
   head () {
     const staticPages = [
       'season3',
+      'season3-benefits',
+      'season3-stats',
+      'season3-stats-tracks',
+      'season3-stats-teams',
+      'season3-stats-players',
+      'season3-vote',
       'season3-news',
       'season3-about'
     ]
@@ -129,6 +128,6 @@ export default {
 
 <style lang="scss">
 .nuxt-progress {
-  background-color: var(--v-primary-base);
+  background-color: var(--v-tertiary-base);
 }
 </style>

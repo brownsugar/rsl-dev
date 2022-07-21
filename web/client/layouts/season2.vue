@@ -23,7 +23,7 @@
       <nuxt />
     </v-main>
 
-    <layout-footer
+    <page-footer
       root-path="/season2"
     />
   </v-app>
@@ -33,14 +33,14 @@
 import { mapState } from 'vuex'
 import AppBar from '~/components/layout/app-bar'
 import NavDrawer from '~/components/layout/nav-drawer'
-import LayoutFooter from '~/components/common/footer'
+import PageFooter from '~/components/layout/footer'
 import createMeta from '~/assets/utils/create-meta'
 
 export default {
   components: {
     AppBar,
     NavDrawer,
-    LayoutFooter
+    PageFooter
   },
   data: () => ({
     navItems: [
@@ -85,9 +85,11 @@ export default {
     const staticPages = [
       'season2',
       'season2-summary',
+      'season2-stats',
       'season2-stats-tracks',
       'season2-stats-teams',
       'season2-stats-players',
+      'season2-vote',
       'season2-vs-korea',
       'season2-news',
       'season2-about'

@@ -16,7 +16,7 @@
           :key="'tab-' + team.name"
           class="justify-md-start"
         >
-          <Mark
+          <team-mark
             class="flex-grow-0 mr-2"
             category="season2"
             :team="team.name"
@@ -34,7 +34,7 @@
           >
             <template #bottom>
               <div class="d-flex align-center">
-                <Mark
+                <team-mark
                   class="mr-2"
                   category="season2"
                   :team="team.name"
@@ -107,7 +107,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import Mark from '~/components/common/mark'
+import TeamMark from '~/components/common/team-mark'
 import TwoLineTitle from '~/components/season2/common/two-line-title'
 import teams from '~/data/season2/teams'
 import tracks from '~/data/season2/tracks'
@@ -115,7 +115,7 @@ import tracks from '~/data/season2/tracks'
 export default {
   name: 'Teams',
   components: {
-    Mark,
+    TeamMark,
     TwoLineTitle
   },
   layout: 'season2',

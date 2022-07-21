@@ -7,6 +7,7 @@
     }"
     :color="color"
     :height="height"
+    :dark="useDark && appBarTransparent"
     elevate-on-scroll
     fixed
     app
@@ -141,6 +142,10 @@ export default {
       default: '80'
     },
     useTransparent: {
+      type: Boolean,
+      default: false
+    },
+    useDark: {
       type: Boolean,
       default: false
     },

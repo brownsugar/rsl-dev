@@ -10,29 +10,25 @@
 }
 @mixin parallax-cover() {
 
-  ::v-deep {
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :deep(.v-parallax__image-container::before) {
+    @include fit-parent();
 
-    .v-parallax__image-container::before {
-      @include fit-parent();
-
-      z-index: 2;
-      content: '';
-      background-repeat: repeat;
-      @content;
-    }
+    z-index: 2;
+    content: '';
+    background-repeat: repeat;
+    @content;
   }
 }
 @mixin img-cover() {
 
-  ::v-deep {
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :deep(.v-image__image::before) {
+    @include fit-parent();
 
-    .v-image__image::before {
-      @include fit-parent();
-
-      content: '';
-      background-repeat: repeat;
-      @content;
-    }
+    content: '';
+    background-repeat: repeat;
+    @content;
   }
 }
 @mixin breakpoint($size, $max: true) {
