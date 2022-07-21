@@ -42,20 +42,20 @@ const cooperators = [
     title: '贊助廠商',
     data: [
       {
-        name: 'TT 曜越科技',
-        logo: {
-          file: 'tt.png',
-          height: 55
-        },
-        link: 'https://reurl.cc/9GAjK8'
-      },
-      {
         name: 'HyperX',
         logo: {
           file: 'hyperx.png',
           height: 70
         },
         link: 'https://hyperx.gg/3a43lvZ'
+      },
+      {
+        name: 'TT 曜越科技',
+        logo: {
+          file: 'tt.png',
+          height: 55
+        },
+        link: 'https://reurl.cc/9GAjK8'
       },
       {
         name: 'AMD',
