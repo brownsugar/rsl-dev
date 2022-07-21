@@ -16,7 +16,7 @@ const awards = [
       {
         title: '2nd Place',
         subtitle: '亞軍',
-        image: 'hyperx-1',
+        image: 'tt-2',
         content: [
           '獎金：NTD $15,000',
           '遊戲虛寶：Formosa V1 (永久)、強化產包 BLACK (2 個)',
@@ -27,7 +27,7 @@ const awards = [
       {
         title: '3rd Place',
         subtitle: '季軍',
-        image: 'tt-2',
+        image: 'hyperx-1',
         content: [
           '獎金：NTD $5,000',
           '遊戲虛寶：骷髏惡霸 V1 (永久)、強化產包 BLACK (1 個)',
@@ -52,7 +52,7 @@ const awards = [
         title: '總決賽 MVP',
         subtitle: 'Finals MVP',
         description: '總決賽結束並產生最終冠軍隊伍後，由主播賽評團評選公佈。',
-        image: 'hyperx-1',
+        image: 'tt-2',
         content: [
           '獎金：NTD $5,000',
           '遊戲虛寶：強化產包 BLACK (1 個)',
@@ -64,7 +64,7 @@ const awards = [
         title: '賽道紀錄霸主',
         subtitle: 'Track Master',
         description: '第三賽季結束後，保有最多張團體競速賽道最佳記錄的選手。',
-        image: 'tt-2',
+        image: 'hyperx-1',
         content: [
           '獎金：NTD $3,000',
           '遊戲虛寶：強化產包 BLACK (1 個)',
