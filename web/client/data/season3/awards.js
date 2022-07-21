@@ -20,7 +20,7 @@ const awards = [
         content: [
           '獎金：NTD $15,000',
           '遊戲虛寶：Formosa V1 (永久)、強化產包 BLACK (2 個)',
-          '專業電競週邊：HyperX 提供 [HyperX Alloy Origins 60 機械式電競鍵盤]（4 組）',
+          '專業電競週邊：TT 曜越科技提供 [幻銀 ARGENT H5 RGB 無線電競耳機]（4 組）',
           '專業電競週邊：HyperX 提供 [HyperX Clutch — 無線遊戲控制器]（2 組）'
         ]
       },
@@ -31,7 +31,7 @@ const awards = [
         content: [
           '獎金：NTD $5,000',
           '遊戲虛寶：骷髏惡霸 V1 (永久)、強化產包 BLACK (1 個)',
-          '專業電競週邊：TT 曜越科技提供 [幻銀 ARGENT H5 RGB 無線電競耳機]（4 組）'
+          '專業電競週邊：HyperX 提供 [HyperX Alloy Origins 60 機械式電競鍵盤]（4 組）'
         ]
       },
       {
@@ -56,7 +56,7 @@ const awards = [
         content: [
           '獎金：NTD $5,000',
           '遊戲虛寶：強化產包 BLACK (1 個)',
-          '專業電競週邊：HyperX 提供 [HyperX Alloy Origins 60 機械式電競鍵盤]',
+          '專業電競週邊：TT 曜越科技提供 [幻銀 ARGENT H5 RGB 無線電競耳機]',
           '專業電競週邊：HyperX 提供 [HyperX Clutch — 無線遊戲控制器]'
         ]
       },
@@ -68,7 +68,7 @@ const awards = [
         content: [
           '獎金：NTD $3,000',
           '遊戲虛寶：強化產包 BLACK (1 個)',
-          '專業電競週邊：TT 曜越科技提供 [幻銀 ARGENT H5 RGB 無線電競耳機]',
+          '專業電競週邊：HyperX 提供 [HyperX Alloy Origins 60 機械式電競鍵盤]',
           '專業電競週邊：HyperX 提供 [HyperX Clutch — 無線遊戲控制器]'
         ]
       },
