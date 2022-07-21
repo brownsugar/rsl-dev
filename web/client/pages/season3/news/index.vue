@@ -8,6 +8,7 @@
       >
         <sub-title
           text="最新消息"
+          shrink-below-sm
         />
         <link-tabs
           class="mt-8 mb-4"
@@ -98,7 +99,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import SubTitle from '~/components/season2/common/sub-title'
+import SubTitle from '~/components/season3/common/sub-title'
 import LinkTabs from '~/components/common/link-tabs'
 import ComingSoon from '~/components/common/coming-soon'
 import { DATE_FORMAT, DATETIME_FORMAT } from '~/assets/utils/const'
