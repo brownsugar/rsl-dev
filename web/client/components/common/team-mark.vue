@@ -9,9 +9,14 @@
 
 <script>
 import marksS2 from '~/data/season2/marks'
+import teamsS3 from '~/data/season3/teams'
 
 const categories = {
-  season2: marksS2
+  season2: marksS2,
+  season3: teamsS3.map(team => ({
+    team: team.name,
+    id: team.markId
+  }))
 }
 const defaultId = 48 // [?] mark
 
