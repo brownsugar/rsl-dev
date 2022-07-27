@@ -1,7 +1,7 @@
 const teams = [
   {
     name: '真假難分',
-    mark: 48,
+    mark: 2,
     top: 16,
     players: [
       '蘇荷雨滴s',
@@ -14,15 +14,14 @@ const teams = [
   },
   {
     name: '我就網路爛KR',
-    mark: 48,
+    mark: 7,
     top: 16,
     players: [
       'RedYain',
       'YOASOBIIKURA',
       '康康v',
       '放竺',
-      'LingYang',
-      '-'
+      'LingYang'
     ]
   },
   {
@@ -53,7 +52,7 @@ const teams = [
   },
   {
     name: 'Few Kids',
-    mark: 48,
+    mark: 98,
     top: 16,
     players: [
       'Str_Noah',
@@ -66,7 +65,7 @@ const teams = [
   },
   {
     name: 'Inventor',
-    mark: 48,
+    mark: 108,
     top: 16,
     players: [
       '999VAGO',
@@ -79,7 +78,7 @@ const teams = [
   },
   {
     name: '卡面賴打',
-    mark: 48,
+    mark: 228,
     top: 16,
     players: [
       'Super1vIxRy',
@@ -92,7 +91,7 @@ const teams = [
   },
   {
     name: 'SharKs',
-    mark: 48,
+    mark: 249,
     top: 16,
     players: [
       'SKsAlphago',
@@ -105,7 +104,7 @@ const teams = [
   },
   {
     name: '密碼多少',
-    mark: 48,
+    mark: 261,
     top: 16,
     players: [
       '玄解vIxRy',
@@ -118,7 +117,7 @@ const teams = [
   },
   {
     name: '雙卡不減少',
-    mark: 48,
+    mark: 266,
     top: 16,
     players: [
       'SYPxZG',
@@ -131,7 +130,7 @@ const teams = [
   },
   {
     name: '打醬油',
-    mark: 48,
+    mark: 275,
     top: 16,
     players: [
       'Renebaebaeee',
@@ -144,7 +143,7 @@ const teams = [
   },
   {
     name: 'SNAspeed',
-    mark: 48,
+    mark: 282,
     top: 16,
     players: [
       'SNAs凵大勳',
@@ -157,7 +156,7 @@ const teams = [
   },
   {
     name: '番茄炒蛋plus',
-    mark: 48,
+    mark: 322,
     top: 16,
     players: [
       '無碼英丸',
@@ -170,7 +169,7 @@ const teams = [
   },
   {
     name: '佛系打比賽',
-    mark: 48,
+    mark: 325,
     top: 16,
     players: [
       '泡菜Kim7',
@@ -183,7 +182,7 @@ const teams = [
   },
   {
     name: '隱姓埋名',
-    mark: 48,
+    mark: 338,
     top: 16,
     players: [
       'XavierC',
@@ -196,7 +195,7 @@ const teams = [
   },
   {
     name: '藍鑽寶貝',
-    mark: 48,
+    mark: 344,
     top: 16,
     players: [
       'SPExSQ',
