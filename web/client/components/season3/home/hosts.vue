@@ -39,6 +39,19 @@
         <fa icon="fa-solid fa-chevron-right" />
       </v-btn>
     </div>
+    <two-line-title
+      class="mt-16"
+      top="夢想盃跑跑聯賽 Season 3"
+      bottom="表演賽嘉賓"
+      center
+    />
+    <v-container class="mt-12">
+      <coming-soon
+        message="更多資訊，八月中旬公開。"
+        image="go-ahead"
+        width="450"
+      />
+    </v-container>
   </section>
 </template>
 
@@ -46,6 +59,7 @@
 import HostCard from './hosts/card'
 import Swiper from '~/components/common/swiper'
 import TwoLineTitle from '~/components/season3/common/two-line-title'
+import ComingSoon from '~/components/common/coming-soon'
 import hosts from '~/data/season3/hosts'
 
 export default {
@@ -53,7 +67,8 @@ export default {
   components: {
     Swiper,
     HostCard,
-    TwoLineTitle
+    TwoLineTitle,
+    ComingSoon
   },
   data: () => ({
     hosts,
