@@ -90,7 +90,6 @@ export default {
     '~/plugins/mobile-detect.js',
     '~/plugins/breakpoint.js',
     '~/plugins/clipboard.js',
-    '~/plugins/vue-youtube.js',
     { src: '~/plugins/vue-affix.js', mode: 'client' },
     { src: '~/plugins/vue-scrollspy.js', mode: 'client' },
     { src: '~/plugins/anime.js', mode: 'client' }
