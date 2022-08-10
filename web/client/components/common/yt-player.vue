@@ -28,9 +28,13 @@
 </template>
 
 <script>
+import { Youtube } from 'vue-youtube'
+
 export default {
   name: 'YtPlayer',
-  components: {},
+  components: {
+    Youtube
+  },
   props: {
     videoId: {
       type: String,

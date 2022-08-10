@@ -11,7 +11,7 @@
     >
       <v-img
         class="mx-auto"
-        aspected-ratio="601 / 328"
+        aspect-ratio="601 / 328"
         src="~/assets/images/common/broken.png"
         width="500"
       />
