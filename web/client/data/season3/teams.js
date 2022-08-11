@@ -2,7 +2,7 @@ const teams = [
   {
     name: '真假難分',
     markId: 282,
-    top: 16,
+    top: 8,
     players: [
       '蘇荷雨滴s',
       '蘇荷傻逼s',
@@ -40,7 +40,7 @@ const teams = [
   {
     name: 'WakuWaku',
     markId: 344,
-    top: 16,
+    top: 8,
     players: [
       'GKx維骨力',
       'RozenHorizon',
@@ -53,7 +53,7 @@ const teams = [
   {
     name: 'Few Kids',
     markId: 2,
-    top: 16,
+    top: 8,
     players: [
       'Str_Noah',
       'KStar_睏平',
@@ -66,7 +66,7 @@ const teams = [
   {
     name: 'Inventor',
     markId: 7,
-    top: 16,
+    top: 8,
     players: [
       '999VAGO',
       '要你命小刀1',
@@ -118,7 +118,7 @@ const teams = [
   {
     name: '雙卡不減少',
     markId: 108,
-    top: 16,
+    top: 8,
     players: [
       'SYPxZG',
       'ooMia',
@@ -131,7 +131,7 @@ const teams = [
   {
     name: '打醬油',
     markId: 322,
-    top: 16,
+    top: 8,
     players: [
       'Renebaebaeee',
       'GKxYGzz',
@@ -157,7 +157,7 @@ const teams = [
   {
     name: '番茄炒蛋plus',
     markId: 266,
-    top: 16,
+    top: 8,
     players: [
       '無碼英丸',
       '無碼外流',
@@ -183,7 +183,7 @@ const teams = [
   {
     name: '隱姓埋名',
     markId: 98,
-    top: 16,
+    top: 8,
     players: [
       'XavierC',
       'GKxAnn',

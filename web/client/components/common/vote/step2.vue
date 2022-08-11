@@ -50,11 +50,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import voteErrorMessages from '~/data/common/vote-error-messages'
 
 export default {
   name: 'VoteStep2',
+  props: {
+    category: {
+      type: String,
+      required: true
+    }
+  },
   data: () => ({
     busy: false,
     error: null,
@@ -66,9 +71,6 @@ export default {
     ]
   }),
   computed: {
-    ...mapState({
-      vote: state => state.config.season2.vote
-    }),
     errorMessage () {
       const error = this.error
       if (error === null) {
@@ -90,6 +92,7 @@ export default {
       try {
         const response = await this.$wp.vote()
           .action('status')
+          .param('category', this.category)
           .param('phone', this.phone)
 
         const data = response.data

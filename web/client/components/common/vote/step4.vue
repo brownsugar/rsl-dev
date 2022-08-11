@@ -1,11 +1,11 @@
 <template>
   <div class="vote">
     <link-alert
-      href="/season2/stats"
+      :href="`/${category}/stats`"
       type="info"
       dense
     >
-      還無法決定要選擇哪位選手嗎？不妨先來參考看看隊伍及選手的聯賽數據！
+      還無法決定要選擇哪{{ voteTarget.unit }}{{ voteTarget.label }}嗎？不妨先來參考看看隊伍及選手的聯賽數據！
     </link-alert>
     <v-fade-transition>
       <v-alert
@@ -26,26 +26,33 @@
         :rules="selectionRules"
         :disabled="busy"
         :items="candidates"
-        label="支持選手"
-        placeholder="可輸入選手名稱篩選名單"
-        item-text="name"
-        item-value="name"
+        :label="`支持${voteTarget.label}`"
+        :placeholder="`可輸入${voteTarget.label}名稱篩選名單`"
+        :item-text="selectionField"
+        :item-value="selectionField"
         required
       >
         <template #item="{ item }">
           <v-list-item-avatar tile>
             <team-mark
-              category="season2"
+              :category="category"
               :team="item.team"
             />
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title>
-              {{ item.name }}
-            </v-list-item-title>
-            <v-list-item-subtitle>
-              {{ item.team }}
-            </v-list-item-subtitle>
+            <template v-if="voteTarget.type === 'player'">
+              <v-list-item-title>
+                {{ item.name }}
+              </v-list-item-title>
+              <v-list-item-subtitle>
+                {{ item.team }}
+              </v-list-item-subtitle>
+            </template>
+            <template v-else>
+              <v-list-item-title>
+                {{ item.team }}
+              </v-list-item-title>
+            </template>
           </v-list-item-content>
         </template>
       </v-autocomplete>
@@ -65,8 +72,14 @@
 <script>
 import LinkAlert from '~/components/common/link-alert'
 import TeamMark from '~/components/common/team-mark'
-import teams from '~/data/season2/teams'
+import teamsS2 from '~/data/season2/teams'
+import teamsS3 from '~/data/season3/teams'
 import voteErrorMessages from '~/data/common/vote-error-messages'
+
+const teams = {
+  season2: teamsS2,
+  season3: teamsS3
+}
 
 export default {
   name: 'VoteStep4',
@@ -75,7 +88,15 @@ export default {
     TeamMark
   },
   props: {
+    category: {
+      type: String,
+      required: true
+    },
     payload: {
+      type: Object,
+      default: () => ({})
+    },
+    voteTarget: {
       type: Object,
       default: () => ({})
     }
@@ -84,21 +105,36 @@ export default {
     busy: false,
     error: null,
     valid: false,
-    selection: '',
-    selectionRules: [
-      v => !!v || '請選擇一名選手'
-    ]
+    selection: ''
   }),
   computed: {
+    selectionRules () {
+      const { label, unit } = this.voteTarget
+
+      return [
+        v => !!v || `請選擇一${unit}${label}`
+      ]
+    },
+    selectionField () {
+      return this.voteTarget.type === 'player'
+        ? 'name'
+        : 'team'
+    },
     candidates () {
-      const top8 = teams.filter(team => team.top <= 8)
+      const top8 = teams[this.category].filter(team => team.top <= 8)
       return top8.reduce((result, team) => {
-        result.push(
-          ...team.players.map(player => ({
-            team: team.name,
-            name: player
-          }))
-        )
+        if (this.voteTarget.type === 'player') {
+          result.push(
+            ...team.players.map(player => ({
+              team: team.name,
+              name: player
+            }))
+          )
+        } else {
+          result.push({
+            team: team.name
+          })
+        }
         return result
       }, [])
     },
@@ -117,6 +153,7 @@ export default {
       try {
         const response = await this.$wp.vote()
           .action('submit')
+          .param('category', this.category)
           .param('validateSelection', 1)
           .update({
             phone: this.payload.phone,

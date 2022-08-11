@@ -8,8 +8,8 @@
     <h4 class="text-h5 font-weight-bold my-4">
       投票成功！🎉
     </h4>
-    <p>感謝您為支持的選手投下神聖的一票！</p>
-    <p>人氣王最終票選結果將於 8/29 總決賽直播期間公佈，我們到時候見！</p>
+    <p>感謝您為支持的{{ voteTarget.label }}投下神聖的一票！</p>
+    <slot name="success" />
     <v-btn
       color="twitch"
       :href="$config.rsl.twitch.url"
@@ -36,6 +36,12 @@
 
 <script>
 export default {
-  name: 'VoteStep5'
+  name: 'VoteStep5',
+  props: {
+    voteTarget: {
+      type: Object,
+      default: () => ({})
+    }
+  }
 }
 </script>
