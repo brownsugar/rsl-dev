@@ -9,62 +9,41 @@
         <sub-title
           text="S2 人氣王票選"
         />
-        <v-stepper
-          v-model="step"
-          class="mt-10"
-          vertical
+        <vote-stepper
+          category="season2"
+          :config="config"
+          :message="message"
         >
-          <template v-for="(stepper, i) in steppers">
-            <v-stepper-step
-              :id="'step-' + (i + 1)"
-              :key="'step-' + (i + 1)"
-              :complete="step > i + 1"
-              :step="i + 1"
-            >
-              {{ stepper.title }}
-            </v-stepper-step>
-            <v-stepper-content
-              :key="'content-' + i"
-              :step="i + 1"
-              class="pt-0"
-              :class="{ static: transitionEnded }"
-            >
-              <component
-                :is="stepper.component"
-                v-if="i + 1 === step"
-                v-bind="stepper.binding || {}"
-                class="pa-0 pa-md-4"
-                @prev="prevHandler"
-                @next="nextHandler"
-              />
-            </v-stepper-content>
+          <template #intro>
+            <p>RSL 夢想盃跑跑聯賽正式進入 8 強賽環節，所有 8 強賽隊伍所屬選手都將成為人氣王候選人，而所有觀眾都能透過投票來支持自己喜愛的選手，幫助他拿下本季聯賽人氣王獎項！</p>
+            <p>為了保障票選活動公平性，本季人氣王票選活動採用實名制計票，所有投票參與人需先完成手機號碼驗證後方可進行投票，每個手機號碼可以投下一票，僅支援台灣手機號碼投票，此驗證流程費用由 RSL 賽事聯盟承擔，參與人不需額外支付費用。</p>
+            <p>最終人氣王票選結果將於 8/29 總決賽轉播時公佈，敬請準時收看！</p>
           </template>
-        </v-stepper>
+          <template #success>
+            <p>人氣王最終票選結果將於 8/29 總決賽直播期間公佈，我們到時候見！</p>
+          </template>
+        </vote-stepper>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import SubTitle from '~/components/season2/common/sub-title'
-import Step1 from '~/components/season2/vote/step1'
-import Step2 from '~/components/season2/vote/step2'
-import Step3 from '~/components/season2/vote/step3'
-import Step4 from '~/components/season2/vote/step4'
-import Step5 from '~/components/season2/vote/step5'
+import VoteStepper from '~/components/common/vote'
 
 export default {
   name: 'Vote',
   components: {
-    SubTitle
+    SubTitle,
+    VoteStepper
   },
   layout: 'season2',
-  props: {},
   data: () => ({
-    step: 1,
-    payload: {},
-    transitionEnded: true,
-    timeout: null
+    message: {
+      voteEndedAddition: '，最終結果敬請關注 8/29 總決賽轉播'
+    }
   }),
   head () {
     const title = 'S2 人氣王票選'
@@ -77,75 +56,9 @@ export default {
     }
   },
   computed: {
-    steppers () {
-      return [
-        {
-          title: '活動說明',
-          component: Step1
-        },
-        {
-          title: '輸入手機號碼',
-          component: Step2
-        },
-        {
-          title: '回填簡訊驗證碼',
-          component: Step3,
-          binding: {
-            payload: this.payload
-          }
-        },
-        {
-          title: '選擇支持選手',
-          component: Step4,
-          binding: {
-            payload: this.payload
-          }
-        },
-        {
-          title: '投票完成',
-          component: Step5,
-          binding: {
-            payload: this.payload
-          }
-        }
-      ]
-    }
-  },
-  watch: {
-    async step () {
-      clearTimeout(this.timeout)
-      this.transitionEnded = false
-      await this.$nextTick()
-      // Wait until transition is completed
-      this.timeout = setTimeout(() => {
-        this.$vuetify.goTo('#step-' + this.step)
-        this.transitionEnded = true
-      }, 300 * 2) // previous one closed, next one opened
-    }
-  },
-  beforeDestroy () {
-    clearTimeout(this.timeout)
-  },
-  methods: {
-    prevHandler () {
-      this.step--
-    },
-    nextHandler (payload) {
-      this.payload = {
-        ...this.payload,
-        ...payload
-      }
-      this.step++
-    }
+    ...mapState({
+      config: state => state.config.season2.vote
+    })
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.v-stepper__step--active + .v-stepper__content {
-
-  &.static :deep(.v-stepper__wrapper) {
-    overflow: visible; // Fix element shadow got cutted off in wrapper
-  }
-}
-</style>

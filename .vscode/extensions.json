@@ -2,6 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
-    "octref.vetur"
+    "octref.vetur",
+    "shevaua.phpcs"
   ]
 }

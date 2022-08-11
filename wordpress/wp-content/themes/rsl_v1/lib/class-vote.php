@@ -5,7 +5,19 @@ class Vote {
 	const FE_CONFIG_KEY  = 'rsl-be-config';
 	const VOTE_TABLE_KEY = 'rsl-vote-table';
 
+	const CATEGORY_DATA_PRESET = array(
+		'season2' => array(
+			'config_key'  => 'season2',
+			'sms_subject' => 'RSL Season 2 Voting',
+		),
+		'season3' => array(
+			'config_key'  => 'season3',
+			'sms_subject' => 'RSL Season 3 Voting',
+		),
+	);
+
 	private $request;
+	private $category_data;
 	private $fe_config;
 	private $be_config;
 	private $vote_table;
@@ -18,14 +30,23 @@ class Vote {
 		$action  = $this->request->get_param( 'action' );
 		$fn_name = $action . '_handler';
 		if ( ! method_exists( $this, $fn_name ) ) {
-			return new WP_Error( -1, 'Unknown api action.' );
+			return new WP_Error( 0, 'Unknown api action.' );
 		}
 		try {
+			$this->validate_category();
 			$this->fetch_fields();
 			return $this->$fn_name();
 		} catch ( Exception $e ) {
 			return new WP_Error( $e->getCode(), $e->getMessage() );
 		}
+	}
+
+	private function validate_category() {
+		$query = $this->validate_query_params( array( 'category' ) );
+		if ( ! $query['category'] || ! in_array( $query['category'], array_keys( self::CATEGORY_DATA_PRESET ), true ) ) {
+			throw new Exception( 'Unknown event category.', -1 );
+		}
+		$this->category_data = self::CATEGORY_DATA_PRESET[ $query['category'] ];
 	}
 
 	private function fetch_fields() {
@@ -41,7 +62,7 @@ class Vote {
 		$this->validate_request_method( array( 'GET' ) );
 		$this->validate_event_status();
 		$query     = $this->validate_query_params( array( 'phone' ) );
-		$vote      = $this->fe_config['season2']['vote'];
+		$vote      = $this->fe_config[ $this->category_data['config_key'] ]['vote'];
 		$vote_data = $this->get_vote_data_by_phone( $query['phone'] );
 
 		$message   = '';
@@ -82,7 +103,7 @@ class Vote {
 		$this->validate_request_method( array( 'POST' ) );
 		$this->validate_event_status();
 		$param     = $this->validate_body_params( array( 'phone' ) );
-		$vote      = $this->fe_config['season2']['vote'];
+		$vote      = $this->fe_config[ $this->category_data['config_key'] ]['vote'];
 		$vote_data = $this->get_vote_data_by_phone( $param['phone'] );
 
 		$to_send_code = false;
@@ -164,7 +185,7 @@ class Vote {
 		}
 
 		$param     = $this->validate_body_params( $required_param_keys );
-		$vote      = $this->fe_config['season2']['vote'];
+		$vote      = $this->fe_config[ $this->category_data['config_key'] ]['vote'];
 		$vote_data = $this->get_vote_data_by_phone( $param['phone'] );
 
 		$attempted = intval( $vote_data['attempt_count'] );
@@ -189,7 +210,7 @@ class Vote {
 						$data['selection'] = $selection;
 					}
 				} else {
-					$attempted = $attempted + 1;
+					$attempted = ++$attempted;
 					$message   = 'CODE_ERROR';
 				}
 				$data['attempt_count'] = $attempted;
@@ -230,7 +251,7 @@ class Vote {
 	 * Check if event is active
 	 */
 	private function validate_event_status() {
-		$vote = $this->fe_config['season2']['vote'];
+		$vote = $this->fe_config[ $this->category_data['config_key'] ]['vote'];
 		$from = strtotime( $vote['from_datetime'] );
 		$to   = strtotime( $vote['to_datetime'] );
 		$now  = strtotime( wp_date( 'Y-m-d H:i:s' ) );
@@ -278,9 +299,9 @@ class Vote {
 	 */
 	private function get_vote_data_by_phone( $phone, $return_row_index = false ) {
 		$table = $this->vote_table;
-		if ( $table && $table['s2_vote_table'] && $this->is_valid_phone( $phone ) ) {
+		if ( $table && $table['vote_table'] && $this->is_valid_phone( $phone ) ) {
 			$data = array_filter(
-				$table['s2_vote_table'],
+				$table['vote_table'],
 				function( $array ) use ( $phone ) {
 					return $phone === $array['phone'];
 				},
@@ -298,7 +319,7 @@ class Vote {
 	 * Add new vote data
 	 */
 	private function add_vote_data( $row = array() ) {
-		return add_row( 's2_vote_table', $row, self::VOTE_TABLE_KEY );
+		return add_row( 'vote_table', $row, self::VOTE_TABLE_KEY );
 	}
 
 	/**
@@ -306,7 +327,7 @@ class Vote {
 	 */
 	private function update_vote_data_by_phone( $phone, $row = array() ) {
 		$row_index = $this->get_vote_data_by_phone( $phone, true );
-		return update_row( 's2_vote_table', $row_index, $row, self::VOTE_TABLE_KEY );
+		return update_row( 'vote_table', $row_index, $row, self::VOTE_TABLE_KEY );
 	}
 
 	/**
@@ -322,7 +343,7 @@ class Vote {
 	private function get_verification_code() {
 		$code = '';
 		for ( $i = 0; $i < 6; $i++ ) {
-			$code .= mt_rand( 0, 9 );
+			$code .= wp_rand( 0, 9 );
 		}
 		return $code;
 	}
@@ -338,7 +359,7 @@ class Vote {
 
 		require_once 'class-every8d.php';
 		$every8d = new Every8d( $service['username'], $service['password'] );
-		$subject = 'RSL Season 2 Voting';
+		$subject = $this->category_data['sms_subject'];
 		$message = '【RSL 賽事聯盟】您的人氣王投票簡訊驗證碼為：' . $code;
 		$success = $every8d->send_sms( $subject, $message, $phone );
 		return $success;

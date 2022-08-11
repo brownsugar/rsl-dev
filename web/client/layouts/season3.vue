@@ -51,16 +51,15 @@ export default {
       },
       {
         label: 'S3 聯賽資訊',
-        badge: 'primary',
         children: [
           {
             label: '聯賽福利',
-            to: '/season3/benefits',
-            badge: 'primary'
+            to: '/season3/benefits'
           },
           {
             label: '聯賽數據記錄',
-            to: '/season3/stats'
+            to: '/season3/stats',
+            badge: 'primary'
           },
           {
             label: '聯賽規章',
@@ -70,7 +69,8 @@ export default {
       },
       {
         label: '人氣王票選',
-        to: '/season3/vote'
+        to: '/season3/vote',
+        badge: 'primary'
       },
       {
         label: '最新消息',

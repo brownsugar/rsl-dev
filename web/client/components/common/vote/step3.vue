@@ -100,7 +100,7 @@
             </v-card-title>
             <v-card-text>
               若您尚未收到簡訊驗證碼，建議您等候一段時間，通常 5 分鐘內可以收到，有時候可能需要等候至最多 24 個小時。<br>
-              請注意，每個手機號碼的簡訊驗證碼請求上限為 2 次（發送失敗時不計入次數），達到上限時就無法再度請求。<br><br>
+              請注意，每個手機號碼的簡訊驗證碼請求上限為 {{ config.max_request || '-' }} 次（發送失敗時不計入次數），達到上限時就無法再度請求。<br><br>
               確認要再度請求簡訊驗證碼嗎？
             </v-card-text>
             <v-card-actions>
@@ -132,6 +132,14 @@ export default {
   name: 'VoteStep3',
   components: {},
   props: {
+    category: {
+      type: String,
+      required: true
+    },
+    config: {
+      type: Object,
+      default: () => ({})
+    },
     payload: {
       type: Object,
       default: () => ({})
@@ -182,6 +190,7 @@ export default {
       try {
         const response = await this.$wp.vote()
           .action('request')
+          .param('category', this.category)
           .create({
             phone: this.payload.phone
           })
@@ -222,6 +231,7 @@ export default {
       try {
         const response = await this.$wp.vote()
           .action('submit')
+          .param('category', this.category)
           .update({
             phone: this.payload.phone,
             code: this.code

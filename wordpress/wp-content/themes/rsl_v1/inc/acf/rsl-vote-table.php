@@ -6,27 +6,9 @@ acf_add_local_field_group(array(
   'title' => '人氣王票選資料表',
   'fields' => array(
     array(
-      'key' => 'field_611088b02bcf3',
-      'label' => 'Season 3',
-      'name' => '',
-      'type' => 'accordion',
-      'instructions' => '',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array(
-        'width' => '',
-        'class' => '',
-        'id' => '',
-      ),
-      'show_in_rest' => 0,
-      'open' => 1,
-      'multi_expand' => 0,
-      'endpoint' => 0,
-    ),
-    array(
       'key' => 'field_61108ac531654',
       'label' => '票選資料',
-      'name' => 's3_vote_table',
+      'name' => 'vote_table',
       'type' => 'repeater',
       'instructions' => '',
       'required' => 0,
@@ -167,7 +149,7 @@ acf_add_local_field_group(array(
         ),
         array(
           'key' => 'field_61109e0531658',
-          'label' => '票選選手',
+          'label' => '票選內容',
           'name' => 'selection',
           'type' => 'text',
           'instructions' => '',
