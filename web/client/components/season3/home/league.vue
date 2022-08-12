@@ -18,7 +18,7 @@
                 top="RSL 夢想盃跑跑聯賽"
                 bottom="Season 3"
               />
-              <div class="text-h6 font-weight-regular mt-5">
+              <div class="text-body-1 text-md-h6 font-weight-regular mt-5">
                 <p>
                   深受玩家支持與觀眾期待，亦為跑跑卡丁車指標性業餘賽事的《RSL 夢想盃跑跑聯賽》再度登場了！<br>
                   第三賽季聯賽即將在今年盛夏正式引爆，除了持續受到遊戲橘子的大力支持之外，本季聯賽 RSL 賽事聯盟更盛邀了各大知名品牌一同共襄盛舉，除了有 PLANET9 提供的超值優惠碼折扣券之外，還有由 HyperX、曜越科技以及 AMD 所準備的頂級週邊豪禮要送給參賽選手以及長期支持夢想盃跑跑聯賽的觀眾們！
@@ -58,7 +58,7 @@
               />
             </v-col>
           </v-row>
-          <v-row class="mt-14">
+          <v-row class="mt-8 mt-md-12">
             <v-col
               cols="12"
               lg="5"
@@ -96,7 +96,7 @@
                 />
                 8/27（六）13:00 台北科技大學－中正紀念館
               </p>
-              <div class="text-h6 font-weight-regular mt-5">
+              <div class="text-body-1 text-md-h6 font-weight-regular mt-5">
                 <p>照過來！總決賽資訊正式公佈，今年夏天一起重溫記憶中的跑跑卡丁車賽事！</p>
                 <p>本季 RSL 夢想盃跑跑聯賽總決賽將於台北科技大學中正紀念館舉行，活動全面開放觀眾免費入場，觀眾人數無上限，8/27 12:00 開放入場。</p>
                 <p>
@@ -107,19 +107,17 @@
               </div>
               <v-btn
                 class="mt-2 mt-md-4"
-                color="twitch"
-                :href="$config.rsl.twitch.url"
-                target="_blank"
-                rel="noreferrer noopener"
+                color="secondary"
+                to="/season3/news/970"
                 depressed
                 rounded
                 large
                 dark
               >
-                精彩賽事鎖定 Twitch 頻道
+                查看更多總決賽資訊
                 <fa
                   class="ml-2"
-                  icon="fa-duotone fa-up-right-from-square"
+                  icon="fa-duotone fa-chevrons-right"
                 />
               </v-btn>
             </v-col>

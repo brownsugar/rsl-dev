@@ -54,8 +54,7 @@ import {
   faNotes as fadNotes,
   faQuoteLeft as fadQuoteLeft,
   faQuoteRight as fadQuoteRight,
-  faShuffle as fadShuffle,
-  faUpRightFromSquare as fadUpRightFromSquare
+  faShuffle as fadShuffle
 } from '@fortawesome/pro-duotone-svg-icons'
 import {
   faDiscord as fabDiscord,
@@ -115,7 +114,6 @@ library.add(
   fadQuoteLeft,
   fadQuoteRight,
   fadShuffle,
-  fadUpRightFromSquare,
   // Brands, fa-brands
   fabDiscord,
   fabFacebook,
