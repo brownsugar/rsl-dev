@@ -8,6 +8,7 @@
       class="white--text align-end"
       height="100%"
       :src="image"
+      :aspect-ratio="ratio"
       gradient="to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .8)"
       :alt="item.name"
       eager
@@ -34,6 +35,10 @@ export default {
     item: {
       type: Object,
       default: () => ({})
+    },
+    ratio: {
+      type: [Number, String],
+      default: ''
     },
     isGuest: {
       type: Boolean,

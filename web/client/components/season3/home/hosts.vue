@@ -5,11 +5,7 @@
       bottom="特別嘉賓"
       center
     />
-    <p class="text-center mt-6">
-      本季聯賽 RSL 賽事聯盟特別邀請了人氣實況主，將在 8/27 總決賽當日蒞臨總決賽現場和大家見面，<br>
-      同時也將夥同四強隊伍選手及現場觀眾同場飆車互動，想一同目睹世誠和冠緯風采的你絕對不能錯過當日賽事內容！
-    </p>
-    <v-container class="mt-6">
+    <v-container class="mt-12">
       <v-row justify="center">
         <v-col
           v-for="item in guests"
@@ -18,6 +14,7 @@
         >
           <host-card
             :item="item"
+            :ratio="3 / 4"
             is-guest
           />
         </v-col>
@@ -85,7 +82,7 @@ export default {
     guests,
     swiperBreakpoints: [
       {
-        slidesPerView: 1.3,
+        slidesPerView: 1.6,
         spaceBetween: 12
       },
       {
