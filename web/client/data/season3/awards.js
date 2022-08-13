@@ -74,8 +74,8 @@ const awards = [
       },
       {
         title: '觀眾票選人氣王',
-        subtitle: 'Most Popular Player',
-        description: '由觀眾票選支持的 8 強隊伍選手，最終獲得最高票數者。',
+        subtitle: 'Most Popular Team',
+        description: '由觀眾票選支持的 8 強隊伍，最終獲得最高票數者。',
         image: 'hyperx-2',
         content: [
           '獎金：NTD $2,000',

@@ -82,8 +82,17 @@
               :disabled="child.disabled"
               nuxt
             >
-              <v-list-item-content class="pt-0">
-                <v-list-item-title>
+              <v-list-item-content
+                class="pt-0"
+                :class="{
+                  'overflow-visible': !!child.badge
+                }"
+              >
+                <v-list-item-title
+                  :class="{
+                    'overflow-visible': !!child.badge
+                  }"
+                >
                   <v-badge
                     :color="child.badge"
                     :value="!!child.badge"

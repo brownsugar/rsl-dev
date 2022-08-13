@@ -2,6 +2,27 @@
   <section class="hosts py-16">
     <two-line-title
       top="夢想盃跑跑聯賽 Season 3"
+      bottom="特別嘉賓"
+      center
+    />
+    <v-container class="mt-12">
+      <v-row justify="center">
+        <v-col
+          v-for="item in guests"
+          :key="item.name"
+          cols="auto"
+        >
+          <host-card
+            :item="item"
+            :ratio="3 / 4"
+            is-guest
+          />
+        </v-col>
+      </v-row>
+    </v-container>
+    <two-line-title
+      class="mt-16"
+      top="夢想盃跑跑聯賽 Season 3"
       bottom="主播賽評陣容"
       center
     />
@@ -15,7 +36,7 @@
       >
         <template #slide="{ item }">
           <host-card
-            :host="item"
+            :item="item"
           />
         </template>
       </swiper>
@@ -39,19 +60,6 @@
         <fa icon="fa-solid fa-chevron-right" />
       </v-btn>
     </div>
-    <two-line-title
-      class="mt-16"
-      top="夢想盃跑跑聯賽 Season 3"
-      bottom="表演賽嘉賓"
-      center
-    />
-    <v-container class="mt-12">
-      <coming-soon
-        message="更多資訊，八月中旬公開。"
-        image="go-ahead"
-        width="450"
-      />
-    </v-container>
   </section>
 </template>
 
@@ -59,26 +67,26 @@
 import HostCard from './hosts/card'
 import Swiper from '~/components/common/swiper'
 import TwoLineTitle from '~/components/season3/common/two-line-title'
-import ComingSoon from '~/components/common/coming-soon'
 import hosts from '~/data/season3/hosts'
+import guests from '~/data/season3/guests'
 
 export default {
   name: 'Hosts',
   components: {
     Swiper,
     HostCard,
-    TwoLineTitle,
-    ComingSoon
+    TwoLineTitle
   },
   data: () => ({
     hosts,
+    guests,
     swiperBreakpoints: [
       {
-        slidesPerView: 1.8,
-        spaceBetween: 16
+        slidesPerView: 1.6,
+        spaceBetween: 12
       },
       {
-        slidesPerView: 2.8,
+        slidesPerView: 2.5,
         spaceBetween: 20
       },
       {
@@ -86,7 +94,7 @@ export default {
         spaceBetween: 20
       },
       {
-        slidesPerView: 5.5,
+        slidesPerView: 5.3,
         spaceBetween: 24
       },
       {
