@@ -40,7 +40,7 @@ const awards = [
         image: 'hyperx-2',
         content: [
           '遊戲虛寶：強化產包 BLACK (1 個)',
-          '專業電競週邊：HyperX 提供 [HyperX Pulsefire Haste 電競滑鼠]（4 組）'
+          '專業電競週邊：HyperX 提供 [HyperX Pulsefire Haste 無線電競滑鼠]（4 組）'
         ]
       }
     ]
@@ -79,7 +79,7 @@ const awards = [
         image: 'hyperx-2',
         content: [
           '獎金：NTD $2,000',
-          '專業電競週邊：HyperX 提供 [HyperX Pulsefire Haste 電競滑鼠]',
+          '專業電競週邊：HyperX 提供 [HyperX Pulsefire Haste 無線電競滑鼠]',
           '專業電競週邊：HyperX 提供 [HyperX Clutch — 無線遊戲控制器]'
         ]
       },
