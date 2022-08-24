@@ -116,6 +116,16 @@ const awards = [
         ]
       },
       {
+        title: '訂閱 & 贊助小奇點',
+        subtitle: 'Subscribe & Cheering',
+        description: '於賽事期間訂閱 RSL 官方 Twitch 頻道或是發送小奇點，就有機會獲得好禮。',
+        image: 'samsung',
+        content: [
+          '訂閱頻道（收禮不計）抽 1 名：[Ryzen™ 5 5600X 桌上型電腦處理器]',
+          '小奇點發送滿 500 點抽 1 名：SAMSUNG 提供 [27吋 Odyssey G5 1000R 曲面電競顯示器]'
+        ]
+      },
+      {
         title: '總決賽終極獎勵',
         subtitle: 'Finals Lottery',
         description: '將於 8/27 總決賽當日直播抽出，人人都有機會成為幸運兒，敬請關注賽事轉播。',

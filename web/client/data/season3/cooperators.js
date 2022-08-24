@@ -64,6 +64,14 @@ const cooperators = [
           height: 50
         },
         link: 'https://www.facebook.com/AMD'
+      },
+      {
+        name: 'SAMSUNG',
+        logo: {
+          file: 'samsung.png',
+          height: 80
+        },
+        link: 'https://samsung-education-promotion.twsamsungcampaign.com'
       }
     ]
   }
