@@ -90,6 +90,7 @@ export default {
     '~/plugins/mobile-detect.js',
     '~/plugins/breakpoint.js',
     '~/plugins/clipboard.js',
+    { src: '~/plugins/gtag.js', mode: 'client' },
     { src: '~/plugins/vue-affix.js', mode: 'client' },
     { src: '~/plugins/vue-scrollspy.js', mode: 'client' },
     { src: '~/plugins/anime.js', mode: 'client' }
@@ -104,8 +105,7 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/date-fns',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/date-fns'
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -143,28 +143,6 @@ export default {
   dateFns: {
     defaultLocale: 'zh-TW',
     locales: ['zh-TW']
-  },
-  /**
-   * Google Analytics module configuration
-   * https://github.com/nuxt-community/analytics-module
-   * https://matteogabriele.gitbooks.io/vue-analytics/
-   */
-  googleAnalytics: {
-    id: config.rsl.ga,
-    debug: {
-      enabled: !isProd
-      // trace: true
-      // sendHitTask: true
-    },
-    autoTracking: {
-      pageviewTemplate: (route) => {
-        return {
-          page: route.path,
-          title: window.document.title,
-          location: window.location.href
-        }
-      }
-    }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
