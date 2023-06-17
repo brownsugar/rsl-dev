@@ -58,8 +58,7 @@ export default {
           },
           {
             label: '聯賽數據記錄',
-            to: '/season3/stats',
-            badge: 'primary'
+            to: '/season3/stats'
           },
           {
             label: '聯賽規章',
@@ -69,8 +68,7 @@ export default {
       },
       {
         label: '人氣王票選',
-        to: '/season3/vote',
-        badge: 'primary'
+        to: '/season3/vote'
       },
       {
         label: '最新消息',
