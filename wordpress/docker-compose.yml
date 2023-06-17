@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   db:
-    image: mysql:5.7
+    image: mariadb:10
     volumes:
       - ./_db:/var/lib/mysql
     restart: always
@@ -18,7 +18,7 @@ services:
     image: wordpress:latest
     volumes:
       - ./wp-content:/var/www/html/wp-content:rw,cached
-      - ./wp-config.php:/var/www/html/wp-config.php
+      # - ./wp-config.php:/var/www/html/wp-config.php
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     ports:
       - '80:80'

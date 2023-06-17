@@ -48,7 +48,7 @@ const config = {
       kart15th: defer(self => self.rsl.url + '/RSL_cover_kart15th.png'),
       season3: defer(self => self.rsl.url + '/RSL_cover_s3.png')
     },
-    ga: 'UA-106820667-3',
+    ga: 'G-PL45T2HMK3',
     facebook: {
       url: 'https://www.facebook.com/RSLeagueTW',
       username: 'RSLeagueTW'
